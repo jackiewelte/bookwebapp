@@ -68,8 +68,7 @@
                 <a class="author" href="author/Gabrielle_Zevin.html">
                     by Gabrielle Zevin
                 </a>
-
-                <div class="progress-bar-info">
+                <div class="progress-bar-contents">
                     <div class="progress-bar-border">
                         <div class="progress-bar-grey">
                         </div>
@@ -77,55 +76,8 @@
                     <p class="percent-progress">
                         30%
                     </p>
-                </div>
-                <!-- Make like submit button -->
-                <div class="progress-update-btns">
-                    <div class="dropdown">
-                        <button class="edit-progress-btn" href="#">
-                            <!-- pencil icon -->
-                            edit
-                       </button>
-                    </div>
-                    <div class="dropdown-content hidden">
-                        <div class="amount-read-update-btns">
-                            <div class="progress-text-box">
-                                <input type="text">
-                            </div>
-                            <button class="progress-unit-btn" href="#">
-                                pages
-                            </button>
-                            <div class="dropdown-content hidden">
-                                <div class="pages-btn">
-                                    <input type="checkbox" class="pages-checkbox" id="pages-1">
-                                    <label for="pages-1" class="pages-label">
-                                        pages
-                                    </label>
-                                </div>
-                                <div class="percent-btn">
-                                    <input type="checkbox" class="percent-checkbox" id="percent-1">
-                                    <label for="percent-1" class="percent-label">
-                                        %
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div>
-                                <button class="save-btn" href="#">
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <a class="progress-note-btn" href="write_progress_note.html">
-                                Add note/Edit date
-                            </a>
-                        </div>
-                        <div>
-                            <button class="cancel-btn" href="#">
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
+                    <button class="edit-progress-btn" href="#">
+                    </button>
                     <div class="finished-btn">
                         <input type="checkbox" class="finished-checkbox" id="book-finished-1">
                         <label for="book-finished-1" class="finished-label">
@@ -135,8 +87,129 @@
                         </label>
                     </div>
                 </div>
+                <div class="dropdown-content hidden">
+                    <div class="amount-read-update-btns">
+                        <div class="progress-text-box">
+                            <input type="text">
+                        </div>
+                        <button class="progress-unit-btn" href="#">
+                            pages
+                        </button>
+                        <div class="dropdown-content hidden">
+                            <div class="pages-btn">
+                                <input type="checkbox" class="pages-checkbox" id="pages-1">
+                                <label for="pages-1" class="pages-label">
+                                    pages
+                                </label>
+                            </div>
+                            <div class="percent-btn">
+                                <input type="checkbox" class="percent-checkbox" id="percent-1">
+                                <label for="percent-1" class="percent-label">
+                                    %
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="save-btn" href="#">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="progress-note-btn" href="write_progress_note.html">
+                            Add note/Edit date
+                        </a>
+                    </div>
+                    <div>
+                        <button class="cancel-btn" href="#">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="empty-20-row">
+        <p></p>
+    </div>
+
+    <!-- Currently Reading Notif 2 -->
+    <div class="notif">
+        <div class="book" data-title="The Hunger Games" data-author="Suzanne Collins">
+            <a class="book-thumbnail" href="book/The_Hunger_Games.html">
+                <img src="https://m.media-amazon.com/images/I/71un2hI4mcL._AC_UF1000,1000_QL80_.jpg">
+            </a>
+            <div class="book-info">
+                <a class="book-title" href="book/The_Hunger_Games.html">
+                    The Hunger Games
+                </a>
+                <a class="author" href="author/Gabrielle_Zevin.html">
+                    by Suzanne Collins
+                </a>
+                <div class="progress-bar-contents">
+                    <div class="progress-bar-border">
+                        <div class="progress-bar-grey">
+                        </div>
+                    </div>
+                    <p class="percent-progress">
+                        30%
+                    </p>
+                    <button class="edit-progress-btn" href="#">
+                    </button>
+                    <div class="finished-btn">
+                        <input type="checkbox" class="finished-checkbox" id="book-finished-2">
+                        <label for="book-finished-2" class="finished-label">
+                            <!-- acts as "Read" button but also gives rate/review option
+                            checkmark icon -->
+                            Finished book!
+                        </label>
+                    </div>
+                </div>
+                <div class="dropdown-content hidden">
+                    <div class="amount-read-update-btns">
+                        <div class="progress-text-box">
+                            <input type="text">
+                        </div>
+                        <button class="progress-unit-btn" href="#">
+                            pages
+                        </button>
+                        <div class="dropdown-content hidden">
+                            <div class="pages-btn">
+                                <input type="checkbox" class="pages-checkbox" id="pages-2">
+                                <label for="pages-2" class="pages-label">
+                                    pages
+                                </label>
+                            </div>
+                            <div class="percent-btn">
+                                <input type="checkbox" class="percent-checkbox" id="percent-2">
+                                <label for="percent-2" class="percent-label">
+                                    %
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="save-btn" href="#">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="progress-note-btn" href="write_progress_note.html">
+                            Add note/Edit date
+                        </a>
+                    </div>
+                    <div>
+                        <button class="cancel-btn" href="#">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

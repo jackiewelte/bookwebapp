@@ -260,6 +260,7 @@ body {
     text-decoration: none;
     font-family: "PT Serif";
     width: fit-content;
+    overflow-wrap: break-word;
 }
 
 .notif-info {
@@ -710,14 +711,20 @@ input[type="checkbox"].group-status-checkbox:checked + label {
 
 
 /* My Books */
-.progress-bar-border {
-    background-color: #737373;
-    width: 50%;
+.progress-bar-contents {
+    display: flex;
+    gap: 10px;
+    height: 17px;
+    min-width: 293.047px;
 }
 
+.progress-bar-border {
+    width: 100%;
+    background-color: #737373;
+}
 
 .progress-bar-grey {
-    height: 16px;
+    height: 17px;
     width: 30%;
     background-color: #c7c7c7;
 }
@@ -727,7 +734,17 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     font-size: 13px;
     color: #c7c7c7;
     width: fit-content;
-    margin: 0 10px 10px 10px;
+    margin: 0;
+}
+
+.edit-progress-btn {
+    background-color: black;
+    background-image: url('edit_pencil_icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
 }
 
 .pages-checkbox, .percent-checkbox, .finished-checkbox {
