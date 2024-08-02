@@ -242,8 +242,8 @@ body {
 }
 
 .book-thumbnail img {
-    /* height: 180px; */
-    height: 120px;
+    /* height: 120px; */
+    height: 180px;
     margin: 10px 13px 10px 0;
     border: 0.5px solid #c7c7c7;
 }
@@ -531,8 +531,8 @@ input[type="checkbox"] + label {
 }
 
 .group-thumbnail img {
-    /* width: 60px; */
-    width: 50px;
+    /* width: 50px; */
+    width: 60px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     margin: 10px 13px 10px 0;
@@ -555,8 +555,8 @@ input[type="checkbox"] + label {
 .group-name {
     font-size: 15px;
     font-weight: 550;
-    /* margin: 5px 0; */
-    margin: 0 0 5px 0;
+    margin: 5px 0;
+    /* margin: 0 0 5px 0; */
     color: white;
 }
 
@@ -567,8 +567,8 @@ input[type="checkbox"] + label {
 }
 
 .group-stats p {
-    /* margin: 5px 5px 5px 0; */
-    margin: 0 5px 5px 0;
+    margin: 5px 5px 5px 0;
+    /* margin: 0 5px 5px 0; */
 }
 
 .join-group-btn {
@@ -579,8 +579,8 @@ input[type="checkbox"].group-status-checkbox + label {
     width: 20px;
     height: 20px;
     flex: none;
-    /* margin: 31.5px; */
-    margin: 24.25px 0 24.25px 24.25px;
+    margin: 31.5px;
+    /* margin: 24.25px 0 24.25px 24.25px; */
     text-decoration: none;
     text-align: center;
     line-height: 18px;
