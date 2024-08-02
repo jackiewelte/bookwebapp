@@ -707,3 +707,29 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     height: 15px;
     filter: opacity(0.5) drop-shadow(0 0 0 white);
 }
+
+
+/* My Books */
+.progress-bar-border {
+    background-color: #737373;
+    width: 50%;
+}
+
+
+.progress-bar-grey {
+    height: 16px;
+    width: 30%;
+    background-color: #c7c7c7;
+}
+
+.percent-progress {
+    font-family: "PT Serif";
+    font-size: 13px;
+    color: #c7c7c7;
+    width: fit-content;
+    margin: 0 10px 10px 10px;
+}
+
+.pages-checkbox, .percent-checkbox, .finished-checkbox {
+    display: none;
+}
