@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
     background-color: #313741;
     /* height: 812px; */
@@ -50,9 +52,9 @@ body {
 
 /* Style the search box inside the home menu bar */
 #search-bar input[type=text] {
-    width: calc(100% - 60px);
+    width: calc(100% - 80px);
     min-height: 22.5px;
-    padding: 10px;
+    padding: 10px 20px;
     margin: 10px 20px;
     font-family: "PT Serif";
     font-weight: 400;
@@ -65,43 +67,48 @@ body {
     border-radius: 25px;
 }
 
-#home-menu {
+#page-menu {
     width: calc(100% - 40px);
-    border-top: 10px solid #313741;
-    border-bottom: 10px solid #313741;
-    border-left: 20px solid #313741;
-    border-right: 20px solid #313741;
+    margin: 10px 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(76, 77, 86);
-    /* margin: 0 auto; */
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-#home-menu a {
+#page-menu a {
     padding: 7px 0;
-    width: 25%;
     font-family: "PT Serif";
     font-weight: 400;
     font-size: 17px;
     text-decoration: none;
     text-align: center;
     color: white;
+    border-radius: 10px;
 }
 
-#home-menu .current-subpage {
+#page-menu .current-subpage, .other-subpages {
+    width: 25%;
+}
+
+#page-menu .current-discover-subpage, .other-discover-subpages {
+    width: 50%;
+}
+
+#page-menu .current-subpage, .current-discover-subpage {
     /* background-color: rgb(160, 160, 170); */
     background-color: #545454;
     color: white;
-    /* border-radius: 15px; */
 }
 
-#home-menu .other-subpages {
+#page-menu .other-subpages, .other-discover-subpages {
     color: #c7c7c7;
     background-color: black;
 }
 
-#home-menu a:hover {
+#page-menu a:hover {
     background-color: rgb(160, 160, 170);
     color: white;
 }
@@ -242,7 +249,7 @@ body {
 }
 
 .notif {
-    margin: 10px 50px;
+    margin: 10px 20px;
     padding: 20px 30px;
     background-color: black;
     border: 0.5px solid #c7c7c7;
@@ -666,4 +673,37 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     border-right: 12px solid #42946d;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
+}
+
+.browse-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.browse-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.list-line {
+    background-color: rgba(193, 199, 207, 0.748);
+    height: 0.5px;
+    width: 95%;
+    margin: 0 2.5%;
+}
+
+.browse-item h1 {
+    font-size: 15px;
+    color: white;
+    font-family: 'Open Sans';
+    font-weight: 200;
+    margin: 0;
+}
+
+.browse-item img {
+    height: 15px;
+    filter: opacity(0.5) drop-shadow(0 0 0 white);
 }
