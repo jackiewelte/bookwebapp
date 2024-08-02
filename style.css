@@ -32,7 +32,7 @@ body {
 }
 
 .current-page img, .other-pages img {
-    width: 20%;
+    width: 40%;
 }
 
 #top-nav {
@@ -106,7 +106,7 @@ body {
     color: white;
 }
 
-.empty-header p, .empty-footer p, .empty-20-row p, .empty-10-row p, .empty-5-row p {
+.empty-header p, .empty-small-header p .empty-footer p, .empty-20-row p, .empty-10-row p, .empty-5-row p {
     width: calc(100% - 40px);
     padding: 0;
     background-color: rgba(193, 199, 207, 0.748);
@@ -114,7 +114,11 @@ body {
 }
 
 .empty-header {
-    margin: 139.5px 0 0 0;
+    margin: 140px 0 0 0;
+}
+
+.empty-small-header {
+    margin: 83px 0 0 0;
 }
 
 .empty-footer {
@@ -231,7 +235,8 @@ body {
 }
 
 .book-thumbnail img {
-    height: 180px;
+    /* height: 180px; */
+    height: 120px;
     margin: 10px 13px 10px 0;
     border: 0.5px solid #c7c7c7;
 }
@@ -502,9 +507,11 @@ input[type="checkbox"] + label {
 /* Home --> Groups */
 
 .group-row {
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    margin: 0 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     /* border-bottom: 0.5px solid rgb(193, 199, 207, 0.748); */
 }
 
@@ -517,7 +524,8 @@ input[type="checkbox"] + label {
 }
 
 .group-thumbnail img {
-    width: 60px;
+    /* width: 60px; */
+    width: 50px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     margin: 10px 13px 10px 0;
@@ -540,7 +548,8 @@ input[type="checkbox"] + label {
 .group-name {
     font-size: 15px;
     font-weight: 550;
-    margin: 5px 0;
+    /* margin: 5px 0; */
+    margin: 0 0 5px 0;
     color: white;
 }
 
@@ -551,7 +560,8 @@ input[type="checkbox"] + label {
 }
 
 .group-stats p {
-    margin: 5px 5px 5px 0;
+    /* margin: 5px 5px 5px 0; */
+    margin: 0 5px 5px 0;
 }
 
 .join-group-btn {
@@ -562,7 +572,8 @@ input[type="checkbox"].group-status-checkbox + label {
     width: 20px;
     height: 20px;
     flex: none;
-    margin: 31.5px;
+    /* margin: 31.5px; */
+    margin: 24.25px 0 24.25px 24.25px;
     text-decoration: none;
     text-align: center;
     line-height: 18px;

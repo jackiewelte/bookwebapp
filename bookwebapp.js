@@ -23,6 +23,7 @@
 //     }
 // }
 
+// close book dropdown menu
 document.addEventListener("DOMContentLoaded", function() {
     const dropdown_buttons = document.querySelectorAll('.dropdown-btn');
 

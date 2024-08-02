@@ -34,5 +34,107 @@
         </div>
     </div>
 
+    <div class="empty-small-header">
+        <p></p>
+    </div>
+
+    <!-- Currently Reading -->
+    <div class="current-out-header">
+        <p class="out-header-title">
+            Currently Reading
+        </p>
+        <a class="show-more" href="more_currently_reading.html">
+            <p>
+                12 books
+            </p>
+            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
+        </a>
+    </div>
+
+    <div class="empty-20-row">
+        <p></p>
+    </div>
+
+    <!-- Currently Reading Notif 1 -->
+    <div class="notif">
+        <div class="book" data-title="Tomorrow and Tomorrow and Tomorrow" data-author="Gabrielle Zevin">
+            <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+                <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
+            </a>
+            <div class="book-info">
+                <a class="book-title" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+                    Tomorrow and Tomorrow and Tomorrow
+                </a>
+                <a class="author" href="author/Gabrielle_Zevin.html">
+                    by Gabrielle Zevin
+                </a>
+                <!-- <div>
+                    progress bar
+                </div> -->
+                <div>
+                    <p class="percent-progress">
+                        30%
+                    </p>
+                </div>
+                <!-- Make like submit button -->
+                <div class="progress-update-btns">
+                    <div class="dropdown">
+                        <button class="edit-progress-btn" href="#">
+                            <!-- pencil icon -->
+                            edit
+                       </button>
+                    </div>
+                    <div class="dropdown-content hidden">
+                        <div class="amount-read-update-btns">
+                            <div class="progress-text-box">
+                                <input type="text">
+                            </div>
+                            <button class="progress-unit-btn" href="#">
+                                pages
+                            </button>
+                            <div class="dropdown-content hidden">
+                                <div class="pages-btn">
+                                    <input type="checkbox" class="pages-checkbox" id="pages-1">
+                                    <label for="pages-1" class="pages-label">
+                                        pages
+                                    </label>
+                                </div>
+                                <div class="percent-btn">
+                                    <input type="checkbox" class="percent-checkbox" id="percent-1">
+                                    <label for="percent-1" class="percent-label">
+                                        %
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button class="save-btn" href="#">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="progress-note-btn" href="write_progress_note.html">
+                                Add note/Edit date
+                            </a>
+                        </div>
+                        <div>
+                            <button class="cancel-btn" href="#">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="finished-btn">
+                        <input type="checkbox" class="finished-checkbox" id="book-finished-1">
+                        <label for="book-finished-1" class="finished-label">
+                            <!-- acts as "Read" button but also gives rate/review option
+                            checkmark icon -->
+                            Finished book!
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
