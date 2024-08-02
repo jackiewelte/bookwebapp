@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+    <title>
+        Book Webapp
+    </title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="bookwebapp.js"></script>
+</head>
+<body onload="myFunction('Home')">
+    <div id="menu">
+        <a class="current-page" href="home.html">
+            <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/39-512.png">
+        </a>
+        <a class="other-pages" href="discover.html">
+            <img src="https://static.thenounproject.com/png/778940-200.png">
+        </a>
+        <a class="other-pages" href="my_books.html">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/006/064/882/small/book-read-library-study-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg">
+        </a>
+        <a class="other-pages" href="stats.html">
+            <img src="https://icon-library.com/images/statistics-icon/statistics-icon-21.jpg">
+        </a>
+        <a class="other-pages" href="profile.html">
+            <img src="https://static.vecteezy.com/system/resources/previews/026/630/551/original/profile-icon-symbol-design-illustration-vector.jpg">
+        </a>
+    </div>
+
+    <div id="top-nav">
+        <div id="search-bar">
+            <input type="text" placeholder="Find books, reviews, shelves, people...">
+        </div>
+        <div id="home-menu">
+            <a class="current-subpage" href="home.html">
+                Books
+            </a>
+            <a class="other-subpages" href="home_reviews.html">
+                Reviews
+            </a>
+            <a class="other-subpages" href="home_shelves.html">
+                Shelves
+            </a>
+            <a class="other-subpages" href="home_groups.html">
+                Groups
+            </a>
+        </div>
+    </div>
+
+    <div class="empty-header">
+        <p></p>
+    </div>
+
+    <!-- Popular -->
+    <div class="current-out-header">
+        <p class="out-header-title">
+            Popular
+        </p>
+        <a class="show-more" href="more_popular_books.html">
+            <p>
+                Show more
+            </p>
+            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
+        </a>
+    </div>
+
+    <div class="book-row">
+        <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+            <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Yellowface.html">
+            <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Remarkably_Bright_Creatures.html">
+            <img src="https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Beach_Read.html">
+            <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Sapiens_A_Brief_History_of_Humankind.html">
+            <img src="https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/The_Secret_History.html">
+            <img src="https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+    </div>
+
+    <div class="empty-20-row">
+        <p></p>
+    </div>
+
+    <!-- New from friends -->
+    <div class="current-out-header">
+        <p class="out-header-title">
+            New from friends
+        </p>
+        <a class="show-more" href="more_friends.html">
+            <p>
+                Show more
+            </p>
+            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
+        </a>
+    </div>
+
+    <div class="book-row">
+        <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+            <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Yellowface.html">
+            <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Remarkably_Bright_Creatures.html">
+            <img src="https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Beach_Read.html">
+            <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Sapiens_A_Brief_History_of_Humankind.html">
+            <img src="https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/The_Secret_History.html">
+            <img src="https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+    </div>
+
+    <div class="empty-20-row">
+        <p></p>
+    </div>
+
+    <!-- Notif -->
+    <div class="notif">
+        <div class="notif-info">
+            <p class="popular-notif">
+                Popular this week in 
+            </p>
+            <a class="genre" href="genre/nonfic.html">
+                Non Fiction
+            </a>
+        </div>
+        <div class="book" data-title="Tomorrow and Tomorrow and Tomorrow" data-author="Gabrielle Zevin">
+            <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+                <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
+            </a>
+            <div class="book-info">
+                <a class="book-title" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+                    Tomorrow and Tomorrow and Tomorrow
+                </a>
+                <a class="author" href="author/Gabrielle_Zevin.html">
+                    by Gabrielle Zevin
+                </a>
+                <!-- Make like submit button -->
+                <div class="want-to-read-btns">
+                    <input type="checkbox" class="status-checkbox" id="book-status-1">
+                    <label for="book-status-1" class="status-label">
+                        Want to Read
+                    </label>
+
+                    <!-- <div class="want-to-read">
+                        This is the want to read section.
+                    </div> -->
+                    <!-- <div class="clicked">
+                        <img src="https://png.pngtree.com/element_our/20190529/ourmid/pngtree-check-icon-image_1186947.jpg">
+                    </div> -->
+
+                    <div class="dropdown">
+                        <button class="dropdown-btn" href="#">
+                             •••
+                        </button>
+                        <div class="dropdown-content hidden">
+                            <div class="mini-search-bar">
+                                <input type="text" placeholder="Search shelves">
+                            </div>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="want-to-read" id="book-status-2">
+                            <label for="book-status-2" class="mini-status-label">
+                                Want to Read
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="currently-reading" id="book-status-3">
+                            <label for="book-status-3" class="mini-status-label">
+                                Currently Reading
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="read" id="book-status-4">
+                            <label for="book-status-4" class="mini-status-label">
+                                Read
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-1" id="shelf1">
+                            <label for="shelf1" class="mini-status-label">
+                                bookshelf 1
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-2" id="shelf2">
+                            <label for="shelf2" class="mini-status-label">
+                                bookshelf 2
+                            </label>
+
+                            <!-- <div>
+                                <button class="cancel-btn" href="#">
+                                    Cancel
+                                </button>
+                            </div> -->
+                            <div>
+                                <button class="done-btn" href="#">
+                                    Done
+                                </button>
+                            </div>
+    
+                            <!-- <a class="close" href="#" onclick="hide('dropdown')">
+                                Close
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="empty-20-row">
+        <p></p>
+    </div>
+
+    <!-- Notif -->
+    <div class="notif">
+        <div class="notif-info">
+            <p class="popular-notif">
+                Popular this week in 
+            </p>
+            <a class="genre" href="genre/romance.html">
+                Romance
+            </a>
+        </div>
+        <div class="book" data-title="Beach Read" data-author="Emily Henry">
+            <a class="book-thumbnail" href="book/Beach_Read.html">
+                <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
+            </a>
+            <div class="book-info">
+                <a class="book-title" href="book/Beach_Read.html">
+                    Beach Read
+                </a>
+                <a class="author" href="author/Emily_Henry.html">
+                    by Emily Henry
+                </a>
+                <!-- Make like submit button -->
+                <div class="want-to-read-btns">
+                    <input type="checkbox" class="status-checkbox" id="book-status-5">
+                    <label for="book-status-5" class="status-label">
+                        Want to Read
+                    </label>
+
+                    <!-- <div class="want-to-read">
+                        This is the want to read section.
+                    </div> -->
+                    <!-- <div class="clicked">
+                        <img src="https://png.pngtree.com/element_our/20190529/ourmid/pngtree-check-icon-image_1186947.jpg">
+                    </div> -->
+
+                    <div class="dropdown">
+                        <button class="dropdown-btn" href="#">
+                            •••
+                        </button>
+                        <div class="dropdown-content hidden">
+                            <div class="mini-search-bar">
+                                <input type="text" placeholder="Search shelves">
+                            </div>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="want-to-read" id="book-status-6">
+                            <label for="book-status-6" class="mini-status-label">
+                                Want to Read
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="currently-reading" id="book-status-7">
+                            <label for="book-status-7" class="mini-status-label">
+                                Currently Reading
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="read" id="book-status-8">
+                            <label for="book-status-8" class="mini-status-label">
+                                Read
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-1" id="shelf3">
+                            <label for="shelf3" class="mini-status-label">
+                                bookshelf 1
+                            </label>
+    
+                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-2" id="shelf4">
+                            <label for="shelf4" class="mini-status-label">
+                                bookshelf 2
+                            </label>
+
+                            <!-- <div>
+                                <button class="cancel-btn" href="#">
+                                    Cancel
+                                </button>
+                            </div> -->
+                            <div>
+                                <button class="done-btn" href="#">
+                                    Done
+                                </button>
+                            </div>
+    
+                            <!-- <a class="close" href="#" onclick="hide('dropdown')">
+                                Close
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Keep at bottom of each page -->
+    <div class="empty-footer">
+        <p></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+    <title>
+        Book Webapp
+    </title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="bookwebapp.js"></script>
+</head>
+<body onload="myFunction('Home')">
+    <div id="menu">
+        <a class="current-page" href="home.html">
+            <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/39-512.png">
+        </a>
+        <a class="other-pages" href="discover.html">
+            <img src="https://static.thenounproject.com/png/778940-200.png">
+        </a>
+        <a class="other-pages" href="my_books.html">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/006/064/882/small/book-read-library-study-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg">
+        </a>
+        <a class="other-pages" href="stats.html">
+            <img src="https://icon-library.com/images/statistics-icon/statistics-icon-21.jpg">
+        </a>
+        <a class="other-pages" href="profile.html">
+            <img src="https://static.vecteezy.com/system/resources/previews/026/630/551/original/profile-icon-symbol-design-illustration-vector.jpg">
+        </a>
+    </div>
+
+    <div id="top-nav">
+        <div id="search-bar">
+            <input type="text" placeholder="Find books, reviews, shelves, people...">
+        </div>
+    </div>
+
+    <div class="empty-footer">
+        <p></p>
+    </div>
+
+    <div class="current-in-header">
+        <div class="in-header-wrapper">
+            <a class="left-show-more-arrow" href="javascript:window.history.back();">
+                <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
+            </a>
+            <p class="in-header-title">
+                Non Fiction
+            </p>
+        </div>
+    </div>
+
+    <div class="book-row">
+        <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
+            <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Yellowface.html">
+            <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Remarkably_Bright_Creatures.html">
+            <img src="https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Beach_Read.html">
+            <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Sapiens_A_Brief_History_of_Humankind.html">
+            <img src="https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/The_Secret_History.html">
+            <img src="https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+    </div>
+
+    <div class="empty-20-row">
+        <p></p>
+    </div>
+
+
+    <!-- Keep at bottom of each page -->
+    <div class="empty-footer">
+        <p></p>
+    </div>
+
+</body>
+</html>
