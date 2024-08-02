@@ -256,11 +256,17 @@ body {
     border-radius: 15px;
 }
 
+.book {
+    display: flex;
+    align-items: center;
+}
+
 .genre, .book-title, .author {
     text-decoration: none;
     font-family: "PT Serif";
     width: fit-content;
     overflow-wrap: break-word;
+    text-overflow: ellipsis;
 }
 
 .notif-info {
@@ -286,6 +292,10 @@ body {
 .book-thumbnail, .book-info {
     display: inline-block;
     vertical-align: middle;
+}
+
+.book-info {
+    margin: 5px 20px 5px 5px;
 }
 
 .book-info a {
