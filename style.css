@@ -239,13 +239,14 @@ body {
 
 .book-thumbnail {
     text-decoration: none;
+    float: left;
 }
 
 .book-thumbnail img {
-    /* height: 120px; */
     height: 180px;
     margin: 10px 13px 10px 0;
     border: 0.5px solid #c7c7c7;
+    vertical-align: middle;
 }
 
 .notif {
@@ -257,6 +258,7 @@ body {
 }
 
 .book {
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -265,13 +267,14 @@ body {
     text-decoration: none;
     font-family: "PT Serif";
     width: fit-content;
-    overflow-wrap: break-word;
-    text-overflow: ellipsis;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 .notif-info {
     font-size: 17px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .popular-notif, .genre {
@@ -289,34 +292,34 @@ body {
     color: #0097b2;
 }
 
-.book-thumbnail, .book-info {
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .book-info {
-    margin: 5px 20px 5px 5px;
-}
-
-.book-info a {
-    display: block;
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 5px 0;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .book-title {
     font-size: 15px;
     font-weight: 550;
     color: #c7c7c7;
+    margin: 5px 20px 0 5px;
 }
 
 .author {
     font-size: 13px;
     color: white;
+    margin: 0px 20px 0 5px;
 }
 
 .want-to-read-btns {
     display: flex;
     align-items: center;
+    margin-left: 5px;
 }
 
 .status-label, .dropdown-btn {
@@ -721,16 +724,42 @@ input[type="checkbox"].group-status-checkbox:checked + label {
 
 
 /* My Books */
+.mini-notif {
+    margin: 10px 20px;
+    padding: 5px 25px;
+    /* width: calc(100% - 91px); */
+    width: 284px;
+    display: flex;
+    background-color: black;
+    border: 0.5px solid #c7c7c7;
+    border-radius: 15px;
+}
+
+.mini-book-thumbnail {
+    text-decoration: none;
+    float: left;
+}
+
+.mini-book-thumbnail img {
+    height: 90px;
+    margin: 10px 13px 10px 0;
+    border: 0.5px solid #c7c7c7;
+    vertical-align: middle;
+}
+
 .progress-bar-contents {
     display: flex;
     gap: 10px;
     height: 17px;
-    min-width: 293.047px;
+    width: 100%;
+    margin: 0px 20px 5px 5px;
 }
 
 .progress-bar-border {
     width: 100%;
+    min-width: 15px;
     background-color: #737373;
+    overflow: hidden;
 }
 
 .progress-bar-grey {
@@ -756,6 +785,19 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     border: none;
     cursor: pointer;
 }
+
+/* trying to make checkmark */
+/* input[type="checkbox"].finished-checkbox + label {
+    height: 12px;
+    background-color: black;
+    background-image: url('blue_checkmark_icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+} */
 
 .pages-checkbox, .percent-checkbox, .finished-checkbox {
     display: none;
