@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 511.99951 381.80438"
+   viewBox="0 0 16 16"
    version="1.1"
    id="svg1"
-   sodipodi:docname="blue_checkmark_icon2.svg"
-   width="511.99951"
-   height="381.80438"
+   sodipodi:docname="blue_bar_graph_icon.svg"
    inkscape:version="1.3.2 (091e20e, 2023-11-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,9 +20,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.4609375"
-     inkscape:cx="254.91525"
-     inkscape:cy="190.91525"
+     inkscape:zoom="14.75"
+     inkscape:cx="7.9661017"
+     inkscape:cy="8"
      inkscape:window-width="1312"
      inkscape:window-height="449"
      inkscape:window-x="0"
@@ -32,7 +30,7 @@
      inkscape:window-maximized="0"
      inkscape:current-layer="svg1" />
   <path
-     d="m 173.89775,374.30575 -166.4,-166.4 c -9.997,-9.997 -9.997,-26.206 0,-36.204 l 36.203,-36.204 c 9.997,-9.998 26.207,-9.998 36.204,0 l 112.095,112.094 240.095,-240.094 c 9.997,-9.997 26.207,-9.997 36.204,0 l 36.203,36.204 c 9.997,9.997 9.997,26.206 0,36.204 l -294.4,294.401 c -9.998,9.997 -26.207,9.997 -36.204,-0.001 z"
+     d="M0 6h4v10H0zM6 0h4v16H6zM12 4h4v12h-4z"
      id="path1"
      style="fill:#38b6ff;fill-opacity:1" />
 </svg>

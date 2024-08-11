@@ -15,10 +15,9 @@ body {
     width: 100%;
     height: 10%;
     background-color: #78859a;
-    /* padding: 1% 0; */
     position: fixed;
     bottom: 0;
-    border-top: 0.5px solid #c7c7c7;;
+    border-top: 0.5px solid #c7c7c7;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -34,7 +33,7 @@ body {
 }
 
 .current-page img, .other-pages img {
-    width: 40%;
+    height: 40%;
 }
 
 #top-nav {
@@ -50,7 +49,6 @@ body {
     background-color: black;
 }
 
-/* Style the search box inside the home menu bar */
 #search-bar input[type=text] {
     width: calc(100% - 80px);
     min-height: 22.5px;
@@ -61,7 +59,6 @@ body {
     font-size: 17px;
     text-decoration: none;
     color: #545454;
-    /* background-color: rgb(193, 199, 207); */
     background-color: #c7c7c7;
     border: none;
     border-radius: 25px;
@@ -98,7 +95,6 @@ body {
 }
 
 #page-menu .current-subpage, .current-discover-subpage {
-    /* background-color: rgb(160, 160, 170); */
     background-color: #545454;
     color: white;
 }
@@ -121,7 +117,7 @@ body {
 }
 
 .empty-header {
-    margin: 140px 0 0 0;
+    margin: 150px 0 0 0;
 }
 
 .empty-small-header {
@@ -165,7 +161,6 @@ body {
     align-items: baseline;
     justify-content: space-between;
     width: 100%;
-    /* text-align: center; */
 }
 
 .out-header-title, .show-more, .in-header-title {
@@ -196,7 +191,7 @@ body {
     justify-content: flex-end;
 }
 
-.show-more p {
+.num-books {
     font-weight: 400;
     font-size: 15px;
     margin: 0;
@@ -267,9 +262,6 @@ body {
     text-decoration: none;
     font-family: "PT Serif";
     width: fit-content;
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
 }
 
 .notif-info {
@@ -288,7 +280,6 @@ body {
 
 .genre {
     font-weight: 550;
-    /* color: darkcyan; */
     color: #0097b2;
 }
 
@@ -322,14 +313,29 @@ body {
     margin-left: 5px;
 }
 
+.read-check {
+    display: none;
+}
+
+.read-check.checked {
+    height: 12px;
+    width: 24px;
+    background-image: url('white_checkmark_icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
 .status-label, .dropdown-btn {
     font-family: "PT Serif";
     font-size: 15px;
     font-weight: 550;
     height: 34px;
     text-decoration: none;
-    /* background-color: darkcyan; */
-    background-color: #0097b2;
+    background-color: #42946d;
     color: white;
     text-align: center;
     cursor: pointer;
@@ -345,7 +351,6 @@ input[type="checkbox"] + label {
 }
 
 .dropdown-btn {
-    /* width: 26px; */
     width: fit-content;
     border: none;
     border-radius: 2px;
@@ -357,38 +362,34 @@ input[type="checkbox"] + label {
     display: inline-block;
 }
 
-/* .dropdown:hover .dropdown-content {
-    display: block;
-} */
-
-/* .dropdown-content {
-    display: none;
-    position: absolute;
-    padding: 10px;
-    width: 210px;
-    height: 240px;
-    background: #FFF;
-    border: 1px solid rgb(193, 199, 207, 0.748);
-    border-radius: 2px;
-    z-index: 20;
-    overflow-y: scroll !important;
-} */
-
-.hidden {
-    display: none;
+.dropdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.874);
+    z-index: 10;
 }
 
 .dropdown-content {
-    position: absolute;
+    /* position: absolute; */
     padding: 10px;
     width: 210px;
     height: 240px;
-    background: #FFF;
+    background: #545454;
     border: 0.5px solid #c7c7c7;
     border-radius: 2px;
-    z-index: 20;
-    overflow-y: scroll !important;
+    overflow-y: scroll;
 }
+
+/* .hidden {
+    display: none !important;
+}
+
+.dropdown-content.hidden, .dropdown-overlay.hidden {
+    display: none;
+} */
 
 .mini-search-bar input[type=text] {
     width: calc(100% - 10px);
@@ -404,6 +405,10 @@ input[type="checkbox"] + label {
     background-color: rgb(193, 199, 207);
 }
 
+.shelf-checkboxes {
+    margin-bottom: 69px;
+}
+
 .dropdown-content input[type="checkbox"] + label {
     font-family: "PT Serif";
     font-size: 13px;
@@ -417,12 +422,12 @@ input[type="checkbox"] + label {
 }
 
 .dropdown-content label:hover {
-    background-color: palevioletred;
+    /* background-color: palevioletred; */
+    background-color: rgb(160, 160, 170);
     font-weight: 550;
 }
 
-.mini-status-checkbox[data-status="want-to-read"]:hover + label {
-    /* background-color: forestgreen; */
+/* .mini-status-checkbox[data-status="want-to-read"]:hover + label {
     background-color: #42946d;
     font-weight: 550;
 }
@@ -435,7 +440,7 @@ input[type="checkbox"] + label {
 .mini-status-checkbox[data-status="read"]:hover + label {
     background-color: indianred;
     font-weight: 550;
-}
+} */
 
 .dropdown-content input[type="checkbox"]:checked + label {
     font-weight: 550;
@@ -443,8 +448,7 @@ input[type="checkbox"] + label {
 }
 
 .mini-status-checkbox[data-status="want-to-read"]:checked + label.mini-status-label {
-    /* background-color: forestgreen; */
-    background-color: #42946d;
+    background-color: #0097b2;
 }
 
 .mini-status-checkbox[data-status="currently-reading"]:checked + label.mini-status-label {
@@ -455,54 +459,85 @@ input[type="checkbox"] + label {
     background-color: indianred;
 }
 
-/* doesn't work */
-/* .dropdown-content:after {
-    position: fixed;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: -2;
-} */
-  
-.dropdown-content:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.874);
-    z-index: -1;
-}
-
-
-
-/* here */
-
 .status-checkbox, .mini-status-checkbox {
     display: none;
 }
 
-.status-label {
+.add-shelf-btn {
     display: inline-block;
-    width: 150px;
-    line-height: 34px;
+    background-color: #545454;
 }
 
-.status-label.want-to-read, .dropdown-btn.want-to-read {
-    /* background-color: forestgreen; */
-    background-color: #42946d;
+.show-input-btn {
+    font-family: "PT Serif";
+    font-size: 13px;
+    font-weight: 400;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(59, 58, 58);
+    text-align: center;
+    display: block;
+    width: 210px;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 5px;
 }
 
-.status-label.currently-reading, .dropdown-btn.currently-reading {
-    background-color: rebeccapurple;
+.dropdown-bottom-btns {
+    display: block;
+    width: 210px;
+    border: none;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
 }
 
-.status-label.read, .dropdown-btn.read {
-    background-color: indianred;
+.show-input-btn.hide {
+    display: none;
+}
+
+.input-container {
+    display: none;
+}
+
+.input-container.show {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.create-shelf-name {
+    font-family: "PT Serif";
+    font-size: 13px;
+    font-weight: 400;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(59, 58, 58);
+    text-align: center;
+    display: inline-block;
+    /* margin-right: 10px; */
+    width: 75%;
+    border: none;
+    border-radius: 2px;
+}
+
+.create-shelf-btn {
+    font-family: "PT Serif";
+    font-size: 13px;
+    font-weight: 400;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(59, 58, 58);
+    text-align: center;
+    display: inline-block;
+    width: 25%;
+    border: none;
+    border-radius: 2px;
 }
 
 .done-btn {
@@ -515,25 +550,47 @@ input[type="checkbox"] + label {
     background-color: rgb(59, 58, 58);
     text-align: center;
     display: block;
-    width: calc(100% - 20px);
+    width: 100%;
     border: none;
     border-radius: 2px;
-    position: absolute;
-    bottom: 10px;
+    border-bottom: 10px solid #545454;
+}
+
+.dropdown-content, .dropdown-overlay {
+    display: none;
+}
+
+.dropdown-content.show, .dropdown-overlay.show {
+    display: block;
+}
+
+.status-label {
+    display: inline-block;
+    width: 150px;
+    line-height: 34px;
+}
+
+.status-label.want-to-read, .dropdown-btn.want-to-read {
+    background-color: #0097b2;
+}
+
+.status-label.currently-reading, .dropdown-btn.currently-reading {
+    background-color: rebeccapurple;
+}
+
+.status-label.read, .dropdown-btn.read {
+    background-color: indianred;
 }
 
 
 
 
 /* Home --> Groups */
-
 .group-row {
     margin-left: 20px;
-    /* margin: 0 20px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border-bottom: 0.5px solid rgb(193, 199, 207, 0.748); */
 }
 
 .group {
@@ -545,7 +602,6 @@ input[type="checkbox"] + label {
 }
 
 .group-thumbnail img {
-    /* width: 50px; */
     width: 60px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -570,7 +626,6 @@ input[type="checkbox"] + label {
     font-size: 15px;
     font-weight: 550;
     margin: 5px 0;
-    /* margin: 0 0 5px 0; */
     color: white;
 }
 
@@ -582,7 +637,6 @@ input[type="checkbox"] + label {
 
 .group-stats p {
     margin: 5px 5px 5px 0;
-    /* margin: 0 5px 5px 0; */
 }
 
 .join-group-btn {
@@ -594,7 +648,6 @@ input[type="checkbox"].group-status-checkbox + label {
     height: 20px;
     flex: none;
     margin: 31.5px;
-    /* margin: 24.25px 0 24.25px 24.25px; */
     text-decoration: none;
     text-align: center;
     line-height: 18px;
@@ -618,8 +671,6 @@ input[type="checkbox"].group-status-checkbox + label {
 }
 
 input[type="checkbox"].group-status-checkbox:checked + label {
-    /* background-color: deepskyblue;
-    border: 2px solid deepskyblue; */
     background-color: #38b6ff;
     border: 2px solid #38b6ff;
     color: transparent;
@@ -637,22 +688,6 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     margin: 0 0 0 20px;
     padding: 0;
 }
-
-/* .partial-border {
-    position: relative;
-}
-
-.partial-border:after {
-    position: absolute;
-    content: '';
-    border-bottom: 0.5px solid rgb(193, 199, 207, 0.748);
-    width: 96%;
-    right: 0;
-} */
-
-
-/* menu blue: #38b6ff */
-
 
 .tag-row {
     margin: 0 20px 0 30px;
@@ -722,12 +757,27 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     filter: opacity(0.5) drop-shadow(0 0 0 white);
 }
 
-
 /* My Books */
+.add-bookshelf-btn {
+    background-color: black;
+    background-image: url('add_bookshelf_icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+}
+
+.books-currently-reading {
+    border-bottom: 0.5px solid rgb(193, 199, 207, 0.748);
+    max-height: 471.5px;
+    overflow-y: hidden;
+}
+
 .mini-notif {
     margin: 10px 20px;
     padding: 5px 25px;
-    /* width: calc(100% - 91px); */
     width: 284px;
     display: flex;
     background-color: black;
@@ -786,19 +836,30 @@ input[type="checkbox"].group-status-checkbox:checked + label {
     cursor: pointer;
 }
 
-/* trying to make checkmark */
-/* input[type="checkbox"].finished-checkbox + label {
+input[type="checkbox"].finished-checkbox + label {
     height: 12px;
+    width: 21px;
     background-color: black;
     background-image: url('blue_checkmark_icon.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     border: none;
     cursor: pointer;
     display: inline-block;
-} */
+}
 
 .pages-checkbox, .percent-checkbox, .finished-checkbox {
     display: none;
+}
+
+.circle {
+    height: 20px;
+    width: 20px;
+    background-color: #545454;
+    border-radius: 50%;
+    background-image: url(grey_lock_icon.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 40%;
 }
