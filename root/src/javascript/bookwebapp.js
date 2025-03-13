@@ -220,12 +220,13 @@ function addCustomShelf(shelfName) {
         console.log(`New shelf created: ${shelfName}`);
 
         // create shelf file in bookshelf dir with default heading content and book-page div
-        // var f = new File([""], `bookshelf/${shelfName.replace(/\s+/g, '_')}.html`);
+        // var f = new File([""], `${shelfName.replace(/\s+/g, '_')}.html`);
         // console.log(`New file ${f} created in ${dir}`);
 
     } else {
         console.warn(`Shelf "${shelfName}" already exists`);
     }
+    // ???
 }
 
 // Update dropdown menu
@@ -738,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const showMore = document.createElement('a');
             showMore.className = 'show-more';
             let underscoreShelfName = shelfName.replace(/\s+/g, '_');
-            showMore.href = shelfName === 'wtr' ? 'bookshelf/Want_to_Read.html' : shelfName === 'rd' ? 'bookshelf/Read.html' : `bookshelf/${underscoreShelfName}.html`;
+            showMore.href = shelfName === 'wtr' ? 'Want_to_Read.html' : shelfName === 'rd' ? 'Read.html' : `${underscoreShelfName}.html`;
 
             const numBooks = document.createElement('p');
             numBooks.className = 'num-books';
@@ -746,7 +747,7 @@ document.addEventListener("DOMContentLoaded", function() {
             showMore.appendChild(numBooks);
 
             const rightCaret = document.createElement('img');
-            rightCaret.src = './right_caret_icon.svg';
+            rightCaret.src = './assets/images/icons/right_caret_icon.svg';
             rightCaret.className = 'right-caret';
 
             showMore.appendChild(rightCaret);
@@ -818,15 +819,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let max;
     if (window.location.pathname.endsWith('my_books.html')) {
         max = true;
+        populateMiniNotifs(max);
     } else if (window.location.pathname.endsWith('Currently_Reading.html')) {
         max = false;
-    }
-
-    populateMiniNotifs(max);
-
-    document.body.addEventListener('click', function(e) {
         populateMiniNotifs(max);
-    });
+    }
 
     // Populate currently reading notifs
     function populateMiniNotifs(max) {

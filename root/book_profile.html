@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script src="bookwebapp.js"></script>
+    <script src="./src/javascript/bookwebapp.js"></script>
 </head>
-<body>
+<body onload="myFunction('Home')">
     <div id="menu">
-        <a class="current-page" href="home.html">
+        <a class="current-page" href="index.html">
             <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/39-512.png">
         </a>
         <a class="other-pages" href="discover.html">
@@ -32,21 +34,6 @@
     <div id="top-nav">
         <div id="search-bar">
             <input type="text" placeholder="Find books, reviews, shelves, people...">
-        </div>
-        <div id="page-menu">
-            <a class="other-subpages" href="home.html">
-                Books
-            </a>
-            <a class="current-subpage" href="home_reviews.html">
-                Reviews
-            </a>
-            <a class="other-subpages" href="home_shelves.html">
-                Shelves
-            </a>
-            <a class="other-subpages" href="home_groups.html">
-                Groups
-            </a>
-            <div></div>
         </div>
     </div>
 
