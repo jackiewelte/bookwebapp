@@ -38,6 +38,13 @@ a, p, input[type=text], label, button {
     text-decoration: none;
 }
 
+#menu a:hover {
+    background-color: rgb(160, 160, 170);
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
+}
+
 .current-page img, .other-pages img {
     height: 40%;
 }
@@ -161,6 +168,9 @@ a, p, input[type=text], label, button {
 #page-menu a:hover {
     background-color: rgb(160, 160, 170);
     color: white;
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
 }
 
 .empty-10-row p {
@@ -297,10 +307,21 @@ a, p, input[type=text], label, button {
 
 .book-thumbnail img {
     height: 180px;
-    border: 0.5px solid rgba(193, 199, 207, 0.748);
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    /* border: 0.5px solid rgba(193, 199, 207, 0.748); */
+    border: 1.5px solid transparent;
+    border-radius: 2%;
     vertical-align: middle;
     box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
     cursor: pointer;
+}
+
+.book-thumbnail img:hover {
+    border: #2fcc25 1.5px solid;
+    -webkit-transition: border 0.1s linear;
+    -ms-transition: border 0.1s linear;
+    transition: border 0.1s linear;
 }
 
 .notif {
@@ -745,9 +766,17 @@ input[type="checkbox"] + label {
     width: 60px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border: 0.5px solid rgba(193, 199, 207, 0.748);
+    /* border: 0.5px solid rgba(193, 199, 207, 0.748); */
+    border: 1.5px solid transparent;
     border-radius: 10px;
     box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
+}
+
+.group-thumbnail img:hover {
+    border: #2fcc25 1.5px solid;
+    -webkit-transition: border 0.1s linear;
+    -ms-transition: border 0.1s linear;
+    transition: border 0.1s linear;
 }
 
 .group-thumbnail, .group-info {
@@ -912,6 +941,10 @@ input[type="checkbox"].group-status-checkbox:checked + label {
 
 .books-currently-reading {
     border-bottom: 0.5px solid rgb(193, 199, 207, 0.748);
+    width: 100dvw;
+    /* height: 468.5px;
+    overflow-y: scroll;
+    overscroll-behavior: contain; */
 }
 
 /* .mini-notif {
@@ -934,9 +967,21 @@ input[type="checkbox"].group-status-checkbox:checked + label {
 
 .mini-book-thumbnail img {
     height: 90px;
-    border: 0.5px solid rgba(193, 199, 207, 0.748);
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    /* border: white 1.5px solid; */
+    border: 1.5px solid transparent;
+    /* border: 0.5px solid rgba(193, 199, 207, 0.748); */
+    border-radius: 2%;
     vertical-align: middle;
     cursor: pointer;
+}
+
+.mini-book-thumbnail img:hover {
+    border: #2fcc25 1.5px solid;
+    -webkit-transition: border 0.1s linear;
+    -ms-transition: border 0.1s linear;
+    transition: border 0.1s linear;
 }
 
 .progress-bar-contents {
@@ -1263,11 +1308,17 @@ input[type="checkbox"].finished-checkbox + label {
 #profile-page-menu .profile-current-subpage:hover {
     background-color: rgb(160, 160, 170);
     color: white;
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
 }
 
 #profile-page-menu .profile-other-subpages:hover {
     background-color: rgb(160, 160, 170);
     color: white;
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
 }
 
 .settings {
@@ -1292,9 +1343,10 @@ input[type="checkbox"].finished-checkbox + label {
 }
 
 .profile-header {
-    width: calc(100% - 80px);
+    width: 100dvw;
     height: 30%;
     padding: 0 40px 20px 40px;
+    box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1401,6 +1453,9 @@ input[type="checkbox"].finished-checkbox + label {
 #mini-page-menu a:hover {
     background-color: rgb(160, 160, 170);
     color: white;
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
 }
 
 .reading-profile {
@@ -1462,10 +1517,11 @@ input[type="checkbox"].finished-checkbox + label {
 
 .add-favorite {
     height: 180px;
-    min-width: 120px;
+    aspect-ratio: 2 / 3;
     margin: 10px 13px 10px 0;
     padding: 0;
     border: 0.5px solid rgb(193, 199, 207, 0.748);
+    border-radius: 2%;
     font-size: 40px;
     color: #c7c7c7;
     background-color: #545454;
@@ -1475,6 +1531,9 @@ input[type="checkbox"].finished-checkbox + label {
 .add-favorite:hover {
     background-color: rgb(160, 160, 170);
     color: white;
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
 }
 
 .recent-activity-book-rating {
@@ -1515,7 +1574,7 @@ input[type="checkbox"].finished-checkbox + label {
 }
 
 .ratings {
-    width: 520px;
+    width: calc(100dvw - 40px);
     height: 50px;
     margin: 20px;
     display: flex;
@@ -1556,6 +1615,9 @@ input[type="checkbox"].finished-checkbox + label {
 
 .rating-bar:hover {
     background-color: #c7c7c7;
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
 }
 
 #jackie-half {

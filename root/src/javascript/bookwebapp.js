@@ -1,3 +1,18 @@
+// Before navigating away from the page
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('scrollPosition', window.scrollY);
+});
+
+// When the page loads
+window.addEventListener('load', () => {
+    const scrollPosition = localStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, scrollPosition);
+      localStorage.removeItem('scrollPosition'); // Optional: Remove after use
+    }
+});
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById('search-input');
     const results = document.getElementById('results');
@@ -77,6 +92,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // HOME -> BOOKS
+// Populate popular and friends activity book rows
+document.addEventListener("DOMContentLoaded", function() {
+    var popularBooks = JSON.parse(localStorage.getItem('popularBooks')) || {};
+    var friendsBookActivity = JSON.parse(localStorage.getItem('friendsBookActivity')) || {};
+
+    popularBooks = {
+        "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
+        "Remarkably Bright Creatures by Shelby Van Pelt": "https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg",
+        "Sapiens: A Brief History of Humankind by Yuval Noah Harari": "https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg",
+        "The Secret History by Donna Tartt": "https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg",
+        "Tomorrow and Tomorrow and Tomorrow by Gabrielle Zevin": "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg",
+        "Yellowface by R.F. Kuang": "https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg",
+        "Normal People by Sally Rooney": "https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg"
+    }
+
+    friendsBookActivity = {
+        "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
+        "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
+        "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
+        "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
+        "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
+        "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
+    }
+
+    localStorage.setItem('popularBooks', JSON.stringify(popularBooks));
+    localStorage.setItem('friendsBookActivity', JSON.stringify(friendsBookActivity));
+});
+
+
+
 // Populate average book rating
 document.addEventListener("DOMContentLoaded", function() {
     updateAvgRating();
@@ -99,6 +144,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Open (populate)/close book dropdown menu
 document.addEventListener("DOMContentLoaded", function() {
+    // localStorage.clear();
+    console.log("local storage: ", localStorage);
     updateAllDropdownMenus();
     const dropdownButtons = document.querySelectorAll('.dropdown-btn');
 
@@ -179,10 +226,14 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Create shelf button clicked");
             const shelfNameInput = inputContainer.querySelector('.create-shelf-name');
             const shelfName = shelfNameInput.value.trim();
+            const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
+            // customShelves[shelfName] = {};
+            // console.log("shelves dict: ", customShelves);
+            // console.log("customshelf name: ", shelfName);
 
             if (isValidShelfName(shelfName)) {
-                if (isShelfNameUnique(shelfName)) {
-                    addCustomShelf(shelfName);
+                if (isShelfNameUnique(shelfName, customShelves)) {
+                    addCustomShelf(shelfName, customShelves);
                     shelfNameInput.value = '';
                     showInputButton.classList.remove('hide');
                     inputContainer.classList.remove('show');
@@ -199,9 +250,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function isShelfNameUnique(shelfName) {
-    const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
-    return !customShelf.hasOwnProperty(shelfName);
+function isShelfNameUnique(shelfName, customShelves) {
+    return !(shelfName in customShelves);
 }
 
 function isValidShelfName(shelfName) {
@@ -210,13 +260,12 @@ function isValidShelfName(shelfName) {
 }
 
 // Create new shelf
-function addCustomShelf(shelfName) {
-    const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
-    shelfName = shelfName.trim();
+function addCustomShelf(shelfName, customShelves) {
+    console.log("shelfName trim: ", shelfName.trim());
 
-    if(!customShelf.hasOwnProperty(shelfName)) {
-        customShelf[shelfName] = [];
-        localStorage.setItem('customShelf', JSON.stringify(customShelf));
+    if(!(shelfName in customShelves)) {
+        customShelves[shelfName] = {};
+        localStorage.setItem('customShelves', JSON.stringify(customShelves));
         console.log(`New shelf created: ${shelfName}`);
 
         // create shelf file in bookshelf dir with default heading content and book-page div
@@ -260,27 +309,23 @@ function updateDropdownMenu(shelfName, dropdown) {
     newShelfCheckbox.addEventListener('change', function() {
         console.log(`Selected shelf: ${shelfName}`);
 
-        const customShelfString = localStorage.getItem('customShelf');
-        const customShelf = customShelfString ? JSON.parse(customShelfString) : {};
-
-        // const bookElement = this.closest('.book');
-        // const bookTitle = bookElement.getAttribute('data-title');
-        // const bookAuthor = bookElement.getAttribute('data-author');
+        const customShelvesString = localStorage.getItem('customShelves');
+        const customShelves = customShelvesString ? JSON.parse(customShelvesString) : {};
         const bookKey = `${bookTitle} by ${bookAuthor}`;
 
-        if (!customShelf[shelfName]) {
-            customShelf[shelfName] = [];
-        }
+        // if (!customShelves[shelfName]) {
+        //     customShelves[shelfName] = {};
+        // }
 
         if (this.checked) {
-            if (!customShelf[shelfName].includes(bookKey)) {
-                customShelf[shelfName].push(bookKey);
-                console.log(`Added to: ${shelfName}`);
+            if (!customShelves[shelfName][bookKey]) {
+                customShelves[shelfName][bookKey] = new Date().toISOString();
+                console.log('Added ' + bookKey + ' to ' + shelfName + ' at ' + customShelves[shelfName][bookKey]);
             }
         } else {
-            customShelf[shelfName] = customShelf[shelfName].filter(key => key !== bookKey);
+            delete customShelves[shelfName][bookKey];
         }
-        localStorage.setItem('customShelf', JSON.stringify(customShelf));
+        localStorage.setItem('customShelves', JSON.stringify(customShelves));
     });
     shelfCheckboxes.appendChild(newShelfCheckbox);
     shelfCheckboxes.appendChild(newShelfLabel);
@@ -288,40 +333,42 @@ function updateDropdownMenu(shelfName, dropdown) {
 
 function updateAllDropdownMenus() {
     const dropdownMenus = document.querySelectorAll('.dropdown-content');
-    const customShelfString = localStorage.getItem('customShelf');
-    const customShelf = customShelfString ? JSON.parse(customShelfString) : {};
+    const customShelvesString = localStorage.getItem('customShelves');
+    const customShelves = customShelvesString ? JSON.parse(customShelvesString) : {};
 
     dropdownMenus.forEach(dropdown => {
-        for (const shelfName in customShelf) {
+        for (const shelfName in customShelves) {
             updateDropdownMenu(shelfName, dropdown);
         }
     });
 }
 
 function addBooktoShelf(shelfName, bookKey) {
-    let customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+    let customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
     console.log(`Adding book to shelf: ${shelfName}, book: ${bookKey}`);
-    if (!customShelf[shelfName]) {
-        customShelf[shelfName] = [];
+
+    if (!customShelves[shelfName][bookKey]) {
+        customShelves[shelfName][bookKey] = new Date().toISOString();
+        console.log('Added ' + bookKey + ' to ' + shelfName + ' at ' + customShelves[shelfName][bookKey]);
     }
-    if (!customShelf[shelfName].includes(bookKey)) {
-        customShelf[shelfName].push(bookKey);
-    }
-    localStorage.setItem('customShelf', JSON.stringify(customShelf));
-    console.log('Updated customShelf:', JSON.parse(localStorage.getItem('customShelf')));
+    localStorage.setItem('customShelves', JSON.stringify(customShelves));
+    console.log('Updated customShelves:', JSON.parse(localStorage.getItem('customShelves')));
 }
 
 function removeBookFromShelf(shelfName, bookKey) {
-    let customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+    let customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
     console.log(`Removing book from shelf: ${shelfName}, book: ${bookKey}`);
-    if (customShelf[shelfName]) {
-        customShelf[shelfName] = customShelf[shelfName].filter(key => key !== bookKey);
-        if (customShelf[shelfName].length === 0) {
-            customShelf[shelfName] = [];
-        }
+    if (customShelves[shelfName]) {
+
+        delete customShelves[shelfName][bookKey];
+        console.log("Removed from custom shelf dict: ", shelfName[bookKey]);
+
+        // if (customShelves[shelfName].length === 0) {
+        //     customShelves[shelfName] = {};
+        // }
     }
-    localStorage.setItem('customShelf', JSON.stringify(customShelf));
-    console.log('Updated customShelf:', JSON.parse(localStorage.getItem('customShelf')));
+    localStorage.setItem('customShelves', JSON.stringify(customShelves));
+    console.log('Updated customShelves:', JSON.parse(localStorage.getItem('customShelves')));
 }
 
 // Change book status/shelf labels
@@ -332,10 +379,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     shelfCheckboxes.innerHTML = '';
 
-    console.log(localStorage.getItem('customShelf'));
+    console.log(localStorage.getItem('customShelves'));
 
     const predefinedStatuses = ['want-to-read', 'currently-reading', 'read'];
-    const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+    // const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+    const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
 
     const bookElement = shelfCheckboxes.closest('.book');
     const bookTitle = bookElement.getAttribute('data-title');
@@ -371,7 +419,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // add custom shelves
-    for (const [shelfName, books] of Object.entries(customShelf)) {
+    for (const [shelfName, books] of Object.entries(customShelves)) {
         let hyphenShelfName = shelfName.replace(/\s+/g, '-');
 
         const checkbox = document.createElement('input');
@@ -389,22 +437,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         shelfCheckboxes.appendChild(checkbox);
         shelfCheckboxes.appendChild(label);
-    }
 
-    for (const shelfName in customShelf) {
-        if (Array.isArray(customShelf[shelfName])) {
-            customShelf[shelfName].forEach(bookKey => {
-                const [bookTitle, bookAuthor] = bookKey.split(' by ');
-                const bookElement = document.querySelector(`[data-title="${bookTitle}"][data-author="${bookAuthor}"]`);
-                if (bookElement) {
-                    const miniCheckboxes = bookElement.querySelectorAll(`.mini-status-checkbox[data-status="${shelfName}"]`);
-                    miniCheckboxes.forEach(miniCheckbox => {
-                        miniCheckbox.checked = true;
-                    });
-                }
-            });
-        } else {
-            console.error(`Expected an array for shelf "${shelfName}", but found:`, customShelf[shelfName]);
+        for (const bookKey in books) {
+            const [bookTitle, bookAuthor] = bookKey.split(' by ');
+            const bookElement = document.querySelector(`[data-title="${bookTitle}"][data-author="${bookAuthor}"]`);
+            if (bookElement) {
+                const miniCheckboxes = bookElement.querySelectorAll(`.mini-status-checkbox[data-status="${shelfName}"]`);
+                miniCheckboxes.forEach(miniCheckbox => {
+                    miniCheckbox.checked = true;
+                });
+            }
         }
     }
 
@@ -687,14 +729,20 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname.endsWith('my_books.html')) {
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
-        const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+        const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
+
+        console.log("CUSTOM SHELVES: ", customShelves);
 
         populateBookshelfThumbnails(wtr, 'wtr');
         populateBookshelfThumbnails(rd, 'rd');
-        for (let shelfName in customShelf) {
-            populateBookshelfThumbnails(customShelf[shelfName], shelfName);
+        for (const shelfName in customShelves) {
+            populateBookshelfThumbnails(customShelves[shelfName], shelfName);
             console.log("Populated thumbnail for: ", shelfName);
         }
+        // for (let shelfName in customShelf) {
+        //     populateBookshelfThumbnails(customShelf[shelfName], shelfName);
+        //     console.log("Populated thumbnail for: ", shelfName);
+        // }
         const emptyFooter = document.createElement('div');
         emptyFooter.className = 'empty-footer';
         const emptyFooterSpace = document.createElement('p');
@@ -705,6 +753,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Populate bookshelf thumbnails
         function populateBookshelfThumbnails(bookshelf, shelfName) {
+            console.log(Array.isArray(bookshelf));
+            console.log(bookshelf);
             const thumbnailLinks = {
                 "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
                 "Remarkably Bright Creatures by Shelby Van Pelt": "https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg",
@@ -716,7 +766,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
                 "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
                 "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
-                "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg"
+                "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
+                "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
+                "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
             };
 
             const topEmpty20Row = document.createElement('div');
@@ -772,7 +824,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     thumbnail.src = thumbnailLink;
                     bookThumbnail.appendChild(thumbnail);
                     bookRow.appendChild(bookThumbnail);
+                    // console.log("here we go!", bookshelf, bookThumbnail.href);
                 }
+                console.log("wut");
             }
 
             const bottomEmpty20Row = document.createElement('div');
@@ -816,43 +870,54 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Populate currently reading notifs
-    let max;
-    if (window.location.pathname.endsWith('my_books.html')) {
-        max = true;
-        populateMiniNotifs(max);
-    } else if (window.location.pathname.endsWith('Currently_Reading.html')) {
-        max = false;
-        populateMiniNotifs(max);
+    // // let max;
+    // if (window.location.pathname.endsWith('my_books.html')) {
+    //     // max = false;
+    //     populateMiniNotifs();
+    // } else if (window.location.pathname.endsWith('Currently_Reading.html')) {
+    //     // max = false;
+    //     populateMiniNotifs();
+    // }
+
+    const booksCurrentlyReading = document.querySelector('.books-currently-reading');
+    if (booksCurrentlyReading) {
+        populateMiniNotifs();
     }
 
     // Populate currently reading notifs
-    function populateMiniNotifs(max) {
-        const booksCurrentlyReading = document.querySelector('.books-currently-reading');
-        if (!booksCurrentlyReading) {
-            return;
-        }
+    function populateMiniNotifs() {
+        // const booksCurrentlyReading = document.querySelector('.books-currently-reading');
+        // if (!booksCurrentlyReading) {
+        //     return;
+        // }
 
         const cr = JSON.parse(localStorage.getItem('cr')) || {};
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
-        const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+        const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
         const booksCR = document.querySelector('.books-currently-reading');
         const booksWTR = document.querySelector('.books-want-to-read');
         const booksRD = document.querySelector('.books-read');
 
-        if (max) {
+        // if (max) {
+        if (window.location.pathname.endsWith('my_books.html')) {
             updateNumBooks(cr, booksCR, 'cr');
             updateNumBooks(wtr, booksWTR, 'wtr');
             updateNumBooks(rd, booksRD, 'rd');
-            for (shelfName in customShelf) {
+            for (const shelfName in customShelves) {
                 let hyphenShelfName = shelfName.replace(/\s+/g, '-');
                 const booksShelfName = document.querySelector(`.books-${hyphenShelfName}`);
-                updateNumBooks(customShelf[shelfName], booksShelfName, shelfName);
+                updateNumBooks(customShelves[shelfName], booksShelfName, shelfName);
+            }
+            if (!(Object.keys(cr).length < 3)) {
+                booksCR.style.height = "468.5px";
+                booksCR.style.overflowY = "scroll";
+                booksCR.style.overscroll = "contain";
             }
         }
 
-        const maxMiniNotifs = 3;
-        let existingMiniNotifs = booksCurrentlyReading.querySelectorAll('.mini-notifs').length;
+        // const maxMiniNotifs = 3;
+        // let existingMiniNotifs = booksCurrentlyReading.querySelectorAll('.mini-notifs').length;
 
         const thumbnailLinks = {
             "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
@@ -865,18 +930,20 @@ document.addEventListener("DOMContentLoaded", function() {
             "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
             "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
             "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
-            "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg"
+            "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
+            "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
+            "One Hundred Years of Solitude": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
         };
 
         for (const bookKey in cr) {
             if (cr.hasOwnProperty(bookKey)) {
                 console.log(bookKey, "in currently reading");
 
-                if (max) {
-                    if (existingMiniNotifs >= maxMiniNotifs) {
-                        break;
-                    }
-                }
+                // if (max) {
+                //     if (existingMiniNotifs >= maxMiniNotifs) {
+                //         break;
+                //     }
+                // }
 
                 const [bookTitle, bookAuthor] = bookKey.split(' by ');
                 const bookElement = document.querySelector(`.book[data-title="${bookTitle}"][data-author="${bookAuthor}"]`);
@@ -1095,7 +1162,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     empty20Row.appendChild(empty20RowSpace);
                     booksCurrentlyReading.appendChild(empty20Row);
 
-                    existingMiniNotifs++;
+                    // existingMiniNotifs++;
 
                     console.log("mini notif created for: ", bookKey);
                 }
@@ -1125,7 +1192,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const cr = JSON.parse(localStorage.getItem('cr')) || {};
             const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
             const rd = JSON.parse(localStorage.getItem('rd')) || {};
-            const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+            const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
             const booksCR = document.querySelector('.books-currently-reading');
             const booksWTR = document.querySelector('.books-want-to-read');
             const booksRD = document.querySelector('.books-read');
@@ -1133,10 +1200,10 @@ document.addEventListener("DOMContentLoaded", function() {
             updateNumBooks(cr, booksCR, 'cr');
             updateNumBooks(wtr, booksWTR, 'wtr');
             updateNumBooks(rd, booksRD, 'rd');
-            for (shelfName in customShelf) {
+            for (const shelfName in customShelves) {
                 let hyphenShelfName = shelfName.replace(/\s+/g, '-');
                 const booksShelfName = document.querySelector(`.books-${hyphenShelfName}`);
-                updateNumBooks(customShelf[shelfName], booksShelfName, shelfName);
+                updateNumBooks(customShelves[shelfName], booksShelfName, shelfName);
             }
 
 
@@ -1300,7 +1367,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const cr = JSON.parse(localStorage.getItem('cr')) || {};
                 const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
                 const rd = JSON.parse(localStorage.getItem('rd')) || {};
-                const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
+                const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
                 const booksCR = document.querySelector('.books-currently-reading');
                 const booksWTR = document.querySelector('.books-want-to-read');
                 const booksRD = document.querySelector('.books-read');
@@ -1308,10 +1375,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 updateNumBooks(cr, booksCR, 'cr');
                 updateNumBooks(wtr, booksWTR, 'wtr');
                 updateNumBooks(rd, booksRD, 'rd');
-                for (shelfName in customShelf) {
+                for (const shelfName in customShelves) {
                     let hyphenShelfName = shelfName.replace(/\s+/g, '-');
                     booksShelfName = document.querySelector(`.books-${hyphenShelfName}`);
-                    updateNumBooks(customShelf[shelfName], booksShelfName, shelfName);
+                    updateNumBooks(customShelves[shelfName], booksShelfName, shelfName);
                 }
             }
         });
@@ -1353,32 +1420,42 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("path: ", path);
     console.log("directory: ", directoryName);
 
-    if (loc.endsWith('Currently_Reading.html') || directoryName !== 'bookshelf') {
-        return;
-    }
+    // if (loc.endsWith('Currently_Reading.html') || directoryName !== 'bookshelf') {
+    // if (current page is Currently Reading page, or just not a bookshelf page)
+    //     return;
+    // }
     if (loc.endsWith('Want_to_Read.html')) {
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
-        populateBookshelf(wtr, false);
+        populateBookshelf(wtr);
         console.log("Populated wtr shelf");
     } else if (loc.endsWith('Read.html')) {
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
-        populateBookshelf(rd, true);
+        populateBookshelf(rd);
         console.log("Populated rd shelf");
+    } else if (loc.endsWith('popular_books.html')) {
+        const popularBooks = JSON.parse(localStorage.getItem('popularBooks')) || {};
+        populateBookshelf(popularBooks);
+        console.log("Populated popularBooks shelf");
+    } else if (loc.endsWith('friends_activity.html')) {
+        const friendsBookActivity = JSON.parse(localStorage.getItem('friendsBookActivity')) || {};
+        populateBookshelf(friendsBookActivity);
+        console.log("Populated friendsBookActivity shelf");
     } else {
-        const customShelf = JSON.parse(localStorage.getItem('customShelf')) || {};
-        let underscoreShelfName = shelfName.replace(/\s+/g, '_');
+        const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
 
-        for (shelfName in customShelf) {
+        for (const shelfName in customShelves) {
             console.log("shelfName: ", shelfName);
+            let underscoreShelfName = shelfName.replace(/\s+/g, '_');
             if (loc.endsWith(`${underscoreShelfName}.html`)) {
-                populateBookshelf(customShelf[shelfName], false);
+                populateBookshelf(customShelves[shelfName]);
                 console.log("Populated", shelfName);
             }
         }
     }
 
     // Populate bookshelf page
-    function populateBookshelf(bookshelf, read) {
+    function populateBookshelf(bookshelf) {
+        console.log(Object.keys(bookshelf).length);
         const bookPage = document.querySelector('.book-page');
         const thumbnailLinks = {
             "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
@@ -1391,11 +1468,14 @@ document.addEventListener("DOMContentLoaded", function() {
             "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
             "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
             "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
-            "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg"
+            "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
+            "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
+            "One Hundred Years of Solitude": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
         };
 
         for (const bookKey in bookshelf) {
             if (bookshelf.hasOwnProperty(bookKey)) {
+            // if (bookKey in bookshelf) {
 
                 const [bookTitle, bookAuthor] = bookKey.split(' by ');
                 const bookElement = document.querySelector(`.book[data-title="${bookTitle}"][data-author="${bookAuthor}"]`);
@@ -1410,9 +1490,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     const thumbnail = document.createElement('img');
                     thumbnail.src = thumbnailLink;
-                    if (read) {
+
+                    const rd = JSON.parse(localStorage.getItem('rd')) || {};
+                    if (bookKey in rd) {
                         thumbnail.style.opacity = '30%';
                     }
+                    // if (read) {
+                    //     thumbnail.style.opacity = '50%';
+                    // }
                     bookThumbnail.appendChild(thumbnail);
                     bookPage.appendChild(bookThumbnail);
 
@@ -1545,7 +1630,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
                 "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
                 "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
-                "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg"
+                "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
+                "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
+                "One Hundred Years of Solitude": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
             };
 
             const bookRow = document.querySelector('.book-row');
