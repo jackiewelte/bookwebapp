@@ -69,16 +69,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 const author = book.author_name ? book.author_name.join(', ') : 'No author available';
                 const bookCover = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : 'default-cover.jpg';
 
-                const bookItem = document.createElement('div');
+                // const bookItem = document.createElement('div');
+                const bookItem = document.createElement('button');
                 bookItem.className = 'book';
+                bookItem.style.backgroundColor = 'transparent';
+                bookItem.style.border = 'none';
+
+                // bookItem.innerHTML = `
+                //     <a class="mini-book-thumbnail" href="https://openlibrary.org${workKey}" target="_blank">
+                //         <img src="${bookCover}" alt="Cover image of ${title}">
+                //     </a>
+                //     <div class="book-info">
+                //         <a class="book-title" href="https://openlibrary.org${workKey}" target="_blank">${title}</a>
+                //         <a class="author" href="https://openlibrary.org/authors/${book.author_key ? book.author_key[0] : ''}" target="_blank">by ${author}</a>
+                //     </div>
+                // `;
 
                 bookItem.innerHTML = `
-                    <a class="mini-book-thumbnail" href="https://openlibrary.org${workKey}" target="_blank">
+                    <div class="mini-book-thumbnail">
                         <img src="${bookCover}" alt="Cover image of ${title}">
-                    </a>
+                    </div>
                     <div class="book-info">
-                        <a class="book-title" href="https://openlibrary.org${workKey}" target="_blank">${title}</a>
-                        <a class="author" href="https://openlibrary.org/authors/${book.author_key ? book.author_key[0] : ''}" target="_blank">by ${author}</a>
+                        <div class="book-title">${title}</div>
+                        <div class="author">by ${author}</div>
                     </div>
                 `;
 
@@ -105,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Tomorrow and Tomorrow and Tomorrow by Gabrielle Zevin": "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg",
         "Yellowface by R.F. Kuang": "https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg",
         "Normal People by Sally Rooney": "https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg"
-    }
+    };
 
     friendsBookActivity = {
         "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
@@ -114,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
         "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
         "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
-    }
+    };
 
     localStorage.setItem('popularBooks', JSON.stringify(popularBooks));
     localStorage.setItem('friendsBookActivity', JSON.stringify(friendsBookActivity));
@@ -749,7 +762,7 @@ document.addEventListener("DOMContentLoaded", function() {
         emptyFooterSpace.textContent = '';
 
         emptyFooter.appendChild(emptyFooterSpace);
-        document.body.appendChild(emptyFooter);
+        wrap.appendChild(emptyFooter);
 
         // Populate bookshelf thumbnails
         function populateBookshelfThumbnails(bookshelf, shelfName) {
@@ -771,6 +784,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
             };
 
+            const wrap = document.getElementById('wrap');
             const topEmpty20Row = document.createElement('div');
             topEmpty20Row.className = 'empty-20-row';
             topEmpty20Row.textContent = '';
@@ -821,6 +835,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
+                    thumbnail.classList.add('book-thumbnail-img');
                     thumbnail.src = thumbnailLink;
                     bookThumbnail.appendChild(thumbnail);
                     bookRow.appendChild(bookThumbnail);
@@ -837,11 +852,11 @@ document.addEventListener("DOMContentLoaded", function() {
             partialLinebreak.className = 'partial-linebreak';
             partialLinebreak.textContent = '';
 
-            document.body.appendChild(topEmpty20Row);
-            document.body.appendChild(booksShelfName);
-            document.body.appendChild(bookRow);
-            document.body.appendChild(bottomEmpty20Row);
-            document.body.appendChild(partialLinebreak);
+            wrap.appendChild(topEmpty20Row);
+            wrap.appendChild(booksShelfName);
+            wrap.appendChild(bookRow);
+            wrap.appendChild(bottomEmpty20Row);
+            wrap.appendChild(partialLinebreak);
 
             updateNumBooks(bookshelf, booksShelfName, shelfName);
         }
@@ -932,7 +947,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
             "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
             "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
-            "One Hundred Years of Solitude": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
+            "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
         };
 
         for (const bookKey in cr) {
@@ -968,6 +983,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     miniBookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
+                    thumbnail.classList.add('book-thumbnail-img');
                     thumbnail.src = thumbnailLink;
                     miniBookThumbnail.appendChild(thumbnail);
 
@@ -1470,7 +1486,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
             "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
             "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
-            "One Hundred Years of Solitude": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
+            "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
         };
 
         for (const bookKey in bookshelf) {
@@ -1489,6 +1505,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
+                    thumbnail.classList.add('book-thumbnail-img');
                     thumbnail.src = thumbnailLink;
 
                     const rd = JSON.parse(localStorage.getItem('rd')) || {};
@@ -1521,10 +1538,25 @@ document.addEventListener("DOMContentLoaded", function() {
 // PROFILE
 document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname.endsWith('profile.html')) {
+
+        // Expand bio on click
+        const bio = document.querySelector(".bio");
+        bio.addEventListener("click", function() {
+            if (bio.classList.contains("expanded")) {
+                bio.classList.toggle("expanded");
+                bio.style.whiteSpace = "nowrap";
+            } else {
+                bio.classList.toggle("expanded");
+                bio.style.whiteSpace = "normal";
+            }
+        });
+
+        // Populate stats
         let readingGoal = 20;
         populateReadingChallengeProgressHeader(readingGoal);
         populateYearRecapHeader();
         populateRecentActivityRatings();
+        populateAllBooksHeader();
         populateDiaryHeader();
 
         // Populate reading challenge progress header
@@ -1609,16 +1641,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Add favorite
         const addFavoriteButtons = document.querySelectorAll('.add-favorite');
+        const slider = document.querySelector('.slider');
+        const wrap = document.getElementById('wrap');
         addFavoriteButtons.forEach(addFavoriteButton => {
             addFavoriteButton.addEventListener('click', function(e) {
                 console.log("add favorite button clicked");
-                addFavorite(e.target);
+                addFavorite(e.target, slider, wrap);
                 e.stopPropagation();
             });
         });
 
+        // after choosing book
+        const favBtn = document.getElementById('fav-btn');
+        favBtn.addEventListener('click', function() {
+            console.log("added favorite book");
+            populateFav(slider, wrap);
+        });
+
+        const favResults = document.querySelectorAll('.book');
+        favResults.forEach(favResult => {
+            favResult.addEventListener('click', function() {
+                console.log("chose favorite book");
+                populateFav(slider, wrap);
+            });
+        });
+
         // Add favorite
-        function addFavorite(addFavoriteButton) {
+        function addFavorite(addFavoriteButton, slider, wrap) {
             const thumbnailLinks = {
                 "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
                 "Remarkably Bright Creatures by Shelby Van Pelt": "https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg",
@@ -1632,11 +1681,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
                 "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
                 "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
-                "One Hundred Years of Solitude": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
+                "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg",
+                "East of Eden by John Steinbeck": "https://m.media-amazon.com/images/I/61MVUsltpoL._AC_UF1000,1000_QL80_.jpg"
             };
 
+            slider.classList.toggle('close');
+            wrap.style.height = '80dvh';
+            wrap.style.overflow = 'hidden';
+
             const bookRow = document.querySelector('.book-row');
-            const bookKey = 'Yellowface by R.F. Kuang';
+            const bookKey = 'East of Eden by John Steinbeck';
             const [bookTitle, bookAuthor] = bookKey.split(' by ');
             let underscoreBookTitle = bookTitle.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '_').replace(/\s+/g, '_');
             let underscoreBookAuthor = bookAuthor.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '_').replace(/\s+/g, '_');
@@ -1647,6 +1701,7 @@ document.addEventListener("DOMContentLoaded", function() {
             bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
             const thumbnail = document.createElement('img');
+            thumbnail.classList.add('book-thumbnail-img');
             thumbnail.src = thumbnailLink;
             bookThumbnail.appendChild(thumbnail);
             addFavoriteButton.classList.add('hide');
@@ -1655,6 +1710,25 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("added book:", bookKey);
         }
 
+        function populateFav(slider, wrap) {
+            slider.classList.toggle('close');
+            wrap.style.height = 'auto';
+            wrap.style.overflow = 'visible';
+        }
+
+        function populateAllBooksHeader() {
+            const rd = JSON.parse(localStorage.getItem('rd')) || {};
+            const numRead = document.querySelector('.num-read');
+
+            const currentYear = new Date().getFullYear();
+            let numReadThisYear = 0;
+            for (const bookKey in rd) {
+                if (rd[bookKey].includes(currentYear)) {
+                    numReadThisYear++;
+                }
+            }
+            numRead.textContent = `${Object.keys(rd).length} / ${numReadThisYear} this year`;
+        }
 
         function populateDiaryHeader() {
             const rd = JSON.parse(localStorage.getItem('rd')) || {};
