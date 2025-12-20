@@ -2248,7 +2248,7 @@ a, p, input[type=text], label, button {
         top: 107%;
         left: -315%;
         width: 172.84px;
-        height: 205px;
+        max-height: 205px;
         background: #545454;
         border: 0.5px solid #c7c7c7;
         border-radius: 2px;
