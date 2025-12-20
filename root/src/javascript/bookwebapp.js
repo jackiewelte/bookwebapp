@@ -653,7 +653,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 dotButton.classList.add('want-to-read');
             } else if (status === 'currently-reading') {
                 cr[bookKey] = new Date().toISOString();
-                label.textContent = 'Currently Reading';
+                label.textContent = 'Reading';
                 label.className = 'status-label currently-reading';
                 dotButton.classList.add('currently-reading');
             } else if (status === 'read') {
@@ -756,13 +756,6 @@ document.addEventListener("DOMContentLoaded", function() {
         //     populateBookshelfThumbnails(customShelf[shelfName], shelfName);
         //     console.log("Populated thumbnail for: ", shelfName);
         // }
-        const emptyFooter = document.createElement('div');
-        emptyFooter.className = 'empty-footer';
-        const emptyFooterSpace = document.createElement('p');
-        emptyFooterSpace.textContent = '';
-
-        emptyFooter.appendChild(emptyFooterSpace);
-        wrap.appendChild(emptyFooter);
 
         // Populate bookshelf thumbnails
         function populateBookshelfThumbnails(bookshelf, shelfName) {
@@ -785,9 +778,6 @@ document.addEventListener("DOMContentLoaded", function() {
             };
 
             const wrap = document.getElementById('wrap');
-            const topEmpty20Row = document.createElement('div');
-            topEmpty20Row.className = 'empty-20-row';
-            topEmpty20Row.textContent = '';
 
             const booksShelfName = document.createElement('div');
             let hyphenShelfName = shelfName.replace(/\s+/g, '-');
@@ -841,21 +831,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     bookRow.appendChild(bookThumbnail);
                     // console.log("here we go!", bookshelf, bookThumbnail.href);
                 }
-                console.log("wut");
             }
-
-            const bottomEmpty20Row = document.createElement('div');
-            bottomEmpty20Row.className = 'empty-20-row';
-            bottomEmpty20Row.textContent = '';
 
             const partialLinebreak = document.createElement('hr');
             partialLinebreak.className = 'partial-linebreak';
             partialLinebreak.textContent = '';
 
-            wrap.appendChild(topEmpty20Row);
             wrap.appendChild(booksShelfName);
             wrap.appendChild(bookRow);
-            wrap.appendChild(bottomEmpty20Row);
             wrap.appendChild(partialLinebreak);
 
             updateNumBooks(bookshelf, booksShelfName, shelfName);
