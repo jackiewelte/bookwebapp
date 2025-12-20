@@ -532,6 +532,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 const currentMiniStatus = this.getAttribute('data-status');
                 console.log('Current mini status:', currentMiniStatus);
 
+                const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+                dropdownButtons.forEach(dropdownButton => {
+                    const dropdownElement = dropdownButton.closest('.dropdown');
+                    if (!dropdownElement) return;
+                    const dropdownContent = dropdownElement.querySelector('.dropdown-content');
+                    dropdownContent.classList.add('hide');
+                    console.log("HID DROPDOWN");
+                });
+
                 if (['want-to-read', 'currently-reading', 'read'].includes(currentMiniStatus)) {
                     // Uncheck other mini checkboxes if the currently checked mini checkbox is wtr, cr, or rd
                     miniCheckboxes.forEach(otherCheckbox => {
