@@ -1737,3 +1737,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+function clearStorage() {
+    localStorage.clear();
+}

@@ -3512,4 +3512,11 @@ a, p, input[type=text], label, button {
         width: 3dvw;
         height: 1dvh;
     }
+
+    #clear-storage {
+        width: 200px;
+        height: 75px;
+        background: white;
+        border-radius: 50px;
+    }
 }
