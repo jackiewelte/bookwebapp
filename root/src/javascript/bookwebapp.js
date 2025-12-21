@@ -1740,4 +1740,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function clearStorage() {
     localStorage.clear();
+    window.location.reload();
 }
