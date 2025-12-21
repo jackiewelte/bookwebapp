@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+    <title>
+        Book Webapp
+    </title>
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="./src/javascript/bookwebapp.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <a class="current-page" href="index.html">
+            <img src="./assets/images/icons/blue_home_icon.svg">
+        </a>
+        <a class="other-pages" href="discover.html">
+            <img src="./assets/images/icons/white_compass_icon.svg">
+        </a>
+        <a class="other-pages" href="my_books.html">
+            <img src="./assets/images/icons/white_book_icon.svg">
+        </a>
+        <a class="other-pages" href="stats.html">
+            <img src="./assets/images/icons/white_bar_graph_icon.svg">
+        </a>
+        <a class="other-pages" href="profile.html">
+            <img src="./assets/images/icons/white_profile_icon.svg">
+        </a>
+    </div>
+
+    <div id="top-nav">
+        <div id="search-bar">
+            <input type="text" placeholder="Find books, reviews, shelves, people...">
+        </div>
+        <div id="page-menu">
+            <a class="current-subpage" href="index.html">
+                Books
+            </a>
+            <a class="other-subpages" href="home_reviews.html">
+                Reviews
+            </a>
+            <a class="other-subpages" href="home_shelves.html">
+                Shelves
+            </a>
+            <a class="other-subpages" href="home_groups.html">
+                Groups
+            </a>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="empty-header">
+        <p></p>
+    </div>
+
+    <div class="current-in-header">
+        <div class="in-header-wrapper">
+            <a class="page-back" href="javascript:window.history.back();">
+            <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
+            </a>
+            <p class="in-header-title">
+                Recommended for you
+            </p>
+        </div>
+    </div>
+
+    <div class="book-page">
+        <!-- <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow_Gabrielle_Zevin.html">
+            <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Yellowface_R_F_Kuang.html">
+            <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Remarkably_Bright_Creatures_Shelby_Van_Pelt.html">
+            <img src="https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Beach_Read_Emily_Henry.html">
+            <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Sapiens_A_Brief_History_of_Humankind_Yuval_Noah_Harari.html">
+            <img src="https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/The_Secret_History_Donna_Tartt.html">
+            <img src="https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg">
+        </a>
+        <a class="book-thumbnail" href="book/Normal_People_Sally Rooney.html">
+            <img src="https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg">
+        </a> -->
+    </div>
+
+    <div class="empty-row">
+        <p></p>
+    </div>
+
+    <!-- Keep at bottom of each page -->
+    <div class="empty-footer">
+        <p></p>
+    </div>
+
+</body>
+</html>

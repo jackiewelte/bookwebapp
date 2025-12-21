@@ -1806,7 +1806,7 @@ a, p, input[type=text], label, button {
 
     #top-nav {
         width: 100dvw;
-        height: 75px;
+        height: 141px;
         left: 0;
         position: fixed;
         top: 0;
@@ -1876,7 +1876,7 @@ a, p, input[type=text], label, button {
     }
 
     #page-menu {
-        width: 95vw;
+        width: 93vw;
         height: 40px;
         margin: 8px auto;
         display: flex;
@@ -1968,7 +1968,7 @@ a, p, input[type=text], label, button {
 
     .current-out-header, .current-in-header {
         width: 90dvw;
-        margin: 16px auto 8px auto;
+        margin: 16px auto 4px auto;
         display: flex;
         flex-direction: row;
         align-items: baseline;
@@ -2058,7 +2058,7 @@ a, p, input[type=text], label, button {
         width: 90dvw;
         margin: 0 auto;
         padding: 8px 0;
-        gap: 2dvw;
+        column-gap: 8px;
         display: flex;
         overflow-x: scroll !important;
     }
@@ -2072,7 +2072,7 @@ a, p, input[type=text], label, button {
     .book-thumbnail-img {
         width: 90px;
         aspect-ratio: 2 / 3;
-        object-fit: cover;
+        /* object-fit: cover; */
         /* border: 0.5px solid rgba(193, 199, 207, 0.748); */
         border: 1.5px solid transparent;
         box-sizing: border-box;
@@ -2505,7 +2505,10 @@ a, p, input[type=text], label, button {
 
     /* HOME --> POPULAR */
     .book-page {
-        margin: 0 7px 0 20px;
+        width: 90vw;
+        margin: 25px auto;
+        row-gap: 8px;
+        column-gap: calc((90vw - 360px)/3);
         display: flex;
         flex-wrap: wrap;
     }
