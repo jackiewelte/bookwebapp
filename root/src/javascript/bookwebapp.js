@@ -781,8 +781,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // MY BOOKS
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("PATH NAME: ", window.location.pathname);
     // Populate bookshelf thumbnails
-    if (window.location.pathname.endsWith('my_books.html')) {
+    if (window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) {
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
         const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
@@ -942,7 +943,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const booksRD = document.querySelector('.books-read');
 
         // if (max) {
-        if (window.location.pathname.endsWith('my_books.html')) {
+        if (window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) {
             updateNumBooks(cr, booksCR, 'cr');
             updateNumBooks(wtr, booksWTR, 'wtr');
             updateNumBooks(rd, booksRD, 'rd');
@@ -1570,7 +1571,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // PROFILE
 document.addEventListener("DOMContentLoaded", function() {
-    if (window.location.pathname.endsWith('profile.html')) {
+    if (window.location.pathname.endsWith('profile') || window.location.pathname.endsWith('profile.html')) {
 
         // Expand bio on click
         const bio = document.querySelector(".bio");
