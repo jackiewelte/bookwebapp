@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const thumbnailLinks = {
     "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
     "Remarkably Bright Creatures by Shelby Van Pelt": "https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg",
-    "Sapiens: A Brief History of Humankind by Yuval Noah Harari": "https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg",
+    "Babel by R.F. Kuang": "https://m.media-amazon.com/images/I/A1lv97-jJoL._AC_UF894,1000_QL80_.jpg",
     "The Secret History by Donna Tartt": "https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg",
     "Tomorrow and Tomorrow and Tomorrow by Gabrielle Zevin": "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg",
     "Yellowface by R.F. Kuang": "https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg",
@@ -122,7 +122,10 @@ const thumbnailLinks = {
     "East of Eden by John Steinbeck": "https://m.media-amazon.com/images/I/61MVUsltpoL._AC_UF1000,1000_QL80_.jpg",
     "Never Let Me Go by Kazuo Ishiguro": "https://m.media-amazon.com/images/I/71cyDfU78hL._AC_UF894,1000_QL80_.jpg",
     "Slow Days, Fast Company by Eve Babitz": "https://www.nyrb.com/cdn/shop/products/babitz.Slow_Days_hi-res.jpg?v=1528394272",
-    "Spring Snow by Yukio Mishima": "https://m.media-amazon.com/images/I/91W6-67zqqL._AC_UF894,1000_QL80_.jpg"
+    "Spring Snow by Yukio Mishima": "https://m.media-amazon.com/images/I/91W6-67zqqL._AC_UF894,1000_QL80_.jpg",
+    "Madonna in a Fur Coat by Sabanhattin Ali": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1447193500i/27793819.jpg",
+    "Blue Note: Uncompromising Expression by Richard Havers": "https://prodimage.images-bn.com/pimages/9780500296516_p0_v1_s600x595.jpg",
+    "But Beautiful by Geoff Dyer": "https://m.media-amazon.com/images/I/71fSu5vb8KL._AC_UF1000,1000_QL80_.jpg"
 };
 
 // Populate popular and friends activity book rows
@@ -134,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
     popularBooks = {
         "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
         "Remarkably Bright Creatures by Shelby Van Pelt": "https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg",
-        "Sapiens: A Brief History of Humankind by Yuval Noah Harari": "https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg",
+        "Babel by R.F. Kuang": "https://m.media-amazon.com/images/I/A1lv97-jJoL._AC_UF894,1000_QL80_.jpg",
         "The Secret History by Donna Tartt": "https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg",
         "Tomorrow and Tomorrow and Tomorrow by Gabrielle Zevin": "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg",
         "Yellowface by R.F. Kuang": "https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg",
@@ -154,9 +157,9 @@ document.addEventListener("DOMContentLoaded", function() {
         "Never Let Me Go by Kazuo Ishiguro": "https://m.media-amazon.com/images/I/71cyDfU78hL._AC_UF894,1000_QL80_.jpg",
         "Slow Days, Fast Company by Eve Babitz": "https://www.nyrb.com/cdn/shop/products/babitz.Slow_Days_hi-res.jpg?v=1528394272",
         "Spring Snow by Yukio Mishima": "https://m.media-amazon.com/images/I/91W6-67zqqL._AC_UF894,1000_QL80_.jpg",
-        "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
-        "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
-        "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg"
+        "Madonna in a Fur Coat by Sabanhattin Ali": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1447193500i/27793819.jpg",
+        "Blue Note: Uncompromising Expression by Richard Havers": "https://prodimage.images-bn.com/pimages/9780500296516_p0_v1_s600x595.jpg",
+        "But Beautiful by Geoff Dyer": "https://m.media-amazon.com/images/I/71fSu5vb8KL._AC_UF1000,1000_QL80_.jpg"
     };
 
     localStorage.setItem('popularBooks', JSON.stringify(popularBooks));
