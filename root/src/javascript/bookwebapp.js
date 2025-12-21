@@ -165,14 +165,10 @@ document.addEventListener("DOMContentLoaded", function() {
     localStorage.setItem('popularBooks', JSON.stringify(popularBooks));
     localStorage.setItem('friendsBookActivity', JSON.stringify(friendsBookActivity));
     localStorage.setItem('recForYou', JSON.stringify(recForYou));
-});
-
 
 
 // Populate average book rating
-document.addEventListener("DOMContentLoaded", function() {
     updateAvgRating();
-
     function updateAvgRating() {
         const notifs = document.querySelectorAll('.notif');
         notifs.forEach(notif => {
@@ -187,11 +183,9 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(`Updated book rating to ${avgRating}`);
         });
     }
-});
+
 
 // Open (populate)/close book dropdown menu
-document.addEventListener("DOMContentLoaded", function() {
-    // localStorage.clear();
     console.log("local storage: ", localStorage);
     updateAllDropdownMenus();
     const dropdownButtons = document.querySelectorAll('.dropdown-btn');
@@ -716,6 +710,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
+// Click and hold event listener
+document.addEventListener("mousedown", function(event) {
+    var bookThumbnail = document.querySelector(".book-thumbnail");
+    if (event.target.classList[0] == bookThumbnail) {
+        var timeout_id = 0;
+        hold_time = 500;
+
+        timeout_id = setTimeout(function() {
+            console.log("timeout");
+        }, hold_time).bind('mouseup mouseleave', function() {
+            clearTimeout(timeout_id);
+            console.log("clear timeout");
+        });
+    }
+});
+
+
+
 // HOME -> GROUPS
 // Populate number of group members
 document.addEventListener("DOMContentLoaded", function() {
@@ -781,7 +794,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // MY BOOKS
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("PATH NAME: ", window.location.pathname);
     // Populate bookshelf thumbnails
     if (window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) {
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};

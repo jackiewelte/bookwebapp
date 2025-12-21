@@ -14,6 +14,10 @@ a, p, input[type=text], label, button {
     font-family: 'PT Serif';
 }
 
+.hide {
+    display: none !important;
+}
+
 @media only screen and (min-width: 415px) {
 
     #wrap {
@@ -514,10 +518,6 @@ a, p, input[type=text], label, button {
         flex-grow: 1;
         padding: 10px 10px 5px 10px;
         overflow-y: auto;
-    }
-
-    .hide {
-        display: none !important;
     }
 
     .mini-search-bar input[type=text] {
@@ -2089,6 +2089,13 @@ a, p, input[type=text], label, button {
         transition: border 0.1s linear;
     }
 
+    .add-to-shelf-popup {
+        width: 100vw;
+        height: 300px;
+        background: #071220;
+        z-index: 50000;
+    }
+
     .notif {
         margin: 10px 20px;
         padding: 25px 33px;
@@ -2259,10 +2266,6 @@ a, p, input[type=text], label, button {
         flex-grow: 1;
         padding: 10px 10px 5px 10px;
         overflow-y: auto;
-    }
-
-    .hide {
-        display: none !important;
     }
 
     .mini-search-bar input[type=text] {
