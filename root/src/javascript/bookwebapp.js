@@ -710,22 +710,62 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+/* Disable right click book thumbnails on mobile */
+document.addEventListener("DOMContentLoaded", function() {
+    if (window.innerWidth <= 414) {
+        console.log("MOBILE!")
+        var bookThumbnail = document.querySelector(".book-thumbnail-img")
+        // bookThumbnail.addEventListener('contextmenu', event => event.preventDefault())
+        bookThumbnail.addEventListener('contextmenu', function() {
+            console.log("returning false;");
+            return false;
+        });
+    }
+});
 
-// Click and hold event listener
+
+// Click and hold book thumbnail
+var timeout_id = 0;
 document.addEventListener("mousedown", function(event) {
-    var bookThumbnail = document.querySelector(".book-thumbnail");
-    if (event.target.classList[0] == bookThumbnail) {
-        var timeout_id = 0;
+    console.log("held down: ", event.target);
+    var bookElem = document.querySelector(".book-thumbnail-img");
+    if (event.target.classList[0] == bookElem.classList[0]) {
+        // var timeout_id = 0;
         hold_time = 500;
 
         timeout_id = setTimeout(function() {
             console.log("timeout");
-        }, hold_time).bind('mouseup mouseleave', function() {
-            clearTimeout(timeout_id);
-            console.log("clear timeout");
-        });
+        }, hold_time);
     }
+
+    bookElem.addEventListener("mouseup", function() {
+        clearTimeout(timeout_id);
+        console.log("clear timeout");
+    });
 });
+
+// var mouseTimer;
+// var myVar;
+// function mouseDown() { 
+//     mouseTimer = window.setTimeout(myFunction, 500); //set timeout to fire in 2 seconds when the user presses mouse button down
+// }
+// function myFunction() {
+//     myVar = true;
+// }
+
+// var div = document.querySelector(".book-thumbnail");
+// testBtn.addEventListener("mousedown", mouseDown);
+// document.body.addEventListener("mouseup", removeTimer);  
+
+// function removeTimer() {
+//     if (myVar) {
+//         console.log("a")
+//     }  
+//     if (mouseTimer) {
+//         window.clearTimeout(mouseTimer)
+//     }
+//     myVar = false;
+// }
 
 
 

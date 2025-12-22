@@ -2067,6 +2067,10 @@ a, p, input[type=text], label, button {
         text-decoration: none;
         float: left;
         cursor: default;
+
+        padding: 0;
+        border: none;
+        background: transparent;
     }
 
     .book-thumbnail-img {
