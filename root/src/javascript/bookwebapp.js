@@ -1521,23 +1521,23 @@ document.addEventListener("DOMContentLoaded", function() {
     // if (current page is Currently Reading page, or just not a bookshelf page)
     //     return;
     // }
-    if (loc.endsWith('Want_to_Read.html')) {
+    if (loc.endsWith('Want_to_Read') || loc.endsWith('Want_to_Read.html')) {
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
         populateBookshelf(wtr);
         console.log("Populated wtr shelf");
-    } else if (loc.endsWith('Read.html')) {
+    } else if (loc.endsWith('Read') || loc.endsWith('Read.html')) {
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
         populateBookshelf(rd);
         console.log("Populated rd shelf");
-    } else if (loc.endsWith('popular_books.html')) {
+    } else if (loc.endsWith('popular_books') || loc.endsWith('popular_books.html')) {
         const popularBooks = JSON.parse(localStorage.getItem('popularBooks')) || {};
         populateBookshelf(popularBooks);
         console.log("Populated popularBooks shelf");
-    } else if (loc.endsWith('friends_activity.html')) {
+    } else if (loc.endsWith('friends_activity') || loc.endsWith('friends_activity.html')) {
         const friendsBookActivity = JSON.parse(localStorage.getItem('friendsBookActivity')) || {};
         populateBookshelf(friendsBookActivity);
         console.log("Populated friendsBookActivity shelf");
-    } else if (loc.endsWith('for_you.html')) {
+    } else if (loc.endsWith('for_you') || loc.endsWith('for_you.html')) {
         const recForYou = JSON.parse(localStorage.getItem('recForYou')) || {};
         populateBookshelf(recForYou);
         console.log("Populated recForYou shelf");
@@ -1547,7 +1547,7 @@ document.addEventListener("DOMContentLoaded", function() {
         for (const shelfName in customShelves) {
             console.log("shelfName: ", shelfName);
             let underscoreShelfName = shelfName.replace(/\s+/g, '_');
-            if (loc.endsWith(`${underscoreShelfName}.html`)) {
+            if (loc.endsWith(`${underscoreShelfName}`) || loc.endsWith(`${underscoreShelfName}.html`)) {
                 populateBookshelf(customShelves[shelfName]);
                 console.log("Populated", shelfName);
             }
