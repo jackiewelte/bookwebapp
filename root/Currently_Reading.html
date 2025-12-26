@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
@@ -30,39 +31,25 @@
 
     <div id="top-nav">
         <div id="search-bar">
-            <button class="add-bookshelf-btn" href="#">
-            </button>
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <button class="add-bookshelf-btn" href="#"></button>
+            <input type="text" id="search-input" style="padding: 8px 45px 8px 20px !important;" placeholder="Find books, reviews, shelves, people...">
+            <button id="search-btn" style="position: absolute; right: 8.5vw;"></button>
         </div>
+        <div id="results" class="hide"></div>
     </div>
 
-    <div class="empty-small-header">
-    </div>
-
-    <div class="books-currently-reading">
-        <!-- Currently Reading -->
-        <div class="current-in-header">
-            <div class="in-header-wrapper">
-                <a class="page-back" href="javascript:window.history.back();">
-                <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
-                </a>
-                <p class="in-header-title">
-                    Currently Reading
-                </p>
+    <div id="wrap">
+        <div class="books-currently-reading">
+            <!-- Currently Reading -->
+            <div class="current-in-header" style="margin: 0 !important; padding: 0 !important;">
+                <div class="in-header-wrapper">
+                    <a class="page-back" href="javascript:window.history.back();">
+                        <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
+                    </a>
+                    <p class="in-header-title">Currently Reading</p>
+                </div>
             </div>
         </div>
-
-        <div class="empty-20-row">
-        </div>
-
-    </div>
-
-    <div class="empty-20-row">
-    </div>
-
-    <!-- Keep at bottom of each page -->
-    <div class="empty-footer">
-        <p></p>
     </div>
 
 </body>

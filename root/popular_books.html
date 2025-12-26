@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" 
-          content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
@@ -31,10 +30,12 @@
         </a>
     </div>
 
-    <div id="top-nav">
+    <div id="top-nav" style="height: 141px !important;">
         <div id="search-bar">
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <input type="text" id="search-input" placeholder="Find books, reviews, shelves, people...">
+            <button type="submit" id="search-btn"></button>
         </div>
+        <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
         <div id="page-menu">
             <a class="current-subpage" href="index.html">
                 Books
@@ -52,53 +53,18 @@
         </div>
     </div>
 
-    <div class="empty-header">
-        <p></p>
-    </div>
+    <div id="wrap" style="margin: 141px 0 100px 0;">
 
-    <div class="current-in-header">
+    <div class="current-in-header" style="padding-top: 8px !important;">
         <div class="in-header-wrapper">
             <a class="page-back" href="javascript:window.history.back();">
-            <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
+                <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
             </a>
-            <p class="in-header-title">
-                Popular
-            </p>
+            <p class="in-header-title">Popular</p>
         </div>
     </div>
 
-    <div class="book-page">
-        <!-- <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow_Gabrielle_Zevin.html">
-            <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Yellowface_R_F_Kuang.html">
-            <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Remarkably_Bright_Creatures_Shelby_Van_Pelt.html">
-            <img src="https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Beach_Read_Emily_Henry.html">
-            <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Sapiens_A_Brief_History_of_Humankind_Yuval_Noah_Harari.html">
-            <img src="https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/The_Secret_History_Donna_Tartt.html">
-            <img src="https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Normal_People_Sally Rooney.html">
-            <img src="https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg">
-        </a> -->
-    </div>
-
-    <div class="empty-row">
-        <p></p>
-    </div>
-
-    <!-- Keep at bottom of each page -->
-    <div class="empty-footer">
-        <p></p>
-    </div>
+    <div class="book-page"></div>
 
 </body>
 </html>

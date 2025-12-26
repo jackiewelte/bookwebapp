@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
@@ -12,53 +13,44 @@
 </head>
 <body>
     <div id="menu">
-        <a class="other-pages" href="../home.html">
+        <a class="other-pages" href="index.html">
             <img src="./assets/images/icons/white_home_icon.svg">
         </a>
-        <a class="other-pages" href="../discover.html">
+        <a class="other-pages" href="discover.html">
             <img src="./assets/images/icons/white_compass_icon.svg">
-        <a class="current-page" href="../my_books.html">
+        <a class="current-page" href="my_books.html">
             <img src="./assets/images/icons/blue_book_icon.svg">
         </a>
-        <a class="other-pages" href="../stats.html">
+        <a class="other-pages" href="stats.html">
             <img src="./assets/images/icons/white_bar_graph_icon.svg">
         </a>
-        <a class="other-pages" href="../profile.html">
+        <a class="other-pages" href="profile.html">
             <img src="./assets/images/icons/white_profile_icon.svg">
         </a>
     </div>
 
     <div id="top-nav">
         <div id="search-bar">
-            <button class="add-bookshelf-btn" href="#">
-            </button>
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <button class="add-bookshelf-btn" href="#"></button>
+            <input type="text" id="search-input" style="padding: 8px 45px 8px 20px !important;" placeholder="Find books, reviews, shelves, people...">
+            <button id="search-btn" style="position: absolute; right: 8.5vw;"></button>
         </div>
+        <div id="results" class="hide"></div>
     </div>
 
-    <div id="wrap">
-
+    <div id="wrap" style="margin: 83px 0 100px 0;">
         <div class="books-want-to-read">
             <!-- Want to Read -->
-            <div class="current-in-header">
+            <div class="current-in-header" style="padding-top: 8px !important;">
                 <div class="in-header-wrapper">
                     <a class="page-back" href="javascript:window.history.back();">
-                    <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
+                        <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
                     </a>
-                    <p class="in-header-title">
-                        Want to Read
-                    </p>
+                    <p class="in-header-title">Want to Read</p>
                 </div>
             </div>
-        </div>
 
-        <div class="book-page">
-            <!-- <a class="book-thumbnail" href="../book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
-                <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
-            </a>
-            <a class="book-thumbnail" href="../book/Yellowface_R_F_Kuang.html">
-                <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
-            </a> -->
+            <div class="book-page"></div>
         </div>
     </div>
 
