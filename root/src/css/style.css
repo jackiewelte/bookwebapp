@@ -1975,7 +1975,7 @@ a, p, input[type=text], label, button {
 
     .current-out-header, .current-in-header {
         width: 90dvw;
-        margin: 20px auto 10px auto;
+        margin: 20px auto 5px auto;
         /* padding-top: 8px; */
         display: flex;
         flex-direction: row;
