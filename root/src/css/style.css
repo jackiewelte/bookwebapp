@@ -442,7 +442,7 @@ a, p, input[type=text], label, button {
     .status-label, .dropdown-btn {
         font-size: 4dvw;
         font-weight: 550;
-        height: 5dvh;
+        height: 45px;
         text-decoration: none;
         background-color: #42946d;
         color: white;
@@ -2246,9 +2246,9 @@ a, p, input[type=text], label, button {
     }
 
     .status-label, .dropdown-btn {
-        font-size: 4dvw;
+        font-size: 17px;
         font-weight: 550;
-        height: 5dvh;
+        height: 45px;
         text-decoration: none;
         background-color: #42946d;
         color: white;
@@ -2516,7 +2516,7 @@ a, p, input[type=text], label, button {
     .status-label {
         display: inline-block;
         width: 35dvw;
-        line-height: 5dvh;
+        line-height: 45px;
     }
 
     .status-label.want-to-read, .dropdown-btn.want-to-read {
@@ -2534,8 +2534,9 @@ a, p, input[type=text], label, button {
     .book-rating {
         display: flex;
         gap: 2px;
-        height: 17px;
+        height: 14px;
         width: fit-content;
+        align-items: center;
     }
 
     .grey-stars {
@@ -2559,12 +2560,12 @@ a, p, input[type=text], label, button {
     }
 
     .book-rating img {
-        width: 17px;
+        width: 14px;
     }
 
     .book-avg-rating {
         display: inline;
-        font-size: 4dvw;
+        font-size: 14px;
         color: #c7c7c7;
         margin: 0 0 0 5px;
     }
