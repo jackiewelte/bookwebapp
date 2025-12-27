@@ -1774,7 +1774,7 @@ a, p, input[type=text], label, button {
 /* MOBILE */
 @media only screen and (max-width: 414px) {
 
-    #wrap {
+    .wrap {
         width: 100dvw;
         position: relative;
         z-index: 0;
@@ -1895,7 +1895,7 @@ a, p, input[type=text], label, button {
         padding: 5px;
     }
 
-    #page-menu a {
+    #page-menu a, button {
         padding: 7px 0;
         font-weight: 400;
         font-size: 18px;
@@ -1903,6 +1903,7 @@ a, p, input[type=text], label, button {
         text-align: center;
         color: white;
         border-radius: 30px;
+        border: none;
     }
 
     #page-menu div {
@@ -1935,7 +1936,7 @@ a, p, input[type=text], label, button {
         background-color: black;
     }
 
-    #page-menu a:hover {
+    #page-menu a:hover, button:hover {
         background-color: rgb(160, 160, 170);
         color: white;
         -webkit-transition: background-color 0.2s linear;

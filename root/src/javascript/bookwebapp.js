@@ -832,6 +832,46 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+// DISCOVER
+function toggleSubmenuTab(tab, event) {
+    console.log(`Submenu tab "${tab}" clicked`);
+    var visibleTab = document.getElementById(tab);
+    var clickedButton = event.target;
+    console.log(visibleTab, clickedButton);
+    if (visibleTab) {
+        if (visibleTab.classList.contains('hide')) {
+
+            // Hide content of other tabs
+            var hiddenTabs = document.querySelectorAll('.wrap')
+            hiddenTabs.forEach(hiddenTab => {
+                if (!hiddenTab.classList.contains('hide')) {
+                    hiddenTab.classList.add('hide')
+                }
+            });
+            // Show content of current tab
+            visibleTab.classList.remove('hide')
+            console.log("Show current tab content")
+
+            // Unhighlight label of unclicked tabs
+            const pageMenu = document.getElementById('page-menu')
+            var unclickedButtons = pageMenu.querySelectorAll('button')
+            console.log(unclickedButtons)
+            unclickedButtons.forEach(unclickedButton => {
+                if (!unclickedButton.classList.contains('other-discover-subpages')) {
+                    unclickedButton.classList.remove('current-discover-subpage')
+                    unclickedButton.classList.add('other-discover-subpages')
+                }
+            });
+            // Highlight label of clicked tab
+            clickedButton.classList.remove('other-discover-subpages')
+            clickedButton.classList.add('current-discover-subpage')
+            console.log(clickedButton.classList)
+        }
+    }
+}
+
+
 // MY BOOKS
 document.addEventListener("DOMContentLoaded", function() {
     // Populate bookshelf thumbnails
@@ -858,7 +898,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(Array.isArray(bookshelf));
             console.log(bookshelf);
 
-            const wrap = document.getElementById('wrap');
+            // const wrap = document.getElementById('wrap');
+            const wrap = document.querySelector('.wrap');
 
             const booksShelfName = document.createElement('div');
             let hyphenShelfName = shelfName.replace(/\s+/g, '-');
@@ -1664,7 +1705,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add favorite
         const addFavoriteButtons = document.querySelectorAll('.add-favorite');
         const slider = document.querySelector('.slider');
-        const wrap = document.getElementById('wrap');
+        const wrap = document.querySelector('.wrap');
         addFavoriteButtons.forEach(addFavoriteButton => {
             addFavoriteButton.addEventListener('click', function(e) {
                 console.log("add favorite button clicked");
