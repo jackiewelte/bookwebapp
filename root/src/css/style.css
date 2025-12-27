@@ -2020,15 +2020,15 @@ a, p, input[type=text], label, button {
     .show-more {
         display: flex;
         flex-direction: row;
-        align-items: baseline;
+        align-items: center;
         justify-content: flex-end;
+        column-gap: 8px;
     }
 
     .show-more p {
         font-weight: 400;
         font-size: 17px;
         margin: 0;
-        margin-right: 6px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2039,8 +2039,8 @@ a, p, input[type=text], label, button {
     }
 
     .right-caret, .left-caret {
-        width: 12px;
-        height: 10px;
+        width: 9px;
+        height: auto;
     }
 
     .right-caret {
