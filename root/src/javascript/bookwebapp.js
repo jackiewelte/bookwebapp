@@ -870,7 +870,7 @@ function toggleSubmenuTab(tab, event) {
             if (clickedButton.classList.contains('other-subpages')) {
                 clickedButton.classList.remove('other-subpages')
                 clickedButton.classList.add('current-subpage')
-            } else if (clickedButton.classList.contains('other-discover-subpage')) {
+            } else if (clickedButton.classList.contains('other-discover-subpages')) {
                 clickedButton.classList.remove('other-discover-subpages')
                 clickedButton.classList.add('current-discover-subpage')
             }
