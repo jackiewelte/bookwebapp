@@ -893,7 +893,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const bookRow = document.createElement('div');
             bookRow.className = 'book-row';
-            bookRow.style.margin = '0 auto 25px auto';
+            bookRow.style.margin = '0 auto 17px auto';
             bookRow.style.overflow = 'clip';
 
             for (const bookKey in bookshelf) {
@@ -968,11 +968,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Populate currently reading notifs
     function populateMiniNotifs() {
-        // const booksCurrentlyReading = document.querySelector('.books-currently-reading');
-        // if (!booksCurrentlyReading) {
-        //     return;
-        // }
-
         const cr = JSON.parse(localStorage.getItem('cr')) || {};
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
@@ -981,7 +976,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const booksWTR = document.querySelector('.books-want-to-read');
         const booksRD = document.querySelector('.books-read');
 
-        // if (max) {
         if (window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) {
             updateNumBooks(cr, booksCR, 'cr');
             updateNumBooks(wtr, booksWTR, 'wtr');
@@ -991,25 +985,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 const booksShelfName = document.querySelector(`.books-${hyphenShelfName}`);
                 updateNumBooks(customShelves[shelfName], booksShelfName, shelfName);
             }
-            if (!(Object.keys(cr).length < 3)) {
-                booksCR.style.height = "507px";
-                booksCR.style.overflowY = "clip";
-                booksCR.style.overscroll = "contain";
-            }
+            // if (!(Object.keys(cr).length < 3)) {
+            //     booksCR.style.height = "507px";
+            //     booksCR.style.overflowY = "clip";
+            //     booksCR.style.overscroll = "contain";
+            // }
         }
 
-        // const maxMiniNotifs = 3;
-        // let existingMiniNotifs = booksCurrentlyReading.querySelectorAll('.mini-notifs').length;
+        const maxMiniNotifs = 3;
+        let existingMiniNotifs = booksCurrentlyReading.querySelectorAll('.mini-notifs').length;
 
         for (const bookKey in cr) {
             if (cr.hasOwnProperty(bookKey)) {
                 console.log(bookKey, "in currently reading");
 
-                // if (max) {
-                //     if (existingMiniNotifs >= maxMiniNotifs) {
-                //         break;
-                //     }
-                // }
+                if ((window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) & (existingMiniNotifs >= maxMiniNotifs)) {
+                    break;
+                }
 
                 const [bookTitle, bookAuthor] = bookKey.split(' by ');
                 const bookElement = document.querySelector(`.book[data-title="${bookTitle}"][data-author="${bookAuthor}"]`);
@@ -1220,7 +1212,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     updateProgressBar(miniNotif, bookKey);
 
-                    // existingMiniNotifs++;
+                    existingMiniNotifs++;
 
                     console.log("mini notif created for: ", bookKey);
                 }

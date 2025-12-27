@@ -2811,7 +2811,7 @@ a, p, input[type=text], label, button {
 
     .mini-notif {
         width: 90dvw;
-        margin-top: 18px;
+        margin-top: 13px;
         padding: 18px 23px;
         box-sizing: border-box;
         display: flex;
