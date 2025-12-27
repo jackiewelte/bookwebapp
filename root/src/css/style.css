@@ -2160,13 +2160,13 @@ a, p, input[type=text], label, button {
     }
 
     .book-title {
-        font-size: 1.7dvh;
+        font-size: 16px;
         font-weight: 550;
         color: #c7c7c7;
     }
 
     .author {
-        font-size: 1.5dvh;
+        font-size: 14px;
         color: white;
     }
 
@@ -2770,7 +2770,7 @@ a, p, input[type=text], label, button {
 
     .progress-bar-contents {
         display: flex;
-        gap: 2dvw;
+        gap: 8px;
         width: 100%;
         align-items: center;
     }
@@ -2778,27 +2778,27 @@ a, p, input[type=text], label, button {
     .progress-bar-border {
         width: 100%;
         min-width: 10dvw;
-        height: 1.5dvh;
+        height: 14px;
         background-color: #737373;
         overflow: hidden;
     }
 
     .progress-bar-grey {
-        height: 1.5dvh;
+        height: 14px;
         width: 0%;
         background-color: #c7c7c7;
         transition: width 0.6s;
     }
 
     .percent-progress {
-        font-size: 1.5dvh;
+        font-size: 14px;
         color: #c7c7c7;
         width: fit-content;
         margin: 0;
     }
 
     .edit-progress-btn {
-        height: 1.5dvh;
+        height: 14px;
         aspect-ratio: 1 / 1;
         background-color: black;
         background-image: url('../../assets/images/icons/edit_pencil_icon.svg');
@@ -3006,7 +3006,7 @@ a, p, input[type=text], label, button {
     }
 
     input[type="checkbox"].finished-checkbox + label {
-        height: 1.5dvh;
+        height: 14px;
         aspect-ratio: 3 / 2;
         background-color: black;
         background-image: url('../../assets/images/icons/blue_checkmark_icon.svg');

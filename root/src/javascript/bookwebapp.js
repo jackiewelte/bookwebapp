@@ -992,7 +992,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 updateNumBooks(customShelves[shelfName], booksShelfName, shelfName);
             }
             if (!(Object.keys(cr).length < 3)) {
-                booksCR.style.height = "510px";
+                booksCR.style.height = "507px";
                 booksCR.style.overflowY = "clip";
                 booksCR.style.overscroll = "contain";
             }
@@ -1698,24 +1698,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Add favorite
         function addFavorite(addFavoriteButton, slider, wrap) {
-            // const thumbnailLinks = {
-            //     "Beach Read by Emily Henry": "https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg",
-            //     "Remarkably Bright Creatures by Shelby Van Pelt": "https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg",
-            //     "Sapiens: A Brief History of Humankind by Yuval Noah Harari": "https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg",
-            //     "The Secret History by Donna Tartt": "https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg",
-            //     "Tomorrow and Tomorrow and Tomorrow by Gabrielle Zevin": "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg",
-            //     "Yellowface by R.F. Kuang": "https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg",
-            //     "Normal People by Sally Rooney": "https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg",
-            //     "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
-            //     "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
-            //     "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
-            //     "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
-            //     "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
-            //     "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg",
-            //     "East of Eden by John Steinbeck": "https://m.media-amazon.com/images/I/61MVUsltpoL._AC_UF1000,1000_QL80_.jpg",
-            //     "Never Let Me Go by Kazuo Ishiguro": "https://m.media-amazon.com/images/I/71cyDfU78hL._AC_UF894,1000_QL80_.jpg"
-            // };
-
             slider.classList.toggle('close');
             wrap.style.height = '80dvh';
             wrap.style.overflow = 'hidden';
