@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
@@ -13,26 +14,28 @@
 <body>
     <div id="menu">
         <a class="other-pages" href="index.html">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png">
+            <img src="./assets/images/icons/white_home_icon.svg">
         </a>
         <a class="current-page" href="discover.html">
-            <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/209-512.png">
+            <img src="./assets/images/icons/blue_compass_icon.svg">
         </a>
         <a class="other-pages" href="my_books.html">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/006/064/882/small/book-read-library-study-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg">
+            <img src="./assets/images/icons/white_book_icon.svg">
         </a>
         <a class="other-pages" href="stats.html">
-            <img src="https://icon-library.com/images/statistics-icon/statistics-icon-21.jpg">
+            <img src="./assets/images/icons/white_bar_graph_icon.svg">
         </a>
         <a class="other-pages" href="profile.html">
-            <img src="https://static.vecteezy.com/system/resources/previews/026/630/551/original/profile-icon-symbol-design-illustration-vector.jpg">
+            <img src="./assets/images/icons/white_profile_icon.svg">
         </a>
     </div>
 
-    <div id="top-nav">
+    <div id="top-nav" style="height: 141px !important;">
         <div id="search-bar">
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <input type="text" id="search-input" placeholder="Find books, reviews, shelves, people...">
+            <button type="submit" id="search-btn"></button>
         </div>
+        <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
         <div id="page-menu">
             <a class="other-discover-subpages" href="discover.html">
                 Browse
@@ -43,199 +46,201 @@
         </div>
     </div>
 
-    <div class="empty-header">
-        <p></p>
-    </div>
+    <div id="wrap" style="margin: 141px 0 100px 0;">
 
-    <div class="current-out-header">
-        <p class="out-header-title">
-            All
-        </p>
-    </div>
-
-    <!-- Notif -->
-    <div class="notif">
-        <div class="notif-info">
-            <p class="popular-notif">
-                Because you read 
-            </p>
-            <a class="genre" href="books/people_we_meet_on_vacation.html">
-                People We Meet on Vacation
-            </a>
-            <p class="popular-notif">
-                you should read
-            </p>
+        <div class="current-out-header" style="padding-top: 8px !important;">
+            <p class="out-header-title">All</p>
         </div>
-        <div class="book" data-title="Tomorrow and Tomorrow and Tomorrow" data-author="Gabrielle Zevin">
-            <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
-                <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
-            </a>
-            <div class="book-info">
-                <a class="book-title" href="book/Tomorrow_and_Tomorrow_and_Tomorrow.html">
-                    Tomorrow and Tomorrow and Tomorrow
+
+        <!-- Notif -->
+        <div class="notif">
+            <div class="notif-info">
+                <p class="popular-notif">
+                    Because you read 
+                </p>
+                <a class="genre" href="books/People_We_Meet_On_Vacation_Emily_Henry.html">
+                    People We Meet on Vacation
                 </a>
-                <a class="author" href="author/Gabrielle_Zevin.html">
-                    by Gabrielle Zevin
+                <p class="popular-notif">
+                    you should read
+                </p>
+            </div>
+            <div class="book" data-title="Tomorrow and Tomorrow and Tomorrow" data-author="Gabrielle Zevin">
+                <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow_Gabrielle_Zevin.html">
+                    <img class="book-thumbnail-img" src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
                 </a>
-                <!-- Make like submit button -->
-                <div class="want-to-read-btns">
-                    <input type="checkbox" class="status-checkbox" id="book-status-1">
-                    <label for="book-status-1" class="status-label">
-                        Want to Read
-                    </label>
+                <div class="book-info">
+                    <a class="book-title" href="book/Tomorrow_and_Tomorrow_and_Tomorrow_Gabrielle_Zevin.html">
+                        Tomorrow and Tomorrow and Tomorrow
+                    </a>
+                    <a class="author" href="author/Gabrielle_Zevin.html">
+                        by Gabrielle Zevin
+                    </a>
 
-                    <!-- <div class="want-to-read">
-                        This is the want to read section.
-                    </div> -->
-                    <!-- <div class="clicked">
-                        <img src="https://png.pngtree.com/element_our/20190529/ourmid/pngtree-check-icon-image_1186947.jpg">
-                    </div> -->
-
-                    <div class="dropdown">
-                        <button class="dropdown-btn" href="#">
-                             •••
-                        </button>
-                        <div class="dropdown-content hidden">
-                            <div class="mini-search-bar">
-                                <input type="text" placeholder="Search shelves">
+                    <div class="want-to-read-btns">
+                        <input type="checkbox" class="status-checkbox" id="book-status-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin">
+                        <label for="book-status-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="status-label">
+                            <div class="read-check">
                             </div>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="want-to-read" id="book-status-2">
-                            <label for="book-status-2" class="mini-status-label">
-                                Want to Read
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="currently-reading" id="book-status-3">
-                            <label for="book-status-3" class="mini-status-label">
-                                Currently Reading
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="read" id="book-status-4">
-                            <label for="book-status-4" class="mini-status-label">
-                                Read
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-1" id="shelf1">
-                            <label for="shelf1" class="mini-status-label">
-                                bookshelf 1
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-2" id="shelf2">
-                            <label for="shelf2" class="mini-status-label">
-                                bookshelf 2
-                            </label>
+                            Want to Read
+                        </label>
 
-                            <!-- <div>
-                                <button class="cancel-btn" href="#">
-                                    Cancel
-                                </button>
-                            </div> -->
-                            <div>
-                                <button class="done-btn" href="#">
-                                    Done
-                                </button>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" href="#">
+                                •••
+                            </button>
+                            <div class="dropdown-content hide">
+                                <div class="dropdown-content-wrapper">
+                                    <div class="mini-search-bar">
+                                        <input type="text" placeholder="Search shelves">
+                                    </div>
+            
+                                    <div class="shelf-checkboxes">
+                                        <input type="checkbox" class="mini-status-checkbox" data-status="want-to-read" id="wtr-shelf-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin">
+                                        <label for="wtr-shelf-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="mini-status-label">
+                                            Want to Read
+                                        </label>
+                
+                                        <input type="checkbox" class="mini-status-checkbox" data-status="currently-reading" id="cr-shelf-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin">
+                                        <label for="cr-shelf-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="mini-status-label">
+                                            Reading
+                                        </label>
+                
+                                        <input type="checkbox" class="mini-status-checkbox" data-status="read" id="rd-shelf-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin">
+                                        <label for="rd-shelf-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="mini-status-label">
+                                            Read
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="dropdown-bottom-btns">
+                                    <div class="add-shelf-btn">
+                                        <button class="show-input-btn">
+                                            Create Bookshelf
+                                        </button>
+                                        <div class="input-container">
+                                            <input type="text" class="create-shelf-name" placeholder="Enter shelf name">
+                                            <button class="create-shelf-btn">
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-    
-                            <!-- <a class="close" href="#" onclick="hide('dropdown')">
-                                Close
-                            </a> -->
+                            <div class="dropdown-overlay hide"></div>
                         </div>
+                    </div>
+                    <div class="book-rating">
+                        <div class="grey-stars">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <div class="green-stars">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                            </div>
+                        </div>
+                        <p class="book-avg-rating">4.16</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notif -->
+        <div class="notif">
+            <div class="notif-info">
+                <p class="popular-notif">
+                    Similar users loved
+                </p>
+            </div>
+            <div class="book" data-title="Beach Read" data-author="Emily Henry">
+                <a class="book-thumbnail" href="book/Beach_Read_Emily_Henry.html">
+                    <img class="book-thumbnail-img" src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
+                </a>
+                <div class="book-info">
+                    <a class="book-title" href="book/Beach_Read_Emily_Henry.html">
+                        Beach Read
+                    </a>
+                    <a class="author" href="author/Emily_Henry.html">
+                        by Emily Henry
+                    </a>
+
+                    <div class="want-to-read-btns">
+                        <input type="checkbox" class="status-checkbox" id="book-status-Beach-Reach-Emily-Henry">
+                        <label for="book-status-Beach-Reach-Emily-Henry" class="status-label">
+                            <div class="read-check">
+                            </div>
+                            Want to Read
+                        </label>
+
+                        <div class="dropdown">
+                            <button class="dropdown-btn" href="#">
+                                •••
+                            </button>
+                            <div class="dropdown-content hide">
+                                <div class="dropdown-content-wrapper">
+                                    <div class="mini-search-bar">
+                                        <input type="text" placeholder="Search shelves">
+                                    </div>
+            
+                                    <div class="shelf-checkboxes">
+                                        <input type="checkbox" class="mini-status-checkbox" data-status="want-to-read" id="wtr-shelf-Beach-Reach-Emily-Henry">
+                                        <label for="wtr-shelf-Beach-Reach-Emily-Henry" class="mini-status-label">
+                                            Want to Read
+                                        </label>
+                
+                                        <input type="checkbox" class="mini-status-checkbox" data-status="currently-reading" id="cr-shelf-Beach-Reach-Emily-Henry">
+                                        <label for="cr-shelf-Beach-Reach-Emily-Henry" class="mini-status-label">
+                                            Reading
+                                        </label>
+                
+                                        <input type="checkbox" class="mini-status-checkbox" data-status="read" id="rd-shelf-Beach-Reach-Emily-Henry">
+                                        <label for="rd-shelf-Beach-Reach-Emily-Henry" class="mini-status-label">
+                                            Read
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="dropdown-bottom-btns">
+                                    <div class="add-shelf-btn">
+                                        <button class="show-input-btn">
+                                            Create Bookshelf
+                                        </button>
+                                        <div class="input-container">
+                                            <input type="text" class="create-shelf-name" placeholder="Enter shelf name">
+                                            <button class="create-shelf-btn">
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-overlay hide"></div>
+                        </div>
+                    </div>
+                    <div class="book-rating">
+                        <div class="grey-stars">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <img src="./assets/images/icons/grey_star_icon.svg">
+                            <div class="green-stars">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                                <img src="./assets/images/icons/green_star_icon.svg">
+                            </div>
+                        </div>
+                        <p class="book-avg-rating">4.00</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="empty-20-row">
-        <p></p>
-    </div>
-
-    <!-- Notif -->
-    <div class="notif">
-        <div class="notif-info">
-            <p class="popular-notif">
-                Similar users loved
-            </p>
-        </div>
-        <div class="book" data-title="Beach Read" data-author="Emily Henry">
-            <a class="book-thumbnail" href="book/Beach_Read.html">
-                <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
-            </a>
-            <div class="book-info">
-                <a class="book-title" href="book/Beach_Read.html">
-                    Beach Read
-                </a>
-                <a class="author" href="author/Emily_Henry.html">
-                    by Emily Henry
-                </a>
-                <!-- Make like submit button -->
-                <div class="want-to-read-btns">
-                    <input type="checkbox" class="status-checkbox" id="book-status-5">
-                    <label for="book-status-5" class="status-label">
-                        Want to Read
-                    </label>
-
-                    <!-- <div class="want-to-read">
-                        This is the want to read section.
-                    </div> -->
-                    <!-- <div class="clicked">
-                        <img src="https://png.pngtree.com/element_our/20190529/ourmid/pngtree-check-icon-image_1186947.jpg">
-                    </div> -->
-
-                    <div class="dropdown">
-                        <button class="dropdown-btn" href="#">
-                            •••
-                        </button>
-                        <div class="dropdown-content hidden">
-                            <div class="mini-search-bar">
-                                <input type="text" placeholder="Search shelves">
-                            </div>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="want-to-read" id="book-status-6">
-                            <label for="book-status-6" class="mini-status-label">
-                                Want to Read
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="currently-reading" id="book-status-7">
-                            <label for="book-status-7" class="mini-status-label">
-                                Currently Reading
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="read" id="book-status-8">
-                            <label for="book-status-8" class="mini-status-label">
-                                Read
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-1" id="shelf3">
-                            <label for="shelf3" class="mini-status-label">
-                                bookshelf 1
-                            </label>
-    
-                            <input type="checkbox" class="mini-status-checkbox" data-status="bookshelf-2" id="shelf4">
-                            <label for="shelf4" class="mini-status-label">
-                                bookshelf 2
-                            </label>
-
-                            <!-- <div>
-                                <button class="cancel-btn" href="#">
-                                    Cancel
-                                </button>
-                            </div> -->
-                            <div>
-                                <button class="done-btn" href="#">
-                                    Done
-                                </button>
-                            </div>
-    
-                            <!-- <a class="close" href="#" onclick="hide('dropdown')">
-                                Close
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>

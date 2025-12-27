@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
@@ -13,31 +14,28 @@
 <body>
     <div id="menu">
         <a class="other-pages" href="index.html">
-            <!-- <img src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"> -->
             <img src="./assets/images/icons/white_home_icon.svg">
         </a>
         <a class="current-page" href="discover.html">
-            <!-- <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/209-512.png"> -->
             <img src="./assets/images/icons/blue_compass_icon.svg">
         </a>
         <a class="other-pages" href="my_books.html">
-            <!-- <img src="https://static.vecteezy.com/system/resources/thumbnails/006/064/882/small/book-read-library-study-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg"> -->
             <img src="./assets/images/icons/white_book_icon.svg">
         </a>
         <a class="other-pages" href="stats.html">
-            <!-- <img src="https://icon-library.com/images/statistics-icon/statistics-icon-21.jpg"> -->
             <img src="./assets/images/icons/white_bar_graph_icon.svg">
         </a>
         <a class="other-pages" href="profile.html">
-            <!-- <img src="https://static.vecteezy.com/system/resources/previews/026/630/551/original/profile-icon-symbol-design-illustration-vector.jpg"> -->
             <img src="./assets/images/icons/white_profile_icon.svg">
         </a>
     </div>
 
-    <div id="top-nav">
+    <div id="top-nav" style="height: 141px !important;">
         <div id="search-bar">
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <input type="text" id="search-input" placeholder="Find books, reviews, shelves, people...">
+            <button type="submit" id="search-btn"></button>
         </div>
+        <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
         <div id="page-menu">
             <a class="current-discover-subpage" href="discover.html">
                 Browse
@@ -48,73 +46,69 @@
         </div>
     </div>
 
-    <div class="empty-header">
-        <p></p>
-    </div>
+    <div id="wrap" style="margin: 141px 0 100px 0;">
 
-    <div class="current-out-header">
-        <p class="out-header-title">
-            Browse by
-        </p>
-    </div>
+        <div class="current-out-header" style="padding-top: 8px !important; margin-bottom: 20px !important;">
+            <p class="out-header-title">Browse by</p>
+        </div>
 
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Release date</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Genre, country, or language</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Most popular</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Highest rated</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Most anticipated</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Top 250 novels</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Featured shelves</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
-    <a class="browse-list" href="">
-        <div class="browse-item">
-            <h1>Giveaways</h1>
-            <img src="https://images.vexels.com/content/136724/preview/right-arrowhead-2-d893dd.png">
-        </div>
-    </a>
-    <div class="list-line"></div>
+        <a class="browse-list" href="release_date.html">
+            <div class="browse-item">
+                <h1>Release date</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="genre_country_language.html">
+            <div class="browse-item">
+                <h1>Genre, country, or language</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="most_popular.html">
+            <div class="browse-item">
+                <h1>Most popular</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="highest_rated.html">
+            <div class="browse-item">
+                <h1>Highest rated</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="most_anticipated.html">
+            <div class="browse-item">
+                <h1>Most anticipated</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="top_250_novels.html">
+            <div class="browse-item">
+                <h1>Top 250 novels</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="featured_shelves.html">
+            <div class="browse-item">
+                <h1>Featured shelves</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+        <a class="browse-list" href="giveaways.html">
+            <div class="browse-item">
+                <h1>Giveaways</h1>
+                <img src="./assets/images/icons/right_caret_icon.svg">
+            </div>
+        </a>
+        <div class="partial-linebreak"></div>
+    </div>
 
 </body>
 </html>

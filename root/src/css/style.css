@@ -12,6 +12,7 @@ body {
 
 a, p, input[type=text], label, button {
     font-family: 'PT Serif';
+    text-decoration: none;
 }
 
 .hide {
@@ -2391,7 +2392,7 @@ a, p, input[type=text], label, button {
         height: 100%;
         display: inline-block;
         background-color: #545454;
-        border-radius: 10px;
+        border-radius: 3vw;
     }
 
     .show-input-btn.hide {
@@ -2419,7 +2420,7 @@ a, p, input[type=text], label, button {
         /* background-color: rgb(59, 58, 58); */
         text-align: center;
         border: 1px solid #c7c7c7;
-        border-radius: 10px;
+        border-radius: 2.5vw;
     }
 
     .show-input-btn, .done-btn {
@@ -2676,30 +2677,24 @@ a, p, input[type=text], label, button {
     }
 
     .browse-list {
+        width: 90vw;
+        margin: 15px auto;
         display: flex;
         flex-direction: column;
     }
 
     .browse-item {
+        width: 90vw;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 20px;
-    }
-
-    .list-line {
-        background-color: rgba(193, 199, 207, 0.748);
-        height: 0.5px;
-        width: 95%;
-        margin: 0 2.5%;
     }
 
     .browse-item h1 {
-        font-size: 15px;
+        font-size: 17px;
         color: white;
-        font-family: 'Open Sans';
-        font-weight: 200;
+        font-weight: normal;
         margin: 0;
     }
 
