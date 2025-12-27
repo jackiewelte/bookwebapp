@@ -858,15 +858,22 @@ function toggleSubmenuTab(tab, event) {
             var unclickedButtons = pageMenu.querySelectorAll('button')
             console.log(unclickedButtons)
             unclickedButtons.forEach(unclickedButton => {
-                if (!unclickedButton.classList.contains('other-discover-subpages')) {
+                if (unclickedButton.classList.contains('current-subpage')) {
+                    unclickedButton.classList.remove('current-subpage')
+                    unclickedButton.classList.add('other-subpages')
+                } else if (unclickedButton.classList.contains('current-discover-subpage')) {
                     unclickedButton.classList.remove('current-discover-subpage')
                     unclickedButton.classList.add('other-discover-subpages')
                 }
             });
             // Highlight label of clicked tab
-            clickedButton.classList.remove('other-discover-subpages')
-            clickedButton.classList.add('current-discover-subpage')
-            console.log(clickedButton.classList)
+            if (clickedButton.classList.contains('other-subpages')) {
+                clickedButton.classList.remove('other-subpages')
+                clickedButton.classList.add('current-subpage')
+            } else if (clickedButton.classList.contains('other-discover-subpage')) {
+                clickedButton.classList.remove('other-discover-subpages')
+                clickedButton.classList.add('current-discover-subpage')
+            }
         }
     }
 }
