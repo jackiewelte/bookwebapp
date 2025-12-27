@@ -2156,7 +2156,7 @@ a, p, input[type=text], label, button {
         flex-wrap: nowrap;
         justify-content: space-evenly;
         width: 100%;
-        gap: 1dvh;
+        gap: 9px;
     }
 
     .book-title {
