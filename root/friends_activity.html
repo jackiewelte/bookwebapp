@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" 
-          content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>
         Book Webapp
     </title>
@@ -34,70 +33,26 @@
 
     <div id="top-nav">
         <div id="search-bar">
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <button class="add-bookshelf-btn" href="#"></button>
+            <input type="text" id="search-input" placeholder="Find books, reviews, shelves, people...">
+            <button id="search-btn"></button>
         </div>
-        <div id="page-menu">
-            <a class="current-subpage" href="index.html">
-                Books
-            </a>
-            <a class="other-subpages" href="home_reviews.html">
-                Reviews
-            </a>
-            <a class="other-subpages" href="home_shelves.html">
-                Shelves
-            </a>
-            <a class="other-subpages" href="home_groups.html">
-                Groups
-            </a>
-            <div></div>
+        <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
+    </div>
+
+    <div class="wrap">
+        <div class="current-in-header" style="padding-top: 8px !important;">
+            <div class="in-header-wrapper">
+                <a class="page-back" href="javascript:window.history.back();">
+                    <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
+                </a>
+                <p class="in-header-title">
+                    New from Friends
+                </p>
+            </div>
         </div>
+
+        <div class="book-page"></div>
     </div>
-
-    <div class="empty-header">
-        <p></p>
-    </div>
-
-    <div class="current-in-header">
-        <div class="in-header-wrapper">
-            <a class="page-back" href="javascript:window.history.back();">
-                <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
-            </a>
-            <p class="in-header-title">
-                New from Friends
-            </p>
-        </div>
-    </div>
-
-    <div class="book-page">
-        <!-- <a class="book-thumbnail" href="book/Alice_s_Adventures_in_Wonderland_Lewis_Carroll.html">
-            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/The_Hunger_Games_Suzanne_Collins.html">
-            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Rebecca_Daphne_du_Maurier.html">
-            <img src="https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/The_Hobbit_J_R_R_Tolkien.html">
-            <img src="https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/The_Message_Ta_Nehisi_Coates.html">
-            <img src="https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/One_Hundred_Years_of_Solitude_Gabriel_Garcia_Marquez.html">
-            <img src="https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg">
-        </a> -->
-    </div>
-
-    <div class="empty-20-row">
-        <p></p>
-    </div>
-
-
-    <!-- Keep at bottom of each page -->
-    <div class="empty-footer">
-        <p></p>
-    </div>
-
 </body>
 </html>

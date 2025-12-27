@@ -1825,7 +1825,7 @@ a, p, input[type=text], label, button {
         width: 100dvw;
         position: relative;
         z-index: 0;
-        margin: 75px 0 12dvh 0;
+        margin: 83px 0 100px 0;
     }
 
     #menu {

@@ -1331,21 +1331,25 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Check if book already in RD dict
         if (rd[bookKey]) {
-            checkbox.checked = true;
-            removeMiniNotif();
-            console.log("Removed mini notif 1: ", bookKey, miniNotif);
+            checkbox.checked = true
+            removeMiniNotif()
+            console.log("Removed mini notif 1: ", bookKey, miniNotif)
         }
 
         if (checkbox.checked) {
-            delete cr[bookKey];
-            console.log("Removed from currently reading dict");
-            // Add group to RD dict
-            rd[bookKey] = new Date().toISOString();
-            // updateUIElements(bookKey, 'read', true, dotButton, label, labelCheck);
-            alert('Finished: ' + bookKey + ' at ' + rd[bookKey]);
-            console.log("rd: ", rd);
-            removeMiniNotif();
-            console.log("Removed mini notif 2");
+            if (confirm("Mark book as read?")) {
+                delete cr[bookKey]
+                console.log("Removed from currently reading dict")
+                // Add group to RD dict
+                rd[bookKey] = new Date().toISOString()
+                // updateUIElements(bookKey, 'read', true, dotButton, label, labelCheck);
+                alert('Finished: ' + bookKey + ' at ' + rd[bookKey])
+                console.log("rd: ", rd)
+                removeMiniNotif()
+                console.log("Removed mini notif 2")
+            } else {
+                checkbox.checked = false
+            }
         }
         saveToLocalStorage();
         console.log("saved to local: ", rd);

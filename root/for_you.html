@@ -33,72 +33,24 @@
 
     <div id="top-nav">
         <div id="search-bar">
-            <input type="text" placeholder="Find books, reviews, shelves, people...">
+            <button class="add-bookshelf-btn" href="#"></button>
+            <input type="text" id="search-input" placeholder="Find books, reviews, shelves, people...">
+            <button id="search-btn"></button>
         </div>
-        <div id="page-menu">
-            <a class="current-subpage" href="index.html">
-                Books
-            </a>
-            <a class="other-subpages" href="home_reviews.html">
-                Reviews
-            </a>
-            <a class="other-subpages" href="home_shelves.html">
-                Shelves
-            </a>
-            <a class="other-subpages" href="home_groups.html">
-                Groups
-            </a>
-            <div></div>
+        <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
+    </div>
+
+    <div class="wrap">
+        <div class="current-in-header" style="padding-top: 8px !important;">
+            <div class="in-header-wrapper">
+                <a class="page-back" href="javascript:window.history.back();">
+                <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
+                </a>
+                <p class="in-header-title">Recommended for you</p>
+            </div>
         </div>
-    </div>
 
-    <div class="empty-header">
-        <p></p>
+        <div class="book-page"></div>
     </div>
-
-    <div class="current-in-header">
-        <div class="in-header-wrapper">
-            <a class="page-back" href="javascript:window.history.back();">
-            <img src="./assets/images/icons/left_caret_icon.svg" class="left-caret">
-            </a>
-            <p class="in-header-title">
-                Recommended for you
-            </p>
-        </div>
-    </div>
-
-    <div class="book-page">
-        <!-- <a class="book-thumbnail" href="book/Tomorrow_and_Tomorrow_and_Tomorrow_Gabrielle_Zevin.html">
-            <img src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Yellowface_R_F_Kuang.html">
-            <img src="https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Remarkably_Bright_Creatures_Shelby_Van_Pelt.html">
-            <img src="https://m.media-amazon.com/images/I/81X7rAcaQkL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Beach_Read_Emily_Henry.html">
-            <img src="https://m.media-amazon.com/images/I/71kdiN5Y1YL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Sapiens_A_Brief_History_of_Humankind_Yuval_Noah_Harari.html">
-            <img src="https://m.media-amazon.com/images/I/716E6dQ4BXL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/The_Secret_History_Donna_Tartt.html">
-            <img src="https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg">
-        </a>
-        <a class="book-thumbnail" href="book/Normal_People_Sally Rooney.html">
-            <img src="https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg">
-        </a> -->
-    </div>
-
-    <div class="empty-row">
-        <p></p>
-    </div>
-
-    <!-- Keep at bottom of each page -->
-    <div class="empty-footer">
-        <p></p>
-    </div>
-
 </body>
 </html>
