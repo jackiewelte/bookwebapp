@@ -32,23 +32,24 @@
 
     <div id="top-nav" style="height: 141px !important;">
         <div id="search-bar">
+            <button class="add-bookshelf-btn" href="#"></button>
             <input type="text" id="search-input" placeholder="Find books, reviews, shelves, people...">
-            <button type="submit" id="search-btn"></button>
+            <button id="search-btn"></button>
         </div>
         <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
-        <div id="page-menu">
-            <button class="current-discover-subpage" onclick="toggleSubmenuTab('browse', event)">
+        <div class="page-menu">
+            <input type="radio" id="radio-5" name="tabs" checked style="display: none;" onclick="toggleSubmenuTab('browse', event)"/>
+            <label class="tab current-discover-subpage" for="radio-5">Browse</label>
+            <input type="radio" id="radio-6" name="tabs" style="display: none;" onclick="toggleSubmenuTab('recommendations', event)"/>
+            <label class="tab other-discover-subpages" for="radio-6">Recommendations</label>
+            <span id="discover-glider"></span>
+
+            <!-- <button class="current-discover-subpage" onclick="toggleSubmenuTab('browse', event)">
                 Browse
             </button>
             <button class="other-discover-subpages" onclick="toggleSubmenuTab('recommendations', event)">
                 Recommendations
-            </button>
-            <!-- <a class="current-discover-subpage" href="discover.html">
-                Browse
-            </a>
-            <a class="other-discover-subpages" href="discover-recommendations.html">
-                Recommendations
-            </a> -->
+            </button> -->
         </div>
     </div>
 

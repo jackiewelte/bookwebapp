@@ -854,7 +854,7 @@ function toggleSubmenuTab(tab, event) {
             console.log("Show current tab content")
 
             // Unhighlight label of unclicked tabs
-            const pageMenu = document.getElementById('page-menu')
+            const pageMenu = document.querySelector('.page-menu')
             var unclickedButtons = pageMenu.querySelectorAll('button')
             console.log(unclickedButtons)
             unclickedButtons.forEach(unclickedButton => {
