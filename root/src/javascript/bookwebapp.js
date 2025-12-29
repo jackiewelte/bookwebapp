@@ -1,16 +1,48 @@
-// Before navigating away from the page
+// Remember scroll and page positions before navigating away from the page
 window.addEventListener('beforeunload', () => {
+    var loc = window.location.pathname;
+    var path = loc.substring(0, loc.lastIndexOf('/'));
+    var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+    console.log("loc: ", loc, "path: ", path, "currentPage: ", currentPage);
+    const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
+
+    var x = loc.substring('root', loc.lastIndexOf('/') + 1);
+    console.log(x);
+
+    if (path.includes('index') || path.includes('discover') || path.includes('my_books') || path.includes('profile')) {
+        pagePosition[loc.lastIndexOf('/') + 1] = loc
+    }
     localStorage.setItem('scrollPosition', window.scrollY);
+    localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
+    console.log(localStorage);
 });
 
-// When the page loads
+// Recall scroll and page positions when the page loads
 window.addEventListener('load', () => {
-    const scrollPosition = localStorage.getItem('scrollPosition');
+    var loc = window.location.pathname;
+    var path = loc.substring(0, loc.lastIndexOf('/'));
+    var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+
+    var x = loc.substring('root', path.lastIndexOf('/'));
+    console.log(x);
+
+    const scrollPosition = localStorage.getItem('scrollPosition') || {};
+    const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
+
     if (scrollPosition) {
       window.scrollTo(0, scrollPosition);
       localStorage.removeItem('scrollPosition'); // Optional: Remove after use
     }
+
+    if (pagePosition[currentPage]) {
+      window.location.href = pagePosition[currentPage];
+      localStorage.removeItem('pagePosition'); // Optional: Remove after use
+    }
+
+    console.log("loc: ", loc, "path: ", path, "currentPage: ", currentPage, "pagePosition[currentPage]: ", pagePosition[currentPage]);
+    console.log(localStorage);
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -101,6 +133,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// Add checked attribute to clicked radio input and remove checked attribute from other radio inputs in HTML
+function addChecked(button) {
+    document.querySelectorAll('input[type=radio]').forEach(elem => {
+        elem.removeAttribute('checked');
+    });
+    button.setAttribute('checked', 'true');
+}
+
 
 
 
@@ -141,7 +181,21 @@ document.addEventListener("DOMContentLoaded", function() {
         "The Secret History by Donna Tartt": "https://m.media-amazon.com/images/I/71HcEbK3pEL._AC_UF1000,1000_QL80_.jpg",
         "Tomorrow and Tomorrow and Tomorrow by Gabrielle Zevin": "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg",
         "Yellowface by R.F. Kuang": "https://m.media-amazon.com/images/I/61pZ0M900BL._AC_UF1000,1000_QL80_.jpg",
-        "Normal People by Sally Rooney": "https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg"
+        "Normal People by Sally Rooney": "https://m.media-amazon.com/images/I/71fnqwR0eSL._AC_UF1000,1000_QL80_.jpg",
+
+        "Alice's Adventures in Wonderland by Lewis Carroll": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1683467449i/83345.jpg",
+        "The Hunger Games by Suzanne Collins": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327089453i/12885649.jpg",
+        "Rebecca by Daphne du Maurier": "https://prodimage.images-bn.com/pimages/9780316575201_p0_v1_s1200x630.jpg",
+        "The Hobbit by J.R.R. Tolkien": "https://m.media-amazon.com/images/I/A11+Gq4ebyL._AC_UF1000,1000_QL80_.jpg",
+        "The Message by Ta-Nehisi Coates": "https://thumbs.readings.com.au/9MgE_kL8FCYJ6UqqXq23vAjZi7g=/0x500/https://readings-v4-production.s3.amazonaws.com/assets/a99/1b2/241/a991b224198ef094a0147fcf3a67750a94432d8d/978024172419420240807-2-9mxn52.jpg",
+        "One Hundred Years of Solitude by Gabriel Garcia Marquez": "https://m.media-amazon.com/images/I/81dy4cfPGuL._AC_UF1000,1000_QL80_.jpg",
+
+        "Never Let Me Go by Kazuo Ishiguro": "https://m.media-amazon.com/images/I/71cyDfU78hL._AC_UF894,1000_QL80_.jpg",
+        "Slow Days, Fast Company by Eve Babitz": "https://www.nyrb.com/cdn/shop/products/babitz.Slow_Days_hi-res.jpg?v=1528394272",
+        "Spring Snow by Yukio Mishima": "https://m.media-amazon.com/images/I/91W6-67zqqL._AC_UF894,1000_QL80_.jpg",
+        "Madonna in a Fur Coat by Sabanhattin Ali": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1447193500i/27793819.jpg",
+        "Blue Note: Uncompromising Expression by Richard Havers": "https://prodimage.images-bn.com/pimages/9780500296516_p0_v1_s600x595.jpg",
+        "But Beautiful by Geoff Dyer": "https://m.media-amazon.com/images/I/71fSu5vb8KL._AC_UF1000,1000_QL80_.jpg"
     };
 
     friendsBookActivity = {
@@ -834,49 +888,73 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // DISCOVER
-function toggleSubmenuTab(tab, event) {
+function toggleSubmenuTab(tab, clickedTab) {
+    const tabStates = JSON.parse(localStorage.getItem('tabStates')) || {};
+
     console.log(`Submenu tab "${tab}" clicked`);
     var visibleTab = document.getElementById(tab);
-    var clickedButton = event.target;
-    console.log(visibleTab, clickedButton);
+    var hiddenTabs = document.querySelectorAll('.wrap');
+    const pageMenu = document.querySelector('.page-menu');
+    // var tabs = pageMenu.getElementsByTagName('input');
+
+    // Highlight label of clicked tab and unhighlight label of unclicked tabs
+    addChecked(clickedTab);
+
     if (visibleTab) {
         if (visibleTab.classList.contains('hide')) {
-
             // Hide content of other tabs
-            var hiddenTabs = document.querySelectorAll('.wrap')
             hiddenTabs.forEach(hiddenTab => {
                 if (!hiddenTab.classList.contains('hide')) {
                     hiddenTab.classList.add('hide')
                 }
-            });
+            })
             // Show content of current tab
             visibleTab.classList.remove('hide')
-            console.log("Show current tab content")
-
-            // Unhighlight label of unclicked tabs
-            const pageMenu = document.querySelector('.page-menu')
-            var unclickedButtons = pageMenu.querySelectorAll('button')
-            console.log(unclickedButtons)
-            unclickedButtons.forEach(unclickedButton => {
-                if (unclickedButton.classList.contains('current-subpage')) {
-                    unclickedButton.classList.remove('current-subpage')
-                    unclickedButton.classList.add('other-subpages')
-                } else if (unclickedButton.classList.contains('current-discover-subpage')) {
-                    unclickedButton.classList.remove('current-discover-subpage')
-                    unclickedButton.classList.add('other-discover-subpages')
-                }
-            });
-            // Highlight label of clicked tab
-            if (clickedButton.classList.contains('other-subpages')) {
-                clickedButton.classList.remove('other-subpages')
-                clickedButton.classList.add('current-subpage')
-            } else if (clickedButton.classList.contains('other-discover-subpages')) {
-                clickedButton.classList.remove('other-discover-subpages')
-                clickedButton.classList.add('current-discover-subpage')
-            }
         }
     }
+
+    // Remember submenu tab (radio button) selections
+
+    // window.addEventListener("beforeunload", function() {
+        var loc = window.location.pathname;
+        var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+
+        if (!(currentPage in tabStates)) {
+            tabStates[currentPage] = []
+        }
+
+        for (let i = 0; i < hiddenTabs.length; i++) {
+            tabStates[currentPage][i] = {
+                buttons: pageMenu.innerHTML,
+                tabContent: hiddenTabs[i].outerHTML
+            }
+        }
+        localStorage.setItem('tabStates', JSON.stringify(tabStates));
+        console.log(localStorage.tabStates);
+    // });
 }
+
+// Recall submenu tab (radio button) selections
+document.addEventListener("DOMContentLoaded", function() {
+    const tabStates = JSON.parse(localStorage.getItem('tabStates')) || {};
+
+    var loc = window.location.pathname;
+    var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+
+    if (tabStates.hasOwnProperty(currentPage)) {
+        var hiddenTabs = document.querySelectorAll('.wrap')
+        const pageMenu = document.querySelector('.page-menu')
+        // var tabs = pageMenu.getElementsByTagName('input')
+
+        console.log(localStorage.tabStates);
+
+        pageMenu.innerHTML = tabStates[currentPage][0].buttons;
+
+        for (let i = 0; i < hiddenTabs.length; i++) {
+            hiddenTabs[i].outerHTML = tabStates[currentPage][i].tabContent;
+        }
+    }
+});
 
 
 // MY BOOKS
@@ -910,10 +988,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const booksShelfName = document.createElement('div');
             let hyphenShelfName = shelfName.replace(/\s+/g, '-');
-            booksShelfName.className = shelfName === 'wtr' ? 'books-want-to-read' : shelfName === 'rd' ? 'books-read' : `books-${hyphenShelfName}`;
+            booksShelfName.classList.add('section-container');
+            if (shelfName === 'wtr') {
+                booksShelfName.classList.add('books-want-to-read')
+            } else if (shelfName === 'rd') {
+                booksShelfName.classList.add('books-read')
+            } else {
+                booksShelfName.classList.add(`books-${hyphenShelfName}`)
+            }
+            // booksShelfName.className = shelfName === 'wtr' ? 'books-want-to-read' : shelfName === 'rd' ? 'books-read' : `books-${hyphenShelfName}`;
 
             const currentOutHeader = document.createElement('div');
             currentOutHeader.className = 'current-out-header';
+            currentOutHeader.style.margin = '0 0 5px 0';
 
             const outHeaderTitle = document.createElement('p');
             outHeaderTitle.className = 'out-header-title';
@@ -941,7 +1028,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const bookRow = document.createElement('div');
             bookRow.className = 'book-row';
-            bookRow.style.margin = '0 auto 17px auto';
+            bookRow.style.paddingBottom = '0';
+            // bookRow.style.margin = '0 auto 17px auto';
             bookRow.style.overflow = 'clip';
 
             for (const bookKey in bookshelf) {
@@ -969,8 +1057,9 @@ document.addEventListener("DOMContentLoaded", function() {
             partialLinebreak.className = 'partial-linebreak';
             partialLinebreak.textContent = '';
 
+            booksShelfName.appendChild(bookRow);
             wrap.appendChild(booksShelfName);
-            wrap.appendChild(bookRow);
+            // wrap.appendChild(bookRow);
             wrap.appendChild(partialLinebreak);
 
             updateNumBooks(bookshelf, booksShelfName, shelfName);
@@ -1010,6 +1099,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // }
 
     const booksCurrentlyReading = document.querySelector('.books-currently-reading');
+    const contentContainer = booksCurrentlyReading.querySelector('.content-container');
     if (booksCurrentlyReading) {
         populateMiniNotifs();
     }
@@ -1047,7 +1137,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (cr.hasOwnProperty(bookKey)) {
                 console.log(bookKey, "in currently reading");
 
-                if ((window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) & (existingMiniNotifs >= maxMiniNotifs)) {
+                if ((window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) && (existingMiniNotifs >= maxMiniNotifs)) {
                     break;
                 }
 
@@ -1256,7 +1346,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     crDropdownContent.appendChild(cancelButtonContainer);
 
                     miniNotif.appendChild(crDropdownContent);
-                    booksCurrentlyReading.appendChild(miniNotif);
+
+                    if (window.location.pathname.endsWith('my_books') || window.location.pathname.endsWith('my_books.html')) {
+                        booksCurrentlyReading.appendChild(miniNotif);
+                    } else {
+                        contentContainer.appendChild(miniNotif);
+                        booksCurrentlyReading.style.borderBottom = 'none';
+                    }
 
                     updateProgressBar(miniNotif, bookKey);
 

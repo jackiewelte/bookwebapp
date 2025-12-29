@@ -38,11 +38,11 @@
         </div>
         <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
         <div class="page-menu">
-            <input type="radio" id="radio-5" name="tabs" checked style="display: none;" onclick="toggleSubmenuTab('browse', event)"/>
-            <label class="tab current-discover-subpage" for="radio-5">Browse</label>
-            <input type="radio" id="radio-6" name="tabs" style="display: none;" onclick="toggleSubmenuTab('recommendations', event)"/>
-            <label class="tab other-discover-subpages" for="radio-6">Recommendations</label>
-            <span id="discover-glider"></span>
+            <input type="radio" id="radio-5" name="tabs" checked onclick="toggleSubmenuTab('browse', event.target)"/>
+            <label class="tab" for="radio-5">Browse</label>
+            <input type="radio" id="radio-6" name="tabs" onclick="toggleSubmenuTab('recommendations', event.target)"/>
+            <label class="tab" for="radio-6">Recommendations</label>
+            <span class="glider"></span>
         </div>
     </div>
 
