@@ -936,7 +936,6 @@ function toggleSubmenuTab(tab, clickedTab) {
         console.log("CURRENT FOLDER: ", folder);
         console.log("default: ", defaultTab, "clicked tab is not default: ", clickedTab != defaultTab);
         if (clickedTab != defaultTab) {
-
             if (!(folder in tabStates)) {
                 tabStates[folder] = []
             }
@@ -946,15 +945,11 @@ function toggleSubmenuTab(tab, clickedTab) {
                     tabContent: hiddenTabs[i].outerHTML
                 }
             }
-            console.log(tabStates[folder], folder, tabStates)
-            localStorage.setItem('tabStates', JSON.stringify(tabStates));
-            console.log("tab states: ", localStorage.tabStates);
         } else {
             delete tabStates[folder]
-            console.log(tabStates[folder], folder, tabStates)
-            localStorage.setItem('tabStates', JSON.stringify(tabStates));
-            console.log("tab states: ", localStorage.tabStates);
         }
+        localStorage.setItem('tabStates', JSON.stringify(tabStates));
+        console.log(tabStates[folder], folder, tabStates, localStorage.tabStates);
     // });
 }
 
@@ -979,6 +974,7 @@ document.addEventListener("DOMContentLoaded", function() {
             hiddenTabs[i].outerHTML = tabStates[folder][i].tabContent;
         }
     }
+    console.log(tabStates[folder], folder, tabStates, localStorage.tabStates);
     // else if (lastPageVisited.lastFolder === folder) {
     //     var clickedTab = pageMenu.querySelector('input')
     //     var tab = document.querySelector('.wrap').id
