@@ -971,10 +971,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     console.log(lastPageVisited.lastFolder);
 
-    if (tabStates.hasOwnProperty(currentPage) && lastPageVisited.lastFolder != folder) {
-        pageMenu.innerHTML = tabStates[currentPage][0].buttons
+    if (tabStates.hasOwnProperty(folder) && lastPageVisited.lastFolder != folder) {
+        pageMenu.innerHTML = tabStates[folder][0].buttons
         for (let i = 0; i < hiddenTabs.length; i++) {
-            hiddenTabs[i].outerHTML = tabStates[currentPage][i].tabContent;
+            hiddenTabs[i].outerHTML = tabStates[folder][i].tabContent;
         }
     }
     else if (lastPageVisited.lastFolder === folder) {
@@ -982,8 +982,8 @@ document.addEventListener("DOMContentLoaded", function() {
         var tab = document.querySelector('.wrap').id
         console.log("TAB: ", tab, "CLICKED TAB: ", clickedTab)
         toggleSubmenuTab(tab, clickedTab)
-        console.log("log: ", tabStates[currentPage])
-        delete tabStates[currentPage]
+        console.log("log: ", tabStates[folder])
+        delete tabStates[folder]
     }
 });
 
