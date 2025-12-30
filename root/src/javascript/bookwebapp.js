@@ -933,15 +933,19 @@ function toggleSubmenuTab(tab, clickedTab) {
 
     // window.addEventListener("beforeunload", function() {
         var loc = window.location.pathname;
-        var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
-        console.log("CURRENT PAGE: ", currentPage);
+        // var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+        var folder = loc.split('/')[1];
+        if (folder === '') {
+            folder = 'index'
+        }
+        console.log("CURRENT FOLDER: ", folder);
 
-        if (!(currentPage in tabStates)) {
-            tabStates[currentPage] = []
+        if (!(folder in tabStates)) {
+            tabStates[folder] = []
         }
 
         for (let i = 0; i < hiddenTabs.length; i++) {
-            tabStates[currentPage][i] = {
+            tabStates[folder][i] = {
                 buttons: pageMenu.innerHTML,
                 tabContent: hiddenTabs[i].outerHTML
             }
