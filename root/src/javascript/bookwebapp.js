@@ -1,5 +1,5 @@
 // Remember scroll and page positions before navigating away from the page
-window.addEventListener('beforeunload', function(e) {
+window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
     var path = loc.substring(0, loc.lastIndexOf('/'));
     var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
@@ -9,9 +9,6 @@ window.addEventListener('beforeunload', function(e) {
 
     var split = window.location.pathname.split('/');
     var folder = split[1];
-    // var testFolder = split[7];
-    // var folderSplit = folder.split('.')[0];
-    // var testFolderSplit = folder.split('.')[0];
 
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
@@ -22,24 +19,12 @@ window.addEventListener('beforeunload', function(e) {
         }
         lastPageVisited["lastFolder"] = folder
     }
-    // else if (folder === 'index.html' || folder === 'discover.html' || folder === 'my_books.html' || folder === 'profile.html') {
-    //     lastPageVisited["lastFolder"] = folderSplit
-    // }
-
-    // } else if (testFolder === 'index' || testFolder === 'discover' || testFolder === 'my_books' || testFolder === 'profile') {
-    //     pagePosition[testFolder] = loc
-    //     lastPageVisited["lastFolder"] = testFolder
-    // }
-    // } else if (testFolder === 'index.html' || testFolder === 'discover.html' || testFolder === 'my_books.html' || testFolder === 'profile.html') {
-    //     lastPageVisited["lastFolder"] = testFolderSplit
-    // }
     lastPageVisited["lastURL"] = loc
 
     localStorage.setItem('scrollPosition', window.scrollY);
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
     console.log(localStorage);
-    e.returnValue = '';
 });
 
 // Recall scroll and page positions when the page loads
@@ -76,7 +61,9 @@ window.addEventListener("DOMContentLoaded", function() {
 
 
 window.addEventListener('beforeunload', function() {
-
+    var loc = window.location.pathname;
+    console.log("LOC: ", loc);
+    return true;
 });
 
 
