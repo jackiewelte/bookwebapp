@@ -963,7 +963,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     console.log(Object.keys(lastPageVisited)[0]);
-    console.log(Object.keys(lastPageVisited));
+    console.log(lastPageVisited[folder]);
 
     if (tabStates.hasOwnProperty(currentPage) && lastPageVisited[folder] != folder) {
         var hiddenTabs = document.querySelectorAll('.wrap')
