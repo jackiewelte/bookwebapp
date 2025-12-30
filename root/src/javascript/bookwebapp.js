@@ -1,13 +1,9 @@
 // Remember scroll and page positions before navigating away from the page
 window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
-    // var path = loc.substring(0, loc.lastIndexOf('/'));
-    // var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+    var folder = loc.split('/')[1];
     const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
-
-    var folder = loc.split('/')[1];
-    // var folder = split[1];
 
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
@@ -46,7 +42,6 @@ window.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
             if (Object.keys(pagePosition)[i] === folder) {
                 window.location.href = pagePosition[folder]
-                console.log("go to page")
                 localStorage.removeItem('pagePosition') // Optional: Remove after use
             }
         }
@@ -909,8 +904,9 @@ function toggleSubmenuTab(tab, clickedTab) {
 
     console.log(`Submenu tab "${tab}" clicked`);
     var visibleTab = document.getElementById(tab);
-    var hiddenTabs = document.querySelectorAll('.wrap');
     const pageMenu = document.querySelector('.page-menu');
+    var defaultTab = pageMenu.querySelector('input');
+    var hiddenTabs = document.querySelectorAll('.wrap');
     // var tabs = pageMenu.getElementsByTagName('input');
 
     // Highlight label of clicked tab and unhighlight label of unclicked tabs
@@ -932,25 +928,26 @@ function toggleSubmenuTab(tab, clickedTab) {
     // Remember submenu tab (radio button) selections
 
     // window.addEventListener("beforeunload", function() {
-        var loc = window.location.pathname;
-        var folder = loc.split('/')[1];
-        if (folder === '') {
-            folder = 'index'
-        }
-        console.log("CURRENT FOLDER: ", folder);
-
-        if (!(folder in tabStates)) {
-            tabStates[folder] = []
-        }
-
-        for (let i = 0; i < hiddenTabs.length; i++) {
-            tabStates[folder][i] = {
-                buttons: pageMenu.innerHTML,
-                tabContent: hiddenTabs[i].outerHTML
+        if (!defaultTab) {
+            var loc = window.location.pathname;
+            var folder = loc.split('/')[1];
+            if (folder === '') {
+                folder = 'index'
             }
+            console.log("CURRENT FOLDER: ", folder);
+
+            if (!(folder in tabStates)) {
+                tabStates[folder] = []
+            }
+            for (let i = 0; i < hiddenTabs.length; i++) {
+                tabStates[folder][i] = {
+                    buttons: pageMenu.innerHTML,
+                    tabContent: hiddenTabs[i].outerHTML
+                }
+            }
+            localStorage.setItem('tabStates', JSON.stringify(tabStates));
+            console.log("tab states: ", localStorage.tabStates);
         }
-        localStorage.setItem('tabStates', JSON.stringify(tabStates));
-        console.log("tab states: ", localStorage.tabStates);
     // });
 }
 
@@ -960,7 +957,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
     var loc = window.location.pathname;
-    console.log("loc:::: ", loc);
     var folder = loc.split('/')[1];
     if (folder === '') {
         folder = 'index'
@@ -976,14 +972,14 @@ document.addEventListener("DOMContentLoaded", function() {
             hiddenTabs[i].outerHTML = tabStates[folder][i].tabContent;
         }
     }
-    else if (lastPageVisited.lastFolder === folder) {
-        var clickedTab = pageMenu.querySelector('input')
-        var tab = document.querySelector('.wrap').id
-        console.log("TAB: ", tab, "CLICKED TAB: ", clickedTab)
-        toggleSubmenuTab(tab, clickedTab)
-        console.log("log: ", tabStates[folder])
-        delete tabStates[folder]
-    }
+    // else if (lastPageVisited.lastFolder === folder) {
+    //     var clickedTab = pageMenu.querySelector('input')
+    //     var tab = document.querySelector('.wrap').id
+    //     console.log("TAB: ", tab, "CLICKED TAB: ", clickedTab)
+    //     toggleSubmenuTab(tab, clickedTab)
+    //     console.log("log: ", tabStates[folder])
+    //     delete tabStates[folder]
+    // }
 });
 
 
