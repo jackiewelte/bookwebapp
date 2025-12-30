@@ -971,6 +971,7 @@ document.addEventListener("DOMContentLoaded", function() {
     else if (lastPageVisited[folder] === folder) {
         var clickedTab = pageMenu.getElementById('radio-1')
         toggleSubmenuTab('books', clickedTab)
+        console.log("log: ", tabStates[currentPage])
         delete tabStates[currentPage]
     }
 });
