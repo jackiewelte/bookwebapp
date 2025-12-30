@@ -963,9 +963,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     console.log(Object.keys(lastPageVisited)[0]);
-    console.log(lastPageVisited[folder]);
+    console.log(lastPageVisited[folder], lastPageVisited.lastFolder);
 
-    if (tabStates.hasOwnProperty(currentPage) && lastPageVisited[folder] != folder) {
+    if (tabStates.hasOwnProperty(currentPage) && lastPageVisited.lastFolder != folder) {
         var hiddenTabs = document.querySelectorAll('.wrap')
         const pageMenu = document.querySelector('.page-menu')
 
@@ -974,7 +974,7 @@ document.addEventListener("DOMContentLoaded", function() {
             hiddenTabs[i].outerHTML = tabStates[currentPage][i].tabContent;
         }
     }
-    else if (Object.keys(lastPageVisited)[0] === folder) {
+    else if (lastPageVisited.lastFolder === folder) {
         var clickedTab = pageMenu.getElementById('radio-1')
         toggleSubmenuTab('books', clickedTab)
         console.log("log: ", tabStates[currentPage])
