@@ -962,6 +962,9 @@ document.addEventListener("DOMContentLoaded", function() {
         folder = 'index'
     }
 
+    console.log(Object.keys(lastPageVisited)[0]);
+    console.log(Object.keys(lastPageVisited));
+
     if (tabStates.hasOwnProperty(currentPage) && lastPageVisited[folder] != folder) {
         var hiddenTabs = document.querySelectorAll('.wrap')
         const pageMenu = document.querySelector('.page-menu')
