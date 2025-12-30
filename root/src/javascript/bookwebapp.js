@@ -951,6 +951,7 @@ function toggleSubmenuTab(tab, clickedTab) {
         } else {
             delete tabStates[folder]
             console.log(tabStates[folder], folder, tabStates)
+            localStorage.setItem('tabStates', JSON.stringify(tabStates));
             console.log("tab states: ", localStorage.tabStates);
         }
     // });
