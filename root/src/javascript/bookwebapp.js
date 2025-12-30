@@ -10,20 +10,21 @@ window.addEventListener('beforeunload', () => {
     var split = window.location.pathname.split('/');
     var folder = split[1];
     // var testFolder = split[7];
-    var folderSplit = folder.split('.')[0];
+    // var folderSplit = folder.split('.')[0];
     // var testFolderSplit = folder.split('.')[0];
 
-    if (folder === '' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
+    if (folder === '' || folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
         lastPageVisited["lastFolder"] = folder
     }
+    // else if (folder === 'index.html' || folder === 'discover.html' || folder === 'my_books.html' || folder === 'profile.html') {
+    //     lastPageVisited["lastFolder"] = folderSplit
+    // }
+
     // } else if (testFolder === 'index' || testFolder === 'discover' || testFolder === 'my_books' || testFolder === 'profile') {
     //     pagePosition[testFolder] = loc
     //     lastPageVisited["lastFolder"] = testFolder
     // }
-    else if (folder === 'index.html' || folder === 'discover.html' || folder === 'my_books.html' || folder === 'profile.html') {
-        lastPageVisited["lastFolder"] = folderSplit
-    }
     // } else if (testFolder === 'index.html' || testFolder === 'discover.html' || testFolder === 'my_books.html' || testFolder === 'profile.html') {
     //     lastPageVisited["lastFolder"] = testFolderSplit
     // }
