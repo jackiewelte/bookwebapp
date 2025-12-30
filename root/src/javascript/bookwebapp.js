@@ -928,6 +928,7 @@ function toggleSubmenuTab(tab, clickedTab) {
     // Remember submenu tab (radio button) selections
 
     // window.addEventListener("beforeunload", function() {
+    console.log(defaultTab);
         if (!defaultTab) {
             var loc = window.location.pathname;
             var folder = loc.split('/')[1];
