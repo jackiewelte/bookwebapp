@@ -922,7 +922,7 @@ a, p, input[type=text], label, button {
         background-color: #38b6ff;
         border: 2px solid #38b6ff;
         color: transparent;
-        background-image: url(https://static-00.iconduck.com/assets.00/checkmark-icon-512x426-8re0u9li.png);
+        background-image: url(../../assets/images/icons/white_checkmark_icon.svg);
         /* background-size: contain; */
         background-size: 60%;
         background-repeat: no-repeat;
@@ -2749,7 +2749,7 @@ a, p, input[type=text], label, button {
         background-color: #38b6ff;
         border: 2px solid #38b6ff;
         color: transparent;
-        background-image: url(https://static-00.iconduck.com/assets.00/checkmark-icon-512x426-8re0u9li.png);
+        background-image: url(../../assets/images/icons/white_checkmark_icon.svg);
         /* background-size: contain; */
         background-size: 60%;
         background-repeat: no-repeat;

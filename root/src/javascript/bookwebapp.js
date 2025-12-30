@@ -852,6 +852,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         groupElements.forEach(groupElement => {
             const numMembersLabel = groupElement.querySelector('.num-members');
+            console.log("group members: ", Object.keys(groupMembers).length);
             const numMembers = Object.keys(groupMembers).length.toLocaleString();
 
             if (numMembers === 1) {
