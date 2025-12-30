@@ -48,6 +48,9 @@ window.addEventListener('load', () => {
     var loc = window.location.pathname;
     var split = loc.split('/');
     var folder = split[1];
+    if (folder === '') {
+        folder = 'index'
+    }
     // var folder = page.split('.')[0];
     // var testPage = split[7];
     // var testFolder = testPage.split('.')[0];
