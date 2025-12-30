@@ -42,7 +42,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 // Recall scroll and page positions when the page loads
-window.addEventListener('load', () => {
+window.addEventListener("DOMContentLoaded", function() {
     const scrollPosition = localStorage.getItem('scrollPosition') || {};
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
     const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
