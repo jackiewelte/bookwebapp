@@ -1,13 +1,13 @@
 // Remember scroll and page positions before navigating away from the page
 window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
-    var path = loc.substring(0, loc.lastIndexOf('/'));
-    var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+    // var path = loc.substring(0, loc.lastIndexOf('/'));
+    // var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
     const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
-    var split = window.location.pathname.split('/');
-    var folder = split[1];
+    var folder = loc.split('/')[1];
+    // var folder = split[1];
 
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
@@ -32,8 +32,7 @@ window.addEventListener("DOMContentLoaded", function() {
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
     const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     var loc = window.location.pathname;
-    var split = loc.split('/');
-    var folder = split[1];
+    var folder = loc.split('/')[1];
     if (folder === '') {
         folder = 'index'
     }
@@ -947,29 +946,32 @@ function toggleSubmenuTab(tab, clickedTab) {
             }
         }
         localStorage.setItem('tabStates', JSON.stringify(tabStates));
-        console.log(localStorage.tabStates);
+        console.log("tab states: ", localStorage.tabStates);
     // });
 }
 
 // Recall submenu tab (radio button) selections
 document.addEventListener("DOMContentLoaded", function() {
     const tabStates = JSON.parse(localStorage.getItem('tabStates')) || {};
+    const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
     var loc = window.location.pathname;
     var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+    var folder = loc.split('/')[1];
 
-    if (tabStates.hasOwnProperty(currentPage)) {
+    if (tabStates.hasOwnProperty(currentPage) && lastPageVisited[folder] != folder) {
         var hiddenTabs = document.querySelectorAll('.wrap')
         const pageMenu = document.querySelector('.page-menu')
-        // var tabs = pageMenu.getElementsByTagName('input')
 
-        console.log(localStorage.tabStates);
-
-        pageMenu.innerHTML = tabStates[currentPage][0].buttons;
-
+        pageMenu.innerHTML = tabStates[currentPage][0].buttons
         for (let i = 0; i < hiddenTabs.length; i++) {
             hiddenTabs[i].outerHTML = tabStates[currentPage][i].tabContent;
         }
+    }
+    else if (lastPageVisited[folder] === folder) {
+        var clickedTab = pageMenu.getElementById('radio-1')
+        toggleSubmenuTab('books', clickedTab)
+        delete tabStates[currentPage]
     }
 });
 
