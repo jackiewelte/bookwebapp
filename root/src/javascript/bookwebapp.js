@@ -1,5 +1,5 @@
 // Remember scroll and page positions before navigating away from the page
-window.addEventListener('beforeunload', () => {
+window.addEventListener('beforeunload', function(e) {
     var loc = window.location.pathname;
     var path = loc.substring(0, loc.lastIndexOf('/'));
     var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
@@ -39,6 +39,7 @@ window.addEventListener('beforeunload', () => {
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
     console.log(localStorage);
+    e.returnValue = '';
 });
 
 // Recall scroll and page positions when the page loads
@@ -46,34 +47,18 @@ window.addEventListener("DOMContentLoaded", function() {
     const scrollPosition = localStorage.getItem('scrollPosition') || {};
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
     const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
-
     var loc = window.location.pathname;
     var split = loc.split('/');
     var folder = split[1];
     if (folder === '') {
         folder = 'index'
     }
-    // var folder = page.split('.')[0];
-    // var testPage = split[7];
-    // var testFolder = testPage.split('.')[0];
-    console.log("loc: ", loc);
-    // console.log("page: ", page);
-    // console.log("testPage: ", testPage);
-    console.log("folder: ", folder);
-    // console.log("testFolder: ", testFolder);
-    console.log(lastPageVisited, lastPageVisited.lastFolder);
-    console.log(pagePosition, pagePosition[folder]);
 
     if (scrollPosition) {
       window.scrollTo(0, scrollPosition);
       localStorage.removeItem('scrollPosition'); // Optional: Remove after use
     }
 
-    console.log(Object.keys(pagePosition)[0], folder);
-    console.log(Object.keys(pagePosition)[0] === folder);
-    console.log(folder, pagePosition[folder]);
-
-    // if (lastPageVisited.lastFolder != folder && lastPageVisited.lastFolder != testFolder && folder != "Users") {
     if (lastPageVisited.lastFolder != folder) {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
             if (Object.keys(pagePosition)[i] === folder) {
@@ -82,15 +67,16 @@ window.addEventListener("DOMContentLoaded", function() {
                 localStorage.removeItem('pagePosition') // Optional: Remove after use
             }
         }
-    // } else if (lastPageVisited.lastFolder === folder) {
     } else {
         delete pagePosition[folder]
     }
-    // } else if (lastPageVisited.lastFolder === testFolder) {
-    //     delete pagePosition[testFolder]
-    // }
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
     console.log(localStorage);
+});
+
+
+window.addEventListener('beforeunload', function() {
+
 });
 
 
