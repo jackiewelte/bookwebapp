@@ -3,7 +3,6 @@ window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
     var path = loc.substring(0, loc.lastIndexOf('/'));
     var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
-    console.log("loc: ", loc, "path: ", path, "currentPage: ", currentPage);
     const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
@@ -19,7 +18,7 @@ window.addEventListener('beforeunload', function() {
         }
         lastPageVisited["lastFolder"] = folder
     }
-    lastPageVisited["lastURL"] = loc
+    lastPageVisited["lastURL"] = loc;
 
     localStorage.setItem('scrollPosition', window.scrollY);
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
@@ -40,8 +39,8 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 
     if (scrollPosition) {
-      window.scrollTo(0, scrollPosition);
-      localStorage.removeItem('scrollPosition'); // Optional: Remove after use
+      window.scrollTo(0, scrollPosition)
+      localStorage.removeItem('scrollPosition') // Optional: Remove after use
     }
 
     if (lastPageVisited.lastFolder != folder) {
@@ -58,14 +57,6 @@ window.addEventListener("DOMContentLoaded", function() {
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
     console.log(localStorage);
 });
-
-
-window.addEventListener('beforeunload', function() {
-    var loc = window.location.pathname;
-    console.log("LOC: ", loc);
-    return true;
-});
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
