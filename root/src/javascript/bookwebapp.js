@@ -950,6 +950,7 @@ function toggleSubmenuTab(tab, clickedTab) {
             console.log("tab states: ", localStorage.tabStates);
         } else {
             delete tabStates[folder]
+            console.log(tabStates[folder], tabStates)
         }
     // });
 }
