@@ -933,7 +933,6 @@ function toggleSubmenuTab(tab, clickedTab) {
 
     // window.addEventListener("beforeunload", function() {
         var loc = window.location.pathname;
-        // var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
         var folder = loc.split('/')[1];
         if (folder === '') {
             folder = 'index'
@@ -944,7 +943,7 @@ function toggleSubmenuTab(tab, clickedTab) {
             tabStates[folder] = []
         }
 
-        for (let i = 1; i < hiddenTabs.length; i++) {
+        for (let i = 0; i < hiddenTabs.length; i++) {
             tabStates[folder][i] = {
                 buttons: pageMenu.innerHTML,
                 tabContent: hiddenTabs[i].outerHTML
@@ -961,7 +960,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
     var loc = window.location.pathname;
-    var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+    console.log("loc:::: ", loc);
     var folder = loc.split('/')[1];
     if (folder === '') {
         folder = 'index'
