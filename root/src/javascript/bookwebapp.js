@@ -971,7 +971,7 @@ document.addEventListener("DOMContentLoaded", function() {
             hiddenTabs[i].outerHTML = tabStates[currentPage][i].tabContent;
         }
     }
-    else if (lastPageVisited[folder] === folder) {
+    else if (Object.keys(lastPageVisited)[0] === folder) {
         var clickedTab = pageMenu.getElementById('radio-1')
         toggleSubmenuTab('books', clickedTab)
         console.log("log: ", tabStates[currentPage])
