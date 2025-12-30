@@ -934,6 +934,7 @@ function toggleSubmenuTab(tab, clickedTab) {
     // window.addEventListener("beforeunload", function() {
         var loc = window.location.pathname;
         var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
+        console.log("CURRENT PAGE: ", currentPage);
 
         if (!(currentPage in tabStates)) {
             tabStates[currentPage] = []
