@@ -13,7 +13,10 @@ window.addEventListener('beforeunload', () => {
     // var folderSplit = folder.split('.')[0];
     // var testFolderSplit = folder.split('.')[0];
 
-    if (folder === '' || folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
+    if (folder === '') {
+        folder = 'index'
+    }
+    if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
         lastPageVisited["lastFolder"] = folder
     }
