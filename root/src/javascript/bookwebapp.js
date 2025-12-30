@@ -19,7 +19,8 @@ window.addEventListener('beforeunload', function() {
     localStorage.setItem('scrollPosition', window.scrollY);
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
-    console.log(localStorage);
+    console.log(localStorage.lastPageVisited);
+    console.log(localStorage.pagePosition);
 });
 
 // Recall scroll and page positions when the page loads
@@ -49,7 +50,8 @@ window.addEventListener("DOMContentLoaded", function() {
         delete pagePosition[folder]
     }
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
-    console.log(localStorage);
+    console.log(localStorage.lastPageVisited);
+    console.log(localStorage.pagePosition);
 });
 
 
