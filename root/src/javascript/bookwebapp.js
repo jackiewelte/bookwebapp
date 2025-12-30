@@ -784,10 +784,12 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("MOBILE!")
         var bookThumbnail = document.querySelector(".book-thumbnail-img")
         // bookThumbnail.addEventListener('contextmenu', event => event.preventDefault())
-        bookThumbnail.addEventListener('contextmenu', function() {
-            console.log("returning false;");
-            return false;
-        });
+        if (bookThumbnail) {
+            bookThumbnail.addEventListener('contextmenu', function() {
+                console.log("returning false;");
+                return false;
+            });
+        }
     }
 });
 
