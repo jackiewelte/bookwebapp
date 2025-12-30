@@ -934,7 +934,7 @@ function toggleSubmenuTab(tab, clickedTab) {
             folder = 'index'
         }
         console.log("CURRENT FOLDER: ", folder);
-        console.log(defaultTab, clickedTab != defaultTab);
+        console.log(defaultTab, "clicked tab is default: ", clickedTab != defaultTab);
         if (clickedTab != defaultTab) {
 
             if (!(folder in tabStates)) {
