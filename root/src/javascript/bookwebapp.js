@@ -9,24 +9,24 @@ window.addEventListener('beforeunload', () => {
 
     var split = window.location.pathname.split('/');
     var folder = split[1];
-    var testFolder = split[7];
+    // var testFolder = split[7];
     var folderSplit = folder.split('.')[0];
-    var testFolderSplit = folder.split('.')[0];
+    // var testFolderSplit = folder.split('.')[0];
 
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
         lastPageVisited["lastFolder"] = folder
-    } else if (testFolder === 'index' || testFolder === 'discover' || testFolder === 'my_books' || testFolder === 'profile') {
-        pagePosition[testFolder] = loc
-        lastPageVisited["lastFolder"] = testFolder
     }
-
+    // } else if (testFolder === 'index' || testFolder === 'discover' || testFolder === 'my_books' || testFolder === 'profile') {
+    //     pagePosition[testFolder] = loc
+    //     lastPageVisited["lastFolder"] = testFolder
+    // }
     else if (folder === 'index.html' || folder === 'discover.html' || folder === 'my_books.html' || folder === 'profile.html') {
         lastPageVisited["lastFolder"] = folderSplit
-    } else if (testFolder === 'index.html' || testFolder === 'discover.html' || testFolder === 'my_books.html' || testFolder === 'profile.html') {
-        lastPageVisited["lastFolder"] = testFolderSplit
     }
-
+    // } else if (testFolder === 'index.html' || testFolder === 'discover.html' || testFolder === 'my_books.html' || testFolder === 'profile.html') {
+    //     lastPageVisited["lastFolder"] = testFolderSplit
+    // }
     lastPageVisited["lastURL"] = loc
 
     localStorage.setItem('scrollPosition', window.scrollY);
@@ -44,14 +44,14 @@ window.addEventListener('load', () => {
     var loc = window.location.pathname;
     var split = loc.split('/');
     var page = split[1];
-    var testPage = split[7];
+    // var testPage = split[7];
     var folder = page.split('.')[0];
-    var testFolder = testPage.split('.')[0];
-    console.log("page: ", page);
-    console.log("testPage: ", testPage);
-    console.log("folder: ", folder);
-    console.log("testFolder: ", testFolder);
-    console.log(lastPageVisited, lastPageVisited.lastFolder);
+    // var testFolder = testPage.split('.')[0];
+    // console.log("page: ", page);
+    // console.log("testPage: ", testPage);
+    // console.log("folder: ", folder);
+    // console.log("testFolder: ", testFolder);
+    // console.log(lastPageVisited, lastPageVisited.lastFolder);
 
     if (scrollPosition) {
       window.scrollTo(0, scrollPosition);
@@ -62,23 +62,22 @@ window.addEventListener('load', () => {
     console.log(Object.keys(pagePosition)[0] === folder);
     console.log(page, folder, pagePosition[folder]);
 
-    if (lastPageVisited.lastFolder != folder && lastPageVisited.lastFolder != testFolder && folder != "Users") {
+    // if (lastPageVisited.lastFolder != folder && lastPageVisited.lastFolder != testFolder && folder != "Users") {
+    if (lastPageVisited.lastFolder != folder) {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
             if (Object.keys(pagePosition)[i] === folder) {
                 window.location.href = pagePosition[folder]
                 console.log("go to page")
                 localStorage.removeItem('pagePosition') // Optional: Remove after use
-            } else if (Object.keys(pagePosition)[i] === testFolder) {
-                window.location.href = pagePosition[testFolder]
-                console.log("go to page")
-                localStorage.removeItem('pagePosition') // Optional: Remove after use
             }
         }
-    } else if (lastPageVisited.lastFolder === folder) {
+    // } else if (lastPageVisited.lastFolder === folder) {
+    } else {
         delete pagePosition[folder]
-    } else if (lastPageVisited.lastFolder === testFolder) {
-        delete pagePosition[testFolder]
     }
+    // } else if (lastPageVisited.lastFolder === testFolder) {
+    //     delete pagePosition[testFolder]
+    // }
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
     console.log(localStorage);
 });
