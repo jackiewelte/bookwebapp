@@ -57,6 +57,7 @@ window.addEventListener('load', () => {
     console.log("folder: ", folder);
     // console.log("testFolder: ", testFolder);
     console.log(lastPageVisited, lastPageVisited.lastFolder);
+    console.log(pagePosition, pagePosition[folder]);
 
     if (scrollPosition) {
       window.scrollTo(0, scrollPosition);
