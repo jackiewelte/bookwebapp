@@ -44,12 +44,12 @@ window.addEventListener('load', () => {
 
     var loc = window.location.pathname;
     var split = loc.split('/');
-    var page = split[1];
+    var folder = split[1];
+    // var folder = page.split('.')[0];
     // var testPage = split[7];
-    var folder = page.split('.')[0];
     // var testFolder = testPage.split('.')[0];
     console.log("loc: ", loc);
-    console.log("page: ", page);
+    // console.log("page: ", page);
     // console.log("testPage: ", testPage);
     console.log("folder: ", folder);
     // console.log("testFolder: ", testFolder);
@@ -60,9 +60,9 @@ window.addEventListener('load', () => {
       localStorage.removeItem('scrollPosition'); // Optional: Remove after use
     }
 
-    console.log(Object.keys(pagePosition)[0],  folder);
+    console.log(Object.keys(pagePosition)[0], folder);
     console.log(Object.keys(pagePosition)[0] === folder);
-    console.log(page, folder, pagePosition[folder]);
+    console.log(folder, pagePosition[folder]);
 
     // if (lastPageVisited.lastFolder != folder && lastPageVisited.lastFolder != testFolder && folder != "Users") {
     if (lastPageVisited.lastFolder != folder) {
