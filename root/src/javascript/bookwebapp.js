@@ -948,6 +948,8 @@ function toggleSubmenuTab(tab, clickedTab) {
             }
             localStorage.setItem('tabStates', JSON.stringify(tabStates));
             console.log("tab states: ", localStorage.tabStates);
+        } else {
+            delete tabStates[folder]
         }
     // });
 }
