@@ -47,11 +47,11 @@ window.addEventListener('load', () => {
     // var testPage = split[7];
     var folder = page.split('.')[0];
     // var testFolder = testPage.split('.')[0];
-    // console.log("page: ", page);
+    console.log("page: ", page);
     // console.log("testPage: ", testPage);
-    // console.log("folder: ", folder);
+    console.log("folder: ", folder);
     // console.log("testFolder: ", testFolder);
-    // console.log(lastPageVisited, lastPageVisited.lastFolder);
+    console.log(lastPageVisited, lastPageVisited.lastFolder);
 
     if (scrollPosition) {
       window.scrollTo(0, scrollPosition);
