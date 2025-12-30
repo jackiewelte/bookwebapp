@@ -961,22 +961,22 @@ document.addEventListener("DOMContentLoaded", function() {
     if (folder === '') {
         folder = 'index'
     }
+    var hiddenTabs = document.querySelectorAll('.wrap')
+    const pageMenu = document.querySelector('.page-menu')
 
-    console.log(Object.keys(lastPageVisited)[0]);
-    console.log(lastPageVisited[folder], lastPageVisited.lastFolder);
+    console.log(lastPageVisited.lastFolder);
 
     if (tabStates.hasOwnProperty(currentPage) && lastPageVisited.lastFolder != folder) {
-        var hiddenTabs = document.querySelectorAll('.wrap')
-        const pageMenu = document.querySelector('.page-menu')
-
         pageMenu.innerHTML = tabStates[currentPage][0].buttons
         for (let i = 0; i < hiddenTabs.length; i++) {
             hiddenTabs[i].outerHTML = tabStates[currentPage][i].tabContent;
         }
     }
     else if (lastPageVisited.lastFolder === folder) {
-        var clickedTab = pageMenu.getElementById('radio-1')
-        toggleSubmenuTab('books', clickedTab)
+        var clickedTab = pageMenu.querySelector('input')
+        var tab = document.querySelector('.wrap').id
+        console.log("TAB: ", tab, "CLICKED TAB: ", clickedTab)
+        toggleSubmenuTab(tab, clickedTab)
         console.log("log: ", tabStates[currentPage])
         delete tabStates[currentPage]
     }
