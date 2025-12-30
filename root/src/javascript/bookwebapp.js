@@ -958,6 +958,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
     var currentPage = loc.substring(loc.lastIndexOf('/') + 1);
     var folder = loc.split('/')[1];
+    if (folder === '') {
+        folder = 'index'
+    }
 
     if (tabStates.hasOwnProperty(currentPage) && lastPageVisited[folder] != folder) {
         var hiddenTabs = document.querySelectorAll('.wrap')
