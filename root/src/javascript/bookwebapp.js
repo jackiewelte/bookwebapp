@@ -928,14 +928,14 @@ function toggleSubmenuTab(tab, clickedTab) {
     // Remember submenu tab (radio button) selections
 
     // window.addEventListener("beforeunload", function() {
+    var loc = window.location.pathname;
+    var folder = loc.split('/')[1];
+    if (folder === '') {
+        folder = 'index'
+    }
+    console.log("CURRENT FOLDER: ", folder);
     console.log(defaultTab, clickedTab != defaultTab);
         if (clickedTab != defaultTab) {
-            var loc = window.location.pathname;
-            var folder = loc.split('/')[1];
-            if (folder === '') {
-                folder = 'index'
-            }
-            console.log("CURRENT FOLDER: ", folder);
 
             if (!(folder in tabStates)) {
                 tabStates[folder] = []
