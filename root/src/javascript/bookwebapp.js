@@ -373,6 +373,8 @@ function addCustomShelf(shelfName, customShelves) {
         localStorage.setItem('customShelves', JSON.stringify(customShelves));
         console.log(`New shelf created: ${shelfName}`);
 
+        makePage();
+
         // create shelf file in bookshelf dir with default heading content and book-page div
         // var f = new File([""], `${shelfName.replace(/\s+/g, '_')}.html`);
         // console.log(`New file ${f} created in ${dir}`);

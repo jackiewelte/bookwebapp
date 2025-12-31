@@ -6,7 +6,8 @@ function makePage() {
         }
     }
     // var content = "<html><head><meta charset=\"utf-8\" /> </head><body>new website<script>alert(\"test\")</script></body></html>";
-    var content = "<html><head><meta charset=\"utf-8\" name=\"viewport\" content=\"width=device-width\" initial-scale=\"1\"></meta><title>Book Webapp</title>" +
+    var content = "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\">" +
+    "<head><meta charset=\"utf-8\" name=\"viewport\" content=\"width=device-width\" initial-scale=\"1\"></meta><title>Book Webapp</title>" +
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"../src/css/style.css\">" +
     "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">" +
     "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>" +
@@ -58,6 +59,8 @@ function makePage() {
             "</div>" +
         "</div>" +
     "</body></html>"
+
+    console.log(content);
 
     xmlhttp.open("GET","makePage.php?content=" + content, true);
     xmlhttp.send();
