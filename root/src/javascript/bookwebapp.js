@@ -1042,7 +1042,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const showMore = document.createElement('a');
             showMore.className = 'show-more';
             let underscoreShelfName = shelfName.replace(/\s+/g, '_');
-            showMore.href = shelfName === 'wtr' ? 'Want_to_Read.html' : shelfName === 'rd' ? 'Read.html' : `${underscoreShelfName}.html`;
+            showMore.href = shelfName === 'wtr' ? 'my_books/Want_to_Read.html' : shelfName === 'rd' ? 'my_books/Read.html' : `my_books/${underscoreShelfName}.html`;
 
             const numBooks = document.createElement('p');
             numBooks.className = 'num-books';
@@ -1050,7 +1050,7 @@ document.addEventListener("DOMContentLoaded", function() {
             showMore.appendChild(numBooks);
 
             const rightCaret = document.createElement('img');
-            rightCaret.src = './assets/images/icons/right_caret_icon.svg';
+            rightCaret.src = '../assets/images/icons/right_caret_icon.svg';
             rightCaret.className = 'right-caret';
 
             showMore.appendChild(rightCaret);
