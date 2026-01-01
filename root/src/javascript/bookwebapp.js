@@ -851,8 +851,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const groupElement = checkbox.closest('.group-row');
         const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
-        const name = 'jackie';
-        const userName = 'ilikecats2';
+        const name = "jackie";
+        const userName = "ilikecats2";
 
         groupMembers[groupKey] = []
         const user = {
@@ -860,7 +860,7 @@ document.addEventListener("DOMContentLoaded", function() {
             username: userName
         }
 
-        const users = document.querySelector('#Classic-Novels-users');
+        const users = document.getElementById('#Classic-Novels-users');
         console.log(JSON.parse(users.dataset.users));
 
         // Check if group already in GROUPS dict
@@ -876,7 +876,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
                 groupMembers[groupKey].push(user)
-                console.log(JSON.parse(users.dataset.users));
+                users.setAttribute('data-users', groupMembers[groupKey])
+                console.log(JSON.parse(users.dataset.users))
 
             // Remove group from GROUPS dict if already in it
             } else {
