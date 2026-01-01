@@ -912,7 +912,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const numMembersLabel = groupElement.querySelector('.num-members');
                 console.log("group members: ", Object.keys(groupMembers[groupKey]).length);
                 const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
-                console.log(numMembers, numMembers === 1);
+                console.log(numMembers, numMembers == 1);
 
                 if (numMembers === 1) {
                     numMembersLabel.textContent = '1 member'
