@@ -868,6 +868,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const groups = JSON.parse(localStorage.getItem('groups')) || {};
     // alert('Checkboxes found: ' + checkboxes.length);
 
+    console.log(checkboxes, localStorage.groups);
+
     checkboxes.forEach(checkbox => {
         const groupElement = checkbox.closest('.group-row');
         const groupName = groupElement.getAttribute('data-name');
