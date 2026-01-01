@@ -838,6 +838,54 @@ document.addEventListener("mousedown", function(event) {
 
 
 // HOME -> GROUPS
+// Populate number of group members
+function updateNumMembers(groupElement, groupMembers, groupKey) {
+    // load dict storing all members (dict with group: usernames)
+    const numMembersLabel = groupElement.querySelector('.num-members');
+    console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
+    const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
+
+    if (numMembers == 1) {
+        numMembersLabel.textContent = '1 member'
+    } else {
+        numMembersLabel.textContent = `${numMembers} members`
+    }
+}
+
+// Join/leave group
+function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName) {
+    if (checkbox.checked) {
+
+        // Add group to GROUPS dict
+        groups[groupKey] = new Date().toISOString()
+        // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
+
+        groupMembers[groupKey].push(user)
+        // users.setAttribute('data-users', groupMembers[groupKey])
+        // console.log(JSON.parse(users.dataset.users))
+
+    // Remove group from GROUPS dict if already in it
+    } else {
+        if (confirm("Are you sure you want to leave this group?")) {
+            delete groups[groupKey]
+            // alert('Left: ' + groupName);
+
+            console.log(groupMembers[groupKey])
+            for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
+                if (groupMembers[groupKey][i].username === userName) {
+                    delete groupMembers[groupKey][i]
+                    break
+                }
+            }
+            console.log(groupMembers[groupKey])
+        } else {
+            checkbox.checked = true
+        }
+    }
+    localStorage.setItem('groups', JSON.stringify(groups));
+    // alert('Updated groups: ' + JSON.stringify(groups));
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
     const groups = JSON.parse(localStorage.getItem('groups')) || {};
@@ -856,21 +904,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkbox.checked = true
         }
 
-        // Populate number of group members
-        function updateNumMembers() {
-            // load dict storing all members (dict with group: usernames)
-            const numMembersLabel = groupElement.querySelector('.num-members');
-            console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
-            const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
-
-            if (numMembers == 1) {
-                numMembersLabel.textContent = '1 member'
-            } else {
-                numMembersLabel.textContent = `${numMembers} members`
-            }
-        }
-
-        updateNumMembers();
+        updateNumMembers(groupElement, groupMembers, groupKey);
 
         const name = "jackie";
         const userName = "ilikecats2";
@@ -884,42 +918,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(JSON.parse(users.dataset.users));
 
         checkbox.addEventListener("click", function() {
-            // Join/leave group
-            function joinLeaveGroup() {
-                if (checkbox.checked) {
-
-                    // Add group to GROUPS dict
-                    groups[groupKey] = new Date().toISOString()
-                    // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
-
-                    groupMembers[groupKey].push(user)
-                    // users.setAttribute('data-users', groupMembers[groupKey])
-                    // console.log(JSON.parse(users.dataset.users))
-
-                // Remove group from GROUPS dict if already in it
-                } else {
-                    if (confirm("Are you sure you want to leave this group?")) {
-                        delete groups[groupKey]
-                        // alert('Left: ' + groupName);
-
-                        console.log(groupMembers[groupKey])
-                        for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
-                            if (groupMembers[groupKey][i].username === userName) {
-                                delete groupMembers[groupKey][i]
-                                break
-                            }
-                        }
-                        console.log(groupMembers[groupKey])
-                    } else {
-                        checkbox.checked = true
-                    }
-                }
-                localStorage.setItem('groups', JSON.stringify(groups));
-                // alert('Updated groups: ' + JSON.stringify(groups));
-            }
-
-            joinLeaveGroup();
-            updateNumMembers();
+            joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName);
+            updateNumMembers(groupElement, groupMembers, groupKey);
         });
     });
     console.log(localStorage.groups);
