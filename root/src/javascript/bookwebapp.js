@@ -849,7 +849,6 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
         console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
         var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
     }
-    console.log(numMembers);
 
     if (numMembers == 1) {
         numMembersLabel.textContent = '1 member'
@@ -925,6 +924,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(JSON.parse(users.dataset.users));
 
         checkbox.addEventListener("click", function() {
+            console.log("group checkbox clicked");
             joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName);
             updateNumMembers(groupElement, groupMembers, groupKey);
         });
