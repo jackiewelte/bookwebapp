@@ -272,9 +272,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (showInputButton) {
                 showInputButton.classList.remove('hide');
-                console.log("Show default button");
+                // console.log("Show default button");
                 inputContainer.classList.remove('show');
-                console.log("Hide name button");
+                // console.log("Hide name button");
             }
 
             // dropdownOverlay.classList.toggle('show');
@@ -303,13 +303,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (showInputButton) {
                     showInputButton.classList.remove('hide');
-                    console.log("Show default button");
+                    // console.log("Show default button");
                     inputContainer.classList.remove('show');
-                    console.log("Hide name button");
+                    // console.log("Hide name button");
                 }
 
                 // dropdownOverlay.classList.remove('show');
-                console.log("Clicked outside, hiding dropdown");
+                // console.log("Clicked outside, hiding dropdown");
             }
         });
     });
@@ -1636,7 +1636,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             } else if (editProgressContent && !e.target.closest('.cr-dropdown-content') && !e.target.closest('.edit-progress-btn')) {
                 editProgressContent.classList.add('hide');
-                console.log("Clicked outside, hiding dropdown");
+                // console.log("Clicked outside, hiding dropdown");
             }
         });
     }
