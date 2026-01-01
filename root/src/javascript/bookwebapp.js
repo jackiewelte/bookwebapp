@@ -856,6 +856,8 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
     } else {
         numMembersLabel.textContent = `${numMembers} members`
     }
+    console.log(numMembersLabel);
+    console.log(numMembersLabel.textContent);
 }
 
 // Join/leave group
