@@ -865,7 +865,7 @@ document.addEventListener("DOMContentLoaded", function() {
             username: userName
         }
         const users = document.getElementById('#Classic-Novels-users');
-        console.log(JSON.parse(users.dataset.users));
+        // console.log(JSON.parse(users.dataset.users));
 
         checkbox.addEventListener("click", function() {
             joinLeaveGroup();
