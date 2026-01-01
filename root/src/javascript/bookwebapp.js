@@ -842,6 +842,7 @@ document.addEventListener("mousedown", function(event) {
 function updateNumMembers(groupElement, groupMembers, groupKey) {
     // load dict storing all members (dict with group: usernames)
     const numMembersLabel = groupElement.querySelector('.num-members');
+    console.log(groupMembers[groupKey]);
     console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
     const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
 
@@ -850,6 +851,7 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
     } else {
         numMembersLabel.textContent = `${numMembers} members`
     }
+
 }
 
 // Join/leave group
