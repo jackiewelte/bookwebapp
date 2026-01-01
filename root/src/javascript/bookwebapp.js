@@ -901,6 +901,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(checkboxes, localStorage.groups);
 
     checkboxes.forEach(checkbox => {
+        console.log("checkbox..");
         const groupElement = checkbox.closest('.group-row');
         const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
