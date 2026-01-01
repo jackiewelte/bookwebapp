@@ -875,30 +875,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if group already in GROUPS dict
         if (groups[groupKey]) {
-            checkbox.checked = true;
+            checkbox.checked = true
         }
 
         checkbox.addEventListener('change', function() {
             if (checkbox.checked) {
 
                 // Add group to GROUPS dict
-                groups[groupKey] = new Date().toISOString();
+                groups[groupKey] = new Date().toISOString()
                 // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
             // Remove group from GROUPS dict if already in it
             } else {
                 if (confirm("Are you sure you want to leave this group?")) {
-                    delete groups[groupKey];
+                    delete groups[groupKey]
                     // alert('Left: ' + groupName);
-
                 } else {
-                    checkbox.checked = true;
+                    checkbox.checked = true
                 }
             }
             localStorage.setItem('groups', JSON.stringify(groups));
-            alert('Updated groups: ' + JSON.stringify(groups));
+            // alert('Updated groups: ' + JSON.stringify(groups));
         });
     });
+    console.log(localStorage.groups);
 });
 
 
