@@ -873,6 +873,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Join/leave group
             function joinLeaveGroup() {
+                console.log(checkbox.checked);
                 if (checkbox.checked) {
 
                     // Add group to GROUPS dict
@@ -880,8 +881,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
                     groupMembers[groupKey].push(user)
-                    users.setAttribute('data-users', groupMembers[groupKey])
-                    console.log(JSON.parse(users.dataset.users))
+                    // users.setAttribute('data-users', groupMembers[groupKey])
+                    // console.log(JSON.parse(users.dataset.users))
 
                 // Remove group from GROUPS dict if already in it
                 } else {
