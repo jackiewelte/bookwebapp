@@ -953,7 +953,7 @@ function toggleSubmenuTab(tab, clickedTab) {
             delete tabStates[folder]
         }
         localStorage.setItem('tabStates', JSON.stringify(tabStates));
-        console.log(tabStates[folder], folder, tabStates, localStorage.tabStates);
+        // console.log(tabStates[folder], folder, tabStates, localStorage.tabStates);
     // });
 }
 
@@ -978,7 +978,8 @@ document.addEventListener("DOMContentLoaded", function() {
             hiddenTabs[i].outerHTML = tabStates[folder][i].tabContent;
         }
     }
-    console.log(tabStates[folder], folder, tabStates, localStorage.tabStates);
+    // console.log(tabStates[folder], folder, tabStates, localStorage.tabStates);
+
     // else if (lastPageVisited.lastFolder === folder) {
     //     var clickedTab = pageMenu.querySelector('input')
     //     var tab = document.querySelector('.wrap').id
