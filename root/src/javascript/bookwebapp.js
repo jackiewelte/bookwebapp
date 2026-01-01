@@ -844,15 +844,19 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
     const numMembersLabel = groupElement.querySelector('.num-members');
     console.log(groupMembers);
     console.log(groupKey);
-    console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
-    const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
+    if (!groupMembers[groupKey]) {
+        var numMembers = 0;
+        numMembers = numMembers.toLocaleString();
+    } else {
+        console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
+        var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
+    }
 
     if (numMembers == 1) {
         numMembersLabel.textContent = '1 member'
     } else {
         numMembersLabel.textContent = `${numMembers} members`
     }
-
 }
 
 // Join/leave group
