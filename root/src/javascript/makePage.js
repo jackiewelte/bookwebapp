@@ -1,6 +1,7 @@
 function makePage() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
+        console.log("MAKING PAGE!!!");
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             alert("webpage " + xmlhttp.responseText + " was successfully created!")
 
