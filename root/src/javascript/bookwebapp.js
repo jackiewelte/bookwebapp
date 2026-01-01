@@ -838,30 +838,6 @@ document.addEventListener("mousedown", function(event) {
 
 
 // HOME -> GROUPS
-// Populate number of group members
-document.addEventListener("DOMContentLoaded", function() {
-    updateNumMembers();
-
-    function updateNumMembers() {
-        // load dict storing all members (dict with group: usernames)
-        const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
-
-        const groupElements = document.querySelectorAll('.group-row');
-
-        groupElements.forEach(groupElement => {
-            const numMembersLabel = groupElement.querySelector('.num-members');
-            console.log("group members: ", Object.keys(groupMembers).length);
-            const numMembers = Object.keys(groupMembers).length.toLocaleString();
-
-            if (numMembers === 1) {
-                numMembersLabel.textContent = '1 member';
-            } else {
-                numMembersLabel.textContent = `${numMembers} members`;
-            }
-        });
-    }
-});
-
 // Join/leave group
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
@@ -901,6 +877,29 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     console.log(localStorage.groups);
+});
+
+// Populate number of group members
+document.addEventListener("change", function() {
+    updateNumMembers();
+
+    function updateNumMembers() {
+        // load dict storing all members (dict with group: usernames)
+        const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+        const groupElements = document.querySelectorAll('.group-row');
+
+        groupElements.forEach(groupElement => {
+            const numMembersLabel = groupElement.querySelector('.num-members');
+            console.log("group members: ", Object.keys(groupMembers).length);
+            const numMembers = Object.keys(groupMembers).length.toLocaleString();
+
+            if (numMembers === 1) {
+                numMembersLabel.textContent = '1 member'
+            } else {
+                numMembersLabel.textContent = `${numMembers} members`
+            }
+        });
+    }
 });
 
 
