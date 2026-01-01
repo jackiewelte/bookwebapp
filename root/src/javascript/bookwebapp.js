@@ -896,7 +896,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
             localStorage.setItem('groups', JSON.stringify(groups));
-            // alert('Updated groups: ' + JSON.stringify(groups));
+            alert('Updated groups: ' + JSON.stringify(groups));
         });
     });
 });
