@@ -907,8 +907,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const groupKey = checkbox.id;
 
         // Check if group already in GROUPS dict
-        if (groups[groupKey]) {
-            checkbox.checked = true
+        if (groups[groupKey] && checkbox.checked == 'false') {
+            checkbox.setAttribute('checked', 'true')
         }
 
         updateNumMembers(groupElement, groupMembers, groupKey);
