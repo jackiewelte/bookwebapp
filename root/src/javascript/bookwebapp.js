@@ -873,7 +873,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Join/leave group
             function joinLeaveGroup() {
-                console.log(checkbox.checked);
                 if (checkbox.checked) {
 
                     // Add group to GROUPS dict
@@ -910,11 +909,10 @@ document.addEventListener("DOMContentLoaded", function() {
             function updateNumMembers() {
                 // load dict storing all members (dict with group: usernames)
                 const numMembersLabel = groupElement.querySelector('.num-members');
-                console.log("group members: ", Object.keys(groupMembers[groupKey]).length);
+                console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
                 const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
-                console.log(numMembers, numMembers == 1);
 
-                if (numMembers === 1) {
+                if (numMembers == 1) {
                     numMembersLabel.textContent = '1 member'
                 } else {
                     numMembersLabel.textContent = `${numMembers} members`
