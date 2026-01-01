@@ -926,9 +926,10 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(groupMembers[groupKey]);
 
         checkbox.addEventListener("click", function() {
-            console.log("group checkbox clicked");
             joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName);
             updateNumMembers(groupElement, groupMembers, groupKey);
+
+            console.log(groupMembers[groupKey]);
         });
     });
     console.log(localStorage.groups);
