@@ -885,7 +885,7 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
             }
             console.log(groupMembers[groupKey])
         } else {
-            checkbox.checked = true
+            checkbox.setAttribute('checked', 'true')
         }
     }
     localStorage.setItem('groups', JSON.stringify(groups));
@@ -906,6 +906,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
 
+        console.log(checkbox.checked);
         // Check if group already in GROUPS dict
         if (groups[groupKey] && checkbox.checked == 'false') {
             checkbox.setAttribute('checked', 'true')
