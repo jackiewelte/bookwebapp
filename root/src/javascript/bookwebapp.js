@@ -860,7 +860,8 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
 
 // Join/leave group
 function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName) {
-    if (checkbox.checked) {
+    if (!checkbox.checked) {
+        checkbox.setAttribute('checked', 'true')
 
         // Add group to GROUPS dict
         groups[groupKey] = new Date().toISOString()
@@ -873,6 +874,7 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
     // Remove group from GROUPS dict if already in it
     } else {
         if (confirm("Are you sure you want to leave this group?")) {
+            checkbox.removeAttribute('checked')
             delete groups[groupKey]
             // alert('Left: ' + groupName);
 
@@ -884,9 +886,7 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
                 }
             }
             console.log(groupMembers[groupKey])
-        } else {
-            checkbox.setAttribute('checked', 'true')
-        }
+        } 
     }
     localStorage.setItem('groups', JSON.stringify(groups));
     // alert('Updated groups: ' + JSON.stringify(groups));
@@ -901,7 +901,6 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(checkboxes, localStorage.groups);
 
     checkboxes.forEach(checkbox => {
-        console.log("checkbox..");
         const groupElement = checkbox.closest('.group-row');
         const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
