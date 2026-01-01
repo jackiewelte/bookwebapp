@@ -3,6 +3,12 @@ function makePage() {
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             alert("webpage " + xmlhttp.responseText + " was successfully created!")
+
+            var createA = document.createElement('a')
+            var createAText = document.createTextNode(xmlhttp.responseText) // or whatever name you need
+            createA.setAttribute('href', xmlhttp.responseText)
+            createA.appendChild(createAText)
+            document.body.appendChild(createA) // or you can create some <div> or whatever and append it to that
         }
     }
     // var content = "<html><head><meta charset=\"utf-8\" /> </head><body>new website<script>alert(\"test\")</script></body></html>";
@@ -62,6 +68,6 @@ function makePage() {
 
     console.log(content);
 
-    xmlhttp.open("GET","makePage.php?content=" + content, true);
+    xmlhttp.open("GET", "makePage.php?content=" + content, true);
     xmlhttp.send();
 }
