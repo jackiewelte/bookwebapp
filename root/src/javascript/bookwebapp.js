@@ -920,21 +920,20 @@ document.addEventListener("DOMContentLoaded", function() {
         //             numMembersLabel.textContent = `${numMembers} members`
         //         }
         //     }
-
-        // Populate number of group members
-            function updateNumMembers() {
-                // load dict storing all members (dict with group: usernames)
-                const numMembersLabel = groupElement.querySelector('.num-members');
-                console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
-                const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
-
-                if (numMembers == 1) {
-                    numMembersLabel.textContent = '1 member'
-                } else {
-                    numMembersLabel.textContent = `${numMembers} members`
-                }
-            }
         });
+    // Populate number of group members
+        function updateNumMembers() {
+            // load dict storing all members (dict with group: usernames)
+            const numMembersLabel = groupElement.querySelector('.num-members');
+            console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey]);
+            const numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString();
+
+            if (numMembers == 1) {
+                numMembersLabel.textContent = '1 member'
+            } else {
+                numMembersLabel.textContent = `${numMembers} members`
+            }
+        }
     });
     console.log(localStorage.groups);
 });
