@@ -954,7 +954,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             console.log("my groups 2: ", groups);
             console.log("members 2: ", groupMembers);
-            console.log(groupKey + ": " + groupMembers[groupKey]);
+            console.log(groupKey + ": " + Object.values(groupMembers[groupKey]));
         });
         console.log("step 14");
     });
