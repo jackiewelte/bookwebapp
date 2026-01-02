@@ -849,6 +849,8 @@ function joinLeaveGroup(checkbox, groupKey) {
     const groups = JSON.parse(localStorage.getItem('groups'));
     const groupMembers = JSON.parse(localStorage.getItem('group-members'));
 
+    console.log(groupMembers);
+
     const name = "jackie";
     const userName = "ilikecats2";
     if (!groupMembers.hasOwnProperty(groupKey)) {
