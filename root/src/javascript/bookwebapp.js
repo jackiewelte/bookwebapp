@@ -895,7 +895,7 @@ function joinLeaveGroup(checkbox, groupKey) {
         }
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
-        console.log(groupMembers)
+        console.log("groupKey: ", groupKey, "groupMembers: ", groupMembers, "user: ", user)
         groupMembers[groupKey].push(user)
         console.log(groupMembers)
         // users.setAttribute('data-users', groupMembers[groupKey])
