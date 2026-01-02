@@ -935,6 +935,7 @@ function updateNumMembers(checkbox, groupKey) {
         numMembersLabel.textContent = `${numMembers} members`
     }
     console.log(numMembersLabel.textContent);
+    localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
 }
 
 // Display whether user has joined groups
