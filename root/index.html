@@ -39,13 +39,13 @@
         </div>
         <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
         <div class="page-menu">
-            <input type="radio" id="radio-1" name="tabs" checked onclick="toggleSubmenuTab('books', event.target)"/>
+            <input type="radio" id="radio-1" name="tabs" checked onclick="toggleSubmenuTab('books', this)"/>
             <label class="tab" for="radio-1">Books</label>
-            <input type="radio" id="radio-2" name="tabs" onclick="toggleSubmenuTab('reviews', event.target)"/>
+            <input type="radio" id="radio-2" name="tabs" onclick="toggleSubmenuTab('reviews', this)"/>
             <label class="tab" for="radio-2">Reviews</label>
-            <input type="radio" id="radio-3" name="tabs" onclick="toggleSubmenuTab('shelves', event.target)"/>
+            <input type="radio" id="radio-3" name="tabs" onclick="toggleSubmenuTab('shelves', this)"/>
             <label class="tab" for="radio-3">Shelves</label>
-            <input type="radio" id="radio-4" name="tabs" onclick="toggleSubmenuTab('groups', event.target)"/>
+            <input type="radio" id="radio-4" name="tabs" onclick="toggleSubmenuTab('groups', this)"/>
             <label class="tab" for="radio-4">Groups</label>
             <span class="glider"></span>
         </div>
@@ -1665,7 +1665,7 @@
                 </a>
                 <!-- Make like submit button -->
                 <div class="join-group-btn">
-                    <input type="checkbox" class="group-status-checkbox" id="group-1" onclick="updateGroup(event.target, event.target.id);">
+                    <input type="checkbox" class="group-status-checkbox" id="group-1" onclick="updateGroup(this, this.id);">
                     <label for="group-1" class="group-status-label">
                         +
                     </label>
@@ -1699,7 +1699,7 @@
                 </a>
                 <!-- Make like submit button -->
                 <div class="join-group-btn">
-                    <input type="checkbox" class="group-status-checkbox" id="group-2" onclick="updateGroup(event.target, event.target.id);">
+                    <input type="checkbox" class="group-status-checkbox" id="group-2" onclick="updateGroup(this, this.id);">
                     <label for="group-2" class="group-status-label">
                         +
                     </label>
@@ -1733,7 +1733,7 @@
                 </a>
                 <!-- Make like submit button -->
                 <div class="join-group-btn">
-                    <input type="checkbox" class="group-status-checkbox" id="group-3" onclick="updateGroup(event.target, event.target.id);">
+                    <input type="checkbox" class="group-status-checkbox" id="group-3" onclick="updateGroup(this, this.id);">
                     <label for="group-3" class="group-status-label">
                         +
                     </label>
@@ -1767,7 +1767,7 @@
                 </a>
                 <!-- Make like submit button -->
                 <div class="join-group-btn">
-                    <input type="checkbox" class="group-status-checkbox" id="group-4" onclick="updateGroup(event.target, event.target.id);">
+                    <input type="checkbox" class="group-status-checkbox" id="group-4" onclick="updateGroup(this, this.id);">
                     <label for="group-4" class="group-status-label">
                         +
                     </label>
@@ -1801,7 +1801,7 @@
                 </a>
                 <!-- Make like submit button -->
                 <div class="join-group-btn">
-                    <input type="checkbox" class="group-status-checkbox" id="group-5" onclick="updateGroup(event.target, event.target.id);">
+                    <input type="checkbox" class="group-status-checkbox" id="group-5" onclick="updateGroup(this, this.id);">
                     <label for="group-5" class="group-status-label">
                         +
                     </label>

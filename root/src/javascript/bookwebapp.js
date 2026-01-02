@@ -850,6 +850,9 @@ function updateNumMembers(checkbox, groupKey) {
     // load dict storing all members (dict with group: usernames)
     var numMembersLabel = groupElement.querySelector('.num-members');
 
+    console.log(groupKey);
+    console.log(groupMembers[groupKey]);
+
     if (!groupMembers[groupKey]) {
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
