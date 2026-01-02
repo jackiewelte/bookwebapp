@@ -851,7 +851,7 @@ function updateNumMembers(checkbox, groupKey) {
     var numMembersLabel = groupElement.querySelector('.num-members');
 
     console.log(groupKey);
-    console.log(groupMembers[groupKey]);
+    console.log(groupMembers[groupKey].type);
 
     if (!groupMembers[groupKey]) {
         var numMembers = 0
