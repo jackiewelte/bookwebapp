@@ -866,7 +866,9 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
         // Add group to GROUPS dict
         const dateAdded = new Date().toISOString()
         groups[groupKey] = {
-            dateAdded: dateAdded
+            dateAdded: dateAdded,
+            // for debugging
+            checked: checkbox.checked
         }
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
