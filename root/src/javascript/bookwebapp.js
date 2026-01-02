@@ -886,7 +886,9 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
                 }
             }
             console.log(groupMembers[groupKey])
-        } 
+        } else {
+            checkbox.setAttribute('checked', 'true')
+        }
     }
     localStorage.setItem('groups', JSON.stringify(groups));
     // alert('Updated groups: ' + JSON.stringify(groups));
