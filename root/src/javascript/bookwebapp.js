@@ -959,6 +959,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         console.log("my groups: ", groups);
     });
+    localStorage.setItem('groups', JSON.stringify(groups));
     console.log(localStorage.groups);
 });
 
