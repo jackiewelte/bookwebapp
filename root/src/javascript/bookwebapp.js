@@ -873,7 +873,7 @@ function joinLeaveGroup(checkbox, groupKey) {
 
     const name = "jackie";
     const userName = "ilikecats2";
-    groupMembers[groupKey] = []
+    groupMembers[groupKey] = [];
     const user = {
         name: name,
         username: userName
@@ -926,7 +926,7 @@ function joinLeaveGroup(checkbox, groupKey) {
     localStorage.setItem('groups', JSON.stringify(groups));
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
     console.log("members 3: ", groupMembers);
-    console.log(groupKey + " 3: " + Object.values(groupMembers[groupKey]));
+    console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
     // alert('Updated groups: ' + JSON.stringify(groups));
     console.log("step 11");
 }
@@ -1010,14 +1010,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         updateNumMembers(checkbox, groupKey);
 
-        const name = "jackie";
-        const userName = "ilikecats2";
-
-        groupMembers[groupKey] = []
-        const user = {
-            name: name,
-            username: userName
-        }
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
 
