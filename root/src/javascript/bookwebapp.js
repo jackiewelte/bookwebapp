@@ -887,6 +887,7 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
             }
             console.log(groupMembers[groupKey])
         } else {
+            checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
         }
     }
