@@ -838,10 +838,18 @@ document.addEventListener("mousedown", function(event) {
 
 
 // HOME -> GROUPS
+function updateGroup(checkbox, groupKey) {
+    joinLeaveGroup(checkbox, groupKey);
+    updateNumMembers(checkbox, groupKey);
+}
+
 // Populate number of group members
-function updateNumMembers(groupElement, groupMembers, groupKey) {
+function updateNumMembers(checkbox, groupKey) {
+    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+    const groupElement = checkbox.closest('.group-row');
     // load dict storing all members (dict with group: usernames)
     var numMembersLabel = groupElement.querySelector('.num-members');
+
     if (!groupMembers[groupKey]) {
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
@@ -859,7 +867,18 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
 }
 
 // Join/leave group
-function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName) {
+function joinLeaveGroup(checkbox, groupKey) {
+    const groups = JSON.parse(localStorage.getItem('groups')) || {};
+    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+
+    const name = "jackie";
+    const userName = "ilikecats2";
+    groupMembers[groupKey] = []
+    const user = {
+        name: name,
+        username: userName
+    }
+
     if (checkbox.checked) {
         console.log("step 6 - if");
         checkbox.setAttribute('checked', 'true')
@@ -912,6 +931,65 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
     console.log("step 11");
 }
 
+// -----------
+
+// // Join/leave group
+// function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName) {
+//     const groups = JSON.parse(localStorage.getItem('groups')) || {};
+//     const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+
+//     if (checkbox.checked) {
+//         console.log("step 6 - if");
+//         checkbox.setAttribute('checked', 'true')
+
+//         // Add group to GROUPS dict
+//         const dateAdded = new Date().toISOString()
+//         groups[groupKey] = {
+//             dateAdded: dateAdded,
+//             // for debugging
+//             checked: checkbox.checked
+//         }
+//         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
+
+//         console.log(groupMembers)
+//         groupMembers[groupKey].push(user)
+//         console.log(groupMembers)
+//         // users.setAttribute('data-users', groupMembers[groupKey])
+//         // console.log(JSON.parse(users.dataset.users))
+
+//         console.log("step 7 - if");
+
+//     // Remove group from GROUPS dict if already in it
+//     } else {
+//         if (confirm("Are you sure you want to leave this group?")) {
+//             console.log("step 8 - if");
+//             checkbox.removeAttribute('checked')
+//             delete groups[groupKey]
+//             // alert('Left: ' + groupName);
+
+//             for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
+//                 if (groupMembers[groupKey][i].username === userName) {
+//                     console.log(groupMembers)
+//                     delete groupMembers[groupKey][i]
+//                     console.log(groupMembers)
+//                     break
+//                 }
+//             }
+//         } else {
+//             console.log("step 9 - if");
+//             checkbox.checked = true
+//             checkbox.setAttribute('checked', 'true')
+//         }
+//         console.log("step 10 - if");
+//     }
+//     localStorage.setItem('groups', JSON.stringify(groups));
+//     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
+//     console.log("members 3: ", groupMembers);
+//     console.log(groupKey + " 3: " + Object.values(groupMembers[groupKey]));
+//     // alert('Updated groups: ' + JSON.stringify(groups));
+//     console.log("step 11");
+// }
+
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
     console.log("step 1");
@@ -919,8 +997,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("step 2");
         const groups = JSON.parse(localStorage.getItem('groups')) || {};
         const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
-        const groupElement = checkbox.closest('.group-row');
-        const groupName = groupElement.getAttribute('data-name');
+        // const groupElement = checkbox.closest('.group-row');
+        // const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
 
         // Check if group already in GROUPS dict
@@ -930,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkbox.setAttribute('checked', 'true')
         }
 
-        updateNumMembers(groupElement, groupMembers, groupKey);
+        updateNumMembers(checkbox, groupKey);
 
         const name = "jackie";
         const userName = "ilikecats2";
@@ -947,18 +1025,20 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("my groups: ", groups);
         console.log("members: ", groupMembers);
         console.log("step 4");
-        checkbox.addEventListener("click", function() {
-            console.log("step 5 - click");
-            joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName);
-            console.log("step 12 - click");
-            updateNumMembers(groupElement, groupMembers, groupKey);
-            console.log("step 13 - click");
 
-            console.log("my groups 2: ", groups);
-            console.log("members 2: ", groupMembers);
-            console.log(groupKey + ": " + Object.values(groupMembers[groupKey]));
-        });
-        console.log("step 14");
+
+        // checkbox.addEventListener("click", function() {
+        //     console.log("step 5 - click");
+        //     joinLeaveGroup(checkbox, groupKey);
+        //     console.log("step 12 - click");
+        //     updateNumMembers(checkbox, groupKey);
+        //     console.log("step 13 - click");
+
+        //     console.log("my groups 2: ", groups);
+        //     console.log("members 2: ", groupMembers);
+        //     console.log(groupKey + ": " + Object.values(groupMembers[groupKey]));
+        // });
+        // console.log("step 14");
     });
     console.log(localStorage.groups);
     console.log("step 15");
