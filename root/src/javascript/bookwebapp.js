@@ -850,7 +850,7 @@ function updateNumMembers(checkbox, groupKey) {
     // load dict storing all members (dict with group: usernames)
     var numMembersLabel = groupElement.querySelector('.num-members');
 
-    console.log(groupKey, groupMembers);
+    console.log("groupKey: ", groupKey, "groupMembers: ", groupMembers);
     console.log(groupMembers[groupKey]);
 
     if (!groupMembers[groupKey]) {
@@ -936,9 +936,7 @@ function joinLeaveGroup(checkbox, groupKey) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
-    console.log("step 1");
     checkboxes.forEach(checkbox => {
-        console.log("step 2");
         const groups = JSON.parse(localStorage.getItem('groups')) || {};
         const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
         // const groupElement = checkbox.closest('.group-row');
@@ -947,7 +945,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if group already in GROUPS dict
         if (groups[groupKey] && !checkbox.checked) {
-            console.log("step 3 - if");
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
         }
@@ -957,13 +954,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
 
-        console.log("user info: ", groupMembers[groupKey]);
         console.log("my groups: ", groups);
-        console.log("members: ", groupMembers);
-        console.log("step 4");
     });
     console.log(localStorage.groups);
-    console.log("step 15");
 });
 
 
