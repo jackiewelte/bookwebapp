@@ -925,6 +925,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         console.log(groupMembers[groupKey]);
 
+        console.log("CHECKBOX: ", checkbox);
         checkbox.addEventListener("click", function() {
             joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName);
             updateNumMembers(groupElement, groupMembers, groupKey);
