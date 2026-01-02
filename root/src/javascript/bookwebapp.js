@@ -843,8 +843,8 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
     // load dict storing all members (dict with group: usernames)
     var numMembersLabel = groupElement.querySelector('.num-members');
     if (!groupMembers[groupKey]) {
-        var numMembers = 0;
-        numMembers = numMembers.toLocaleString();
+        var numMembers = 0
+        numMembers = numMembers.toLocaleString()
     } else {
         console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
         var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
@@ -872,7 +872,9 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
         }
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
+        console.log(groupMembers[groupKey].username)
         groupMembers[groupKey].push(user)
+        console.log(groupMembers[groupKey].username)
         // users.setAttribute('data-users', groupMembers[groupKey])
         // console.log(JSON.parse(users.dataset.users))
 
@@ -885,7 +887,9 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
 
             for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
                 if (groupMembers[groupKey][i].username === userName) {
+                    console.log(groupMembers[groupKey].username)
                     delete groupMembers[groupKey][i]
+                    console.log(groupMembers[groupKey].username)
                     break
                 }
             }
