@@ -1005,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const groupKey = checkbox.id;
 
         // Check if group already in GROUPS dict
-        if (groups.groupKey && !checkbox.checked) {
+        if (groups[groupKey] && !checkbox.checked) {
             console.log("step 3 - if");
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
@@ -1016,7 +1016,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
 
-        console.log("user info: ", groupMembers.groupKey);
+        console.log("user info: ", groupMembers[groupKey]);
         console.log("my groups: ", groups);
         console.log("members: ", groupMembers);
         console.log("step 4");
