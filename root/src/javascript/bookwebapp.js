@@ -873,7 +873,6 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
         groupMembers[groupKey].push(user)
-        console.log(groupMembers[groupKey])
         // users.setAttribute('data-users', groupMembers[groupKey])
         // console.log(JSON.parse(users.dataset.users))
 
@@ -884,14 +883,12 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
             delete groups[groupKey]
             // alert('Left: ' + groupName);
 
-            console.log(groupMembers[groupKey])
             for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
                 if (groupMembers[groupKey][i].username === userName) {
                     delete groupMembers[groupKey][i]
                     break
                 }
             }
-            console.log(groupMembers[groupKey])
         } else {
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
@@ -904,8 +901,6 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
 
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
-    console.log(checkboxes);
-
     checkboxes.forEach(checkbox => {
         const groups = JSON.parse(localStorage.getItem('groups')) || {};
         const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
@@ -932,15 +927,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
 
-        console.log(groupMembers[groupKey]);
-
-        console.log("CHECKBOX: ", checkbox);
+        console.log("user info: ", groupMembers[groupKey]);
+        console.log("my groups: ", groups);
+        console.log("members: ", groupMembers);
         checkbox.addEventListener("click", function() {
             joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName);
             updateNumMembers(groupElement, groupMembers, groupKey);
 
-            console.log(groups);
-            console.log(groupMembers);
+            console.log("my groups 2: ", groups);
+        console.log("members 2: ", groupMembers);
             console.log(groupKey + ": " + groupMembers[groupKey].username);
         });
     });
