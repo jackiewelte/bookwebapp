@@ -851,14 +851,14 @@ function updateNumMembers(checkbox, groupKey) {
     var numMembersLabel = groupElement.querySelector('.num-members');
 
     console.log(groupKey);
-    console.log(groupMembers[groupKey].type);
+    console.log(groupMembers.groupKey);
 
-    if (!groupMembers[groupKey]) {
+    if (!groupMembers.groupKey) {
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
     } else {
-        console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
-        var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
+        console.log("group members: ", Object.keys(groupMembers.groupKey).length, groupMembers.groupKey)
+        var numMembers = Object.keys(groupMembers.groupKey).length.toLocaleString()
     }
 
     if (numMembers == 1) {
@@ -876,7 +876,7 @@ function joinLeaveGroup(checkbox, groupKey) {
 
     const name = "jackie";
     const userName = "ilikecats2";
-    groupMembers[groupKey] = [];
+    groupMembers.groupKey = [];
     const user = {
         name: name,
         username: userName
@@ -888,7 +888,7 @@ function joinLeaveGroup(checkbox, groupKey) {
 
         // Add group to GROUPS dict
         const dateAdded = new Date().toISOString()
-        groups[groupKey] = {
+        groups.groupKey = {
             dateAdded: dateAdded,
             // for debugging
             checked: checkbox.checked
@@ -896,7 +896,7 @@ function joinLeaveGroup(checkbox, groupKey) {
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
         console.log(groupMembers)
-        groupMembers[groupKey].push(user)
+        groupMembers.groupKey.push(user)
         console.log(groupMembers)
         // users.setAttribute('data-users', groupMembers[groupKey])
         // console.log(JSON.parse(users.dataset.users))
@@ -908,13 +908,13 @@ function joinLeaveGroup(checkbox, groupKey) {
         if (confirm("Are you sure you want to leave this group?")) {
             console.log("step 8 - if");
             checkbox.removeAttribute('checked')
-            delete groups[groupKey]
+            delete groups.groupKey
             // alert('Left: ' + groupName);
 
-            for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
-                if (groupMembers[groupKey][i].username === userName) {
+            for (let i = 0; i < Object.keys(groupMembers.groupKey).length; i++) {
+                if (groupMembers.groupKey[i].username === userName) {
                     console.log(groupMembers)
-                    delete groupMembers[groupKey][i]
+                    delete groupMembers.groupKey[i]
                     console.log(groupMembers)
                     break
                 }
@@ -929,7 +929,7 @@ function joinLeaveGroup(checkbox, groupKey) {
     localStorage.setItem('groups', JSON.stringify(groups));
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
     console.log("members 3: ", groupMembers);
-    console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
+    console.log(groupKey + " 3: " + groupMembers.groupKey[0].username);
     // alert('Updated groups: ' + JSON.stringify(groups));
     console.log("step 11");
 }
@@ -1005,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const groupKey = checkbox.id;
 
         // Check if group already in GROUPS dict
-        if (groups[groupKey] && !checkbox.checked) {
+        if (groups.groupKey && !checkbox.checked) {
             console.log("step 3 - if");
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
@@ -1016,7 +1016,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
 
-        console.log("user info: ", groupMembers[groupKey]);
+        console.log("user info: ", groupMembers.groupKey);
         console.log("my groups: ", groups);
         console.log("members: ", groupMembers);
         console.log("step 4");
