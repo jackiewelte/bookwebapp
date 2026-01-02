@@ -906,6 +906,8 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
     }
     localStorage.setItem('groups', JSON.stringify(groups));
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
+    console.log("members 3: ", groupMembers);
+    console.log(groupKey + " 3: " + Object.values(groupMembers[groupKey]));
     // alert('Updated groups: ' + JSON.stringify(groups));
     console.log("step 11");
 }
