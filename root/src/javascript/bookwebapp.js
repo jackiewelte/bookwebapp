@@ -861,7 +861,7 @@ function updateNumMembers(groupElement, groupMembers, groupKey) {
 // Join/leave group
 function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName) {
     if (checkbox.checked) {
-        // checkbox.setAttribute('checked', 'true')
+        checkbox.setAttribute('checked', 'true')
 
         // Add group to GROUPS dict
         groups[groupKey] = new Date().toISOString()
@@ -874,7 +874,7 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
     // Remove group from GROUPS dict if already in it
     } else {
         if (confirm("Are you sure you want to leave this group?")) {
-            // checkbox.removeAttribute('checked')
+            checkbox.removeAttribute('checked')
             delete groups[groupKey]
             // alert('Left: ' + groupName);
 
