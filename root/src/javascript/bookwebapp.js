@@ -873,9 +873,9 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
         }
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
-        console.log(groupMembers[groupKey].username)
+        console.log(groupMembers[groupKey])
         groupMembers[groupKey].push(user)
-        console.log(groupMembers[groupKey].username)
+        console.log(groupMembers[groupKey])
         // users.setAttribute('data-users', groupMembers[groupKey])
         // console.log(JSON.parse(users.dataset.users))
 
@@ -891,9 +891,9 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
 
             for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
                 if (groupMembers[groupKey][i].username === userName) {
-                    console.log(groupMembers[groupKey].username)
+                    console.log(groupMembers[groupKey])
                     delete groupMembers[groupKey][i]
-                    console.log(groupMembers[groupKey].username)
+                    console.log(groupMembers[groupKey])
                     break
                 }
             }
@@ -954,7 +954,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             console.log("my groups 2: ", groups);
             console.log("members 2: ", groupMembers);
-            console.log(groupKey + ": " + groupMembers[groupKey].username);
+            console.log(groupKey + ": " + groupMembers[groupKey]);
         });
         console.log("step 14");
     });
