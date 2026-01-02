@@ -904,13 +904,11 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
 
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
-    const groups = JSON.parse(localStorage.getItem('groups')) || {};
-    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
-    // alert('Checkboxes found: ' + checkboxes.length);
-
-    console.log(checkboxes, localStorage.groups);
+    console.log(checkboxes);
 
     checkboxes.forEach(checkbox => {
+        const groups = JSON.parse(localStorage.getItem('groups')) || {};
+        const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
         const groupElement = checkbox.closest('.group-row');
         const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
