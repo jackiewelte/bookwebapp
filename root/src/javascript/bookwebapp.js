@@ -891,8 +891,8 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
             checkbox.setAttribute('checked', 'true')
         }
     }
-    localStorage.setItem('groups', JSON.stringify(groups));
-    localStorage.setItem('groups', JSON.stringify(groupMembers));
+    // localStorage.setItem('groups', JSON.stringify(groups));
+    // localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
     // alert('Updated groups: ' + JSON.stringify(groups));
 }
 
@@ -935,6 +935,8 @@ document.addEventListener("DOMContentLoaded", function() {
             updateNumMembers(groupElement, groupMembers, groupKey);
 
             console.log(groupMembers[groupKey]);
+            localStorage.setItem('groups', JSON.stringify(groups));
+            localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
         });
     });
     console.log(localStorage.groups);
