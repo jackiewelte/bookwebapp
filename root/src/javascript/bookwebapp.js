@@ -840,7 +840,8 @@ document.addEventListener("mousedown", function(event) {
 // HOME -> GROUPS
 function updateGroup(checkbox, groupKey) {
     joinLeaveGroup(checkbox, groupKey);
-    updateNumMembers(checkbox, groupKey);
+    const groupMembers = JSON.parse(localStorage.getItem('group-members'));
+    updateNumMembers(checkbox, groupMembers, groupKey);
 }
 
 // Join/leave group
@@ -910,9 +911,8 @@ function joinLeaveGroup(checkbox, groupKey) {
 }
 
 // Populate number of group members
-function updateNumMembers(checkbox, groupKey) {
+function updateNumMembers(checkbox, groupMembers, groupKey) {
     console.log("GROUP KEY: ", groupKey);
-    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
     const groupElement = checkbox.closest('.group-row');
     // load dict storing all members (dict with group: usernames)
     var numMembersLabel = groupElement.querySelector('.num-members');
@@ -922,7 +922,7 @@ function updateNumMembers(checkbox, groupKey) {
     console.log("local storage groupMembers 2: ", localStorage.groupMembers);
 
     if (!groupMembers.hasOwnProperty(groupKey)) {
-        groupMembers[groupKey] = [];
+        groupMembers[[groupKey]] = [];
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
     } else {
@@ -943,6 +943,7 @@ function updateNumMembers(checkbox, groupKey) {
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
     const groups = JSON.parse(localStorage.getItem('groups')) || {};
+    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
     checkboxes.forEach(checkbox => {
         const groupKey = checkbox.id;
 
@@ -951,7 +952,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
         }
-        updateNumMembers(checkbox, groupKey);
+        updateNumMembers(checkbox, groupMembers, groupKey);
 
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
