@@ -846,8 +846,8 @@ function updateGroup(checkbox, groupKey) {
 // Join/leave group
 function joinLeaveGroup(checkbox, groupKey) {
     console.log("GROUP KEY 2: ", groupKey);
-    const groups = JSON.parse(localStorage.getItem('groups')) || {};
-    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+    const groups = JSON.parse(localStorage.getItem('groups'));
+    const groupMembers = JSON.parse(localStorage.getItem('group-members'));
 
     const name = "jackie";
     const userName = "ilikecats2";
@@ -938,8 +938,8 @@ function updateNumMembers(checkbox, groupKey) {
 // Display whether user has joined groups
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
+    const groups = JSON.parse(localStorage.getItem('groups')) || {};
     checkboxes.forEach(checkbox => {
-        const groups = JSON.parse(localStorage.getItem('groups')) || {};
         const groupKey = checkbox.id;
 
         // Check if group already in GROUPS dict
