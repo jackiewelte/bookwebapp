@@ -892,6 +892,7 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
         }
     }
     localStorage.setItem('groups', JSON.stringify(groups));
+    localStorage.setItem('groups', JSON.stringify(groupMembers));
     // alert('Updated groups: ' + JSON.stringify(groups));
 }
 
