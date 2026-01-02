@@ -853,9 +853,9 @@ function joinLeaveGroup(checkbox, groupKey) {
 
     const name = "jackie";
     const userName = "ilikecats2";
-    if (!groupMembers.hasOwnProperty(groupKey)) {
-        groupMembers[groupKey] = []
-    }
+    // if (!groupMembers.hasOwnProperty(groupKey)) {
+    //     groupMembers[groupKey] = []
+    // }
     const user = {
         name: name,
         username: userName
@@ -921,7 +921,8 @@ function updateNumMembers(checkbox, groupKey) {
     console.log(groupMembers[groupKey]);
     console.log("local storage groupMembers 2: ", localStorage.groupMembers);
 
-    if (!groupMembers[groupKey]) {
+    if (!groupMembers.hasOwnProperty(groupKey)) {
+        groupMembers[groupKey] = [];
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
     } else {
