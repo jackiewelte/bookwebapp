@@ -850,7 +850,9 @@ function joinLeaveGroup(checkbox, groupKey) {
 
     const name = "jackie";
     const userName = "ilikecats2";
-    groupMembers[groupKey] = [];
+    if (!groupMembers.hasOwnProperty(groupKey)) {
+        groupMembers[groupKey] = []
+    }
     const user = {
         name: name,
         username: userName
