@@ -864,10 +864,14 @@ function joinLeaveGroup(checkbox, groups, groupKey, groupMembers, user, userName
         checkbox.setAttribute('checked', 'true')
 
         // Add group to GROUPS dict
-        groups[groupKey] = new Date().toISOString()
+        const dateAdded = new Date().toISOString()
+        groups[groupKey] = {
+            dateAdded: dateAdded
+        }
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
         groupMembers[groupKey].push(user)
+        console.log(groupMembers[groupKey])
         // users.setAttribute('data-users', groupMembers[groupKey])
         // console.log(JSON.parse(users.dataset.users))
 
@@ -936,7 +940,8 @@ document.addEventListener("DOMContentLoaded", function() {
             updateNumMembers(groupElement, groupMembers, groupKey);
 
             console.log(groups);
-            console.log(groupKey + ": " + JSON.parse(groupMembers[groupKey]));
+            console.log(groupMembers);
+            console.log(groupKey + ": " + groupMembers[groupKey].username);
         });
     });
     console.log(localStorage.groups);
