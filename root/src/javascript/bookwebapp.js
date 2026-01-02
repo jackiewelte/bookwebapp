@@ -936,7 +936,7 @@ document.addEventListener("DOMContentLoaded", function() {
             updateNumMembers(groupElement, groupMembers, groupKey);
 
             console.log(groups);
-            console.log(groupKey + ": " + groupMembers[groupKey]);
+            console.log(groupKey + ": " + JSON.parse(groupMembers[groupKey]));
         });
     });
     console.log(localStorage.groups);
