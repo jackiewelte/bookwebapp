@@ -843,32 +843,6 @@ function updateGroup(checkbox, groupKey) {
     updateNumMembers(checkbox, groupKey);
 }
 
-// Populate number of group members
-function updateNumMembers(checkbox, groupKey) {
-    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
-    const groupElement = checkbox.closest('.group-row');
-    // load dict storing all members (dict with group: usernames)
-    var numMembersLabel = groupElement.querySelector('.num-members');
-
-    console.log("groupKey: ", groupKey, "groupMembers: ", groupMembers);
-    console.log(groupMembers[groupKey]);
-
-    if (!groupMembers[groupKey]) {
-        var numMembers = 0
-        numMembers = numMembers.toLocaleString()
-    } else {
-        console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
-        var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
-    }
-
-    if (numMembers == 1) {
-        numMembersLabel.textContent = '1 member'
-    } else {
-        numMembersLabel.textContent = `${numMembers} members`
-    }
-    console.log(numMembersLabel.textContent);
-}
-
 // Join/leave group
 function joinLeaveGroup(checkbox, groupKey) {
     const groups = JSON.parse(localStorage.getItem('groups')) || {};
@@ -928,19 +902,44 @@ function joinLeaveGroup(checkbox, groupKey) {
     }
     localStorage.setItem('groups', JSON.stringify(groups));
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
-    console.log("members 3: ", groupMembers);
+    console.log("local storage groupMembers: ", localStorage.groupMembers);
     console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
     // alert('Updated groups: ' + JSON.stringify(groups));
     console.log("step 11");
 }
 
+// Populate number of group members
+function updateNumMembers(checkbox, groupKey) {
+    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+    const groupElement = checkbox.closest('.group-row');
+    // load dict storing all members (dict with group: usernames)
+    var numMembersLabel = groupElement.querySelector('.num-members');
+
+    console.log("groupKey: ", groupKey, "groupMembers: ", groupMembers);
+    console.log(groupMembers[groupKey]);
+    console.log("local storage groupMembers 2: ", localStorage.groupMembers);
+
+    if (!groupMembers[groupKey]) {
+        var numMembers = 0
+        numMembers = numMembers.toLocaleString()
+    } else {
+        console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
+        var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
+    }
+
+    if (numMembers == 1) {
+        numMembersLabel.textContent = '1 member'
+    } else {
+        numMembersLabel.textContent = `${numMembers} members`
+    }
+    console.log(numMembersLabel.textContent);
+}
+
+// Display whether user has joined groups
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
     checkboxes.forEach(checkbox => {
         const groups = JSON.parse(localStorage.getItem('groups')) || {};
-        const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
-        // const groupElement = checkbox.closest('.group-row');
-        // const groupName = groupElement.getAttribute('data-name');
         const groupKey = checkbox.id;
 
         // Check if group already in GROUPS dict
@@ -948,7 +947,6 @@ document.addEventListener("DOMContentLoaded", function() {
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
         }
-
         updateNumMembers(checkbox, groupKey);
 
         const users = document.getElementById('#Classic-Novels-users');
