@@ -882,7 +882,6 @@ function joinLeaveGroup(checkbox, groupKey) {
     // Remove group from GROUPS dict if already in it
     } else {
         if (confirm("Are you sure you want to leave this group?")) {
-            console.log("step 8 - if");
             checkbox.removeAttribute('checked')
             delete groups[groupKey]
             // alert('Left: ' + groupName);
@@ -896,22 +895,20 @@ function joinLeaveGroup(checkbox, groupKey) {
                 }
             }
         } else {
-            console.log("step 9 - if");
             checkbox.checked = true
             checkbox.setAttribute('checked', 'true')
         }
-        console.log("step 10 - if");
     }
     localStorage.setItem('groups', JSON.stringify(groups));
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
     console.log("local storage groupMembers: ", localStorage.groupMembers);
     console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
     // alert('Updated groups: ' + JSON.stringify(groups));
-    console.log("step 11");
 }
 
 // Populate number of group members
 function updateNumMembers(checkbox, groupKey) {
+    console.log("GROUP KEY: ", groupKey);
     const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
     const groupElement = checkbox.closest('.group-row');
     // load dict storing all members (dict with group: usernames)
