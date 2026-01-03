@@ -848,14 +848,14 @@ function updateGroup(checkbox, groupKey) {
 function joinLeaveGroup(checkbox, groupKey) {
     console.log("GROUP KEY 2: ", groupKey);
     const groups = JSON.parse(localStorage.getItem('groups'));
-    const groupMembers = JSON.parse(localStorage.getItem('group-members'));
+    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
 
     console.log(groupMembers);
 
     const name = "jackie";
     const userName = "ilikecats2";
     // if (!groupMembers.hasOwnProperty(groupKey)) {
-    //     groupMembers[groupKey] = []
+    groupMembers[groupKey] = []
     // }
     const user = {
         name: name,
