@@ -840,7 +840,7 @@ document.addEventListener("mousedown", function(event) {
 // HOME -> GROUPS
 function updateGroup(checkbox, groupKey) {
     joinLeaveGroup(checkbox, groupKey);
-    const groupMembers = JSON.parse(localStorage.getItem('group-members'));
+    var groupMembers = JSON.parse(localStorage.getItem('group-members'));
     console.log("regular groupMembers: ", groupMembers);
     console.log("local storage groupMembers: ", localStorage.groupMembers);
     console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
@@ -850,8 +850,8 @@ function updateGroup(checkbox, groupKey) {
 // Join/leave group
 function joinLeaveGroup(checkbox, groupKey) {
     console.log("GROUP KEY 2: ", groupKey);
-    const groups = JSON.parse(localStorage.getItem('groups'));
-    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+    var groups = JSON.parse(localStorage.getItem('groups'));
+    var groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
 
     console.log(groupMembers);
 
@@ -945,8 +945,8 @@ function updateNumMembers(checkbox, groupMembers, groupKey) {
 // Display whether user has joined groups
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll('.group-status-checkbox');
-    const groups = JSON.parse(localStorage.getItem('groups')) || {};
-    const groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
+    var groups = JSON.parse(localStorage.getItem('groups')) || {};
+    var groupMembers = JSON.parse(localStorage.getItem('group-members')) || {};
     checkboxes.forEach(checkbox => {
         const groupKey = checkbox.id;
 
