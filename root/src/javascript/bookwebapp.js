@@ -841,6 +841,7 @@ document.addEventListener("mousedown", function(event) {
 function updateGroup(checkbox, groupKey) {
     joinLeaveGroup(checkbox, groupKey);
     const groupMembers = JSON.parse(localStorage.getItem('group-members'));
+    console.log("regular groupMembers: ", groupMembers);
     console.log("local storage groupMembers: ", localStorage.groupMembers);
     console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
     updateNumMembers(checkbox, groupMembers, groupKey);
