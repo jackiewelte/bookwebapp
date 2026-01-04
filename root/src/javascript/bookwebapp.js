@@ -1866,9 +1866,9 @@ function populateRecentActivityRatings() {
     ratings.forEach(rating => {
         const greenStars = rating.querySelector('.mini-green-stars');
         const halfStar = rating.querySelector('.half-star');
-        
+
         // let bookRating = 4.5;
-        let bookRating = Math.round(Math.random() * (max - min + 1) + min);
+        let bookRating = Math.round((Math.random() * (max - min + 1) + min) * 100) / 100;
 
         var greenStarsWidth = Math.floor(bookRating) / 5 * 100;
         greenStars.style.width = `${greenStarsWidth}%`;
