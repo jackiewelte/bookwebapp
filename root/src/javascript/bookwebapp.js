@@ -6,7 +6,7 @@ window.addEventListener('beforeunload', function() {
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
-    scrollPosition[loc] = window.scrollY;
+    scrollPosition[window.scrollY] = loc;
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
     }
@@ -27,7 +27,7 @@ window.addEventListener('beforeunload', function() {
 window.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
     var scrollPosition = localStorage.getItem('scrollPosition');
-    console.log("LOC: ", loc, window.scrollY);
+    console.log("LOC: ", loc);
     console.log("SCROLL: ", scrollPosition[loc]);
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
