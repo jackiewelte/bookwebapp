@@ -21,6 +21,7 @@ window.addEventListener('beforeunload', function() {
     localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
+    console.log("scroll position local variable: ", scrollPosition);
     console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
     console.log("page position local storage: ", localStorage.pagePosition);
@@ -53,6 +54,7 @@ window.addEventListener("DOMContentLoaded", function() {
     }
     localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
+    console.log("scroll position local variable: ", scrollPosition);
     console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
     console.log("page position local storage: ", localStorage.pagePosition);
