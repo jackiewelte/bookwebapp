@@ -2,9 +2,9 @@
 window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
     var folder = loc.split('/')[1];
-    var scrollPosition = JSON.parse(localStorage.getItem('scrollPosition'));
-    var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
-    var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
+    var scrollPosition = JSON.parse(localStorage.getItem('scrollPosition')) || {};
+    var pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
+    var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
     scrollPosition[loc] = window.scrollY;
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
@@ -26,11 +26,11 @@ window.addEventListener('beforeunload', function() {
 // Recall scroll and page positions when the page loads
 window.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
-    var scrollPosition = localStorage.getItem('scrollPosition') || {};
-    console.log("LOC: ", loc);
+    var scrollPosition = localStorage.getItem('scrollPosition');
+    console.log("LOC: ", loc, window.scrollY);
     console.log("SCROLL: ", scrollPosition[loc]);
-    var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
-    var pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
+    var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
+    var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
     var folder = loc.split('/')[1];
     if (folder === '') {
         folder = 'index'
