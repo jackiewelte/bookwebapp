@@ -1866,7 +1866,7 @@ function populateRecentActivityRatings() {
         // let bookRating = 4.5;
         const max = 5;
         const min = 0;
-        let bookRating = Math.floor(Math.random() * (max - min + 1) + min);
+        let bookRating = Math.round(Math.random() * (max - min + 1) + min);
 
         var greenStarsWidth = Math.floor(bookRating) / 5 * 100;
         greenStars.style.width = `${greenStarsWidth}%`;
