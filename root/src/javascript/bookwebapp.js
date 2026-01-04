@@ -911,11 +911,13 @@ function updateNumMembers(checkbox, groupMembers, groupKey) {
     var numMembersLabel = groupElement.querySelector('.num-members');
 
     if (!groupMembers.hasOwnProperty(groupKey)) {
-        groupMembers[[groupKey]] = [];
+        groupMembers[groupKey] = [];
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
+        console.log("group not in groupMembers. clicked group has ", numMembers, "members")
     } else {
         var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
+        console.log("clicked group has ", numMembers, "members")
     }
 
     if (numMembers == 1) {
