@@ -641,10 +641,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 dropdownButtons.forEach(dropdownButton => {
                     const dropdownElement = dropdownButton.closest('.dropdown');
                     if (!dropdownElement) return;
+                    console.log(dropdownButton.getAttribute('data-status'));
                     if ((dropdownButton.getAttribute('data-status') === 'want-to-read') || (dropdownButton.getAttribute('data-status') === 'currently-reading') || (dropdownButton.getAttribute('data-status') === 'read')) {
                         const dropdownContent = dropdownElement.querySelector('.dropdown-content')
                         dropdownContent.classList.add('hide')
-                        console.log(dropdownButton.getAttribute('data-status'));
                         console.log("HID DROPDOWN")
                     }
                 });
