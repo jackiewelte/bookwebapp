@@ -1785,7 +1785,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // PROFILE
-
 // Expand bio on click
 function toggleExpandBio(event) {
     var bio = event.target;
@@ -1796,184 +1795,190 @@ function toggleExpandBio(event) {
     }
 }
 
+// Populate reading challenge progress header
+function populateReadingChallengeProgressHeader(readingGoal) {
+    const readingChallengeHeader = document.querySelector('.reading-challenge-header');
+    const currentYear = new Date().getFullYear();
+    readingChallengeHeader.textContent = `${currentYear} Reading Challenge`;
+
+    // let readingGoal = 20;
+    const rd = JSON.parse(localStorage.getItem('rd')) || {};
+    const readingChallengeProgress = document.querySelector('.reading-challenge-progress');
+    console.log("reading challenge progress: ", readingChallengeProgress);
+
+    let numReadThisYear = 0;
+    for (const bookKey in rd) {
+        if (rd[bookKey].includes(currentYear)) {
+            numReadThisYear++;
+        }
+    }
+    readingChallengeProgress.textContent = `${numReadThisYear}/${readingGoal}`;
+
+    let number = numReadThisYear / readingGoal * 100;
+    if (number > 100) {
+        number = 100;
+    }
+    console.log("number: ", number);
+
+    const progressBarGrey = document.querySelector('.reading-challenge-progress-bar-grey');
+    progressBarGrey.style.width = `${number}%`;
+
+    localStorage.setItem(`${readingChallengeProgress}-progress`, number);
+    console.log("saved bar");
+}
+
+// Populate past year recap header
+function populateYearRecapHeader() {
+    const yearRecapHeader = document.querySelector('.year-recap-header');
+    const lastYear = new Date().getFullYear() - 1;
+    yearRecapHeader.textContent = `${lastYear} Recap`;
+
+    const rd = JSON.parse(localStorage.getItem('rd')) || {};
+    const yearRecapNumBooks = document.querySelector('.year-recap-num-books');
+    let numReadLastYear = 0;
+
+    for (const bookKey in rd) {
+        if (rd[bookKey].includes(lastYear)) {
+            numReadLastYear++;
+        }
+    }
+    if (numReadLastYear === 1) {
+        yearRecapNumBooks.textContent = '1 book';
+    } else {
+        yearRecapNumBooks.textContent = `${numReadLastYear} books`;
+    }
+}
+
+// Populate recent activity books
+// function populateRecentActivityBooks() {
+
+// }
+
+
+// Populate recent activity ratings/reviews
+function populateRecentActivityRatings() {
+    const ratings = document.querySelectorAll('.recent-activity-book-rating');
+    ratings.forEach(rating => {
+        const greenStars = rating.querySelector('.mini-green-stars');
+        let bookRating = 4.5;
+
+        const greenStarsWidth = Math.floor(bookRating) / 5 * 100;
+        greenStars.style.width = `${greenStarsWidth}%`;
+
+        const remainder = bookRating - Math.floor(bookRating);
+        if (remainder) {
+            const halfStar = rating.querySelector('.half-star');
+            halfStar.innerHTML = '<sup>1</sup>/<sub>2</sub>';
+        }
+        // avgRatingNumber.textContent = `${avgRating}%`;
+        console.log(`Updated book rating to ${bookRating}`);
+    });
+}
+
+// Add favorite
+const addFavoriteButtons = document.querySelectorAll('.add-favorite');
+const slider = document.querySelector('.slider');
+const wrap = document.querySelector('.wrap');
+addFavoriteButtons.forEach(addFavoriteButton => {
+    addFavoriteButton.addEventListener('click', function(e) {
+        console.log("add favorite button clicked");
+        addFavorite(e.target, slider, wrap);
+        e.stopPropagation();
+    });
+});
+
+// after choosing book
+const favBtn = document.getElementById('fav-btn');
+favBtn.addEventListener('click', function() {
+    console.log("added favorite book");
+    populateFav(slider, wrap);
+});
+
+const favResults = document.querySelectorAll('.book');
+favResults.forEach(favResult => {
+    favResult.addEventListener('click', function() {
+        console.log("chose favorite book");
+        populateFav(slider, wrap);
+    });
+});
+
+// Add favorite
+function addFavorite(addFavoriteButton, slider, wrap) {
+    slider.classList.toggle('close');
+    wrap.style.height = '80dvh';
+    wrap.style.overflow = 'hidden';
+
+    const bookRow = document.querySelector('.book-row');
+    const bookKey = 'East of Eden by John Steinbeck';
+    const [bookTitle, bookAuthor] = bookKey.split(' by ');
+    let underscoreBookTitle = bookTitle.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '_').replace(/\s+/g, '_');
+    let underscoreBookAuthor = bookAuthor.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '_').replace(/\s+/g, '_');
+    const thumbnailLink = thumbnailLinks[bookKey];
+
+    const bookThumbnail = document.createElement('a');
+    bookThumbnail.className = 'book-thumbnail';
+    bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+
+    const thumbnail = document.createElement('img');
+    thumbnail.classList.add('book-thumbnail-img');
+    thumbnail.src = thumbnailLink;
+    bookThumbnail.appendChild(thumbnail);
+    addFavoriteButton.classList.add('hide');
+    console.log("hid button");
+    bookRow.insertBefore(bookThumbnail, addFavoriteButton);
+    console.log("added book:", bookKey);
+}
+
+function populateFav(slider, wrap) {
+    slider.classList.toggle('close');
+    wrap.style.height = 'auto';
+    wrap.style.overflow = 'visible';
+}
+
+function populateAllBooksHeader() {
+    const rd = JSON.parse(localStorage.getItem('rd')) || {};
+    const numRead = document.querySelector('.num-read');
+
+    const currentYear = new Date().getFullYear();
+    let numReadThisYear = 0;
+    for (const bookKey in rd) {
+        if (rd[bookKey].includes(currentYear)) {
+            numReadThisYear++;
+        }
+    }
+    numRead.textContent = `${Object.keys(rd).length} / ${numReadThisYear} this year`;
+}
+
+function populateDiaryHeader() {
+    const rd = JSON.parse(localStorage.getItem('rd')) || {};
+    const numLogged = document.querySelector('.num-logged');
+
+    const currentYear = new Date().getFullYear();
+    let numLoggedThisYear = 0;
+    for (const bookKey in rd) {
+        if (rd[bookKey].includes(currentYear)) {
+            numLoggedThisYear++;
+        }
+    }
+    numLogged.textContent = `${Object.keys(rd).length} / ${numLoggedThisYear} this year`;
+}
+
+function populateGroupsHeader() {
+    const groups = JSON.parse(localStorage.getItem('groups')) || {};
+    const numGroups = document.querySelector('.num-groups');
+    numGroups.textContent = Object.keys(groups).length;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname.endsWith('profile') || window.location.pathname.endsWith('profile.html')) {
-
         // Populate stats
         let readingGoal = 20;
-        populateReadingChallengeProgressHeader(readingGoal);
-        populateYearRecapHeader();
-        populateRecentActivityRatings();
-        populateAllBooksHeader();
-        populateDiaryHeader();
-
-        // Populate reading challenge progress header
-        function populateReadingChallengeProgressHeader(readingGoal) {
-            const readingChallengeHeader = document.querySelector('.reading-challenge-header');
-            const currentYear = new Date().getFullYear();
-            readingChallengeHeader.textContent = `${currentYear} Reading Challenge`;
-
-            // let readingGoal = 20;
-            const rd = JSON.parse(localStorage.getItem('rd')) || {};
-            const readingChallengeProgress = document.querySelector('.reading-challenge-progress');
-            console.log("reading challenge progress: ", readingChallengeProgress);
-
-            let numReadThisYear = 0;
-            for (const bookKey in rd) {
-                if (rd[bookKey].includes(currentYear)) {
-                    numReadThisYear++;
-                }
-            }
-            readingChallengeProgress.textContent = `${numReadThisYear}/${readingGoal}`;
-
-            let number = numReadThisYear / readingGoal * 100;
-            if (number > 100) {
-                number = 100;
-            }
-            console.log("number: ", number);
-
-            const progressBarGrey = document.querySelector('.reading-challenge-progress-bar-grey');
-            progressBarGrey.style.width = `${number}%`;
-
-            localStorage.setItem(`${readingChallengeProgress}-progress`, number);
-            console.log("saved bar");
-        }
-
-        // Populate past year recap header
-        function populateYearRecapHeader() {
-            const yearRecapHeader = document.querySelector('.year-recap-header');
-            const lastYear = new Date().getFullYear() - 1;
-            yearRecapHeader.textContent = `${lastYear} Recap`;
-
-            const rd = JSON.parse(localStorage.getItem('rd')) || {};
-            const yearRecapNumBooks = document.querySelector('.year-recap-num-books');
-            let numReadLastYear = 0;
-
-            for (const bookKey in rd) {
-                if (rd[bookKey].includes(lastYear)) {
-                    numReadLastYear++;
-                }
-            }
-            if (numReadLastYear === 1) {
-                yearRecapNumBooks.textContent = '1 book';
-            } else {
-                yearRecapNumBooks.textContent = `${numReadLastYear} books`;
-            }
-        }
-
-        // Populate recent activity books
-        // function populateRecentActivityBooks() {
-
-        // }
-
-
-        // Populate recent activity ratings/reviews
-        function populateRecentActivityRatings() {
-            const ratings = document.querySelectorAll('.recent-activity-book-rating');
-            ratings.forEach(rating => {
-                const greenStars = rating.querySelector('.mini-green-stars');
-                let bookRating = 4.5;
-
-                const greenStarsWidth = Math.floor(bookRating) / 5 * 100;
-                greenStars.style.width = `${greenStarsWidth}%`;
-
-                const remainder = bookRating - Math.floor(bookRating);
-                if (remainder) {
-                    const halfStar = rating.querySelector('.half-star');
-                    halfStar.innerHTML = '<sup>1</sup>/<sub>2</sub>';
-                }
-                // avgRatingNumber.textContent = `${avgRating}%`;
-                console.log(`Updated book rating to ${bookRating}`);
-            });
-        }
-
-        // Add favorite
-        const addFavoriteButtons = document.querySelectorAll('.add-favorite');
-        const slider = document.querySelector('.slider');
-        const wrap = document.querySelector('.wrap');
-        addFavoriteButtons.forEach(addFavoriteButton => {
-            addFavoriteButton.addEventListener('click', function(e) {
-                console.log("add favorite button clicked");
-                addFavorite(e.target, slider, wrap);
-                e.stopPropagation();
-            });
-        });
-
-        // after choosing book
-        const favBtn = document.getElementById('fav-btn');
-        favBtn.addEventListener('click', function() {
-            console.log("added favorite book");
-            populateFav(slider, wrap);
-        });
-
-        const favResults = document.querySelectorAll('.book');
-        favResults.forEach(favResult => {
-            favResult.addEventListener('click', function() {
-                console.log("chose favorite book");
-                populateFav(slider, wrap);
-            });
-        });
-
-        // Add favorite
-        function addFavorite(addFavoriteButton, slider, wrap) {
-            slider.classList.toggle('close');
-            wrap.style.height = '80dvh';
-            wrap.style.overflow = 'hidden';
-
-            const bookRow = document.querySelector('.book-row');
-            const bookKey = 'East of Eden by John Steinbeck';
-            const [bookTitle, bookAuthor] = bookKey.split(' by ');
-            let underscoreBookTitle = bookTitle.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '_').replace(/\s+/g, '_');
-            let underscoreBookAuthor = bookAuthor.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '_').replace(/\s+/g, '_');
-            const thumbnailLink = thumbnailLinks[bookKey];
-
-            const bookThumbnail = document.createElement('a');
-            bookThumbnail.className = 'book-thumbnail';
-            bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
-
-            const thumbnail = document.createElement('img');
-            thumbnail.classList.add('book-thumbnail-img');
-            thumbnail.src = thumbnailLink;
-            bookThumbnail.appendChild(thumbnail);
-            addFavoriteButton.classList.add('hide');
-            console.log("hid button");
-            bookRow.insertBefore(bookThumbnail, addFavoriteButton);
-            console.log("added book:", bookKey);
-        }
-
-        function populateFav(slider, wrap) {
-            slider.classList.toggle('close');
-            wrap.style.height = 'auto';
-            wrap.style.overflow = 'visible';
-        }
-
-        function populateAllBooksHeader() {
-            const rd = JSON.parse(localStorage.getItem('rd')) || {};
-            const numRead = document.querySelector('.num-read');
-
-            const currentYear = new Date().getFullYear();
-            let numReadThisYear = 0;
-            for (const bookKey in rd) {
-                if (rd[bookKey].includes(currentYear)) {
-                    numReadThisYear++;
-                }
-            }
-            numRead.textContent = `${Object.keys(rd).length} / ${numReadThisYear} this year`;
-        }
-
-        function populateDiaryHeader() {
-            const rd = JSON.parse(localStorage.getItem('rd')) || {};
-            const numLogged = document.querySelector('.num-logged');
-
-            const currentYear = new Date().getFullYear();
-            let numLoggedThisYear = 0;
-            for (const bookKey in rd) {
-                if (rd[bookKey].includes(currentYear)) {
-                    numLoggedThisYear++;
-                }
-            }
-            numLogged.textContent = `${Object.keys(rd).length} / ${numLoggedThisYear} this year`;
-        }
+        populateReadingChallengeProgressHeader(readingGoal)
+        populateYearRecapHeader()
+        populateRecentActivityRatings()
+        populateAllBooksHeader()
+        populateDiaryHeader()
+        populateGroupsHeader()
     }
 });
 
