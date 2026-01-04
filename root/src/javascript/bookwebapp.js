@@ -275,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
             dropdownContent.classList.toggle('hide');
 
             if (dropdownContent == lastDropdown) {
+                console.log("Last dropdown clicked");
                 dropdownContent.style.top = '0';
                 dropdownContent.style.bottom = '107%';
             }
