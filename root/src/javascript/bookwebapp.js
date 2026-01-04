@@ -33,10 +33,7 @@ window.addEventListener("DOMContentLoaded", function() {
     if (folder === '') {
         folder = 'index'
     }
-    console.log("LOC/FOLDER: ", loc, folder);
-    console.log("SCROLL: ", scrollPosition[loc]);
     if (scrollPosition[loc]) {
-        // var int = parseInt(scrollPosition[loc]);
         window.scrollTo(0, scrollPosition[loc])
         console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
         delete scrollPosition[loc]
