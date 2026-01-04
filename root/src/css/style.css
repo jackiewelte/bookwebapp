@@ -3539,16 +3539,16 @@ a, p, input[type=text], label, button {
 
     .recent-activity-book-rating {
         display: flex;
-        gap: 0.2dvw;
-        height: 1dvh;
-        width: 15dvw;
-        margin-top: 0.7dvh;
+        gap: 1px;
+        height: 9px;
+        width: 62px;
+        margin-top: 6px;
         position: relative;
     }
 
     .mini-green-stars {
         display: flex;
-        gap: 0.2dvw;
+        gap: 1px;
         width: 100%;
         flex-wrap: nowrap;
         overflow: hidden;
