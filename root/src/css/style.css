@@ -3540,8 +3540,8 @@ a, p, input[type=text], label, button {
     .recent-activity-book-rating {
         display: flex;
         gap: 1px;
-        height: 9px;
-        width: 62px;
+        height: 10px;
+        width: 54px;
         margin-top: 6px;
         position: relative;
     }
@@ -3555,8 +3555,9 @@ a, p, input[type=text], label, button {
     }
 
     .mini-green-stars-img {
-        max-width: 3dvw;
-        height: 1dvh;
+        /* max-width: 13px; */
+        height: 10px;
+        aspect-ratio: 1 / 1;
         margin: 0;
         border: none;
         box-shadow: none;
@@ -3565,12 +3566,14 @@ a, p, input[type=text], label, button {
     }
 
     .half-star {
+        width: 10px;
+        height: 10px;
         margin: 0;
         padding: 0;
         border: none;
         /* position: absolute; */
         /* font-family: 'PT Serif'; */
-        font-size: 0.9em;
+        font-size: 7px;
         font-weight: 550;
         color: #2fcc25;
         text-decoration: none;
