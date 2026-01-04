@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log(dropdownContent, lastDropdown);
                 console.log("Last dropdown clicked ", dropdownContent == lastDropdown);
                 dropdownContent.style.top = 'auto';
-                dropdownContent.style.bottom = '107%';
+                dropdownContent.style.bottom = '100%';
             }
 
             if (showInputButton) {
