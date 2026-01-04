@@ -2332,6 +2332,11 @@ a, p, input[type=text], label, button {
         justify-content: space-between;
     }
 
+    .dropdown-content:last-of-type {
+        top: 0 !important;
+        bottom: 107%;
+    }
+
     .dropdown-content-wrapper {
         flex-grow: 1;
         padding: 10px 10px 5px 10px;
