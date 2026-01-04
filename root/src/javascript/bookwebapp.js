@@ -56,6 +56,7 @@ window.addEventListener("DOMContentLoaded", function() {
     console.log("scroll position local variable: ", scrollPosition);
     console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
+    console.log("page position local variable: ", pagePosition);
     console.log("page position local storage: ", localStorage.pagePosition);
 });
 
