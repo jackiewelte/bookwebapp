@@ -1875,6 +1875,8 @@ function populateRecentActivityRatings() {
         if (remainder) {
             const halfStar = rating.querySelector('.half-star');
             halfStar.innerHTML = '<sup>1</sup>/<sub>2</sub>';
+        } else {
+            halfStar.style.display = 'none';
         }
         // avgRatingNumber.textContent = `${avgRating}%`;
         console.log(`Updated book rating to ${bookRating}`);
