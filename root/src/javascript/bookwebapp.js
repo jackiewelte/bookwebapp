@@ -322,9 +322,9 @@ document.addEventListener("DOMContentLoaded", function() {
         showInputButton.addEventListener('click', function(e) {
             showInputButton.classList.toggle('hide');
             inputContainer.classList.toggle('show');
-        // });
+        });
 
-        // createShelfButton.addEventListener('click', function(e) {
+        createShelfButton.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("Create shelf button clicked");
             const shelfNameInput = inputContainer.querySelector('.create-shelf-name');
