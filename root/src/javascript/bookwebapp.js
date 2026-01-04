@@ -1861,11 +1861,13 @@ function populateYearRecapHeader() {
 // Populate recent activity ratings/reviews
 function populateRecentActivityRatings() {
     const ratings = document.querySelectorAll('.recent-activity-book-rating');
+    const max = 5;
+    const min = 0;
     ratings.forEach(rating => {
         const greenStars = rating.querySelector('.mini-green-stars');
+        const halfStar = rating.querySelector('.half-star');
+        
         // let bookRating = 4.5;
-        const max = 5;
-        const min = 0;
         let bookRating = Math.round(Math.random() * (max - min + 1) + min);
 
         var greenStarsWidth = Math.floor(bookRating) / 5 * 100;
@@ -1873,10 +1875,9 @@ function populateRecentActivityRatings() {
 
         var remainder = bookRating - Math.floor(bookRating);
         if (remainder) {
-            const halfStar = rating.querySelector('.half-star');
-            halfStar.innerHTML = '<sup>1</sup>/<sub>2</sub>';
+            halfStar.innerHTML = '<sup>1</sup>/<sub>2</sub>'
         } else {
-            halfStar.style.display = 'none';
+            halfStar.style.display = 'none'
         }
         // avgRatingNumber.textContent = `${avgRating}%`;
         console.log(`Updated book rating to ${bookRating}`);
