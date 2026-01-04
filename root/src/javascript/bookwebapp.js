@@ -14,9 +14,9 @@ window.addEventListener('beforeunload', function() {
         if (folder === '') {
             folder = 'index'
         }
-        lastPageVisited["lastFolder"] = folder
+        lastPageVisited.lastFolder = folder
     }
-    lastPageVisited["lastURL"] = loc;
+    lastPageVisited.lastURL = loc;
 
     localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
@@ -27,14 +27,14 @@ window.addEventListener('beforeunload', function() {
 window.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
     var scrollPosition = JSON.parse(localStorage.getItem('scrollPosition'));
-    console.log("LOC: ", loc);
-    console.log("SCROLL: ", scrollPosition[loc]);
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
     var folder = loc.split('/')[1];
     if (folder === '') {
         folder = 'index'
     }
+    console.log("LOC/FOLDER: ", loc, folder);
+    console.log("SCROLL: ", scrollPosition[loc]);
     // if (scrollPosition[loc]) {
     //     var int = parseInt(scrollPosition[loc]);
     //     window.scrollTo(0, int)
