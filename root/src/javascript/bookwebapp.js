@@ -1176,14 +1176,8 @@ document.addEventListener("DOMContentLoaded", function() {
     //     populateMiniNotifs();
     // }
 
-    const booksCurrentlyReading = document.querySelector('.books-currently-reading');
-    const contentContainer = booksCurrentlyReading.querySelector('.content-container');
-    if (booksCurrentlyReading) {
-        populateMiniNotifs();
-    }
-
     // Populate currently reading notifs
-    function populateMiniNotifs() {
+    function populateMiniNotifs(contentContainer) {
         const cr = JSON.parse(localStorage.getItem('cr')) || {};
         const wtr = JSON.parse(localStorage.getItem('wtr')) || {};
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
@@ -1440,6 +1434,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
         }
+    }
+
+    const booksCurrentlyReading = document.querySelector('.books-currently-reading');
+    if (booksCurrentlyReading) {
+        const contentContainer = booksCurrentlyReading.querySelector('.content-container')
+        populateMiniNotifs(contentContainer)
     }
 
     // Update progress bar
@@ -1888,11 +1888,13 @@ addFavoriteButtons.forEach(addFavoriteButton => {
 });
 
 // after choosing book
-const favBtn = document.getElementById('fav-btn');
-favBtn.addEventListener('click', function() {
-    console.log("added favorite book");
-    populateFav(slider, wrap);
-});
+const favBtn = document.getElementById('#fav-btn');
+if (favBtn) {
+    favBtn.addEventListener('click', function() {
+        console.log("added favorite book");
+        populateFav(slider, wrap);
+    });
+}
 
 const favResults = document.querySelectorAll('.book');
 favResults.forEach(favResult => {
