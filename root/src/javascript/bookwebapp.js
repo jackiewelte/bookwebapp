@@ -2,8 +2,8 @@
 window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
     var folder = loc.split('/')[1];
-    const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
-    const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
+    var pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
+    var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
@@ -19,26 +19,24 @@ window.addEventListener('beforeunload', function() {
     localStorage.setItem('scrollPosition', window.scrollY);
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
-    console.log(localStorage.lastPageVisited);
-    console.log(localStorage.pagePosition);
+    console.log("last page visited local storage: ", localStorage.lastPageVisited);
+    console.log("page position local storage: ", localStorage.pagePosition);
 });
 
 // Recall scroll and page positions when the page loads
 window.addEventListener("DOMContentLoaded", function() {
-    const scrollPosition = localStorage.getItem('scrollPosition') || {};
-    const lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
-    const pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
+    var scrollPosition = localStorage.getItem('scrollPosition');
+    var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
+    var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
     var loc = window.location.pathname;
     var folder = loc.split('/')[1];
     if (folder === '') {
         folder = 'index'
     }
-
     if (scrollPosition) {
       window.scrollTo(0, scrollPosition)
       localStorage.removeItem('scrollPosition') // Optional: Remove after use
     }
-
     if (lastPageVisited.lastFolder != folder) {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
             if (Object.keys(pagePosition)[i] === folder) {
@@ -50,8 +48,8 @@ window.addEventListener("DOMContentLoaded", function() {
         delete pagePosition[folder]
     }
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
-    console.log(localStorage.lastPageVisited);
-    console.log(localStorage.pagePosition);
+    console.log("last page visited local storage: ", localStorage.lastPageVisited);
+    console.log("page position local storage: ", localStorage.pagePosition);
 });
 
 
