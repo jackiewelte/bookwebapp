@@ -6,7 +6,7 @@ window.addEventListener('beforeunload', function() {
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
-    scrollPosition[window.scrollY] = loc;
+    scrollPosition[loc] = window.scrollY;
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
     }
