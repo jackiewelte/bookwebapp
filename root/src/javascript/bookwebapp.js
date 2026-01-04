@@ -21,11 +21,6 @@ window.addEventListener('beforeunload', function() {
     localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
-    console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY);
-    console.log("scroll position local variable: ", scrollPosition);
-    console.log("scroll position local storage: ", localStorage.scrollPosition);
-    console.log("last page visited local storage: ", localStorage.lastPageVisited);
-    console.log("page position local storage: ", localStorage.pagePosition);
 });
 
 // Recall scroll and page positions when the page loads
@@ -40,13 +35,12 @@ window.addEventListener("DOMContentLoaded", function() {
     if (folder === '') {
         folder = 'index'
     }
-    if (scrollPosition[loc]) {
-        var int = parseInt(scrollPosition[loc]);
-        window.scrollTo(0, int)
-        console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
-        delete scrollPosition[loc]
-    //   localStorage.removeItem('scrollPosition') // Optional: Remove after use
-    }
+    // if (scrollPosition[loc]) {
+    //     var int = parseInt(scrollPosition[loc]);
+    //     window.scrollTo(0, int)
+    //     console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
+    //     delete scrollPosition[loc]
+    // }
     if (lastPageVisited.lastFolder != folder) {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
             if (Object.keys(pagePosition)[i] === folder) {
