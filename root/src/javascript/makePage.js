@@ -72,7 +72,7 @@ function makePage() {
     xmlhttp.open("GET", "makePage.php?content=" + content, true);
     xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     xmlhttp.setRequestHeader("Accept","application/json");
-    xmlhttp.send("query="+encodeURIComponent(searchTerm));
+    // xmlhttp.send("query="+encodeURIComponent(searchTerm));
 
-    // xmlhttp.send();
+    xmlhttp.send();
 }
