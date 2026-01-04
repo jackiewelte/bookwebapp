@@ -1967,6 +1967,7 @@ function populateGroupsHeader() {
     const groups = JSON.parse(localStorage.getItem('groups')) || {};
     const numGroups = document.querySelector('.num-groups');
     numGroups.textContent = Object.keys(groups).length;
+    console.log("Populated group header ", Object.keys(groups).length);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
