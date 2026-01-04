@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const showInputButton = dropdownElement.querySelector('.show-input-btn');
         const inputContainer = dropdownElement.querySelector('.input-container');
         // const doneButton = dropdownElement.querySelector('.done-btn');
-        var lastDropdown = dropdownContents[dropdownContents.length - 1];
+        const lastDropdown = dropdownContents[dropdownContents.length - 1];
 
 
         if (!dropdownContent || !dropdownOverlay) return;
@@ -275,7 +275,8 @@ document.addEventListener("DOMContentLoaded", function() {
             dropdownContent.classList.toggle('hide');
 
             if (dropdownContent == lastDropdown) {
-                console.log("Last dropdown clicked");
+                console.log(dropdownContent, lastDropdown);
+                console.log("Last dropdown clicked ", dropdownContent == lastDropdown);
                 dropdownContent.style.top = '0';
                 dropdownContent.style.bottom = '107%';
             }
