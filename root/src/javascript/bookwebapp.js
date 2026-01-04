@@ -2,9 +2,11 @@
 window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;
     var folder = loc.split('/')[1];
+    var scrollPosition = JSON.parse(localStorage.getItem('scrollPosition')) || {};
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition')) || {};
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited')) || {};
 
+    scrollPosition[loc] = window.scrollY;
     if (folder === 'index' || folder === 'discover' || folder === 'my_books' || folder === 'profile') {
         pagePosition[folder] = loc
     }
@@ -16,9 +18,10 @@ window.addEventListener('beforeunload', function() {
     }
     lastPageVisited["lastURL"] = loc;
 
-    localStorage.setItem('scrollPosition', window.scrollY);
+    localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('lastPageVisited', JSON.stringify(lastPageVisited));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
+    console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
     console.log("page position local storage: ", localStorage.pagePosition);
 });
@@ -33,9 +36,10 @@ window.addEventListener("DOMContentLoaded", function() {
     if (folder === '') {
         folder = 'index'
     }
-    if (scrollPosition) {
+    if (scrollPosition[loc]) {
       window.scrollTo(0, scrollPosition)
-      localStorage.removeItem('scrollPosition') // Optional: Remove after use
+      delete scrollPosition[loc]
+    //   localStorage.removeItem('scrollPosition') // Optional: Remove after use
     }
     if (lastPageVisited.lastFolder != folder) {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
@@ -47,7 +51,9 @@ window.addEventListener("DOMContentLoaded", function() {
     } else {
         delete pagePosition[folder]
     }
+    localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
+    console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
     console.log("page position local storage: ", localStorage.pagePosition);
 });
