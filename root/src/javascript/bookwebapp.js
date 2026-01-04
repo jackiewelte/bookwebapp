@@ -180,6 +180,22 @@ const thumbnailLinks = {
     "But Beautiful by Geoff Dyer": "https://m.media-amazon.com/images/I/71fSu5vb8KL._AC_UF1000,1000_QL80_.jpg"
 };
 
+// Populate average book rating
+function updateAvgRating() {
+    const notifs = document.querySelectorAll('.notif');
+    notifs.forEach(notif => {
+        const greenStars = notif.querySelector('.green-stars');
+        const bookAvgRating = notif.querySelector('.book-avg-rating');
+
+        const avgRating = bookAvgRating.textContent;
+        const greenStarsWidth = avgRating / 5 * 100;
+
+        greenStars.style.width = `${greenStarsWidth}%`;
+        // avgRatingNumber.textContent = `${avgRating}%`;
+        console.log(`Updated book rating to ${avgRating}`);
+    });
+}
+
 // Populate popular and friends activity book rows
 document.addEventListener("DOMContentLoaded", function() {
     var popularBooks = JSON.parse(localStorage.getItem('popularBooks')) || {};
@@ -232,24 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
     localStorage.setItem('friendsBookActivity', JSON.stringify(friendsBookActivity));
     localStorage.setItem('recForYou', JSON.stringify(recForYou));
 
-
-// Populate average book rating
     updateAvgRating();
-    function updateAvgRating() {
-        const notifs = document.querySelectorAll('.notif');
-        notifs.forEach(notif => {
-            const greenStars = notif.querySelector('.green-stars');
-            const bookAvgRating = notif.querySelector('.book-avg-rating');
-
-            const avgRating = bookAvgRating.textContent;
-            const greenStarsWidth = avgRating / 5 * 100;
-
-            greenStars.style.width = `${greenStarsWidth}%`;
-            // avgRatingNumber.textContent = `${avgRating}%`;
-            console.log(`Updated book rating to ${avgRating}`);
-        });
-    }
-
 
 // Open (populate)/close book dropdown menu
     console.log("local storage: ", localStorage);
@@ -1864,7 +1863,10 @@ function populateRecentActivityRatings() {
     const ratings = document.querySelectorAll('.recent-activity-book-rating');
     ratings.forEach(rating => {
         const greenStars = rating.querySelector('.mini-green-stars');
-        let bookRating = 4.5;
+        // let bookRating = 4.5;
+        const max = 5;
+        const min = 0;
+        let bookRating = Math.floor(Math.random() * (max - min + 1) + min);
 
         const greenStarsWidth = Math.floor(bookRating) / 5 * 100;
         greenStars.style.width = `${greenStarsWidth}%`;
