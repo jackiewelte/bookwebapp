@@ -2141,7 +2141,7 @@ a, p, input[type=text], label, button {
 
     .book-thumbnail-img {
         /* width: 90px; */
-        width: 21vw;
+        width: calc(84vw/4);
         aspect-ratio: 2 / 3;
         /* object-fit: cover; */
         /* border: 0.5px solid rgba(193, 199, 207, 0.748); */
