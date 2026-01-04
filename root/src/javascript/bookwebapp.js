@@ -849,11 +849,8 @@ function updateGroup(checkbox, groupKey) {
 
 // Join/leave group
 function joinLeaveGroup(checkbox, groupKey) {
-    console.log("GROUP KEY 2: ", groupKey);
     var groups = JSON.parse(localStorage.getItem('groups'));
     var groupMembers = JSON.parse(localStorage.getItem('groupMembers')) || {};
-
-    console.log(groupMembers);
 
     const name = "jackie";
     const userName = "ilikecats2";
@@ -866,7 +863,6 @@ function joinLeaveGroup(checkbox, groupKey) {
     }
 
     if (checkbox.checked) {
-        console.log("step 6 - if");
         checkbox.setAttribute('checked', 'true')
 
         // Add group to GROUPS dict
@@ -878,13 +874,9 @@ function joinLeaveGroup(checkbox, groupKey) {
         }
         // alert('Joined: ' + groupName + ' at ' + groups[groupKey]);
 
-        console.log("groupKey: ", groupKey, "groupMembers: ", groupMembers, "user: ", user)
         groupMembers[groupKey].push(user)
-        console.log(groupMembers)
         // users.setAttribute('data-users', groupMembers[groupKey])
         // console.log(JSON.parse(users.dataset.users))
-
-        console.log("step 7 - if");
 
     // Remove group from GROUPS dict if already in it
     } else {
@@ -895,9 +887,7 @@ function joinLeaveGroup(checkbox, groupKey) {
 
             for (let i = 0; i < Object.keys(groupMembers[groupKey]).length; i++) {
                 if (groupMembers[groupKey][i].username === userName) {
-                    console.log(groupMembers)
                     delete groupMembers[groupKey][i]
-                    console.log(groupMembers)
                     break
                 }
             }
@@ -916,21 +906,15 @@ function joinLeaveGroup(checkbox, groupKey) {
 
 // Populate number of group members
 function updateNumMembers(checkbox, groupMembers, groupKey) {
-    console.log("GROUP KEY: ", groupKey);
     const groupElement = checkbox.closest('.group-row');
     // load dict storing all members (dict with group: usernames)
     var numMembersLabel = groupElement.querySelector('.num-members');
-
-    console.log("groupKey: ", groupKey, "groupMembers: ", groupMembers);
-    console.log(groupMembers[groupKey]);
-    console.log("local storage groupMembers 2: ", localStorage.groupMembers);
 
     if (!groupMembers.hasOwnProperty(groupKey)) {
         groupMembers[[groupKey]] = [];
         var numMembers = 0
         numMembers = numMembers.toLocaleString()
     } else {
-        console.log("group members: ", Object.keys(groupMembers[groupKey]).length, groupMembers[groupKey])
         var numMembers = Object.keys(groupMembers[groupKey]).length.toLocaleString()
     }
 
@@ -939,7 +923,6 @@ function updateNumMembers(checkbox, groupMembers, groupKey) {
     } else {
         numMembersLabel.textContent = `${numMembers} members`
     }
-    console.log(numMembersLabel.textContent);
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
 }
 
@@ -960,11 +943,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const users = document.getElementById('#Classic-Novels-users');
         // console.log(JSON.parse(users.dataset.users));
-
-        console.log("my groups: ", groups);
     });
     localStorage.setItem('groups', JSON.stringify(groups));
-    console.log(localStorage.groups);
 });
 
 
