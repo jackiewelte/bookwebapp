@@ -900,7 +900,6 @@ function joinLeaveGroup(checkbox, groupKey) {
     localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
     console.log("regular groupMembers: ", groupMembers);
     console.log("local storage groupMembers: ", localStorage.groupMembers);
-    console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
     // alert('Updated groups: ' + JSON.stringify(groups));
 }
 
