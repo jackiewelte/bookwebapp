@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (dropdownContent == lastDropdown) {
                 console.log(dropdownContent, lastDropdown);
                 console.log("Last dropdown clicked ", dropdownContent == lastDropdown);
-                dropdownContent.style.top = '0';
+                dropdownContent.style.top = 'auto';
                 dropdownContent.style.bottom = '107%';
             }
 
