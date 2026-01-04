@@ -254,6 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("local storage: ", localStorage);
     updateAllDropdownMenus();
     const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+    const dropdownContents = document.querySelectorAll('.dropdown-content');
 
     dropdownButtons.forEach(dropdownButton => {
         const dropdownElement = dropdownButton.closest('.dropdown');
@@ -264,12 +265,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const showInputButton = dropdownElement.querySelector('.show-input-btn');
         const inputContainer = dropdownElement.querySelector('.input-container');
         // const doneButton = dropdownElement.querySelector('.done-btn');
+        var lastDropdown = dropdownContents[dropdownContents.length - 1];
+
 
         if (!dropdownContent || !dropdownOverlay) return;
 
         dropdownButton.addEventListener('click', function(e) {
             console.log("Dropdown button clicked");
             dropdownContent.classList.toggle('hide');
+
+            if (dropdownContent == lastDropdown) {
+                dropdownContent.style.top = '0';
+                dropdownContent.style.bottom = '107%';
+            }
 
             if (showInputButton) {
                 showInputButton.classList.remove('hide');
