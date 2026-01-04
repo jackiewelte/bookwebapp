@@ -317,14 +317,14 @@ document.addEventListener("DOMContentLoaded", function() {
     showInputButtons.forEach(showInputButton => {
         const shelfContainer = showInputButton.closest('.add-shelf-btn');
         const inputContainer = shelfContainer.querySelector('.input-container');
+        // const createShelfButton = inputContainer.querySelector('.create-shelf-btn');
 
-        showInputButton.addEventListener('click', function() {
+        showInputButton.addEventListener('click', function(e) {
             showInputButton.classList.toggle('hide');
             inputContainer.classList.toggle('show');
-        });
+        // });
 
-        const createShelfButton = inputContainer.querySelector('.create-shelf-btn');
-        createShelfButton.addEventListener('click', function(e) {
+        // createShelfButton.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("Create shelf button clicked");
             const shelfNameInput = inputContainer.querySelector('.create-shelf-name');
