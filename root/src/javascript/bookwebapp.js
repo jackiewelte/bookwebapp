@@ -33,9 +33,9 @@ window.addEventListener("DOMContentLoaded", function() {
     if (folder === '') {
         folder = 'index'
     }
-    if (scrollPosition[loc]) {
+    console.log(scrollPosition.hasOwnProperty(loc));
+    if (scrollPosition.hasOwnProperty(loc)) {
         window.scrollTo(0, scrollPosition[loc])
-        console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
         delete scrollPosition[loc]
     }
     if (lastPageVisited.lastFolder != folder) {
@@ -53,7 +53,6 @@ window.addEventListener("DOMContentLoaded", function() {
     console.log("scroll position local variable: ", scrollPosition);
     console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
-    console.log("page position local variable: ", pagePosition);
     console.log("page position local storage: ", localStorage.pagePosition);
 });
 
