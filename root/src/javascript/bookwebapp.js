@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 dropdownButtons.forEach(dropdownButton => {
                     const dropdownElement = dropdownButton.closest('.dropdown');
                     if (!dropdownElement) return;
-                    console.log(currentMiniStatus);
+                    console.log(currentMiniStatus, currentMiniStatus === 'want-to-read');
                     if ((currentMiniStatus === 'want-to-read') || (currentMiniStatus === 'currently-reading') || (currentMiniStatus === 'read')) {
                         const dropdownContent = dropdownElement.querySelector('.dropdown-content')
                         dropdownContent.classList.add('hide')
