@@ -31,6 +31,8 @@ window.addEventListener('beforeunload', function() {
 // Recall scroll and page positions when the page loads
 window.addEventListener("DOMContentLoaded", function() {
     var scrollPosition = localStorage.getItem('scrollPosition');
+    console.log("SCROLL: ", Object.keys(scrollPosition));
+    console.log("SCROLL: ", scrollPosition[loc]);
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
     var loc = window.location.pathname;
@@ -40,9 +42,9 @@ window.addEventListener("DOMContentLoaded", function() {
     }
     if (scrollPosition[loc]) {
         var int = parseInt(scrollPosition[loc]);
-      window.scrollTo(0, int)
-      console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
-      delete scrollPosition[loc]
+        window.scrollTo(0, int)
+        console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
+        delete scrollPosition[loc]
     //   localStorage.removeItem('scrollPosition') // Optional: Remove after use
     }
     if (lastPageVisited.lastFolder != folder) {
