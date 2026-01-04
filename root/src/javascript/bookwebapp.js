@@ -38,7 +38,8 @@ window.addEventListener("DOMContentLoaded", function() {
         folder = 'index'
     }
     if (scrollPosition[loc]) {
-      window.scrollTo(0, scrollPosition)
+        var int = parseInt(scrollPosition[loc]);
+      window.scrollTo(0, int)
       delete scrollPosition[loc]
     //   localStorage.removeItem('scrollPosition') // Optional: Remove after use
     }
