@@ -41,6 +41,7 @@ window.addEventListener("DOMContentLoaded", function() {
     if (scrollPosition[loc]) {
         var int = parseInt(scrollPosition[loc]);
       window.scrollTo(0, int)
+      console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
       delete scrollPosition[loc]
     //   localStorage.removeItem('scrollPosition') // Optional: Remove after use
     }
@@ -56,7 +57,6 @@ window.addEventListener("DOMContentLoaded", function() {
     }
     localStorage.setItem('scrollPosition', JSON.stringify(scrollPosition));
     localStorage.setItem('pagePosition', JSON.stringify(pagePosition));
-    console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY);
     console.log("scroll position local variable: ", scrollPosition);
     console.log("scroll position local storage: ", localStorage.scrollPosition);
     console.log("last page visited local storage: ", localStorage.lastPageVisited);
