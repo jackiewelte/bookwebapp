@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function() {
     showInputButtons.forEach(showInputButton => {
         const shelfContainer = showInputButton.closest('.add-shelf-btn');
         const inputContainer = shelfContainer.querySelector('.input-container');
-        // const createShelfButton = inputContainer.querySelector('.create-shelf-btn');
+        const createShelfButton = inputContainer.querySelector('.create-shelf-btn');
 
         showInputButton.addEventListener('click', function(e) {
             showInputButton.classList.toggle('hide');
