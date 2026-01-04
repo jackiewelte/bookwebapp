@@ -31,7 +31,7 @@ window.addEventListener('beforeunload', function() {
 // Recall scroll and page positions when the page loads
 window.addEventListener("DOMContentLoaded", function() {
     var scrollPosition = localStorage.getItem('scrollPosition');
-    console.log("SCROLL: ", Object.keys(scrollPosition));
+    console.log("LOC: ", loc);
     console.log("SCROLL: ", scrollPosition[loc]);
     var lastPageVisited = JSON.parse(localStorage.getItem('lastPageVisited'));
     var pagePosition = JSON.parse(localStorage.getItem('pagePosition'));
