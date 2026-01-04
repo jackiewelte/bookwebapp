@@ -1868,10 +1868,10 @@ function populateRecentActivityRatings() {
         const min = 0;
         let bookRating = Math.floor(Math.random() * (max - min + 1) + min);
 
-        const greenStarsWidth = Math.floor(bookRating) / 5 * 100;
+        var greenStarsWidth = Math.floor(bookRating) / 5 * 100;
         greenStars.style.width = `${greenStarsWidth}%`;
 
-        const remainder = bookRating - Math.floor(bookRating);
+        var remainder = bookRating - Math.floor(bookRating);
         if (remainder) {
             const halfStar = rating.querySelector('.half-star');
             halfStar.innerHTML = '<sup>1</sup>/<sub>2</sub>';
