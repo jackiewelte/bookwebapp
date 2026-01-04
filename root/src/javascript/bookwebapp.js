@@ -843,7 +843,6 @@ function updateGroup(checkbox, groupKey) {
     var groupMembers = JSON.parse(localStorage.getItem('groupMembers'));
     console.log("regular groupMembers: ", groupMembers);
     console.log("local storage groupMembers: ", localStorage.groupMembers);
-    console.log(groupKey + " 3: " + groupMembers[groupKey][0].username);
     updateNumMembers(checkbox, groupMembers, groupKey);
 }
 
