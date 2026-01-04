@@ -641,9 +641,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 dropdownButtons.forEach(dropdownButton => {
                     const dropdownElement = dropdownButton.closest('.dropdown');
                     if (!dropdownElement) return;
-                    const dropdownContent = dropdownElement.querySelector('.dropdown-content');
-                    dropdownContent.classList.add('hide');
-                    console.log("HID DROPDOWN");
+                    if ((dropdownButton.getAttribute('data-status') === 'want-to-read') || (dropdownButton.getAttribute('data-status') === 'currently-reading') || (dropdownButton.getAttribute('data-status') === 'read')) {
+                        const dropdownContent = dropdownElement.querySelector('.dropdown-content')
+                        dropdownContent.classList.add('hide')
+                        console.log("HID DROPDOWN")
+                    }
                 });
 
                 if (['want-to-read', 'currently-reading', 'read'].includes(currentMiniStatus)) {
