@@ -35,12 +35,12 @@ window.addEventListener("DOMContentLoaded", function() {
     }
     console.log("LOC/FOLDER: ", loc, folder);
     console.log("SCROLL: ", scrollPosition[loc]);
-    // if (scrollPosition[loc]) {
-    //     var int = parseInt(scrollPosition[loc]);
-    //     window.scrollTo(0, int)
-    //     console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
-    //     delete scrollPosition[loc]
-    // }
+    if (scrollPosition[loc]) {
+        // var int = parseInt(scrollPosition[loc]);
+        window.scrollTo(0, scrollPosition[loc])
+        console.log("scrollPosition[loc]: ", scrollPosition[loc], window.scrollY)
+        delete scrollPosition[loc]
+    }
     if (lastPageVisited.lastFolder != folder) {
         for (let i = 0; i < Object.keys(pagePosition).length; i++) {
             if (Object.keys(pagePosition)[i] === folder) {
