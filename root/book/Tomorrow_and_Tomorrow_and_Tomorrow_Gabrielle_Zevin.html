@@ -45,17 +45,13 @@
         <div class="book-profile-section">
             <div class="book-profile-container">
                 <a class="switch-editions-btn" href="book_editions.html">
-                    <p>Switch to another edition</p>
+                    <p class="switch-editions-text">Switch to another edition</p>
                 </a>
                 <img class="book-cover-img" src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg"></img>
             </div>
             <div class="book-profile-container">
-                <div class="main-book-title">
-                    Tomorrow, and Tomorrow, and Tomorrow
-                </div>
-                <a class="main-author" href="../author/Gabrielle_Zevin.html">
-                    by Gabrielle Zevin
-                </a>
+                <div class="book-profile-section-header">Tomorrow, and Tomorrow, and Tomorrow</div>
+                <a class="author-main" href="../author/Gabrielle_Zevin.html">by Gabrielle Zevin</a>
                 <div class="book-rating">
                     <div class="grey-stars">
                         <img src="../assets/images/icons/grey_star_icon.svg">
@@ -76,15 +72,11 @@
                 <div class="want-to-read-btns">
                     <input type="checkbox" class="status-checkbox" id="book-status-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin">
                     <label for="book-status-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="status-label">
-                        <div class="read-check">
-                        </div>
+                        <div class="read-check"></div>
                         Want to Read
                     </label>
-
                     <div class="dropdown">
-                        <button class="dropdown-btn" href="#">
-                            •••
-                        </button>
+                        <button class="dropdown-btn" href="#">•••</button>
                         <div class="dropdown-content hide">
                             <div class="dropdown-content-wrapper">
                                 <div class="mini-search-bar">
@@ -110,14 +102,10 @@
                             </div>
                             <div class="dropdown-bottom-btns">
                                 <div class="add-shelf-btn">
-                                    <button class="show-input-btn">
-                                        Create Bookshelf
-                                    </button>
+                                    <button class="show-input-btn">Create Bookshelf</button>
                                     <div class="input-container">
                                         <input type="text" class="create-shelf-name" placeholder="Enter shelf name">
-                                        <button class="create-shelf-btn">
-                                            Add
-                                        </button>
+                                        <button class="create-shelf-btn">Add</button>
                                     </div>
                                 </div>
                             </div>
@@ -125,17 +113,21 @@
                         <div class="dropdown-overlay hide"></div>
                     </div>
                 </div>
-                <div class="rate-this-book"></div>
+                <div class="rate-this-book">Rate this book</div>
                 <div class="my-book-rating"></div>
             </div>
         </div>
         <div class="book-profile-section">
-            <div class="genres-header"></div>
-            <div class="genres"></div>
+            <div class="book-profile-section-header">Genres</div>
+            <div class="genres">
+                <a class="genre" href="genre/literary_fiction.html">Literary Fiction</a>
+                <a class="genre" href="genre/literary_fiction.html">Romance</a>
+                <a class="genre" href="genre/literary_fiction.html">Humor</a>
+            </div>
             <button class="more-genres-btn">more...</button>
         </div>
         <div class="book-profile-section">
-            <div class="book-description-header"></div>
+            <div class="book-profile-section-header">Book Description</div>
             <div class="book-description">
                 <b>In this exhilarating novel, two friends—often in love, but never lovers—come together as creative partners in the world of video game design, 
                 where success brings them fame, joy, tragedy, duplicity, and, ultimately, a kind of immortality.</b>
@@ -158,25 +150,42 @@
             </button>
         </div>
         <div class="book-profile-section">
-            <div class="edit-dates-header"></div>
+            <div class="book-profile-section-header">Edit Dates</div>
             <div class="edit-dates-container">
-                <div class="date-added"></div>
-                <div class="date-started"></div>
-                <div class="date-finished"></div>
+                <div class="date-added">Added</div>
+                <div class="date-started">Started reading</div>
+                <div class="date-finished">Finished reading</div>
             </div>
             <div class="edit-dates-container">
-                <div class="date-added"></div>
+                <div class="date-added-picker">
+                    <div class="month">January</div>
+                    <div class="day">01</div>
+                    <div class="year">2025</div>
+                </div>
                 <div class="dotted-timeline"></div>
-                <div class="date-started"></div>
+                <div class="date-started-picker">
+                    <div class="month">January</div>
+                    <div class="day">10</div>
+                    <div class="year">2025</div>
+                </div>
                 <div class="dotted-timeline"></div>
-                <div class="date-finished"></div>
+                <div class="date-finished-picker">
+                    <div class="month">February</div>
+                    <div class="day">25</div>
+                    <div class="year">2025</div>
+                </div>
             </div>
         </div>
         <div class="book-profile-section">
-            <div class="book-details-header"></div>
-            <div class="book-details"></div>
+            <div class="book-profile-section-header">Book Details</div>
+            <div class="book-details">
+                185 pages, Hardcover
+                <br>
+                First published October 13, 2020
+            </div>
         </div>
         <div class="book-profile-section">
+            <div class="book-profile-section-header">Tags</div>
             <div class="current-out-header">
                 <p class="out-header-title">Browse by tag</p>
                 <a class="show-more" href="more_group_tags.html">
