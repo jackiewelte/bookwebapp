@@ -40,28 +40,39 @@
         <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
     </div>
 
-    <!-- Notif -->
-    <div class="notif" style="margin: 15px 20px 10px 20px !important;">
-        <div class="notif-info">
-            <p class="popular-notif">
-                Popular this week in 
-            </p>
-            <a class="genre" href="../genre/literary_fiction.html">
-                Literary Fiction
-            </a>
-        </div>
-        <div class="book" data-title="Tomorrow and Tomorrow and Tomorrow" data-author="Gabrielle Zevin">
-            <a class="book-thumbnail" href="#">
-                <img class="book-thumbnail-img" src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg">
-            </a>
-            <div class="book-info">
-                <a class="book-title" href="#">
-                    Tomorrow and Tomorrow and Tomorrow
-                </a>
-                <a class="author" href="author/Gabrielle_Zevin.html">
-                    by Gabrielle Zevin
-                </a>
+    <div class="wrap" style="margin: 141px 0 100px 0;">
 
+        <div class="book-profile-section">
+            <div class="book-profile-container">
+                <a class="switch-editions-btn" href="book_editions.html">
+                    <p>Switch to another edition</p>
+                </a>
+                <img class="book-cover-img" src="https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg"></img>
+            </div>
+            <div class="book-profile-container">
+                <div class="main-book-title">
+                    <!-- Tomorrow and Tomorrow and Tomorrow -->
+                </div>
+                <a class="main-author" href="../author/Gabrielle_Zevin.html">
+                    <!-- by Gabrielle Zevin -->
+                </a>
+                <div class="book-rating">
+                    <div class="grey-stars">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                        <div class="green-stars">
+                            <img src="../assets/images/icons/green_star_icon.svg">
+                            <img src="../assets/images/icons/green_star_icon.svg">
+                            <img src="../assets/images/icons/green_star_icon.svg">
+                            <img src="../assets/images/icons/green_star_icon.svg">
+                            <img src="../assets/images/icons/green_star_icon.svg">
+                        </div>
+                    </div>
+                    <p class="book-avg-rating">4.16</p>
+                </div>
                 <div class="want-to-read-btns">
                     <input type="checkbox" class="status-checkbox" id="book-status-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin">
                     <label for="book-status-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="status-label">
@@ -114,26 +125,70 @@
                         <div class="dropdown-overlay hide"></div>
                     </div>
                 </div>
-                <div class="book-rating">
-                    <div class="grey-stars">
-                        <img src="../assets/images/icons/grey_star_icon.svg">
-                        <img src="../assets/images/icons/grey_star_icon.svg">
-                        <img src="../assets/images/icons/grey_star_icon.svg">
-                        <img src="../assets/images/icons/grey_star_icon.svg">
-                        <img src="../assets/images/icons/grey_star_icon.svg">
-                        <div class="green-stars">
-                            <img src="../assets/images/icons/green_star_icon.svg">
-                            <img src="../assets/images/icons/green_star_icon.svg">
-                            <img src="../assets/images/icons/green_star_icon.svg">
-                            <img src="../assets/images/icons/green_star_icon.svg">
-                            <img src="../assets/images/icons/green_star_icon.svg">
-                        </div>
-                    </div>
-                    <p class="book-avg-rating">4.16</p>
-                </div>
+                <div class="rate-this-book"></div>
+                <div class="my-book-rating"></div>
             </div>
         </div>
-    </div>
+        <div class="book-profile-section">
+            <div class="genres-header"></div>
+            <div class="genres"></div>
+            <button class="more-genres-btn">more...</button>
+        </div>
+        <div class="book-profile-section">
+            <div class="book-description-header"></div>
+            <div class="book-description"></div>
+            <button class="read-more-btn">
+                <img src="../assets/images/icons/right_caret_icon.svg" class="down-caret"></img>
+                Read more
+            </button>
+        </div>
+        <div class="book-profile-section">
+            <div class="edit-dates-header"></div>
+            <div class="edit-dates-container">
+                <div class="date-added"></div>
+                <div class="date-started"></div>
+                <div class="date-finished"></div>
+            </div>
+            <div class="edit-dates-container">
+                <div class="date-added"></div>
+                <div class="dotted-timeline"></div>
+                <div class="date-started"></div>
+                <div class="dotted-timeline"></div>
+                <div class="date-finished"></div>
+            </div>
+        </div>
+        <div class="book-profile-section">
+            <div class="book-details-header"></div>
+            <div class="book-details"></div>
+        </div>
+        <div class="book-profile-section">
+            <div class="current-out-header">
+                <p class="out-header-title">Browse by tag</p>
+                <a class="show-more" href="more_group_tags.html">
+                    <p>Show more</p>
+                    <img src="../assets/images/icons/right_caret_icon.svg" class="right-caret">
+                </a>
+            </div>
 
+            <div class="empty-10-row">
+                <p></p>
+            </div>
+
+            <div class="tag-row">
+                <a class=tag href="bookclub_group_tag.html">bookclub</a>
+                <a class=tag href="fantasy_group_tag.html">fantasy</a>
+                <a class=tag href="romance_group_tag.html">romance</a>
+                <a class=tag href="scifi_group_tag.html">science fiction</a>
+                <a class=tag href="nonfiction_tag.html">nonfiction</a>
+                <a class=tag href="classics_group_tag.html">classics</a>
+                <a class=tag href="gothic_group_tag.html">gothic</a>
+                <a class=tag href="history_group_tag.html">history</a>
+            </div>
+            <button class="read-more-btn">
+                <img src="../assets/images/icons/right_caret_icon.svg" class="down-caret"></img>
+                Read more
+            </button>
+        </div>
+    </div>
 </body> 
 </html>
