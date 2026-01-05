@@ -3773,9 +3773,16 @@ a, p, input[type=text], label, button {
 
 }
 .down-caret {
-
+    width: 12px;
+    height: auto;
+    transform: rotate(90deg);
 }
 .edit-dates-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.edit-dates-text {
 
 }
 .date-added {
@@ -3785,6 +3792,9 @@ a, p, input[type=text], label, button {
 
 }
 .date-finished {
+
+}
+.edit-dates-pickers {
 
 }
 .date-added-picker {
