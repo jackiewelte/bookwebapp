@@ -3862,7 +3862,8 @@ a, p, input[type=text], label, button {
 
 }
 .book-details {
-
+    color: #c7c7c7;
+    margin: 0;
 }
 }
 
