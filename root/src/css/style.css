@@ -3709,13 +3709,14 @@ a, p, input[type=text], label, button {
 
 }
 .switch-editions-text {
-    color: #ff914d;
+    /* color: #ff914d; */
+    color: #0097b2;
     font-size: 12px;
     font-weight: bold;
     margin: 0;
 }
 .book-cover-img {
-    width: 170px;
+    width: 150px;
 }
 .book-profile-section-header {
     width: 100%;
