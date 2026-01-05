@@ -3799,7 +3799,7 @@ a, p, input[type=text], label, button {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .edit-dates-text p {
