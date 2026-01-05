@@ -3796,8 +3796,17 @@ a, p, input[type=text], label, button {
     flex-wrap: nowrap;
 }
 .edit-dates-text {
-
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    column-gap: 20px;
 }
+
+.edit-dates-text p {
+    color: #c7c7c7;
+    margin: 0;
+}
+
 .date-added {
 
 }
@@ -3807,6 +3816,7 @@ a, p, input[type=text], label, button {
 .date-finished {
 
 }
+
 .edit-dates-pickers {
 
 }
@@ -3819,6 +3829,18 @@ a, p, input[type=text], label, button {
 }
 .date-finished-picker {
 
+}
+
+.date-added-picker, .date-started-picker, .date-finished-picker {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 20px;
+}
+
+.date-added-picker p, .date-started-picker p, .date-finished-picker p {
+    color: #c7c7c7;
+    margin: 0;
 }
 
 .month {
