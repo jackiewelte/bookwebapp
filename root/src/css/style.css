@@ -3823,7 +3823,7 @@ a, p, input[type=text], label, button {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    row-gap: 20px;
+    /* row-gap: 20px; */
 }
 
 .date-added-picker {
@@ -3858,13 +3858,25 @@ a, p, input[type=text], label, button {
 .year {
 
 }
+
 .dotted-timeline {
 
 }
+
 .book-details {
+    width: 100%;
     color: #c7c7c7;
     margin: 0;
 }
+
+.num-pages {
+
+}
+
+.date-published {
+
+}
+
 }
 
 #clear-storage {
