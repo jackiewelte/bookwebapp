@@ -3791,9 +3791,11 @@ a, p, input[type=text], label, button {
     transform: rotate(90deg);
 }
 .edit-dates-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: space-around;
 }
 .edit-dates-text {
     display: flex;
@@ -3818,8 +3820,12 @@ a, p, input[type=text], label, button {
 }
 
 .edit-dates-pickers {
-
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    row-gap: 20px;
 }
+
 .date-added-picker {
 
 }
