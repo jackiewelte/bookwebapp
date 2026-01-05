@@ -3694,6 +3694,7 @@ a, p, input[type=text], label, button {
 
 /* BOOK PROFILE */
 .book-profile-section {
+    padding: 10px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3702,7 +3703,7 @@ a, p, input[type=text], label, button {
 .book-profile-container {
     display: flex;
     flex-direction: column;
-    row-gap: 15px;
+    row-gap: 10px;
 }
 .switch-editions-btn {
 
