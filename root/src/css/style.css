@@ -3697,6 +3697,7 @@ a, p, input[type=text], label, button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    row-gap: 10px;
 }
 .book-profile-container {
     display: flex;
@@ -3711,9 +3712,12 @@ a, p, input[type=text], label, button {
     font-weight: bold;
 }
 .book-cover-img {
-    width: 200px;
+    width: 170px;
 }
 .book-profile-section-header {
+    width: 100%;
+    margin: 0;
+    text-align: center;
     color: white;
     font-size: 25px;
     font-weight: bold;
@@ -3728,12 +3732,19 @@ a, p, input[type=text], label, button {
 
 }
 .genres {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
 .more-genres-btn {
-
+    background: transparent;
+    border: none;
+    color: #0097b2;
+    font-size: 16px;
+    font-weight: 550;
+    padding: 0;
 }
 .book-description {
 
