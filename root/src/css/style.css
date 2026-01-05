@@ -3694,7 +3694,7 @@ a, p, input[type=text], label, button {
 
 /* BOOK PROFILE */
 .book-profile-section {
-    padding: 10px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3868,6 +3868,7 @@ a, p, input[type=text], label, button {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    row-gap: 10px;
 }
 
 .book-details p {
