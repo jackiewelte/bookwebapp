@@ -3726,10 +3726,16 @@ a, p, input[type=text], label, button {
 
 }
 .rate-this-book {
-
+    width: 100%;
+    margin: 0;
+    color: white;
+    text-align: center;
 }
 .my-book-rating {
 
+}
+.main-rating img {
+    width: 25px;
 }
 .genres {
     width: 100%;
