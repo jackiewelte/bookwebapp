@@ -3709,7 +3709,9 @@ a, p, input[type=text], label, button {
 }
 .switch-editions-text {
     color: #ff914d;
+    font-size: 12px;
     font-weight: bold;
+    margin: 0;
 }
 .book-cover-img {
     width: 170px;
@@ -3717,10 +3719,15 @@ a, p, input[type=text], label, button {
 .book-profile-section-header {
     width: 100%;
     margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 550;
     text-align: center;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #c7c7c7;
+    text-decoration: none;
 }
 .author-main {
 
@@ -3753,7 +3760,13 @@ a, p, input[type=text], label, button {
     padding: 0;
 }
 .book-description {
-
+    width: calc(414px - 40px);
+    height: 110px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: white;
+    margin: 0;
 }
 .read-more-btn {
 
