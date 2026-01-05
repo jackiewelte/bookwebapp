@@ -3736,7 +3736,7 @@ a, p, input[type=text], label, button {
 .rate-this-book {
     width: 100%;
     margin: 0;
-    color: white;
+    color: #c7c7c7;
     text-align: center;
 }
 .my-book-rating {
@@ -3766,14 +3766,26 @@ a, p, input[type=text], label, button {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    color: white;
+    color: #c7c7c7;
     margin: 0;
 }
 .read-more-btn {
-
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #c7c7c7;
+    font-size: 16px;
+    font-weight: 550;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 .down-caret {
-    width: 12px;
+    width: 9px;
     height: auto;
     transform: rotate(90deg);
 }
