@@ -3711,7 +3711,7 @@ a, p, input[type=text], label, button {
 .switch-editions-text {
     /* color: #ff914d; */
     color: #0097b2;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     margin: 0;
 }
@@ -3732,7 +3732,7 @@ a, p, input[type=text], label, button {
     text-decoration: none;
 }
 .author-main {
-
+    color: #c7c7c7;
 }
 .rate-this-book {
     width: 100%;
