@@ -3691,6 +3691,92 @@ a, p, input[type=text], label, button {
         width: 3dvw;
         height: 1dvh;
     }
+
+/* BOOK PROFILE */
+.book-profile-section {
+    display: flex;
+}
+.book-profile-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.switch-editions-btn {
+
+}
+.switch-editions-text {
+    color: #ff914d;
+}
+.book-cover-img {
+    width: 200px;
+}
+.book-profile-section-header {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.author-main {
+
+}
+.rate-this-book {
+
+}
+.my-book-rating {
+
+}
+.genres {
+
+}
+.more-genres-btn {
+
+}
+.book-description {
+
+}
+.read-more-btn {
+
+}
+.down-caret {
+
+}
+.edit-dates-container {
+
+}
+.date-added {
+
+}
+.date-started {
+
+}
+.date-finished {
+
+}
+.date-added-picker {
+
+}
+
+.date-started-picker {
+
+}
+.date-finished-picker {
+
+}
+
+.month {
+
+}
+.day {
+
+}
+.year {
+
+}
+.dotted-timeline {
+
+}
+.book-details {
+
+}
 }
 
 #clear-storage {
