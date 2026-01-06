@@ -2006,6 +2006,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
+// BOOK PROFILE
+function toggleBookDescription() {
+    const bookProfileSection = this.closest('.book-profile-section');
+    const bookDescription = bookProfileSection.querySelector('.book-description');
+    if (!(bookDescription.style.display == 'block')) {
+        bookDescription.style.display = 'block'
+    } else {
+        bookDescription.style.display = '-webkit-box'
+    }
+}
+
+
+
 function clearStorage() {
     localStorage.clear();
     window.location.reload();
