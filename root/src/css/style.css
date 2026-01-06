@@ -3785,7 +3785,7 @@ a, p, input[type=text], label, button {
     /* max-height: calc(14px * 3); */
     color: #c7c7c7;
     margin: 0;
-    transition: display 0.4s linear;
+    transition: display 0.4s;
 }
 
 .read-more-btn {
