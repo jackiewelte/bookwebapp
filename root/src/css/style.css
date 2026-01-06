@@ -3906,17 +3906,16 @@ a, p, input[type=text], label, button {
 }
 
 .book-profile-section-header > .tag-row {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
     /* Number of lines you wish to display */
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 1 !important;
     /* Number of lines times font-size */
     /* max-height: calc(14px * 3); */
-    color: #c7c7c7;
     margin-left: 30px;
-    transition: display 0.4s;
+    transition: display 0.4s !important;
 }
 
 #clear-storage {
