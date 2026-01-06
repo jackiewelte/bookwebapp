@@ -401,6 +401,7 @@ function updateDropdownMenu(shelfName, dropdown) {
     const shelfCheckboxes = dropdown.querySelector('.shelf-checkboxes');
 
     const bookElement = dropdown.closest('.book');
+    if (!bookElement) return;
     const bookTitle = bookElement.getAttribute('data-title');
     const bookAuthor = bookElement.getAttribute('data-author');
     let hyphenShelfName = shelfName.replace(/\s+/g, '-');
