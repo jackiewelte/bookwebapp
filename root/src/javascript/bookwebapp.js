@@ -2024,11 +2024,11 @@ function toggleShowMore(clickedButton) {
             console.log("book description collapsed")
         }
     } else {
-        if (!(tagRow.style.display == 'flex')) {
-            tagRow.style.display = 'flex'
+        if (!(tagRow.style.maxHeight == 'none')) {
+            tagRow.style.maxHeight = 'none'
             console.log("tag row expanded")
         } else {
-            tagRow.style.display = '-webkit-box'
+            tagRow.style.maxHeight = '50px'
             console.log("tag row collapsed")
         }
     }
