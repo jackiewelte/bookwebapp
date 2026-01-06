@@ -3772,6 +3772,20 @@ a, p, input[type=text], label, button {
     color: #c7c7c7;
     margin: 0;
 }
+
+.book-description {
+    font-size: 14px;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* Number of lines you wish to display */
+    -webkit-line-clamp: 3;
+    /* Number of lines times font-size */
+    max-height: 14px*3;
+}
+
 .read-more-btn {
     width: 100%;
     background: transparent;
