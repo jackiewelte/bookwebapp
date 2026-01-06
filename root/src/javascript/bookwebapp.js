@@ -2024,8 +2024,8 @@ function toggleShowMore(clickedButton) {
             console.log("book description collapsed")
         }
     } else {
-        if (!(tagRow.style.display == 'block')) {
-            tagRow.style.display = 'block'
+        if (!(tagRow.style.display == 'flex')) {
+            tagRow.style.display = 'flex'
             console.log("tag row expanded")
         } else {
             tagRow.style.display = '-webkit-box'
