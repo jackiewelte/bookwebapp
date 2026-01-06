@@ -3763,7 +3763,7 @@ a, p, input[type=text], label, button {
     font-weight: 550;
     padding: 0;
 }
-.book-description {
+/* .book-description {
     width: calc(414px - 40px);
     height: 110px;
     text-overflow: ellipsis;
@@ -3771,7 +3771,7 @@ a, p, input[type=text], label, button {
     white-space: nowrap;
     color: #c7c7c7;
     margin: 0;
-}
+} */
 
 .book-description {
     font-size: 14px;
