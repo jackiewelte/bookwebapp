@@ -3783,7 +3783,7 @@ a, p, input[type=text], label, button {
     /* Number of lines you wish to display */
     -webkit-line-clamp: 3;
     /* Number of lines times font-size */
-    max-height: 14px*3;
+    max-height: calc(14px * 3);
 }
 
 .read-more-btn {
