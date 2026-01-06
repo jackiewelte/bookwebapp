@@ -3775,7 +3775,6 @@ a, p, input[type=text], label, button {
 
 .book-description {
     font-size: 14px;
-    white-space: pre-wrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -3783,7 +3782,7 @@ a, p, input[type=text], label, button {
     /* Number of lines you wish to display */
     -webkit-line-clamp: 3;
     /* Number of lines times font-size */
-    max-height: calc(14px * 3);
+    /* max-height: calc(14px * 3); */
     color: #c7c7c7;
     margin: 0;
 }
