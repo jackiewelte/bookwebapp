@@ -2008,8 +2008,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // BOOK PROFILE
-function toggleBookDescription() {
-    const bookProfileSection = this.closest('.book-profile-section');
+function toggleBookDescription(clickedButton) {
+    const bookProfileSection = clickedButton.closest('.book-profile-section');
     const bookDescription = bookProfileSection.querySelector('.book-description');
     const readMoreButtons = bookProfileSection.querySelectorAll('.read-more-btn')
     if (bookDescription.style.display == '-webkit-box') {
@@ -2022,7 +2022,7 @@ function toggleBookDescription() {
     readMoreButtons.forEach(readMoreButton => {
         readMoreButton.classList.remove('hide');
     });
-    this.classList.add('hide');
+    clickedButton.classList.add('hide');
 }
 
 
