@@ -3905,6 +3905,20 @@ a, p, input[type=text], label, button {
 
 }
 
+.book-profile-section-header > .tag-row {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* Number of lines you wish to display */
+    -webkit-line-clamp: 1;
+    /* Number of lines times font-size */
+    /* max-height: calc(14px * 3); */
+    color: #c7c7c7;
+    margin-left: 30px;
+    transition: display 0.4s;
+}
+
 #clear-storage {
     width: 200px;
     height: 75px;
