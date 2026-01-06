@@ -806,24 +806,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Click and hold book thumbnail
-var timeout_id = 0;
-document.addEventListener("mousedown", function(event) {
-    console.log("held down: ", event.target);
-    var bookElem = document.querySelector(".book-thumbnail-img");
-    if (event.target.classList[0] == bookElem.classList[0]) {
-        // var timeout_id = 0;
-        hold_time = 500;
+// var timeout_id = 0;
+// document.addEventListener("mousedown", function(event) {
+//     console.log("held down: ", event.target);
+//     var bookElem = document.querySelector(".book-thumbnail-img");
+//     if (event.target.classList[0] == bookElem.classList[0]) {
+//         // var timeout_id = 0;
+//         hold_time = 500;
 
-        timeout_id = setTimeout(function() {
-            console.log("timeout");
-        }, hold_time);
-    }
+//         timeout_id = setTimeout(function() {
+//             console.log("timeout");
+//         }, hold_time);
+//     }
 
-    bookElem.addEventListener("mouseup", function() {
-        clearTimeout(timeout_id);
-        console.log("clear timeout");
-    });
-});
+//     bookElem.addEventListener("mouseup", function() {
+//         clearTimeout(timeout_id);
+//         console.log("clear timeout");
+//     });
+// });
 
 // var mouseTimer;
 // var myVar;
