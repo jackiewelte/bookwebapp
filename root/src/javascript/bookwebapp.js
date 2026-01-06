@@ -2012,7 +2012,7 @@ function toggleBookDescription(clickedButton) {
     const bookProfileSection = clickedButton.closest('.book-profile-section');
     const bookDescription = bookProfileSection.querySelector('.book-description');
     const readMoreButtons = bookProfileSection.querySelectorAll('.read-more-btn')
-    if (bookDescription.style.display == '-webkit-box') {
+    if (!(bookDescription.style.display == 'block')) {
         bookDescription.style.display = 'block'
         console.log("book description expanded")
     } else {
