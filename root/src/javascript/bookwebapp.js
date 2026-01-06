@@ -492,9 +492,7 @@ function removeBookFromShelf(shelfName, bookKey) {
 // Change book status/shelf labels
 document.addEventListener("DOMContentLoaded", function() {
     const shelfCheckboxes = document.querySelector('.shelf-checkboxes');
-    if (!shelfCheckboxes) {
-        return;
-    }
+    if (!shelfCheckboxes) return;
     shelfCheckboxes.innerHTML = '';
 
     console.log(localStorage.getItem('customShelves'));
@@ -504,6 +502,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
 
     const bookElement = shelfCheckboxes.closest('.book');
+    if (!bookElement) return;
     const bookTitle = bookElement.getAttribute('data-title');
     const bookAuthor = bookElement.getAttribute('data-author');
     let hyphenBookTitle = bookTitle.replace(/[^a-zA-Z0-9\s']/g, '').replace(/'/g, '-').replace(/\s+/g, '-');
