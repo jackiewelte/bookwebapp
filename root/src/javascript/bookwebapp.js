@@ -2008,16 +2008,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // BOOK PROFILE
-function toggleBookDescription(clickedButton) {
+function toggleShowMore(clickedButton) {
     const bookProfileSection = clickedButton.closest('.book-profile-section');
-    const bookDescription = bookProfileSection.querySelector('.book-description');
     const readMoreButtons = bookProfileSection.querySelectorAll('.read-more-btn')
-    if (!(bookDescription.style.display == 'block')) {
-        bookDescription.style.display = 'block'
-        console.log("book description expanded")
+    const bookDescription = bookProfileSection.querySelector('.book-description');
+    const tagRow = bookProfileSection.querySelector('.tag-row');
+    if (!bookDescription && !tagRow) {
+        return
+    } else if (bookDescription) {
+        if (!(bookDescription.style.display == 'block')) {
+            bookDescription.style.display = 'block'
+            console.log("book description expanded")
+        } else {
+            bookDescription.style.display = '-webkit-box'
+            console.log("book description collapsed")
+        }
     } else {
-        bookDescription.style.display = '-webkit-box'
-        console.log("book description collapsed")
+        if (!(tagRow.style.display == 'block')) {
+            tagRow.style.display = 'block'
+            console.log("tag row expanded")
+        } else {
+            tagRow.style.display = '-webkit-box'
+            console.log("tag row collapsed")
+        }
     }
     readMoreButtons.forEach(readMoreButton => {
         readMoreButton.classList.remove('hide');
