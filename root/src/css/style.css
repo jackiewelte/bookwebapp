@@ -2766,7 +2766,7 @@ a, p, input[type=text], label, button {
     }
 
     .tag-row {
-        margin: 0 20px 0 30px;
+        margin-left: 30px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -3698,6 +3698,7 @@ a, p, input[type=text], label, button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     row-gap: 10px;
 }
 .book-profile-container {
