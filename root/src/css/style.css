@@ -3701,6 +3701,7 @@ a, p, input[type=text], label, button {
     row-gap: 10px;
 }
 .book-profile-container {
+    width: 152px;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -3716,7 +3717,7 @@ a, p, input[type=text], label, button {
     margin: 0;
 }
 .book-cover-img {
-    width: 150px;
+    width: 152px;
 }
 .book-profile-section-header {
     width: 100%;
