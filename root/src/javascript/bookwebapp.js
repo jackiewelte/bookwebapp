@@ -2011,11 +2011,18 @@ document.addEventListener("DOMContentLoaded", function() {
 function toggleBookDescription() {
     const bookProfileSection = this.closest('.book-profile-section');
     const bookDescription = bookProfileSection.querySelector('.book-description');
-    if (!(bookDescription.style.display == 'block')) {
+    const readMoreButtons = bookProfileSection.querySelectorAll('.read-more-btn')
+    if (bookDescription.style.display == '-webkit-box') {
         bookDescription.style.display = 'block'
+        console.log("book description expanded")
     } else {
         bookDescription.style.display = '-webkit-box'
+        console.log("book description collapsed")
     }
+    readMoreButtons.forEach(readMoreButton => {
+        readMoreButton.classList.remove('hide');
+    });
+    this.classList.add('hide');
 }
 
 
