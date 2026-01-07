@@ -3910,7 +3910,7 @@ a, p, input[type=text], label, button {
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
 .my-book-rating:not(:checked) > input {
-    position:absolute;
+    position: absolute;
     top: -9999px;
     clip: rect(0,0,0,0);
 }
