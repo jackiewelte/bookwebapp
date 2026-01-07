@@ -3939,7 +3939,7 @@ a, p, input[type=text], label, button {
     .my-book-rating > span:hover ~ span:before,
     .my-book-rating > span.rated:before,
     .my-book-rating > span.rated ~ span:before {
-        background-image: url('../../assets/images/icons/green_star_icon.svg');
+        content: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
     }
 
