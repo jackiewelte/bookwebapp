@@ -3938,10 +3938,10 @@ a, p, input[type=text], label, button {
         line-height: 25px; */
         cursor: pointer;
     }
-        .my-book-rating > span:hover:before,
-        .my-book-rating > span:hover ~ span:before,
-        .my-book-rating > span.rated:before,
-        .my-book-rating > span.rated ~ span:before {
+    .my-book-rating > span:hover:before,
+    .my-book-rating > span:hover ~ span:before,
+    .my-book-rating > span.rated:before,
+    .my-book-rating > span.rated ~ span:before {
         /* content: "\2605"; */
         background-image: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
