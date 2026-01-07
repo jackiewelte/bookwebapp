@@ -3918,10 +3918,6 @@ a, p, input[type=text], label, button {
 
 
     .my-book-rating {
-        /* float: left;
-        unicode-bidi: bidi-override;
-        direction: rtl; */
-        /* color: #2fcc25; */
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
@@ -3933,10 +3929,7 @@ a, p, input[type=text], label, button {
         position: relative;
         width: 25px;
         height: 25px;
-        /* font-size: 25px;
-        line-height: 25px; */
         cursor: pointer;
-        background-image: url('../../assets/images/icons/grey_star_icon.svg');
     }
     .my-book-rating > span > img {
         width: 25px;
@@ -3946,7 +3939,6 @@ a, p, input[type=text], label, button {
     .my-book-rating > span:hover ~ span:before,
     .my-book-rating > span.rated:before,
     .my-book-rating > span.rated ~ span:before {
-        /* content: "\2605"; */
         background-image: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
     }

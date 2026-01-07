@@ -2048,6 +2048,8 @@ function saveRating(clickedStar) {
       el.classList.remove('rated');
     })
     clickedStar.classList.add('rated')
+    
+    
   }
 }
 
