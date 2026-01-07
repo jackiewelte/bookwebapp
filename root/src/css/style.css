@@ -3917,6 +3917,7 @@ a, p, input[type=text], label, button {
 
 .my-book-rating:not(:checked) > label {
     width: 25px;
+    display: flex;
     cursor: pointer;
     color: #ddd;
 }
