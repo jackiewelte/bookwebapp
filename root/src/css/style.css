@@ -3923,7 +3923,8 @@ a, p, input[type=text], label, button {
 }
 
 .my-book-rating:not(:checked) > label:before {
-    content: '★ ';
+    /* content: '★ '; */
+    background-image: url(../../assets/images/icons/grey_star_icon.svg);
 }
 
 .my-book-rating > input:checked ~ label {
