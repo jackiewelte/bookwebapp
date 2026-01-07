@@ -3935,10 +3935,10 @@ a, p, input[type=text], label, button {
         width: 25px;
         aspect-ratio: 1 / 1;
     }
-    .my-book-rating > span:hover:before,
-    .my-book-rating > span:hover ~ span:before,
-    .my-book-rating > span.rated:before,
-    .my-book-rating > span.rated ~ span:before {
+    .my-book-rating > span > img:hover:before,
+    .my-book-rating > span > img:hover ~ span > img:before,
+    .my-book-rating > span > img.rated:before,
+    .my-book-rating > span > img.rated ~ span > img:before {
         content: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
     }
