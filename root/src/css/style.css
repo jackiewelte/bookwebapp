@@ -3692,225 +3692,230 @@ a, p, input[type=text], label, button {
         height: 1dvh;
     }
 
-/* BOOK PROFILE */
-.book-profile-section {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
-    row-gap: 10px;
-}
-.book-profile-container {
-    width: 152px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-.switch-editions-btn {
+    /* BOOK PROFILE */
+    .book-profile-section {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+        row-gap: 10px;
+    }
+    .book-profile-container {
+        width: 152px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .switch-editions-btn {
 
-}
-.switch-editions-text {
-    /* color: #ff914d; */
-    color: #0097b2;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
-}
-.book-cover-img {
-    width: 152px;
-}
-.book-profile-section-header {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    font-weight: 550;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #c7c7c7;
-    text-decoration: none;
-}
-.author-main {
-    color: #c7c7c7;
-}
-.rate-this-book {
-    width: 100%;
-    margin: 0;
-    color: #c7c7c7;
-    text-align: center;
-}
-.my-book-rating {
+    }
+    .switch-editions-text {
+        /* color: #ff914d; */
+        color: #0097b2;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0;
+    }
+    .book-cover-img {
+        width: 152px;
+    }
+    .book-profile-section-header {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-weight: 550;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #c7c7c7;
+        text-decoration: none;
+    }
+    .author-main {
+        color: #c7c7c7;
+    }
+    .rate-this-book {
+        width: 100%;
+        margin: 0;
+        color: #c7c7c7;
+        text-align: center;
+    }
+    .my-book-rating {
 
-}
-.main-rating img {
-    width: 25px;
-}
-.genres {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-}
-.more-genres-btn {
-    background: transparent;
-    border: none;
-    color: #0097b2;
-    font-size: 16px;
-    font-weight: 550;
-    padding: 0;
-}
-/* .book-description {
-    width: calc(414px - 40px);
-    height: 110px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    color: #c7c7c7;
-    margin: 0;
-} */
+    }
+    .main-rating img {
+        width: 25px;
+    }
+    .genres {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+    .more-genres-btn {
+        background: transparent;
+        border: none;
+        color: #0097b2;
+        font-size: 16px;
+        font-weight: 550;
+        padding: 0;
+    }
+    /* .book-description {
+        width: calc(414px - 40px);
+        height: 110px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #c7c7c7;
+        margin: 0;
+    } */
 
-.book-description {
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    /* Number of lines you wish to display */
-    -webkit-line-clamp: 4;
-    /* Number of lines times font-size */
-    /* max-height: calc(14px * 3); */
-    color: #c7c7c7;
-    margin: 0;
-    transition: display 0.4s;
-}
+    .book-description {
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        /* Number of lines you wish to display */
+        -webkit-line-clamp: 4;
+        /* Number of lines times font-size */
+        /* max-height: calc(14px * 3); */
+        color: #c7c7c7;
+        margin: 0;
+        transition: display 0.4s;
+    }
 
-.read-more-btn {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #c7c7c7;
-    font-size: 16px;
-    font-weight: 550;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-.down-caret {
-    width: 9px;
-    height: auto;
-    transform: rotate(90deg);
-}
-.edit-dates-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-}
-.edit-dates-text {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    row-gap: 20px;
-}
+    .read-more-btn {
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: #c7c7c7;
+        font-size: 16px;
+        font-weight: 550;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    .down-caret {
+        width: 9px;
+        height: auto;
+        transform: rotate(90deg);
+    }
+    .edit-dates-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    .edit-dates-text {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 20px;
+    }
 
-.edit-dates-text p {
-    color: #c7c7c7;
-    margin: 0;
-}
+    .edit-dates-text p {
+        color: #c7c7c7;
+        margin: 0;
+    }
 
-.date-added {
+    .date-added {
 
-}
-.date-started {
+    }
+    .date-started {
 
-}
-.date-finished {
+    }
+    .date-finished {
 
-}
+    }
 
-.edit-dates-pickers {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    /* row-gap: 20px; */
-}
+    .edit-dates-pickers {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        /* row-gap: 20px; */
+    }
 
-.date-added-picker {
+    .date-added-picker {
 
-}
+    }
 
-.date-started-picker {
+    .date-started-picker {
 
-}
-.date-finished-picker {
+    }
+    .date-finished-picker {
 
-}
+    }
 
-.date-added-picker, .date-started-picker, .date-finished-picker {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    column-gap: 20px;
-}
+    .date-added-picker, .date-started-picker, .date-finished-picker {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        column-gap: 20px;
+    }
 
-.date-added-picker p, .date-started-picker p, .date-finished-picker p {
-    color: #c7c7c7;
-    margin: 0;
-}
+    .date-added-picker p, .date-started-picker p, .date-finished-picker p {
+        color: #c7c7c7;
+        margin: 0;
+    }
 
-.month {
+    .month {
 
-}
-.day {
+    }
+    .day {
 
-}
-.year {
+    }
+    .year {
 
-}
+    }
 
-.dotted-timeline {
+    .dotted-timeline {
 
-}
+    }
 
-.book-details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    row-gap: 10px;
-}
+    .book-details {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 10px;
+    }
 
-.book-details p {
-    width: 100%;
-    color: #c7c7c7;
-    margin: 0;
-}
+    .book-details p {
+        width: 100%;
+        color: #c7c7c7;
+        margin: 0;
+    }
 
-.num-pages {
+    .num-pages {
 
-}
+    }
 
-.date-published {
+    .date-published {
 
-}
+    }
 
 
+    .main-rating {
+        background-image: url('../../assets/images/icons/green_star_icon.svg');
+    }
 
-.main-rating > img:hover:before,
-.main-rating > img:hover ~ img:before,
-.main-rating > img.rated:before,
-.main-rating > img.rated ~ img:before {
-  content: "\2605";
-  position: absolute;
+    .main-rating > img:hover:before,
+    .main-rating > img:hover ~ img:before,
+    .main-rating > img.rated:before,
+    .main-rating > img.rated ~ img:before {
+    content: "\2605";
+    position: absolute;
+    }
+
 }
 
 
