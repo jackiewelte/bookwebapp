@@ -2039,7 +2039,7 @@ function toggleShowMore(clickedButton) {
 }
 
 function saveRating(clickedStar) {
-  if (clickedStar.tagName.toLowerCase() != 'img') return;
+  if (clickedStar.tagName.toLowerCase() != 'span') return;
   
   if (clickedStar.classList.contains('rated')) {
     clickedStar.classList.remove('rated')

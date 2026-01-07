@@ -3904,7 +3904,7 @@ a, p, input[type=text], label, button {
     }
 
 
-    .main-rating {
+    /* .main-rating {
         background-image: url('../../assets/images/icons/green_star_icon.svg');
     }
 
@@ -3914,6 +3914,31 @@ a, p, input[type=text], label, button {
     .main-rating > img.rated ~ img:before {
     content: "\2605";
     position: absolute;
+    } */
+
+
+    .my-book-rating {
+        float: left;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        font-size: 28px;
+        margin-top: -11px;
+        color: #2fcc25;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .my-book-rating > span {
+        display: inline-block;
+        position: relative;
+        width: 25px;
+        cursor: pointer;
+    }
+        .my-book-rating > span:hover:before,
+        .my-book-rating > span:hover ~ span:before,
+        .my-book-rating > span.rated:before,
+        .my-book-rating > span.rated ~ span:before {
+        content: "\2605";
+        position: absolute;
     }
 
 }

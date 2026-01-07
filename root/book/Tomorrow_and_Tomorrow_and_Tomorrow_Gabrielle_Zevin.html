@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <p class="rate-this-book">Rate this book</p>
-                <div class="my-book-rating">
+                <!-- <div class="my-book-rating">
                     <div class="grey-stars main-rating" onclick="saveRating(this)" style="flex-direction: row; gap: 6px; justify-content: center;">
                         <img src="../assets/images/icons/grey_star_icon.svg">
                         <img src="../assets/images/icons/grey_star_icon.svg">
@@ -122,6 +122,14 @@
                         <img src="../assets/images/icons/grey_star_icon.svg">
                         <img src="../assets/images/icons/grey_star_icon.svg">
                     </div>
+                </div> -->
+
+                <div id="my-book-rating" class="rating" onclick="saveRating(this)">
+                    <span id="spanRatingExcellent" title="Excellent">☆</span>
+                    <span id="spanRatingGood" title="Good">☆</span>
+                    <span id="spanRatingFair" title="Fair">☆</span>
+                    <span id="spanRatingPoor" title="Poor">☆</span>
+                    <span id="spanRatingAwful" title="Awful">☆</span>
                 </div>
             </div>
         </div>
