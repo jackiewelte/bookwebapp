@@ -3905,53 +3905,15 @@ a, p, input[type=text], label, button {
 
 
 
-
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-   follow these rules. Every browser that supports :checked also supports :not(), so
-   it doesn’t make the test unnecessarily selective */
-.my-book-rating:not(:checked) > input {
-    position: absolute;
-    top: -9999px;
-    clip: rect(0,0,0,0);
-}
-
-.my-book-rating:not(:checked) > label {
-    width: 25px;
-    display: flex;
-    cursor: pointer;
-    color: #ddd;
-}
-
-.my-book-rating:not(:checked) > label:before {
-    /* content: '★ '; */
-    background-image: url(../../assets/images/icons/grey_star_icon.svg);
-}
-
-.my-book-rating > input:checked ~ label {
-    color: #f70;
-}
-
-.my-book-rating:not(:checked) > label:hover,
-.my-book-rating:not(:checked) > label:hover ~ label {
-    color: gold;
-}
-
-.my-book-rating > input:checked + label:hover,
-.my-book-rating > input:checked + label:hover ~ label,
-.my-book-rating > input:checked ~ label:hover,
-.my-book-rating > input:checked ~ label:hover ~ label,
-.my-book-rating > label:hover ~ input:checked ~ label {
-    color: #ea0;
-}
-
-.my-book-rating > label:active {
-    position: relative;
-    top: 2px;
-    left: 2px;
+.main-rating > img:hover:before,
+.main-rating > img:hover ~ img:before,
+.main-rating > img.rated:before,
+.main-rating > img.rated ~ img:before {
+  content: "\2605";
+  position: absolute;
 }
 
 
-}
 
 #clear-storage {
     width: 200px;

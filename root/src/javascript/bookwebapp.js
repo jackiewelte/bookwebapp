@@ -2038,6 +2038,19 @@ function toggleShowMore(clickedButton) {
     clickedButton.classList.add('hide');
 }
 
+function saveRating(clickedStar) {
+  if (clickedStar.tagName.toLowerCase() != 'img') return;
+  
+  if (clickedStar.classList.contains('rated')) {
+    clickedStar.classList.remove('rated')
+  } else {
+    Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
+      el.classList.remove('rated');
+    })
+    clickedStar.classList.add('rated')
+  }
+}
+
 
 
 function clearStorage() {
