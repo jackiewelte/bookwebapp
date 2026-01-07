@@ -3922,7 +3922,6 @@ a, p, input[type=text], label, button {
         unicode-bidi: bidi-override;
         direction: rtl; */
         /* color: #2fcc25; */
-        background-image: url('../../assets/images/icons/grey_star_icon.svg');
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
@@ -3937,6 +3936,7 @@ a, p, input[type=text], label, button {
         /* font-size: 25px;
         line-height: 25px; */
         cursor: pointer;
+        background-image: url('../../assets/images/icons/grey_star_icon.svg');
     }
     .my-book-rating > span > img {
         width: 25px;
