@@ -125,19 +125,21 @@
                 </div> -->
 
                 <div class="my-book-rating">
-                    <span id="spanRatingExcellent" title="Excellent">
+                    <input type="radio" id="ratingExcellent" name="stars" title="Excellent" onclick="saveRating(this)"></input>
+                    <label for="ratingExcellent" title="Excellent">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                    </span>
+                    <input type="radio" id="ratingGood" name="stars" title="Good" onclick="saveRating(this)"></span>
+                    <label for="ratingGood" title="Good">
+                        <img src="../assets/images/icons/grey_star_icon.svg">
+                    </label>
+                    <span id="ratingFair" title="Fair">
                         <img src="../assets/images/icons/grey_star_icon.svg" onclick="saveRating(this)">
                     </span>
-                    <span id="spanRatingGood" title="Good">
+                    <span id="ratingPoor" title="Poor">
                         <img src="../assets/images/icons/grey_star_icon.svg" onclick="saveRating(this)">
                     </span>
-                    <span id="spanRatingFair" title="Fair">
-                        <img src="../assets/images/icons/grey_star_icon.svg" onclick="saveRating(this)">
-                    </span>
-                    <span id="spanRatingPoor" title="Poor">
-                        <img src="../assets/images/icons/grey_star_icon.svg" onclick="saveRating(this)">
-                    </span>
-                    <span id="spanRatingAwful" title="Awful">
+                    <span id="ratingAwful" title="Awful">
                         <img src="../assets/images/icons/grey_star_icon.svg" onclick="saveRating(this)">
                     </span>
                 </div>

@@ -3918,6 +3918,8 @@ a, p, input[type=text], label, button {
 
 
     .my-book-rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
