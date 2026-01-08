@@ -3938,7 +3938,7 @@ a, p, input[type=text], label, button {
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: center;
         gap: 6px;
     }
