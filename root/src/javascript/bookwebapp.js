@@ -2094,7 +2094,7 @@ function toggleShowMore(clickedButton) {
 
 
 const wrap2 = document.querySelector('.wrap');
-console.log("wrap: ", wrap2);
+console.log("wrap2: ", wrap2);
 const bookTitle = wrap2.getAttribute('data-title');
 const bookAuthor = wrap2.getAttribute('data-author');
 const bookKey = `${bookTitle} by ${bookAuthor}`;
