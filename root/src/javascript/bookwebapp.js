@@ -2094,13 +2094,13 @@ function toggleShowMore(clickedButton) {
 
 
 
-function showHalfStar(e, leftHalf, rightHalfClass) {
+function showHalfStar(e, leftHalf) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const rightHalf = e.target.nextElementSibling(rightHalfClass);
+    const rightHalf = e.target.nextElementSibling;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     if (!rated[bookKey]) {
         console.log("LEFT ENTERED")
@@ -2114,13 +2114,13 @@ function showHalfStar(e, leftHalf, rightHalfClass) {
     }
 }
 
-function showWholeStar(e, rightHalf, leftHalfClass) {
+function showWholeStar(e, rightHalf) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const leftHalf = e.target.previousElementSibling(leftHalfClass);
+    const leftHalf = e.target.previousElementSibling;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     if (!rated[bookKey]) {
         console.log("RIGHT ENTERED")
@@ -2153,13 +2153,13 @@ function hideStar(e, rightHalfClass, leftHalfClass) {
     }
 }
 
-function fillHalfStar(e, leftHalf, rightHalfClass) {
+function fillHalfStar(e, leftHalf) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const rightHalf = e.target.nextElementSibling(rightHalfClass);
+    const rightHalf = e.target.nextElementSibling;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     console.log("LEFT CLICKED");
     e.stopPropagation();
@@ -2173,13 +2173,13 @@ function fillHalfStar(e, leftHalf, rightHalfClass) {
     localStorage.setItem('rated', JSON.stringify(rated));
 }
 
-function fillWholeStar(e, rightHalf, leftHalfClass) {
+function fillWholeStar(e, rightHalf) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const leftHalf = e.target.previousElementSibling(leftHalfClass);
+    const leftHalf = e.target.previousElementSibling;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     console.log("RIGHT CLICKED");
     e.stopPropagation();
