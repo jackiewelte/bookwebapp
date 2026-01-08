@@ -3964,7 +3964,7 @@ a, p, input[type=text], label, button {
         cursor: pointer;
     }
 
-    .my-book-rating label:hover:before,
+    /* .my-book-rating label:hover:before,
     .my-book-rating label:hover ~ label:before,
     .my-book-rating label.rated:before,
     .my-book-rating label.rated ~ label:before {
@@ -3972,7 +3972,7 @@ a, p, input[type=text], label, button {
         position: absolute;
         top: 0;
         left: 0;
-    }
+    } */
 
 }
 

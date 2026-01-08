@@ -2038,35 +2038,35 @@ function toggleShowMore(clickedButton) {
     clickedButton.classList.add('hide');
 }
 
-function saveRating(clickedStarID) {
-//   if (event.target.tagName.toLowerCase() != 'input') return;
+// function saveRating(clickedStarID) {
+// //   if (event.target.tagName.toLowerCase() != 'input') return;
 
-    console.log(clickedStarID);
-    const clickedStar = document.getElementById(clickedStarID);
-    console.log(clickedStar);
+//     console.log(clickedStarID);
+//     const clickedStar = document.getElementById(clickedStarID);
+//     console.log(clickedStar);
 
-    if (clickedStar.classList.contains('rated')) {
-        clickedStar.classList.remove('rated')
-        console.log("removed rated class")
-    } else {
-        Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
-            el.classList.remove('rated');
-            console.log("removed rated class from all elements with rated class")
-        })
-        clickedStar.classList.add('rated')
-        console.log("added rated class")
-    }
-    console.log(clickedStar);
-    console.log(clickedStar.style.content);
-}
+//     if (clickedStar.classList.contains('rated')) {
+//         clickedStar.classList.remove('rated')
+//         console.log("removed rated class")
+//     } else {
+//         Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
+//             el.classList.remove('rated');
+//             console.log("removed rated class from all elements with rated class")
+//         })
+//         clickedStar.classList.add('rated')
+//         console.log("added rated class")
+//     }
+//     console.log(clickedStar);
+//     console.log(clickedStar.style.content);
+// }
 
 
 // document.addEventListener("DOMContentLoaded", function() {
 //     const rating = document.querySelector('.my-book-rating');
 //     if (!rating) return;
-    
 //     const stars = rating.getElementsByTagName('label');
 //     if (!stars) return;
+
 //     Array.prototype.forEach.call(stars, star => {
 //         console.log(star)
 //         star.addEventListener("mouseover", function(event) {
@@ -2094,52 +2094,65 @@ function saveRating(clickedStarID) {
 
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     const divisor = document.querySelector('.divisor');
-//     const star1 = document.querySelector('.star1');
-//     if (star1) {
-//         var starWidth = star1.scrollWidth;
-//     }
-//     var leftHalf = document.querySelector('.comparison-left-half');
+document.addEventListener("DOMContentLoaded", function() {
+    const rating = document.querySelector('.my-book-rating');
+    if (!rating) return;
+    const stars = rating.getElementsByTagName('label');
+    if (!stars) return;
 
-//     if (window.matchMedia("(max-width: 414px)").matches) {
-//         star1.ontouchmove = function moveDivisor(e) {
-//             console.log(e.offsetX);
-//             console.log(starWidth);
-//             divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
-//         }
+    const divisor = document.querySelector('.divisor');
+    // const star1 = document.querySelector('.star1');
+    // if (star1) {
+    //     var starWidth = star1.scrollWidth
+    // }
+    var leftHalf = document.querySelector('.comparison-left-half');
 
-//         leftHalf.addEventListener('touchstart', function(e) {
-//             console.log("LEFT ENTERED");
-//             e.stopPropagation();
-//             // highlightCurrentYear();
-//         });
+    Array.prototype.forEach.call(stars, star => {
+        console.log(star)
 
-//         star1.addEventListener('touchstart', function(e) {
-//             console.log("RIGHT ENTERED");
-//             e.stopPropagation();
-//             // highlightPastYear();
-//         });
-//     } else {
-//         star1.onmousemove = function moveDivisor(e) {
-//             console.log("e.offestX: ", e.offsetX);
-//             console.log(starWidth);
-//             divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
-//         }
+        if (window.matchMedia("(max-width: 414px)").matches) {
+            star.ontouchmove = function moveDivisor(e) {
+                console.log(e.offsetX);
+                console.log(starWidth);
+                divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+            }
 
-//         leftHalf.addEventListener('mouseenter', function(e) {
-//             console.log("LEFT ENTERED");
-//             e.stopPropagation();
-//             // highlightCurrentYear();
-//         });
+            leftHalf.addEventListener('touchstart', function(e) {
+                console.log("LEFT ENTERED");
+                e.stopPropagation();
+                leftHalf.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                // highlightCurrentYear();
+            });
 
-//         star1.addEventListener('mouseover', function(e) {
-//             console.log("RIGHT ENTERED");
-//             e.stopPropagation();
-//             // highlightPastYear();
-//         });
-//     }
-// });
+            star.addEventListener('touchstart', function(e) {
+                console.log("RIGHT ENTERED");
+                e.stopPropagation();
+                star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                // highlightPastYear();
+            });
+        } else {
+            star.onmousemove = function moveDivisor(e) {
+                console.log("e.offestX: ", e.offsetX);
+                console.log(starWidth);
+                divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+            }
+
+            leftHalf.addEventListener('mouseenter', function(e) {
+                console.log("LEFT ENTERED");
+                e.stopPropagation();
+                leftHalf.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                // highlightCurrentYear();
+            });
+
+            star.addEventListener('mouseover', function(e) {
+                console.log("RIGHT ENTERED");
+                e.stopPropagation();
+                star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                // highlightPastYear();
+            });
+        }
+    });
+});
 
 
 
