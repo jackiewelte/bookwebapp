@@ -3942,7 +3942,7 @@ a, p, input[type=text], label, button {
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
-        flex-direction: row-reverse;
+        flex-direction: row;
         align-items: center;
         gap: 6px;
     }
