@@ -3954,7 +3954,6 @@ a, p, input[type=text], label, button {
     .my-book-rating label {
         width: 25px;
         height: 25px;
-        position: absolute;
         content: url('../../assets/images/icons/grey_star_icon.svg');
         object-fit: cover;
         position: relative;
