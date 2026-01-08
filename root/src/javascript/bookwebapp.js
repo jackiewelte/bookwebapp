@@ -2093,9 +2093,7 @@ function toggleShowMore(clickedButton) {
 // });
 
 
-
-const rating = document.querySelector('.my-book-rating');
-// if (!rating) return;
+console.log("wrap: ", wrap);
 const bookTitle = wrap.getAttribute('data-title');
 const bookAuthor = wrap.getAttribute('data-author');
 const bookKey = `${bookTitle} by ${bookAuthor}`;
