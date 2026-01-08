@@ -3975,15 +3975,17 @@ a, p, input[type=text], label, button {
     } */
 
     .comparison-left-half {
-        width: 25px;
+        width: 12.5px;
         height: 25px;
         display: none;
         position: absolute;
         top: 0;
         left: 0;
-        clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+        /* clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
         object-fit: cover;
-        content: url('../../assets/images/icons/green_star_icon.svg');
+        content: url('../../assets/images/icons/green_star_icon.svg'); */
+        background-image: url('../../assets/images/icons/green_star_icon.svg');
+        background-size: cover;
     }
 
 }
