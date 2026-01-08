@@ -3969,6 +3969,8 @@ a, p, input[type=text], label, button {
     .my-book-rating label.rated ~ label:before {
         content: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
+        top: 0;
+        left: 0;
     }
 
 }
