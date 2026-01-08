@@ -2100,7 +2100,7 @@ function showHalfStar(e, leftHalf, rightHalfClass) {
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const rightHalf = e.target.nextSibling(rightHalfClass);
+    const rightHalf = e.target.nextElementSibling(rightHalfClass);
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     if (!rated[bookKey]) {
         console.log("LEFT ENTERED")
@@ -2120,7 +2120,7 @@ function showWholeStar(e, rightHalf, leftHalfClass) {
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const leftHalf = e.target.previousSibling(leftHalfClass);
+    const leftHalf = e.target.previousElementSibling(leftHalfClass);
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     if (!rated[bookKey]) {
         console.log("RIGHT ENTERED")
@@ -2159,7 +2159,7 @@ function fillHalfStar(e, leftHalf, rightHalfClass) {
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const rightHalf = e.target.nextSibling(rightHalfClass);
+    const rightHalf = e.target.nextElementSibling(rightHalfClass);
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     console.log("LEFT CLICKED");
     e.stopPropagation();
@@ -2179,7 +2179,7 @@ function fillWholeStar(e, rightHalf, leftHalfClass) {
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
-    const leftHalf = e.target.previousSibling(leftHalfClass);
+    const leftHalf = e.target.previousElementSibling(leftHalfClass);
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     console.log("RIGHT CLICKED");
     e.stopPropagation();
