@@ -2038,27 +2038,27 @@ function toggleShowMore(clickedButton) {
     clickedButton.classList.add('hide');
 }
 
-// function saveRating(clickedStarID) {
-// //   if (event.target.tagName.toLowerCase() != 'input') return;
+function saveRating(clickedStarID) {
+//   if (event.target.tagName.toLowerCase() != 'input') return;
 
-//     console.log(clickedStarID);
-//     const clickedStar = document.getElementById(clickedStarID);
-//     console.log(clickedStar);
+    console.log(clickedStarID);
+    const clickedStar = document.getElementById(clickedStarID);
+    console.log(clickedStar);
 
-//     if (clickedStar.classList.contains('rated')) {
-//         clickedStar.classList.remove('rated')
-//         console.log("removed rated class")
-//     } else {
-//         Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
-//             el.classList.remove('rated');
-//             console.log("removed rated class from all elements with rated class")
-//         })
-//         clickedStar.classList.add('rated')
-//         console.log("added rated class")
-//     }
-//     console.log(clickedStar);
-//     console.log(clickedStar.style.content);
-// }
+    if (clickedStar.classList.contains('rated')) {
+        clickedStar.classList.remove('rated')
+        console.log("removed rated class")
+    } else {
+        Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
+            el.classList.remove('rated');
+            console.log("removed rated class from all elements with rated class")
+        })
+        clickedStar.classList.add('rated')
+        console.log("added rated class")
+    }
+    console.log(clickedStar);
+    console.log(clickedStar.style.content);
+}
 
 
 // document.addEventListener("DOMContentLoaded", function() {
@@ -2094,67 +2094,52 @@ function toggleShowMore(clickedButton) {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const divisor = document.querySelector('.divisor');
-    const star1 = document.querySelector('.star1');
-    if (star1) {
-        var starWidth = star1.scrollWidth;
-    }
-    var leftHalf = document.querySelector('.comparison-left-half');
-    // var pastYear = document.getElementById("past-year");
-    // var currentYear = document.getElementById("current-year");
+// document.addEventListener("DOMContentLoaded", function() {
+//     const divisor = document.querySelector('.divisor');
+//     const star1 = document.querySelector('.star1');
+//     if (star1) {
+//         var starWidth = star1.scrollWidth;
+//     }
+//     var leftHalf = document.querySelector('.comparison-left-half');
 
+//     if (window.matchMedia("(max-width: 414px)").matches) {
+//         star1.ontouchmove = function moveDivisor(e) {
+//             console.log(e.offsetX);
+//             console.log(starWidth);
+//             divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+//         }
 
-    if (window.matchMedia("(max-width: 414px)").matches) {
-        star1.ontouchmove = function moveDivisor(e) {
-            console.log(e.offsetX);
-            console.log(starWidth);
-            divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
-        }
+//         leftHalf.addEventListener('touchstart', function(e) {
+//             console.log("LEFT ENTERED");
+//             e.stopPropagation();
+//             // highlightCurrentYear();
+//         });
 
-        leftHalf.addEventListener('touchstart', function(e) {
-            console.log("LEFT ENTERED");
-            e.stopPropagation();
-            // highlightCurrentYear();
-        });
+//         star1.addEventListener('touchstart', function(e) {
+//             console.log("RIGHT ENTERED");
+//             e.stopPropagation();
+//             // highlightPastYear();
+//         });
+//     } else {
+//         star1.onmousemove = function moveDivisor(e) {
+//             console.log("e.offestX: ", e.offsetX);
+//             console.log(starWidth);
+//             divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+//         }
 
-        star1.addEventListener('touchstart', function(e) {
-            console.log("RIGHT ENTERED");
-            e.stopPropagation();
-            // highlightPastYear();
-        });
-    } else {
-        star1.onmousemove = function moveDivisor(e) {
-            console.log("e.offestX: ", e.offsetX);
-            console.log(starWidth);
-            divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
-        }
+//         leftHalf.addEventListener('mouseenter', function(e) {
+//             console.log("LEFT ENTERED");
+//             e.stopPropagation();
+//             // highlightCurrentYear();
+//         });
 
-        leftHalf.addEventListener('mouseenter', function(e) {
-            console.log("LEFT ENTERED");
-            e.stopPropagation();
-            // highlightCurrentYear();
-        });
-
-        star1.addEventListener('mouseover', function(e) {
-            console.log("RIGHT ENTERED");
-            e.stopPropagation();
-            // highlightPastYear();
-        });
-    }
-
-    // function highlightCurrentYear() {
-    //     console.log("2023");
-    //     currentYear.classList.remove("transparent");
-    //     pastYear.classList.add("transparent");
-    // }
-
-    // function highlightPastYear() {
-    //     console.log("2019");
-    //     pastYear.classList.remove("transparent");
-    //     currentYear.classList.add("transparent");
-    // }
-});
+//         star1.addEventListener('mouseover', function(e) {
+//             console.log("RIGHT ENTERED");
+//             e.stopPropagation();
+//             // highlightPastYear();
+//         });
+//     }
+// });
 
 
 

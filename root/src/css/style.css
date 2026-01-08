@@ -3963,13 +3963,13 @@ a, p, input[type=text], label, button {
         cursor: pointer;
     }
 
-    /* .my-book-rating label:hover:before,
+    .my-book-rating label:hover:before,
     .my-book-rating label:hover ~ label:before,
     .my-book-rating label.rated:before,
     .my-book-rating label.rated ~ label:before {
         content: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
-    } */
+    }
 
 }
 
