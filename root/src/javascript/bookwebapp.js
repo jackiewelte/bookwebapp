@@ -2126,7 +2126,7 @@ function showWholeStar(e, rightHalf) {
     }
 }
 
-function hideStar(this, e, rightHalfID, leftHalfID) {
+function hideStar(e, rightHalfID, leftHalfID) {
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     const rightHalf = this.getElementById(rightHalfID);
     const leftHalf = this.getElementById(leftHalfID);
