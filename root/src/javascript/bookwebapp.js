@@ -2060,6 +2060,10 @@ function saveRating(clickedStarID) {
     console.log(clickedStar.style.content);
 }
 
+document.querySelector('.my-book-rating').addEventListener("hover", function() {
+    console.log("hovering");
+});
+
 
 
 function clearStorage() {
