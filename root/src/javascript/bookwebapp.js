@@ -2008,6 +2008,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // BOOK PROFILE
+// Populate my book rating
+document.addEventListener("DOMContentLoaded", function() {
+    const myBookRating = document.querySelector('.my-book-rating');
+    if (!myBookRating) return;
+    var rated = JSON.parse(localStorage.getItem('rated')) || {};
+    const wrap = document.querySelector('.wrap');
+    const bookTitle = wrap.getAttribute('data-title');
+    const bookAuthor = wrap.getAttribute('data-author');
+    const bookKey = `${bookTitle} by ${bookAuthor}`;
+
+    if (rated[bookKey]) {
+        myBookRating.innerHTML = rated[bookKey];
+    }
+});
+
 function toggleShowMore(clickedButton) {
     const bookProfileSection = clickedButton.closest('.book-profile-section');
     const readMoreButtons = bookProfileSection.querySelectorAll('.read-more-btn')
@@ -2154,6 +2169,7 @@ function hideStar(e, rightHalfClass, leftHalfClass) {
 function fillHalfStar(e, leftHalf) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
+    const myBookRating = wrap.querySelector('my-book-rating');
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
@@ -2167,13 +2183,14 @@ function fillHalfStar(e, leftHalf) {
     if (rightHalf.style.backgroundImage != 'none') {
         rightHalf.style.backgroundImage = 'none'
     }
-    rated[bookKey] = 3.5;
+    rated[bookKey] = myBookRating.innerHTML;
     localStorage.setItem('rated', JSON.stringify(rated));
 }
 
 function fillWholeStar(e, rightHalf) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
+    const myBookRating = wrap.querySelector('my-book-rating');
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
@@ -2185,7 +2202,7 @@ function fillWholeStar(e, rightHalf) {
     if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
         leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
     }
-    rated[bookKey] = 3;
+    rated[bookKey] = myBookRating.innerHTML;
     localStorage.setItem('rated', JSON.stringify(rated));
 }
 
