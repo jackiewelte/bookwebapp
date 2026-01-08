@@ -2100,7 +2100,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (star1) {
         var starWidth = star1.scrollWidth;
     }
-    var leftHalf = document.getElementById("comparison-left-half");
+    var leftHalf = document.querySelector("comparison-left-half");
     // var pastYear = document.getElementById("past-year");
     // var currentYear = document.getElementById("current-year");
 
