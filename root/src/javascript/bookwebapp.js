@@ -2131,22 +2131,32 @@ document.addEventListener("DOMContentLoaded", function() {
             leftHalf.addEventListener('mouseover', function(e) {
                 console.log("LEFT ENTERED");
                 e.stopPropagation();
-                leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
-                rightHalf.style.backgroundImage = 'none';
+                if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
+                    leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+                }
+                if (rightHalf.style.backgroundImage != 'none') {
+                    rightHalf.style.backgroundImage = 'none'
+                }
             });
 
             rightHalf.addEventListener('mouseover', function(e) {
                 console.log("RIGHT ENTERED");
                 e.stopPropagation();
                 rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
-                leftHalf.style.backgroundImage = 'none';
+                if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
+                    leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+                }
             });
 
             star.addEventListener('mouseleave', function(e) {
                 console.log("STAR LEFT");
                 e.stopPropagation();
-                rightHalf.style.backgroundImage = 'none';
-                leftHalf.style.backgroundImage = 'none';
+                if (rightHalf.style.backgroundImage != 'none') {
+                    rightHalf.style.backgroundImage = 'none'
+                }
+                if (leftHalf.style.backgroundImage != 'none') {
+                    leftHalf.style.backgroundImage = 'none';
+                }
             })
         // }
     });
