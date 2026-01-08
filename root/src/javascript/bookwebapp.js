@@ -2110,27 +2110,27 @@ document.addEventListener("DOMContentLoaded", function() {
     Array.prototype.forEach.call(stars, star => {
         console.log(star)
 
-        if (window.matchMedia("(max-width: 414px)").matches) {
-            star.ontouchmove = function moveDivisor(e) {
-                console.log(e.offsetX);
-                // console.log(starWidth);
-                // divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
-            }
+        // if (window.matchMedia("(max-width: 414px)").matches) {
+        //     star.ontouchmove = function moveDivisor(e) {
+        //         console.log(e.offsetX);
+        //         // console.log(starWidth);
+        //         // divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+        //     }
 
-            leftHalf.addEventListener('touchstart', function(e) {
-                console.log("LEFT ENTERED");
-                e.stopPropagation();
-                leftHalf.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
-                // highlightCurrentYear();
-            });
+        //     leftHalf.addEventListener('touchstart', function(e) {
+        //         console.log("LEFT ENTERED");
+        //         e.stopPropagation();
+        //         leftHalf.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+        //         // highlightCurrentYear();
+        //     });
 
-            star.addEventListener('touchstart', function(e) {
-                console.log("RIGHT ENTERED");
-                e.stopPropagation();
-                star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
-                // highlightPastYear();
-            });
-        } else {
+        //     star.addEventListener('touchstart', function(e) {
+        //         console.log("RIGHT ENTERED");
+        //         e.stopPropagation();
+        //         star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+        //         // highlightPastYear();
+        //     });
+        // } else {
             star.addEventListener('mousemove', function moveDivisor(e) {
                 console.log("e.offestX: ", e.offsetX);
                 // console.log(starWidth);
@@ -2150,7 +2150,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
                 // highlightPastYear();
             });
-        }
+        // }
     });
 });
 
