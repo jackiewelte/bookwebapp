@@ -2144,9 +2144,7 @@ function hideStar(e, rightHalfClass, leftHalfClass) {
     if (!rated[bookKey]) {
         console.log("STAR LEFT")
         e.stopPropagation()
-        if (rightHalf.style.backgroundImage != 'none') {
-            rightHalf.style.backgroundImage = 'none'
-        }
+        rightHalf.style.backgroundImage = 'none'
         if (leftHalf.style.backgroundImage != 'none') {
             leftHalf.style.backgroundImage = 'none';
         }
