@@ -3980,7 +3980,6 @@ a, p, input[type=text], label, button {
     .comparison-left-half, .comparison-right-half {
         width: 12.5px;
         height: 25px;
-        visibility: hidden;
         position: absolute;
         top: 0;
         /* clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
