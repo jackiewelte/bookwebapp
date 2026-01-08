@@ -2094,82 +2094,79 @@ function toggleShowMore(clickedButton) {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const rating = document.querySelector('.my-book-rating');
-    if (!rating) return;
-    const wrap = document.querySelector('.wrap');
-    if (!wrap) return;
-    const bookTitle = wrap.getAttribute('data-title');
-    const bookAuthor = wrap.getAttribute('data-author');
-    const bookKey = `${bookTitle} by ${bookAuthor}`;
+const rating = document.querySelector('.my-book-rating');
+// if (!rating) return;
+const bookTitle = wrap.getAttribute('data-title');
+const bookAuthor = wrap.getAttribute('data-author');
+const bookKey = `${bookTitle} by ${bookAuthor}`;
 
-    function showHalfStar(e, leftHalf) {
-        var rated = JSON.parse(localStorage.getItem('rated')) || {};
-        if (!rated[bookKey]) {
-            console.log("LEFT ENTERED")
-            e.stopPropagation()
-            if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
-                leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
-            }
-            if (rightHalf.style.backgroundImage != 'none') {
-                rightHalf.style.backgroundImage = 'none'
-            }
-        }
-    }
-
-    function showWholeStar(e, rightHalf) {
-        var rated = JSON.parse(localStorage.getItem('rated')) || {};
-        if (!rated[bookKey]) {
-            console.log("RIGHT ENTERED")
-            e.stopPropagation()
-            rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
-            if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
-                leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
-            }
-        }
-    }
-
-    function hideStar(this, e, rightHalfID, leftHalfID) {
-        var rated = JSON.parse(localStorage.getItem('rated')) || {};
-        const rightHalf = this.getElementById(rightHalfID);
-        const leftHalf = this.getElementById(leftHalfID);
-        if (!rated[bookKey]) {
-            console.log("STAR LEFT")
-            e.stopPropagation()
-            if (rightHalf.style.backgroundImage != 'none') {
-                rightHalf.style.backgroundImage = 'none'
-            }
-            if (leftHalf.style.backgroundImage != 'none') {
-                leftHalf.style.backgroundImage = 'none';
-            }
-        }
-    }
-
-    function fillHalfStar(e, leftHalf) {
-        var rated = JSON.parse(localStorage.getItem('rated')) || {};
-        console.log("LEFT CLICKED");
-        e.stopPropagation();
+function showHalfStar(e, leftHalf) {
+    var rated = JSON.parse(localStorage.getItem('rated')) || {};
+    if (!rated[bookKey]) {
+        console.log("LEFT ENTERED")
+        e.stopPropagation()
         if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
             leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
         }
         if (rightHalf.style.backgroundImage != 'none') {
             rightHalf.style.backgroundImage = 'none'
         }
-        rated[bookKey] = 3.5;
-        localStorage.setItem('rated', JSON.stringify(rated));
     }
+}
 
-    function fillWholeStar(e, rightHalf) {
-        var rated = JSON.parse(localStorage.getItem('rated')) || {};
-        console.log("RIGHT CLICKED");
-        e.stopPropagation();
-        rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
+function showWholeStar(e, rightHalf) {
+    var rated = JSON.parse(localStorage.getItem('rated')) || {};
+    if (!rated[bookKey]) {
+        console.log("RIGHT ENTERED")
+        e.stopPropagation()
+        rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
         if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
             leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
         }
-        rated[bookKey] = 3;
-        localStorage.setItem('rated', JSON.stringify(rated));
     }
+}
+
+function hideStar(this, e, rightHalfID, leftHalfID) {
+    var rated = JSON.parse(localStorage.getItem('rated')) || {};
+    const rightHalf = this.getElementById(rightHalfID);
+    const leftHalf = this.getElementById(leftHalfID);
+    if (!rated[bookKey]) {
+        console.log("STAR LEFT")
+        e.stopPropagation()
+        if (rightHalf.style.backgroundImage != 'none') {
+            rightHalf.style.backgroundImage = 'none'
+        }
+        if (leftHalf.style.backgroundImage != 'none') {
+            leftHalf.style.backgroundImage = 'none';
+        }
+    }
+}
+
+function fillHalfStar(e, leftHalf) {
+    var rated = JSON.parse(localStorage.getItem('rated')) || {};
+    console.log("LEFT CLICKED");
+    e.stopPropagation();
+    if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
+        leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+    }
+    if (rightHalf.style.backgroundImage != 'none') {
+        rightHalf.style.backgroundImage = 'none'
+    }
+    rated[bookKey] = 3.5;
+    localStorage.setItem('rated', JSON.stringify(rated));
+}
+
+function fillWholeStar(e, rightHalf) {
+    var rated = JSON.parse(localStorage.getItem('rated')) || {};
+    console.log("RIGHT CLICKED");
+    e.stopPropagation();
+    rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
+    if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
+        leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+    }
+    rated[bookKey] = 3;
+    localStorage.setItem('rated', JSON.stringify(rated));
+}
 
         // if (window.matchMedia("(max-width: 414px)").matches) {
         //     star.ontouchmove = function moveDivisor(e) {
@@ -2204,7 +2201,6 @@ document.addEventListener("DOMContentLoaded", function() {
             //         }
             //     }
             // });
-});
 
 
 
