@@ -2064,7 +2064,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const rating = document.querySelector('.my-book-rating');
     if (rating) {
         console.log("starting rating");
-        rating.addEventListener("mouseover", function(event) {
+    } else {
+        console.log("no element found");
+    }
+    const stars = rating.getElementsByTagName('label');
+    if (!stars) return;
+    stars.forEach(star => {
+        star.addEventListener("mouseover", function(event) {
             console.log("hovering", event.target, this);
 
             var mouseSide;
@@ -2074,10 +2080,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 mouseSide = 'R';
             }
             console.log(mouseSide);
-        })
-    } else {
-        console.log("no element found");
-    }
+        });
+    });
 });
 
 
