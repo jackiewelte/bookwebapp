@@ -2060,35 +2060,100 @@ function saveRating(clickedStarID) {
     console.log(clickedStar.style.content);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const rating = document.querySelector('.my-book-rating');
-    if (!rating) return;
-    
-    const stars = rating.getElementsByTagName('label');
-    if (!stars) return;
-    Array.prototype.forEach.call(stars, star => {
-        console.log(star)
-        star.addEventListener("mouseover", function(event) {
-            console.log("hovering", event.target, this);
 
-            var mouseSide;
-            if ((event.pageX - this.offsetLeft) < this.offsetWidth / 2) {
-                mouseSide = 'L';
-                // half star
-                star.style.clipPath = 'polygon(0 0, 50% 0, 50% 100%, 0% 100%)';
-            } else {
-                mouseSide = 'R';
-                // whole star
-                star.style.clipPath = 'none';
-            }
-            star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
-            console.log(mouseSide);
+// document.addEventListener("DOMContentLoaded", function() {
+//     const rating = document.querySelector('.my-book-rating');
+//     if (!rating) return;
+    
+//     const stars = rating.getElementsByTagName('label');
+//     if (!stars) return;
+//     Array.prototype.forEach.call(stars, star => {
+//         console.log(star)
+//         star.addEventListener("mouseover", function(event) {
+//             console.log("hovering", event.target, this);
+
+//             var mouseSide;
+//             if ((event.pageX - this.offsetLeft) < this.offsetWidth / 2) {
+//                 mouseSide = 'L';
+//                 // half star
+//                 star.style.clipPath = 'polygon(0 0, 50% 0, 50% 100%, 0% 100%)';
+//             } else {
+//                 mouseSide = 'R';
+//                 // whole star
+//                 star.style.clipPath = 'none';
+//             }
+//             star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+//             console.log(mouseSide);
+//         });
+//         star.addEventListener("mouseout", function() {
+//             star.style.clipPath = 'none';
+//             star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
+//         });
+//     });
+// });
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var divisor = document.querySelector("divisor");
+    var star1 = document.getElementById("star1");
+    if (star1) {
+        var starWidth = star1.scrollWidth;
+    }
+    var leftHalf = document.getElementById("comparison-left-half");
+    // var pastYear = document.getElementById("past-year");
+    // var currentYear = document.getElementById("current-year");
+
+
+    if (window.matchMedia("(max-width: 414px)").matches) {
+        star1.ontouchmove = function moveDivisor(e) {
+            console.log(e.offsetX);
+            console.log(starWidth);
+            divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+        }
+
+        leftHalf.addEventListener('touchstart', function(e) {
+            console.log("LEFT ENTERED");
+            e.stopPropagation();
+            // highlightCurrentYear();
         });
-        star.addEventListener("mouseout", function() {
-            star.style.clipPath = 'none';
-            star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
+
+        star1.addEventListener('touchstart', function(e) {
+            console.log("RIGHT ENTERED");
+            e.stopPropagation();
+            // highlightPastYear();
         });
-    });
+    } else {
+        star1.onmousemove = function moveDivisor(e) {
+            console.log("e.offestX: ", e.offsetX);
+            console.log(starWidth);
+            divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+        }
+
+        leftHalf.addEventListener('mouseenter', function(e) {
+            console.log("LEFT ENTERED");
+            e.stopPropagation();
+            // highlightCurrentYear();
+        });
+
+        star1.addEventListener('mouseover', function(e) {
+            console.log("RIGHT ENTERED");
+            e.stopPropagation();
+            // highlightPastYear();
+        });
+    }
+
+    // function highlightCurrentYear() {
+    //     console.log("2023");
+    //     currentYear.classList.remove("transparent");
+    //     pastYear.classList.add("transparent");
+    // }
+
+    // function highlightPastYear() {
+    //     console.log("2019");
+    //     pastYear.classList.remove("transparent");
+    //     currentYear.classList.add("transparent");
+    // }
 });
 
 
