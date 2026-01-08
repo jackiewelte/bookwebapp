@@ -3956,6 +3956,9 @@ a, p, input[type=text], label, button {
         height: 25px;
         content: url('../../assets/images/icons/grey_star_icon.svg');
         position: relative;
+    }
+
+    .my-book-rating label:hover {
         cursor: pointer;
     }
 
