@@ -2093,13 +2093,13 @@ function toggleShowMore(clickedButton) {
 // });
 
 
-const wrap2 = document.querySelector('.wrap');
-console.log("wrap2: ", wrap2);
-const bookTitle = wrap2.getAttribute('data-title');
-const bookAuthor = wrap2.getAttribute('data-author');
-const bookKey = `${bookTitle} by ${bookAuthor}`;
 
 function showHalfStar(e, leftHalf) {
+    const wrap = document.querySelector('.wrap');
+    console.log("wrap: ", wrap);
+    const bookTitle = wrap.getAttribute('data-title');
+    const bookAuthor = wrap.getAttribute('data-author');
+    const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     if (!rated[bookKey]) {
         console.log("LEFT ENTERED")
@@ -2114,6 +2114,11 @@ function showHalfStar(e, leftHalf) {
 }
 
 function showWholeStar(e, rightHalf) {
+    const wrap = document.querySelector('.wrap');
+    console.log("wrap: ", wrap);
+    const bookTitle = wrap.getAttribute('data-title');
+    const bookAuthor = wrap.getAttribute('data-author');
+    const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     if (!rated[bookKey]) {
         console.log("RIGHT ENTERED")
@@ -2126,6 +2131,11 @@ function showWholeStar(e, rightHalf) {
 }
 
 function hideStar(e, rightHalfID, leftHalfID) {
+    const wrap = document.querySelector('.wrap');
+    console.log("wrap: ", wrap);
+    const bookTitle = wrap.getAttribute('data-title');
+    const bookAuthor = wrap.getAttribute('data-author');
+    const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     const rightHalf = this.getElementById(rightHalfID);
     const leftHalf = this.getElementById(leftHalfID);
@@ -2142,6 +2152,11 @@ function hideStar(e, rightHalfID, leftHalfID) {
 }
 
 function fillHalfStar(e, leftHalf) {
+    const wrap = document.querySelector('.wrap');
+    console.log("wrap: ", wrap);
+    const bookTitle = wrap.getAttribute('data-title');
+    const bookAuthor = wrap.getAttribute('data-author');
+    const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     console.log("LEFT CLICKED");
     e.stopPropagation();
@@ -2156,6 +2171,11 @@ function fillHalfStar(e, leftHalf) {
 }
 
 function fillWholeStar(e, rightHalf) {
+    const wrap = document.querySelector('.wrap');
+    console.log("wrap: ", wrap);
+    const bookTitle = wrap.getAttribute('data-title');
+    const bookAuthor = wrap.getAttribute('data-author');
+    const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
     console.log("RIGHT CLICKED");
     e.stopPropagation();
