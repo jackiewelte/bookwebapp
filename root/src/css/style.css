@@ -3719,7 +3719,22 @@ a, p, input[type=text], label, button {
     }
     .book-cover-img {
         width: 152px;
+        aspect-ratio: 2 / 3;
+        border: 1.5px solid transparent;
+        box-sizing: border-box;
+        border-radius: 5px;
+        vertical-align: middle;
+        box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
+        cursor: pointer;
     }
+
+    .book-cover-img:hover {
+        border: #2fcc25 1.5px solid;
+        -webkit-transition: border 0.1s linear;
+        -ms-transition: border 0.1s linear;
+        transition: border 0.1s linear;
+    }
+
     .book-profile-section-header {
         width: 100%;
         margin: 0;
