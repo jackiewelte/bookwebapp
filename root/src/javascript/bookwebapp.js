@@ -2132,15 +2132,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("LEFT ENTERED");
                 e.stopPropagation();
                 leftHalf.style.visibility = 'visible';
-                star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
+                rightHalf.style.visibility = 'hidden';
             });
 
             rightHalf.addEventListener('mouseenter', function(e) {
                 console.log("RIGHT ENTERED");
                 e.stopPropagation();
-                star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                rightHalf.style.visibility = 'visible';
                 leftHalf.style.visibility = 'hidden';
             });
+
+            star.addEventListener('mouseleave', function(e) {
+                console.log("STAR LEFT");
+                e.stopPropagation();
+                rightHalf.style.visibility = 'hidden';
+                leftHalf.style.visibility = 'hidden';
+            })
         // }
     });
 });

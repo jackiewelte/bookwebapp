@@ -3955,8 +3955,9 @@ a, p, input[type=text], label, button {
     .star-rating {
         width: 25px;
         height: 25px;
-        content: url('../../assets/images/icons/grey_star_icon.svg');
-        object-fit: cover;
+        background-image: url('../../assets/images/icons/grey_star_icon.svg');
+        background-size: cover;
+        /* object-fit: cover; */
         position: relative;
     }
 
@@ -4001,6 +4002,7 @@ a, p, input[type=text], label, button {
         content: url('../../assets/images/icons/green_star_icon.svg'); */
         background-image: url('../../assets/images/icons/green_star_icon.svg');
         background-size: cover;
+        background-position: right;
     }
 
 }
