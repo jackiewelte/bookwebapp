@@ -2060,15 +2060,17 @@ function saveRating(clickedStarID) {
     console.log(clickedStar.style.content);
 }
 
-const rating = document.getElementById('star-1-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin');
-if (rating) {
-    console.log("starting");
-    rating.addEventListener("hover", function() {
-        console.log("hovering");
-    })
-} else {
-    console.log("no element found");
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const rating = document.querySelector('.my-book-rating');
+    if (rating) {
+        console.log("starting");
+        rating.addEventListener("hover", function() {
+            console.log("hovering");
+        })
+    } else {
+        console.log("no element found");
+    }
+});
 
 
 
