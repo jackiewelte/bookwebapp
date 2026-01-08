@@ -2062,19 +2062,11 @@ function saveRating(clickedStarID) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const rating = document.querySelector('.my-book-rating');
-    const stars = rating.getElementsByTagName('label');
     if (rating) {
         console.log("starting rating");
-        rating.addEventListener("hover", function() {
+        rating.addEventListener("mouseover", function() {
             console.log("hovering");
         })
-    } else if (stars) {
-        console.log("starting stars");
-        stars.forEach(star => {
-            star.addEventListener("hover", function() {
-                console.log("hovering");
-            });
-        });
     } else {
         console.log("no element found");
     }
