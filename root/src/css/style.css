@@ -3802,6 +3802,7 @@ a, p, input[type=text], label, button {
         justify-content: center;
         flex-wrap: nowrap;
         flex-direction: row;
+        cursor: pointer;
     }
     .down-caret {
         width: 9px;
@@ -3942,7 +3943,6 @@ a, p, input[type=text], label, button {
         gap: 6px;
     }
 
-
     .my-book-rating input[type="radio"] {
         display: none;
     }
@@ -3950,19 +3950,15 @@ a, p, input[type=text], label, button {
     .my-book-rating label {
         width: 25px;
         height: 25px;
+        content: url('../../assets/images/icons/grey_star_icon.svg');
         position: relative;
         cursor: pointer;
     }
 
-    .my-book-rating img {
-        width: 25px;
-        aspect-ratio: 1 / 1;
-    }
-
-    .my-book-rating > label > img:hover:before,
-    .my-book-rating > label > img:hover ~ label > img:before,
-    .my-book-rating > label > img.rated:before,
-    .my-book-rating > label > img.rated ~ label > img:before {
+    .my-book-rating > label:hover:before,
+    .my-book-rating > label:hover ~ label:before,
+    .my-book-rating > label.rated:before,
+    .my-book-rating > label.rated ~ label:before {
         content: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
     }
