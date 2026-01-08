@@ -2038,17 +2038,18 @@ function toggleShowMore(clickedButton) {
     clickedButton.classList.add('hide');
 }
 
-function saveRating(clickedStar) {
+function saveRating(clickedStarID) {
 //   if (event.target.tagName.toLowerCase() != 'input') return;
   
-  if (clickedStar.classList.contains('rated')) {
-    clickedStar.classList.remove('rated')
-  } else {
-    Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
-      el.classList.remove('rated');
-    })
-    clickedStar.classList.add('rated')
-  }
+    const clickedStar = document.getElementById(clickedStarID);
+    if (clickedStar.classList.contains('rated')) {
+        clickedStar.classList.remove('rated')
+    } else {
+        Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
+            el.classList.remove('rated');
+        })
+        clickedStar.classList.add('rated')
+    }
 }
 
 
