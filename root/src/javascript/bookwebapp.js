@@ -2062,6 +2062,7 @@ function saveRating(clickedStarID) {
 
 const rating = document.querySelector('.my-book-rating');
 if (rating) {
+    console.log("starting");
     rating.addEventListener("hover", function() {
         console.log("hovering");
     })
