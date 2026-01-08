@@ -2096,7 +2096,7 @@ function saveRating(clickedStarID) {
 
 document.addEventListener("DOMContentLoaded", function() {
     var divisor = document.querySelector("divisor");
-    var star1 = document.getElementById("star1");
+    var star1 = document.querySelector("star1");
     if (star1) {
         var starWidth = star1.scrollWidth;
     }
