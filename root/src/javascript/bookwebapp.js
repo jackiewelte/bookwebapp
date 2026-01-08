@@ -2131,11 +2131,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 // highlightPastYear();
             });
         } else {
-            star.onmousemove = function moveDivisor(e) {
+            star.addEventListener('mousemove', function moveDivisor(e) {
                 console.log("e.offestX: ", e.offsetX);
                 // console.log(starWidth);
                 // divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
-            }
+            });
 
             leftHalf.addEventListener('mouseenter', function(e) {
                 console.log("LEFT ENTERED");
