@@ -2140,7 +2140,8 @@ document.addEventListener("DOMContentLoaded", function() {
             leftHalf.addEventListener('mouseenter', function(e) {
                 console.log("LEFT ENTERED");
                 e.stopPropagation();
-                leftHalf.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                leftHalf.style.display = 'block';
+                star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
                 // highlightCurrentYear();
             });
 
@@ -2148,6 +2149,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("RIGHT ENTERED");
                 e.stopPropagation();
                 star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                leftHalf.style.display = 'none';
                 // highlightPastYear();
             });
         // }
