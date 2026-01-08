@@ -2056,6 +2056,7 @@ function saveRating(clickedStarID) {
         clickedStar.classList.add('rated')
         console.log("added rated class")
     }
+    console.log(clickedStar);
 }
 
 
