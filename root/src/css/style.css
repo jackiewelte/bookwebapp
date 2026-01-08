@@ -3952,7 +3952,7 @@ a, p, input[type=text], label, button {
     }
 
     /* .my-book-rating label { */
-    .comparison-right-half {
+    .star-rating {
         width: 25px;
         height: 25px;
         content: url('../../assets/images/icons/grey_star_icon.svg');
@@ -3961,7 +3961,7 @@ a, p, input[type=text], label, button {
     }
 
     /* .my-book-rating label:hover { */
-    .comparison-right-half:hover {
+    .star-rating:hover {
         cursor: pointer;
     }
 
@@ -3982,6 +3982,20 @@ a, p, input[type=text], label, button {
         position: absolute;
         top: 0;
         left: 0;
+        /* clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+        object-fit: cover;
+        content: url('../../assets/images/icons/green_star_icon.svg'); */
+        background-image: url('../../assets/images/icons/green_star_icon.svg');
+        background-size: cover;
+    }
+
+    .comparison-right-half {
+        width: 12.5px;
+        height: 25px;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 50%;
         /* clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
         object-fit: cover;
         content: url('../../assets/images/icons/green_star_icon.svg'); */

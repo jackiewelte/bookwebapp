@@ -2099,12 +2099,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!rating) return;
     // const stars = rating.getElementsByTagName('label');
     // if (!stars) return;
-    const stars = document.querySelectorAll('.comparison-right-half');
+    const stars = document.querySelectorAll('.star-rating');
 
     stars.forEach(star => {
     // Array.prototype.forEach.call(stars, star => {
         console.log(star)
         const leftHalf = document.querySelector('.comparison-left-half');
+        const rightHalf = document.querySelector('.comparison-right-half');
 
         // if (window.matchMedia("(max-width: 414px)").matches) {
         //     star.ontouchmove = function moveDivisor(e) {
@@ -2134,12 +2135,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
             });
 
-            // star.addEventListener('mouseover', function(e) {
-            //     console.log("RIGHT ENTERED");
-            //     e.stopPropagation();
-            //     star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
-            //     leftHalf.style.visibility = 'hidden';
-            // });
+            rightHalf.addEventListener('mouseenter', function(e) {
+                console.log("RIGHT ENTERED");
+                e.stopPropagation();
+                star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
+                leftHalf.style.visibility = 'hidden';
+            });
         // }
     });
 });
