@@ -2064,8 +2064,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const rating = document.querySelector('.my-book-rating');
     if (rating) {
         console.log("starting rating");
-        rating.addEventListener("mouseover", function() {
+        rating.addEventListener("mouseover", function(event) {
             console.log("hovering");
+
+            var mouseSide;
+            if ((event.pageX - clickedStar.offsetLeft) < $(clickedStar).width() / 2) {
+                mouseSide = 'L';
+            } else {
+                mouseSide = 'R';
+            }
+            console.log(mouseSide);
         })
     } else {
         console.log("no element found");
