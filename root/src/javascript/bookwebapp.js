@@ -2097,12 +2097,14 @@ function toggleShowMore(clickedButton) {
 document.addEventListener("DOMContentLoaded", function() {
     const rating = document.querySelector('.my-book-rating');
     if (!rating) return;
-    const stars = rating.getElementsByTagName('label');
-    if (!stars) return;
-    const leftHalf = document.querySelector('.comparison-left-half');
+    // const stars = rating.getElementsByTagName('label');
+    // if (!stars) return;
+    const stars = document.querySelectorAll('.comparison-right-half');
 
-    Array.prototype.forEach.call(stars, star => {
+    stars.forEach(star => {
+    // Array.prototype.forEach.call(stars, star => {
         console.log(star)
+        const leftHalf = document.querySelector('.comparison-left-half');
 
         // if (window.matchMedia("(max-width: 414px)").matches) {
         //     star.ontouchmove = function moveDivisor(e) {

@@ -3951,16 +3951,17 @@ a, p, input[type=text], label, button {
         display: none;
     }
 
-    .my-book-rating label {
+    /* .my-book-rating label { */
+    .comparison-right-half {
         width: 25px;
         height: 25px;
         content: url('../../assets/images/icons/grey_star_icon.svg');
         object-fit: cover;
         position: relative;
-        z-index: 10;
     }
 
-    .my-book-rating label:hover {
+    /* .my-book-rating label:hover { */
+    .comparison-right-half:hover {
         cursor: pointer;
     }
 
@@ -3986,7 +3987,6 @@ a, p, input[type=text], label, button {
         content: url('../../assets/images/icons/green_star_icon.svg'); */
         background-image: url('../../assets/images/icons/green_star_icon.svg');
         background-size: cover;
-        z-index: 20;
     }
 
 }
