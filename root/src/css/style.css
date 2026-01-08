@@ -3959,6 +3959,7 @@ a, p, input[type=text], label, button {
         background-size: cover;
         /* object-fit: cover; */
         position: relative;
+        z-index: 10;
     }
 
     /* .my-book-rating label:hover { */
@@ -3988,6 +3989,7 @@ a, p, input[type=text], label, button {
         content: url('../../assets/images/icons/green_star_icon.svg'); */
         background-image: url('../../assets/images/icons/green_star_icon.svg');
         background-size: cover;
+        z-index: 20;
     }
 
     .comparison-right-half {
@@ -4003,6 +4005,7 @@ a, p, input[type=text], label, button {
         background-image: url('../../assets/images/icons/green_star_icon.svg');
         background-size: cover;
         background-position: right;
+        z-index: 20;
     }
 
 }
