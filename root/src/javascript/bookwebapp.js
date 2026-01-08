@@ -2113,8 +2113,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (window.matchMedia("(max-width: 414px)").matches) {
             star.ontouchmove = function moveDivisor(e) {
                 console.log(e.offsetX);
-                console.log(starWidth);
-                divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+                // console.log(starWidth);
+                // divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
             }
 
             leftHalf.addEventListener('touchstart', function(e) {
@@ -2133,8 +2133,8 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             star.onmousemove = function moveDivisor(e) {
                 console.log("e.offestX: ", e.offsetX);
-                console.log(starWidth);
-                divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
+                // console.log(starWidth);
+                // divisor.style.width = (e.offsetX * 100 / starWidth) + "%";
             }
 
             leftHalf.addEventListener('mouseenter', function(e) {
