@@ -2074,9 +2074,13 @@ document.addEventListener("DOMContentLoaded", function() {
             var mouseSide;
             if ((event.pageX - this.offsetLeft) < this.offsetWidth / 2) {
                 mouseSide = 'L';
+                // half star
+                star.style.width = '50%';
             } else {
                 mouseSide = 'R';
+                // whole star
             }
+            star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
             console.log(mouseSide);
         });
     });
