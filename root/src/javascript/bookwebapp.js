@@ -2106,6 +2106,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(star)
         const leftHalf = document.querySelector('.comparison-left-half');
         const rightHalf = document.querySelector('.comparison-right-half');
+        var clicked = false;
 
         // if (window.matchMedia("(max-width: 414px)").matches) {
         //     star.ontouchmove = function moveDivisor(e) {
@@ -2129,7 +2130,44 @@ document.addEventListener("DOMContentLoaded", function() {
         //     });
         // } else {
             leftHalf.addEventListener('mouseover', function(e) {
-                console.log("LEFT ENTERED");
+                if (!clicked) {
+                    console.log("LEFT ENTERED")
+                    e.stopPropagation()
+                    if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
+                        leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+                    }
+                    if (rightHalf.style.backgroundImage != 'none') {
+                        rightHalf.style.backgroundImage = 'none'
+                    }
+                }
+            });
+
+            rightHalf.addEventListener('mouseover', function(e) {
+                if (!clicked) {
+                    console.log("RIGHT ENTERED")
+                    e.stopPropagation()
+                    rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+                    if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
+                        leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
+                    }
+                }
+            });
+
+            star.addEventListener('mouseleave', function(e) {
+                if (!clicked) {
+                    console.log("STAR LEFT")
+                    e.stopPropagation()
+                    if (rightHalf.style.backgroundImage != 'none') {
+                        rightHalf.style.backgroundImage = 'none'
+                    }
+                    if (leftHalf.style.backgroundImage != 'none') {
+                        leftHalf.style.backgroundImage = 'none';
+                    }
+                }
+            })
+
+            leftHalf.addEventListener('click', function(e) {
+                console.log("LEFT CLICKED");
                 e.stopPropagation();
                 if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
                     leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
@@ -2137,27 +2175,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (rightHalf.style.backgroundImage != 'none') {
                     rightHalf.style.backgroundImage = 'none'
                 }
+                clicked = true;
             });
 
-            rightHalf.addEventListener('mouseover', function(e) {
-                console.log("RIGHT ENTERED");
+            rightHalf.addEventListener('click', function(e) {
+                console.log("RIGHT CLICKED");
                 e.stopPropagation();
                 rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
                 if (leftHalf.style.backgroundImage != "url('../../assets/images/icons/green_star_icon.svg')") {
                     leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')"
                 }
+                clicked = true;
             });
-
-            star.addEventListener('mouseleave', function(e) {
-                console.log("STAR LEFT");
-                e.stopPropagation();
-                if (rightHalf.style.backgroundImage != 'none') {
-                    rightHalf.style.backgroundImage = 'none'
-                }
-                if (leftHalf.style.backgroundImage != 'none') {
-                    leftHalf.style.backgroundImage = 'none';
-                }
-            })
         // }
     });
 });
