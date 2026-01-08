@@ -2147,18 +2147,18 @@ function showWholeStar(e, rightHalf) {
     }
 }
 
-function hideStar(e, rightHalfClass, leftHalfClass) {
+function hideStar(this, rightHalfClass, leftHalfClass) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
-    const rightHalf = e.target.querySelector(rightHalfClass);
-    const leftHalf = e.target.querySelector(leftHalfClass);
+    const rightHalf = this.querySelector(rightHalfClass);
+    const leftHalf = this.querySelector(leftHalfClass);
     if (!rated[bookKey]) {
         console.log("STAR LEFT")
-        e.stopPropagation()
+        // e.stopPropagation()
         rightHalf.style.backgroundImage = 'none'
         if (leftHalf.style.backgroundImage != 'none') {
             leftHalf.style.backgroundImage = 'none';
