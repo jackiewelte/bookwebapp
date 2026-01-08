@@ -2066,6 +2066,8 @@ if (rating) {
     rating.addEventListener("hover", function() {
         console.log("hovering");
     })
+} else {
+    console.log("no element found");
 }
 
 
