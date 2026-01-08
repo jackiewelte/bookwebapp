@@ -3959,6 +3959,14 @@ a, p, input[type=text], label, button {
         aspect-ratio: 1 / 1;
     }
 
+    .my-book-rating > label > img:hover:before,
+    .my-book-rating > label > img:hover ~ label > img:before,
+    .my-book-rating > label > img.rated:before,
+    .my-book-rating > label > img.rated ~ label > img:before {
+        content: url('../../assets/images/icons/green_star_icon.svg');
+        position: absolute;
+    }
+
 }
 
 
