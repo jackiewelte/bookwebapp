@@ -2128,25 +2128,25 @@ document.addEventListener("DOMContentLoaded", function() {
         //         // highlightPastYear();
         //     });
         // } else {
-            leftHalf.addEventListener('mouseover', function() {
+            leftHalf.addEventListener('mouseover', function(e) {
                 console.log("LEFT ENTERED");
-                // e.stopPropagation();
-                leftHalf.style.visibility = 'visible';
-                rightHalf.style.visibility = 'hidden';
+                e.stopPropagation();
+                leftHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
+                rightHalf.style.backgroundImage = 'none';
             });
 
-            rightHalf.addEventListener('mouseover', function() {
+            rightHalf.addEventListener('mouseover', function(e) {
                 console.log("RIGHT ENTERED");
-                // e.stopPropagation();
-                rightHalf.style.visibility = 'visible';
-                leftHalf.style.visibility = 'hidden';
+                e.stopPropagation();
+                rightHalf.style.backgroundImage = "url('../../assets/images/icons/green_star_icon.svg')";
+                leftHalf.style.backgroundImage = 'none';
             });
 
             star.addEventListener('mouseleave', function(e) {
                 console.log("STAR LEFT");
                 e.stopPropagation();
-                rightHalf.style.visibility = 'hidden';
-                leftHalf.style.visibility = 'hidden';
+                rightHalf.style.backgroundImage = 'none';
+                leftHalf.style.backgroundImage = 'none';
             })
         // }
     });
