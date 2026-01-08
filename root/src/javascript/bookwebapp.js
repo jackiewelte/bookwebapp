@@ -2060,7 +2060,7 @@ function saveRating(clickedStarID) {
     console.log(clickedStar.style.content);
 }
 
-const rating = document.querySelector('.my-book-rating');
+const rating = document.getElementById('star-1-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin');
 if (rating) {
     console.log("starting");
     rating.addEventListener("hover", function() {
