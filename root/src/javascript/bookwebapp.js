@@ -2093,9 +2093,10 @@ function toggleShowMore(clickedButton) {
 // });
 
 
-console.log("wrap: ", wrap);
-const bookTitle = wrap.getAttribute('data-title');
-const bookAuthor = wrap.getAttribute('data-author');
+const wrap2 = document.querySelector('.wrap');
+console.log("wrap: ", wrap2);
+const bookTitle = wrap2.getAttribute('data-title');
+const bookAuthor = wrap2.getAttribute('data-author');
 const bookKey = `${bookTitle} by ${bookAuthor}`;
 
 function showHalfStar(e, leftHalf) {
