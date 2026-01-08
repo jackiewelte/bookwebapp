@@ -2147,15 +2147,15 @@ function showWholeStar(e, rightHalf) {
     }
 }
 
-function hideStar(this, rightHalfClass, leftHalfClass) {
+function hideStar(star, rightHalfClass, leftHalfClass) {
     const wrap = document.querySelector('.wrap');
     console.log("wrap: ", wrap);
     const bookTitle = wrap.getAttribute('data-title');
     const bookAuthor = wrap.getAttribute('data-author');
     const bookKey = `${bookTitle} by ${bookAuthor}`;
     var rated = JSON.parse(localStorage.getItem('rated')) || {};
-    const rightHalf = this.querySelector(rightHalfClass);
-    const leftHalf = this.querySelector(leftHalfClass);
+    const rightHalf = star.querySelector(rightHalfClass);
+    const leftHalf = star.querySelector(leftHalfClass);
     if (!rated[bookKey]) {
         console.log("STAR LEFT")
         // e.stopPropagation()
