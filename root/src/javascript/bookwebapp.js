@@ -2128,14 +2128,14 @@ document.addEventListener("DOMContentLoaded", function() {
         //         // highlightPastYear();
         //     });
         // } else {
-            leftHalf.addEventListener('mouseenter', function(e) {
+            leftHalf.addEventListener('mouseover', function(e) {
                 console.log("LEFT ENTERED");
                 e.stopPropagation();
                 leftHalf.style.visibility = 'visible';
                 rightHalf.style.visibility = 'hidden';
             });
 
-            rightHalf.addEventListener('mouseenter', function(e) {
+            rightHalf.addEventListener('mouseover', function(e) {
                 console.log("RIGHT ENTERED");
                 e.stopPropagation();
                 rightHalf.style.visibility = 'visible';
