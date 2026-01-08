@@ -2068,7 +2068,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("hovering");
 
             var mouseSide;
-            if ((event.pageX - clickedStar.offsetLeft) < $(clickedStar).width() / 2) {
+            if ((event.pageX - this.offsetLeft) < $(this).width() / 2) {
                 mouseSide = 'L';
             } else {
                 mouseSide = 'R';
