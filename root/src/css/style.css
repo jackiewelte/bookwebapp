@@ -3955,6 +3955,7 @@ a, p, input[type=text], label, button {
         width: 25px;
         height: 25px;
         content: url('../../assets/images/icons/grey_star_icon.svg');
+        object-fit: cover;
         position: relative;
     }
 

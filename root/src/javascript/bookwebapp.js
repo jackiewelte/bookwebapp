@@ -2075,13 +2075,18 @@ document.addEventListener("DOMContentLoaded", function() {
             if ((event.pageX - this.offsetLeft) < this.offsetWidth / 2) {
                 mouseSide = 'L';
                 // half star
-                star.style.width = '50%';
+                star.style.clipPath = 'polygon(0 0, 50% 0, 50% 100%, 0% 100%)';
             } else {
                 mouseSide = 'R';
                 // whole star
+                star.style.clipPath = 'none';
             }
             star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
             console.log(mouseSide);
+        });
+        star.addEventListener("mouseout", function() {
+            star.style.clipPath = 'none';
+            star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
         });
     });
 });
