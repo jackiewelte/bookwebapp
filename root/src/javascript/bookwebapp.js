@@ -2040,15 +2040,21 @@ function toggleShowMore(clickedButton) {
 
 function saveRating(clickedStarID) {
 //   if (event.target.tagName.toLowerCase() != 'input') return;
-  
+
+    console.log(clickedStarID);
     const clickedStar = document.getElementById(clickedStarID);
+    console.log(clickedStar);
+
     if (clickedStar.classList.contains('rated')) {
         clickedStar.classList.remove('rated')
+        console.log("removed rated class")
     } else {
         Array.prototype.forEach.call(document.getElementsByClassName('rated'), function(el) {
             el.classList.remove('rated');
+            console.log("removed rated class from all elements with rated class")
         })
         clickedStar.classList.add('rated')
+        console.log("added rated class")
     }
 }
 
