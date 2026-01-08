@@ -40,7 +40,7 @@
         <div id="results" class="hide" style="overscroll-behavior: contain;"></div>
     </div>
 
-    <div class="wrap">
+    <div class="wrap" data-title="Tomorrow, and Tomorrow, and Tomorrow" data-author="Gabrielle Zevin">
 
         <div class="book-profile-section" style="flex-direction: row; padding: 28px 20px 10px 20px !important;">
             <div class="book-profile-container">
@@ -126,20 +126,25 @@
 
                 <div class="my-book-rating">
                     <!-- <input type="radio" id="ratingExcellent" name="stars" onclick="saveRating('star-1-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin')"></input> -->
-                    <div id="star-1-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating">
-                        <div class="comparison-left-half"></div><div class="comparison-right-half"></div>
+                    <div id="star-1-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating" onmouseleave="hideStar(this, e, 'comparison-right-half', 'comparison-left-half')">
+                        <div class="comparison-left-half" onmouseover="showHalfStar(e, this)" onclick="fillHalfStar(e, this)"></div>
+                        <div class="comparison-right-half" onmouseover="showWholeStar(e, this)" onclick="fillWholeStar(e, this)"></div>
                     </div>
-                    <div id="star-2-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating">
-                        <div class="comparison-left-half"></div><div class="comparison-right-half"></div>
+                    <div id="star-2-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating" onmouseleave="hideStar(this, e, 'comparison-right-half', 'comparison-left-half')">
+                        <div class="comparison-left-half" onmouseover="showHalfStar(e, this)" onclick="fillHalfStar(e, this)"></div>
+                        <div class="comparison-right-half" onmouseover="showWholeStar(e, this)" onclick="fillWholeStar(e, this)"></div>
                     </div>
-                    <div id="star-3-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating">
-                        <div class="comparison-left-half"></div><div class="comparison-right-half"></div>
+                    <div id="star-3-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating" onmouseleave="hideStar(this, e, 'comparison-right-half', 'comparison-left-half')">
+                        <div class="comparison-left-half" onmouseover="showHalfStar(e, this)" onclick="fillHalfStar(e, this)"></div>
+                        <div class="comparison-right-half" onmouseover="showWholeStar(e, this)" onclick="fillWholeStar(e, this)"></div>
                     </div>
-                    <div id="star-4-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating">
-                        <div class="comparison-left-half"></div><div class="comparison-right-half"></div>
+                    <div id="star-4-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating" onmouseleave="hideStar(this, e, 'comparison-right-half', 'comparison-left-half')">
+                        <div class="comparison-left-half" onmouseover="showHalfStar(e, this)" onclick="fillHalfStar(e, this)"></div>
+                        <div class="comparison-right-half" onmouseover="showWholeStar(e, this)" onclick="fillWholeStar(e, this)"></div>
                     </div>
-                    <div id="star-5-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating">
-                        <div class="comparison-left-half"></div><div class="comparison-right-half"></div>
+                    <div id="star-5-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" class="star-rating" onmouseleave="hideStar(this, e, 'comparison-right-half', 'comparison-left-half')">
+                        <div class="comparison-left-half" onmouseover="showHalfStar(e, this)" onclick="fillHalfStar(e, this)"></div>
+                        <div class="comparison-right-half" onmouseover="showWholeStar(e, this)" onclick="fillWholeStar(e, this)"></div>
                     </div>
                     <!-- <input type="radio" id="ratingGood" name="stars" onclick="saveRating('star-2-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin')"></input>
                     <label id="star-2-Tomorrow-and-Tomorrow-and-Tomorrow-Gabrielle-Zevin" for="ratingGood"></label>
