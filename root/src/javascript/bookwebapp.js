@@ -2099,13 +2099,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!rating) return;
     const stars = rating.getElementsByTagName('label');
     if (!stars) return;
-
-    const divisor = document.querySelector('.divisor');
-    // const star1 = document.querySelector('.star1');
-    // if (star1) {
-    //     var starWidth = star1.scrollWidth
-    // }
-    var leftHalf = document.querySelector('.comparison-left-half');
+    const leftHalf = document.querySelector('.comparison-left-half');
 
     Array.prototype.forEach.call(stars, star => {
         console.log(star)
@@ -2140,7 +2134,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.stopPropagation();
                 leftHalf.style.visibility = 'visible';
                 star.style.content = "url('../../assets/images/icons/grey_star_icon.svg')";
-                // highlightCurrentYear();
             });
 
             star.addEventListener('mouseover', function(e) {
@@ -2148,7 +2141,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.stopPropagation();
                 star.style.content = "url('../../assets/images/icons/green_star_icon.svg')";
                 leftHalf.style.visibility = 'hidden';
-                // highlightPastYear();
             });
         // }
     });
