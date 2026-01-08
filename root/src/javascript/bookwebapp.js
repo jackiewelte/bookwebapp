@@ -2065,10 +2065,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (rating) {
         console.log("starting rating");
         rating.addEventListener("mouseover", function(event) {
-            console.log("hovering", event.target);
+            console.log("hovering", event.target, this);
 
             var mouseSide;
-            if ((event.pageX - event.target.offsetLeft) < event.target.width() / 2) {
+            if ((event.pageX - this.offsetLeft) < this.offsetWidth / 2) {
                 mouseSide = 'L';
             } else {
                 mouseSide = 'R';
