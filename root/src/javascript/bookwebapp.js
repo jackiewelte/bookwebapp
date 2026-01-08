@@ -2062,15 +2062,12 @@ function saveRating(clickedStarID) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const rating = document.querySelector('.my-book-rating');
-    if (rating) {
-        console.log("starting rating");
-    } else {
-        console.log("no element found");
-    }
+    if (!rating) return;
+    
     const stars = rating.getElementsByTagName('label');
     if (!stars) return;
-    console.log(stars);
-    stars.forEach(star => {
+    Array.prototype.forEach.call(stars, star => {
+        console.log(star)
         star.addEventListener("mouseover", function(event) {
             console.log("hovering", event.target, this);
 
