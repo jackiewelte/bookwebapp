@@ -2128,16 +2128,16 @@ document.addEventListener("DOMContentLoaded", function() {
         //         // highlightPastYear();
         //     });
         // } else {
-            leftHalf.addEventListener('mouseover', function(e) {
+            leftHalf.addEventListener('mouseover', function() {
                 console.log("LEFT ENTERED");
-                e.stopPropagation();
+                // e.stopPropagation();
                 leftHalf.style.visibility = 'visible';
                 rightHalf.style.visibility = 'hidden';
             });
 
-            rightHalf.addEventListener('mouseover', function(e) {
+            rightHalf.addEventListener('mouseover', function() {
                 console.log("RIGHT ENTERED");
-                e.stopPropagation();
+                // e.stopPropagation();
                 rightHalf.style.visibility = 'visible';
                 leftHalf.style.visibility = 'hidden';
             });
