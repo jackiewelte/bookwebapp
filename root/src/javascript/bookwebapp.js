@@ -2069,6 +2069,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     const stars = rating.getElementsByTagName('label');
     if (!stars) return;
+    console.log(stars);
     stars.forEach(star => {
         star.addEventListener("mouseover", function(event) {
             console.log("hovering", event.target, this);
