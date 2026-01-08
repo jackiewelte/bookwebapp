@@ -3904,20 +3904,7 @@ a, p, input[type=text], label, button {
     }
 
 
-    /* .main-rating {
-        background-image: url('../../assets/images/icons/green_star_icon.svg');
-    }
-
-    .main-rating > img:hover:before,
-    .main-rating > img:hover ~ img:before,
-    .main-rating > img.rated:before,
-    .main-rating > img.rated ~ img:before {
-    content: "\2605";
-    position: absolute;
-    } */
-
-
-    .my-book-rating {
+    /* .my-book-rating {
         unicode-bidi: bidi-override;
         direction: rtl;
         display: flex;
@@ -3943,6 +3930,33 @@ a, p, input[type=text], label, button {
     .my-book-rating > span > img.rated ~ span > img:before {
         content: url('../../assets/images/icons/green_star_icon.svg');
         position: absolute;
+    } */
+
+
+    .my-book-rating {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+
+
+    .my-book-rating input[type="radio"] {
+        display: none;
+    }
+
+    .my-book-rating label {
+        width: 25px;
+        height: 25px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .my-book-rating img {
+        width: 25px;
+        aspect-ratio: 1 / 1;
     }
 
 }
