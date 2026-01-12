@@ -762,6 +762,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updateUIElements(bookKey, status, isChecked, dotButton, label, labelCheck) {        
         if (isChecked) {
+            // {
+                // {title: "Yellowface", author: "R.F. Kuang"}: {genres: "fiction, literary fiction", pages: "210", avgRating: "3.7", datePublished: "August 7, 2019"},
+                // {title: "But Beautiful", author: "Geoff Dyer"}: {genres: "nonfiction, music", pages: "350", avgRating: "4.3", datePublished: "May 25, 2015"}
+            // }
             if (status === 'want-to-read') {
                 wtr[bookKey] = new Date().toISOString();
                 label.textContent = 'Want to Read';
@@ -1572,7 +1576,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (!editProgressContent || !saveButton || !progressUnitButton || !pageProgressText || !percentProgressText) return;
 
-        editProgressContent.classList.toggle('hide');
+        if (editProgressContent.classList.contains('hide')) {
+            editProgressContent.classList.remove('hide')
+            editProgressElement.style.padding = '18px 23px 0 23px';
+        } else {
+            editProgressContent.classList.add('hide');
+            editProgressElement.style.padding = '18px 23px';
+        }
         if (!pagePercentDropdown.classList.contains('hide')) {
             pagePercentDropdown.classList.add('hide');
             console.log("Hide page/percent buttons");
@@ -1683,12 +1693,14 @@ document.addEventListener("DOMContentLoaded", function() {
         cancelButton.addEventListener('click', function(e) {
             if (pagePercentDropdown.classList.contains('hide')) {
                 editProgressContent.classList.add('hide');
+                editProgressElement.style.padding = '18px 23px';
                 e.stopPropagation();
                 console.log("Clicked cancel button, cancelling and hiding dropdown");
             }
         });
 
         document.addEventListener('click', function(e) {
+            console.log("what did i click: ", e.target);
             if (!pagePercentDropdown.classList.contains('hide')) {
                 if (!e.target.closest('.unit-dropdown-content') && !e.target.closest('.progress-unit-btn')) {
                     pagePercentDropdown.classList.toggle('hide');
@@ -1696,6 +1708,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             } else if (editProgressContent && !e.target.closest('.cr-dropdown-content') && !e.target.closest('.edit-progress-btn')) {
                 editProgressContent.classList.add('hide');
+                editProgressElement.style.padding = '18px 23px';
                 // console.log("Clicked outside, hiding dropdown");
             }
         });
@@ -1797,6 +1810,144 @@ document.addEventListener("DOMContentLoaded", function() {
 //     // delete shelf
 //     // redirect to my books page
 // });
+
+const yearDict = {
+    // month: [{date: pagesRead}]
+    january: [{1: 0}, {2: 0}, {3: 0}, {4: 190}, {5: 0}, {6: 10}, {7: 8}, {8: 0}, {9: 0}, {10: 40}, {11: 80}, {12: 13}, {13: 0}, {14: 0}, {15: 0}, {16: 12}, {17: 0}, {18: 10}, {19: 13}, {20: 23}, {21: 78}, {22: 2}, {23: 0}, {24: 0}, {25: 15}, {26: 10}, {27: 75}, {28: 0}, {29: 20}, {30: 12}, {31: 10}],
+    february: [{1: 5}, {2: 0}, {3: 0}, {4: 0}, {5: 50}, {6: 0}, {7: 8}, {8: 70}, {9: 20}, {10: 40}, {11: 10}, {12: 13}, {13: 0}, {14: 0}, {15: 60}, {16: 12}, {17: 0}, {18: 10}, {19: 25}, {20: 39}, {21: 250}, {22: 2}, {23: 14}, {24: 0}, {25: 0}, {26: 0}, {27: 55}, {28: 0}],
+    march: [{1: 5}, {2: 100}, {3: 6}, {4: 90}, {5: 35}, {6: 10}, {7: 8}, {8: 0}, {9: 0}, {10: 40}, {11: 80}, {12: 13}, {13: 0}, {14: 20}, {15: 0}, {16: 12}, {17: 0}, {18: 10}, {19: 75}, {20: 23}, {21: 78}, {22: 12}, {23: 14}, {24: 0}, {25: 0}, {26: 10}, {27: 15}, {28: 0}, {29: 20}, {30: 12}, {31: 0}],
+    april: [{1: 25}, {2: 0}, {3: 0}, {4: 0}, {5: 100}, {6: 10}, {7: 8}, {8: 70}, {9: 20}, {10: 0}, {11: 80}, {12: 0}, {13: 0}, {14: 0}, {15: 5}, {16: 12}, {17: 0}, {18: 10}, {19: 55}, {20: 23}, {21: 0}, {22: 2}, {23: 0}, {24: 0}, {25: 15}, {26: 25}, {27: 55}, {28: 0}, {29: 0}, {30: 0}],
+    may: [{1: 0}, {2: 0}, {3: 6}, {4: 90}, {5: 35}, {6: 10}, {7: 58}, {8: 0}, {9: 0}, {10: 40}, {11: 0}, {12: 13}, {13: 0}, {14: 0}, {15: 60}, {16: 12}, {17: 0}, {18: 10}, {19: 55}, {20: 0}, {21: 78}, {22: 2}, {23: 14}, {24: 0}, {25: 0}, {26: 10}, {27: 55}, {28: 0}, {29: 20}, {30: 55}, {31: 0}],
+    june: [{1: 5}, {2: 0}, {3: 6}, {4: 200}, {5: 35}, {6: 10}, {7: 18}, {8: 0}, {9: 20}, {10: 0}, {11: 80}, {12: 0}, {13: 0}, {14: 20}, {15: 60}, {16: 12}, {17: 10}, {18: 10}, {19: 100}, {20: 23}, {21: 0}, {22: 2}, {23: 14}, {24: 0}, {25: 0}, {26: 10}, {27: 55}, {28: 0}, {29: 20}, {30: 12}],
+    july: [{1: 5}, {2: 0}, {3: 6}, {4: 90}, {5: 35}, {6: 0}, {7: 8}, {8: 70}, {9: 0}, {10: 40}, {11: 80}, {12: 10}, {13: 0}, {14: 0}, {15: 20}, {16: 12}, {17: 0}, {18: 10}, {19: 55}, {20: 23}, {21: 78}, {22: 52}, {23: 25}, {24: 0}, {25: 35}, {26: 0}, {27: 0}, {28: 0}, {29: 0}, {30: 12}, {31: 12}],
+    august: [{1: 0}, {2: 0}, {3: 0}, {4: 0}, {5: 0}, {6: 0}, {7: 78}, {8: 70}, {9: 20}, {10: 40}, {11: 0}, {12: 13}, {13: 50}, {14: 35}, {15: 60}, {16: 12}, {17: 20}, {18: 10}, {19: 55}, {20: 48}, {21: 0}, {22: 2}, {23: 0}, {24: 0}, {25: 15}, {26: 10}, {27: 55}, {28: 0}, {29: 20}, {30: 201}, {31: 25}],
+    september: [{1: 0}, {2: 0}, {3: 6}, {4: 90}, {5: 35}, {6: 10}, {7: 0}, {8: 70}, {9: 20}, {10: 0}, {11: 80}, {12: 0}, {13: 0}, {14: 0}, {15: 0}, {16: 12}, {17: 0}, {18: 10}, {19: 55}, {20: 23}, {21: 25}, {22: 107}, {23: 14}, {24: 0}, {25: 15}, {26: 10}, {27: 45}, {28: 0}, {29: 20}, {30: 26}],
+    october: [{1: 55}, {2: 20}, {3: 6}, {4: 90}, {5: 35}, {6: 10}, {7: 108}, {8: 70}, {9: 20}, {10: 40}, {11: 100}, {12: 0}, {13: 0}, {14: 0}, {15: 68}, {16: 12}, {17: 200}, {18: 10}, {19: 0}, {20: 23}, {21: 0}, {22: 200}, {23: 14}, {24: 0}, {25: 15}, {26: 0}, {27: 55}, {28: 0}, {29: 0}, {30: 12}, {31: 0}],
+    november: [{1: 0}, {2: 0}, {3: 6}, {4: 0}, {5: 0}, {6: 10}, {7: 8}, {8: 0}, {9: 20}, {10: 10}, {11: 0}, {12: 13}, {13: 0}, {14: 0}, {15: 60}, {16: 12}, {17: 0}, {18: 10}, {19: 0}, {20: 13}, {21: 78}, {22: 2}, {23: 0}, {24: 0}, {25: 0}, {26: 10}, {27: 55}, {28: 0}, {29: 20}, {30: 12}],
+    december: [{1: 0}, {2: 100}, {3: 0}, {4: 90}, {5: 35}, {6: 0}, {7: 8}, {8: 70}, {9: 20}, {10: 0}, {11: 20}, {12: 13}, {13: 0}, {14: 0}, {15: 60}, {16: 12}, {17: 0}, {18: 10}, {19: 55}, {20: 0}, {21: 78}, {22: 2}, {23: 0}, {24: 0}, {25: 15}, {26: 10}, {27: 55}, {28: 0}, {29: 20}, {30: 12}, {31: 0}]
+}
+
+
+// STATS
+document.addEventListener("DOMContentLoaded", function() {
+    function populateChart() {
+        const rd = JSON.parse(localStorage.getItem('rd')) || {};
+        const ctx = document.getElementById('doughnut').getContext('2d');
+        if (!ctx) return;
+
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [40, 53, 7],
+                    backgroundColor: [
+                        // '#2b4c13',
+                        // '#f2619c',
+                        // '#f89305',
+                        // '#dfe55d'
+
+                        '#6199c3',
+                        '#e0893b',
+                        '#88b439'
+                        // '#53a989'
+                    ],
+                    borderColor: [
+                        // '#262d38'
+                        '#1c1c1e'
+                        // 'rgba(255, 99, 132, 1)',
+                        // 'rgba(54, 162, 235, 1)',
+                        // 'rgba(255, 206, 86, 1)',
+                        // 'rgba(75, 192, 192, 1)',
+                    ],
+                    borderWidth: 4
+                }],
+                labels: ['<300', '300-499', '500+']
+            },
+            options: {
+                responsive: true,
+                // thickness
+                cutout: 100,
+                radius: 100,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Page Number'
+                    },
+                    legend: {
+                        display: false
+                        // position: 'bottom'
+                    },
+                    layout: {
+                        padding: 100
+                    }
+                }
+            }
+        });
+    }
+
+    function populateAllTimeStats() {
+        const rd = JSON.parse(localStorage.getItem('rd')) || {};
+
+        for (i = 0; i < Object.keys(rd).length; i++) {
+            const bookTitle = bookElement.getAttribute('data-title');
+            const bookAuthor = bookElement.getAttribute('data-author');
+            const bookGenre = bookElement.getAttribute('data-genre');
+            const bookKey = `${bookTitle} by ${bookAuthor}`;
+        }
+
+
+    }
+
+    function populateYearPixels() {
+        const months = document.querySelector('.months');
+        if (!months) return;
+        var children = months.children;
+
+        for (var month = 0; month < months.childElementCount; month++) {
+            console.log(month, children[month]);
+            for (var day = 1; day < children[month].childElementCount; day++) {
+                console.log(day, children[month].children[day], children[month].childElementCount);
+                var grandchild = children[month].children[day];
+                console.log("month:", month, " day:", day, " grandchild:", grandchild);
+
+                // january
+                var monName = Object.keys(yearDict)[month];
+                // [{1: 5}, {2: 0}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+                var mon = Object.values(yearDict)[month];
+                // ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+                var days = Object.keys(mon);
+                // 31
+                // console.log(mon.length, days.length);
+                // {1: 5}
+                var dayDict = mon[day - 1];
+                console.log("dayDict: ", dayDict);
+                // 5
+                var pagesRead = Object.values(dayDict)[0];
+
+                if (pagesRead == 0) {
+                    circleColor = '#2c2c2e';
+                } else if (pagesRead > 0 && pagesRead <= 10) {
+                    circleColor = '#88b439';
+                } else if (pagesRead > 10 && pagesRead <= 50) {
+                    circleColor = '#53a989';
+                } else if (pagesRead > 50 && pagesRead <= 75) {
+                    circleColor = '#e0893b';
+                } else if (pagesRead > 75 && pagesRead <= 100) {
+                    circleColor = '#6199c3';
+                } else if (pagesRead > 100) {
+                    circleColor = '#ce3636';
+                }
+                grandchild.style.backgroundColor = circleColor;
+                console.log(`date: ${monName} ${Object.keys(day)}, num pages: ${pagesRead}, color: ${circleColor}`);
+            }
+        }
+    }
+
+
+    populateChart();
+    populateYearPixels();
+});
+
 
 
 // PROFILE
