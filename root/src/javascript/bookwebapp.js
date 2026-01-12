@@ -1116,7 +1116,7 @@ document.addEventListener("DOMContentLoaded", function() {
             showMore.appendChild(numBooks);
 
             const rightCaret = document.createElement('img');
-            rightCaret.src = '../assets/images/icons/right_caret_icon.svg';
+            rightCaret.src = './assets/images/icons/right_caret_icon.svg';
             rightCaret.className = 'right-caret';
 
             showMore.appendChild(rightCaret);
@@ -1853,7 +1853,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     ],
                     borderColor: [
                         // '#262d38'
-                        '#1c1c1e'
+                        '#70896b'
                         // 'rgba(255, 99, 132, 1)',
                         // 'rgba(54, 162, 235, 1)',
                         // 'rgba(255, 206, 86, 1)',
