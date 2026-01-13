@@ -1643,6 +1643,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 console.log(number);
                 editProgressContent.classList.add('hide');
+                editProgressElement.style.padding = '18px 23px';
                 e.stopPropagation();
                 console.log("Clicked save button, saving and hiding dropdown");
 
@@ -1951,14 +1952,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // PROFILE
-// Expand bio on click
-function toggleExpandBio(event) {
-    var bio = event.target;
-    if (bio.classList.contains("expanded")) {
-        bio.classList.toggle("expanded")
-    } else {
-        bio.classList.toggle("expanded")
+// Genre preferences
+const genrePreferences = ['fiction', 'music', 'romance', 'classics', 'nonfiction', 'history', 'literary fiction'];
+const numGenres = genrePreferences.length - 3;
+
+// Expand bio and genre preferences on click
+function toggleExpandText(text) {
+    text.classList.toggle("expanded")
+
+    const genres = document.querySelector('.genre-preferences');
+    if (genres && (text == genres)) {
+        if (text.classList.contains("expanded")) {
+            text.textContent = genrePreferences.join(', ')
+        } else {
+            text.textContent = `${genrePreferences[0]}, ${genrePreferences[1]}, ${genrePreferences[2]}, ${numGenres - 1}+ more`
+        }
     }
+}
+
+function populateGenrePreferences() {
+    const genres = document.querySelector('.genre-preferences');
+    genres.textContent = `${genrePreferences[0]}, ${genrePreferences[1]}, ${genrePreferences[2]}, ${numGenres - 1}+ more`;
 }
 
 // Populate reading challenge progress header
@@ -2148,6 +2162,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname.endsWith('profile') || window.location.pathname.endsWith('profile.html')) {
         // Populate stats
         let readingGoal = 20;
+        populateGenrePreferences()
         populateReadingChallengeProgressHeader(readingGoal)
         populateYearRecapHeader()
         populateRecentActivityRatings()

@@ -77,7 +77,7 @@
                     </a>
                 </div>
                 <!-- <div class="bio"> -->
-                    <button class="bio" onclick="toggleExpandBio(event)">
+                    <button class="bio" onclick="toggleExpandText(this)">
                         I love books &lt;3
                         I love books &lt;3
                         I love books &lt;3
@@ -106,14 +106,14 @@
         </div>
 
         <div class="reading-profile">
-            <a class="profile-info" href="genre_preferences.html">
-                <p>
+            <div class="profile-info">
+                <p class="genre-preferences-header">
                     Genres
                 </p>
-                <p>
-                    fiction, romance, 3+ more
-                </p>
-            </a>
+                <button class="genre-preferences" onclick="toggleExpandText(this)">
+                    <!-- fiction, romance, 3+ more -->
+                </button>
+            </div>
 
             <hr class="partial-linebreak">
 
