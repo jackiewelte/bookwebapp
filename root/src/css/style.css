@@ -1964,7 +1964,7 @@ a, p, input[type=text], label, button {
         /* color: #545454; */
         color: #244230;
         /* background-color: #c7c7c7; */
-        background-color: wheat;
+        background-color: #f0e3cc;
         border: none;
         border-radius: 20px;
     }
@@ -3978,11 +3978,15 @@ a, p, input[type=text], label, button {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        row-gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+        row-gap: 30px;
     }
 
     .edit-dates-text p {
-        color: #c7c7c7;
+        font-size: 20px;
+        font-weight: bold;
+        color: #244230;
         margin: 0;
     }
 
@@ -4000,7 +4004,7 @@ a, p, input[type=text], label, button {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        /* row-gap: 20px; */
+        row-gap: 10px;
     }
 
     .date-added-picker {
@@ -4012,6 +4016,20 @@ a, p, input[type=text], label, button {
     }
     .date-finished-picker {
 
+    }
+
+    #date-added-picker, #date-started-picker, #date-finished-picker {
+        width: 200px;
+        height: 30px;
+        font-family: 'Sophiecomic Regular', 'PT Serif';
+        font-size: 20px;
+        text-align: center;
+        padding: 0;
+        /* color: #f0e3cc; */
+        color: #96c374;
+        background-color: #355e45;
+        border: 2px solid #244230;
+        border-radius: 20px;
     }
 
     .date-added-picker, .date-started-picker, .date-finished-picker {

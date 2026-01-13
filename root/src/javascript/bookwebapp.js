@@ -2407,8 +2407,6 @@ function fillWholeStar(e, rightHalf) {
             // });
 
 
-
-
 function clearStorage() {
     localStorage.clear();
     window.location.reload();
