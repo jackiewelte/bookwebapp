@@ -52,6 +52,7 @@ light green #70896b
 dark green #355e45
 darker green #244230 
 wheat #f0e3cc
+pastel green #96c374
 */
 
 a, p, input[type=text], label, button {
@@ -150,8 +151,9 @@ a, p, input[type=text], label, button {
         border-radius: 5dvw;
     }
 
-    #search-bar::placeholder {
+    #search-input::placeholder, #search-input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         color: #244230;
+        opacity: 1;
     }
 
     #search-btn {
@@ -1944,7 +1946,7 @@ a, p, input[type=text], label, button {
         justify-content: space-between;
     }
 
-    #search-bar input[type=text] {
+    #search-input {
         width: 80dvw;
         height: 40px;
         box-sizing: border-box;
@@ -1952,16 +1954,21 @@ a, p, input[type=text], label, button {
         padding: 8px 45px 8px 20px;
         font-weight: 400;
         /* font-size: 17px; */
-        font-size: 26px;
-        line-height: 26px;
+        font-size: 22px;
+        line-height: 22px;
         text-overflow: ellipsis;
         text-decoration: none;
         /* color: #545454; */
         color: #244230;
         /* background-color: #c7c7c7; */
-        background-color: #70896b;
+        background-color: wheat;
         border: none;
         border-radius: 20px;
+    }
+
+    #search-input::placeholder, #search-input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: #244230;
+        opacity: 1;
     }
 
     #search-btn {
@@ -3059,7 +3066,8 @@ a, p, input[type=text], label, button {
         width: 100%;
         min-width: 10dvw;
         height: 14px;
-        background-color: #737373;
+        /* background-color: #737373; */
+        background-color: wheat;
         overflow: hidden;
     }
 
@@ -3325,7 +3333,7 @@ a, p, input[type=text], label, button {
 
     #profile-top-nav {
         width: 100dvw;
-        height: 9dvh;
+        height: 75px;
         position: fixed;
         top: 0;
         left: 0;
@@ -3431,7 +3439,7 @@ a, p, input[type=text], label, button {
     .profile-header {
         width: 100dvw;
         min-height: 14dvh;
-        padding: 2dvh 8dvw 2dvh 5dvw;
+        padding: 20px 33px 12px 20px;
         box-sizing: border-box;
         position: relative;
         display: flex;
@@ -3468,10 +3476,11 @@ a, p, input[type=text], label, button {
     }
 
     .profile-stats a, .bio {
-        font-size: 3.27dvw;
+        font-size: 20px;
+        line-height: 20px;
         font-weight: 550;
         text-decoration: none;
-        color: #c7c7c7;
+        color: #244230;
         margin: 0;
     }
 
@@ -3554,8 +3563,8 @@ a, p, input[type=text], label, button {
 
     .reading-profile p {
         font-weight: 400;
-        font-size: 3.2655dvw;
-        color: #c7c7c7;
+        font-size: 20px;
+        color: #244230;
     }
 
     .reading-profile p:hover {
@@ -3581,15 +3590,28 @@ a, p, input[type=text], label, button {
     .reading-challenge-progress-bar-border {
         width: 100%;
         min-width: 15px;
-        background-color: #737373;
+        /* background-color: #737373; */
+        background-color: #70896b;
+        border: 1px solid #244230;
         overflow: hidden;
+    }
+
+    .reading-challenge-progress-bar-border:hover {
+        /* border: 1px solid #355e45; */
+        cursor: pointer;
     }
 
     .reading-challenge-progress-bar-grey {
         height: 1dvh;
         width: 0%;
-        background-color: #c7c7c7;
+        /* background-color: #c7c7c7; */
+        background-color: #244230;
         transition: width 0.6s;
+    }
+
+    .reading-challenge-progress-bar-grey:hover {
+        background-color: #355e45;
+        cursor: pointer;
     }
 
     .reading-challenge-progress {
