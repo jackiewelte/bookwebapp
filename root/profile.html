@@ -97,13 +97,21 @@
 
         <!-- <iframe style="border-radius: 12px; width: 100dvw; height: 9dvh; padding: 0 5dvw; box-sizing: border-box;" src="https://open.spotify.com/embed/track/23EA6tBKaiVnXv7QH1R6kn?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
 
-        <div id="mini-page-menu">
-            <a class="mini-current-subpage" href="profile.html">
+        <!-- <div class="page-menu" style="align-items: center; position: sticky; top: 85px; left: 0;">
+            <a class="tab mini-current-subpage" href="profile.html">
                 About
             </a>
-            <a class="mini-other-subpages" href="profile_updates.html">
+            <a class="tab mini-other-subpages" href="profile_updates.html">
                 Updates
             </a>
+        </div> -->
+
+        <div class="page-menu" style="height: 30px; align-items: center; position: sticky; top: 85px; left: 0; border-radius: 20px;">
+            <input type="radio" id="radio-10" name="tabs" checked onclick="toggleSubmenuTab('about', this)"/>
+            <label class="tab" for="radio-10" style="font-size: 24px; line-height: normal; border-radius: 20px;">About</label>
+            <input type="radio" id="radio-11" name="tabs" onclick="toggleSubmenuTab('updates', this)"/>
+            <label class="tab" for="radio-11" style="font-size: 24px; line-height: normal; border-radius: 20px;">Updates</label>
+            <span class="glider" style="height: 30px;"></span>
         </div>
 
         <div class="reading-profile">
