@@ -2318,6 +2318,9 @@ document.addEventListener("DOMContentLoaded", function() {
             // console.log(dateEntered); // e.g. Fri Nov 13 2015 00:00:00 GMT+0000 (GMT Standard Time)
             // bookDates[bookKey][dateType] = dateEntered;
 
+            if (!bookDates[bookKey]) {
+                bookDates[bookKey] = {}
+            }
             bookDates[bookKey][dateType] = input;
             console.log("dict date entered: ", bookDates[bookKey][dateType]);
             localStorage.setItem('bookDates', JSON.stringify(bookDates));
