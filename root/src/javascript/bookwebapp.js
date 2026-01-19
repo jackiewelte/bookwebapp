@@ -2211,6 +2211,7 @@ document.addEventListener("DOMContentLoaded", function() {
             bookTags: ["bookclub", "fantasy", "romance", "science fiction", "nonfiction", "classics", "gothic", "history"]
         }
     }
+    console.log(bookProfile);
 
     // const bookDates = get local storage dict;
     // bookDates = {bookKey: {dateAdded: dateAdded, dateStarted: dateStarted, dateFinished: dateFinished}}
