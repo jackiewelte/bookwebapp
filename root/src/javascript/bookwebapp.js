@@ -2245,7 +2245,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let i = 0; i < Object.values(bookProfile[bookKey].bookGenres).length; i++) {
         console.log("# of genres: ", Object.values(bookProfile[bookKey].bookGenres).length);
 
-        const genre = genres.createElement('a');
+        const genre = document.createElement('a');
         genre.classList.add('genre');
         // '../' is for 'book' folder
         genre.href = `../genres/${Object.values(bookProfile[bookKey].bookGenres)[i].toLowerCase().replace(/ /g,"_")}.html`;
@@ -2288,7 +2288,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let i = 0; i < Object.values(bookProfile[bookKey].bookTags).length; i++) {
         console.log("# of tabs: ", Object.values(bookProfile[bookKey].bookTags).length);
 
-        const tag = tags.createElement('a');
+        const tag = document.createElement('a');
         tag.classList.add('tag');
         // '../' is for 'book' folder
         tag.href = `../tags/${Object.values(bookProfile[bookKey].bookTags)[i]}.html`;
