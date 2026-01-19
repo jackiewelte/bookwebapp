@@ -1,4 +1,5 @@
-import { makePage } from './makePage.js'
+// import { makePage } from './makePage.js'
+// window.makePage = makePage;
 
 // Remember scroll and page positions before navigating away from the page
 window.addEventListener('beforeunload', function() {
@@ -378,7 +379,7 @@ function isValidShelfName(shelfName) {
 }
 
 // Create new shelf
-function addCustomShelf(shelfName, customShelves) {
+async function addCustomShelf(shelfName, customShelves) {
     console.log("shelfName trim: ", shelfName.trim());
 
     if(!(shelfName in customShelves)) {
@@ -386,6 +387,8 @@ function addCustomShelf(shelfName, customShelves) {
         localStorage.setItem('customShelves', JSON.stringify(customShelves));
         console.log(`New shelf created: ${shelfName}`);
 
+        // import("./makePage.js");
+        let {makePage} = await import("./makePage.js");
         makePage();
 
         // create shelf file in bookshelf dir with default heading content and book-page div
