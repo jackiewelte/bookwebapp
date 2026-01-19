@@ -2211,9 +2211,7 @@ document.addEventListener("DOMContentLoaded", function() {
             bookTags: ["bookclub", "fantasy", "romance", "science fiction", "nonfiction", "classics", "gothic", "history"]
         }
     }
-    console.log(bookProfile);
     console.log(bookProfile[bookKey]);
-    console.log(bookProfile[bookKey].bookCover);
 
     // const bookDates = get local storage dict;
     // bookDates = {bookKey: {dateAdded: dateAdded, dateStarted: dateStarted, dateFinished: dateFinished}}
@@ -2230,7 +2228,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title.textContent = bookProfile[bookKey].bookTitle;
 
     const author = bookElement.querySelector('.author-main');
-    author.href = `./${bookAuthor.replace(/ /g,"_")}.html`;
+    author.href = `./${bookProfile[bookKey].bookAuthor.replace(/ /g,"_")}.html`;
     author.textContent = `by ${bookProfile[bookKey].bookAuthor}`;
 
     const avgRating = bookElement.querySelector('book-avg-rating');
