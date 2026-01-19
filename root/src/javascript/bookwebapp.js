@@ -2242,6 +2242,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // hide read more toggle button
     }
     const genres = bookElement.querySelector('.genres');
+    console.log(genres);
     for (let i = 0; i < Object.values(bookProfile[bookKey].bookGenres).length; i++) {
         console.log("# of genres: ", Object.values(bookProfile[bookKey].bookGenres).length);
 
