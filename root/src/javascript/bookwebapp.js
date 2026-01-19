@@ -2232,8 +2232,8 @@ document.addEventListener("DOMContentLoaded", function() {
     author.textContent = `by ${bookProfile[bookKey].bookAuthor}`;
 
     const avgRating = bookElement.querySelector('book-avg-rating');
-    console.log(bookProfile[bookKey].bookAvgRating);
-    avgRating.textContent = bookProfile[bookKey].bookAvgRating;
+    console.log(bookProfile[bookKey].bookAvgRating.toLocaleString());
+    avgRating.textContent = bookProfile[bookKey].bookAvgRating.toLocaleString();
 
     // populate dropdown
     // populate my book rating
