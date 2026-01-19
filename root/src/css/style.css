@@ -3915,7 +3915,7 @@ a, p, input[type=text], label, button {
         justify-content: space-evenly;
     }
 
-    .switch-editions.text, .author-main, .rate-this-book, .genre, .book-description, .book-details p, .edit-dates-text p, .date-picker p, .read-more-btn {
+    .switch-editions-text, .author-main, .rate-this-book, .genre, .book-description, .book-details p, .edit-dates-text p, .date-picker p, .read-more-btn {
         font-family: 'Sophiecomic Regular', 'PT Serif';
         font-size: 22px;
         color: #244230;
