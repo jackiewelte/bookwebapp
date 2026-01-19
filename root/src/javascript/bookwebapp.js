@@ -2193,16 +2193,16 @@ document.addEventListener("DOMContentLoaded", function() {
             bookCover: "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg", 
             bookAvgRating: 4.16, bookGenres: ["Literary Fiction", "Romance", "Humor"], 
             bookDescription: 
-                `In this exhilarating novel, two friends—often in love, but never lovers—come together as creative partners in the world of video game design, 
-                where success brings them fame, joy, tragedy, duplicity, and, ultimately, a kind of immortality.\n\n
-
+                `<b>In this exhilarating novel, two friends—often in love, but never lovers—come together as creative partners in the world of video game design, 
+                where success brings them fame, joy, tragedy, duplicity, and, ultimately, a kind of immortality.</b>
+                <br><br>
                 On a bitter-cold day, in the December of his junior year at Harvard, Sam Masur exits a subway car and sees, 
                 amid the hordes of people waiting on the platform, Sadie Green. He calls her name. For a moment, she pretends she hasn't heard him, 
                 but then, she turns, and a game begins: a legendary collaboration that will launch them to stardom. These friends, intimates since childhood, 
                 borrow money, beg favors, and, before even graduating college, they have created their first blockbuster, Ichigo. Overnight, the world is theirs. 
                 Not even twenty-five years old, Sam and Sadie are brilliant, successful, and rich, but these qualities won't protect them from their own 
-                creative ambitions or the betrayals of their hearts.\n\n
-
+                creative ambitions or the betrayals of their hearts.
+                <br><br>
                 Spanning thirty years, from Cambridge, Massachusetts, to Venice Beach, California, and lands in between and far beyond, Gabrielle Zevin's 
                 Tomorrow, and Tomorrow, and Tomorrow is a dazzling and intricately imagined novel that examines the multifarious nature of identity, disability, 
                 failure, the redemptive possibilities in play, and above all, our need to connect: to be loved and to love. Yes, it is a love story, 
