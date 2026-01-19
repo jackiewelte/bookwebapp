@@ -2231,9 +2231,8 @@ document.addEventListener("DOMContentLoaded", function() {
     author.href = `./${bookProfile[bookKey].bookAuthor.replace(/ /g,"_")}.html`;
     author.textContent = `by ${bookProfile[bookKey].bookAuthor}`;
 
-    const avgRating = bookElement.querySelector('book-avg-rating');
-    console.log(bookProfile[bookKey].bookAvgRating.toLocaleString());
-    avgRating.textContent = bookProfile[bookKey].bookAvgRating.toLocaleString();
+    const avgRating = bookElement.querySelector('.book-avg-rating');
+    avgRating.textContent = bookProfile[bookKey].bookAvgRating;
 
     // populate dropdown
     // populate my book rating
