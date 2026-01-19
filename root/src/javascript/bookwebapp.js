@@ -2212,6 +2212,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     console.log(bookProfile);
+    console.log(bookProfile[bookKey].bookCover);
 
     // const bookDates = get local storage dict;
     // bookDates = {bookKey: {dateAdded: dateAdded, dateStarted: dateStarted, dateFinished: dateFinished}}
