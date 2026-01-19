@@ -463,7 +463,7 @@ function updateAllDropdownMenus() {
 }
 
 function addBooktoShelf(shelfName, bookKey) {
-    let customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
+    var customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
     console.log(`Adding book to shelf: ${shelfName}, book: ${bookKey}`);
 
     if (!customShelves[shelfName][bookKey]) {
@@ -475,7 +475,7 @@ function addBooktoShelf(shelfName, bookKey) {
 }
 
 function removeBookFromShelf(shelfName, bookKey) {
-    let customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
+    var customShelves = JSON.parse(localStorage.getItem('customShelves')) || {};
     console.log(`Removing book from shelf: ${shelfName}, book: ${bookKey}`);
     if (customShelves[shelfName]) {
 
@@ -1780,7 +1780,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!bookElement) {
                     const bookThumbnail = document.createElement('a');
                     bookThumbnail.className = 'book-thumbnail';
-                    bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+                    bookThumbnail.href = `../book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
                     thumbnail.classList.add('book-thumbnail-img');
@@ -1889,7 +1889,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function populateAllTimeStats() {
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
 
-        for (i = 0; i < Object.keys(rd).length; i++) {
+        for (let i = 0; i < Object.keys(rd).length; i++) {
             const bookTitle = bookElement.getAttribute('data-title');
             const bookAuthor = bookElement.getAttribute('data-author');
             const bookGenre = bookElement.getAttribute('data-genre');
@@ -2174,6 +2174,152 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // BOOK PROFILE
+// Populate book profile
+document.addEventListener("DOMContentLoaded", function() {
+    var loc = window.location.pathname;
+    var folder = loc.split('/')[1];
+    console.log("book profile folderrrr: ", folder);
+    if (folder != 'book') return;
+
+    // const bookProfile = get local? storage dict;
+    // bookProfile = {bookKey: {bookTitle: title, bookAuthor: author, bookAvgRating: avgRating,
+    //              bookGenres: genres, bookDescription: description, bookPages: pages, 
+    //              bookEdition: edition, bookDatePublished: datePublished, bookTags: tags}}
+
+    const bookKey = "Tomorrow, and Tommorrow, and Tomorrow by Gabrielle Zevin";
+    const bookProfile = {
+        bookKey: {
+            bookTitle: "Tomorrow, and Tomorrow, and Tomorrow", bookAuthor: "Gabrielle Zevin", 
+            bookCover: "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg", 
+            bookAvgRating: 4.16, bookGenres: ["Literary Fiction", "Romance", "Humor"], 
+            bookDescription: 
+                `In this exhilarating novel, two friends—often in love, but never lovers—come together as creative partners in the world of video game design, 
+                where success brings them fame, joy, tragedy, duplicity, and, ultimately, a kind of immortality.\n\n
+
+                On a bitter-cold day, in the December of his junior year at Harvard, Sam Masur exits a subway car and sees, 
+                amid the hordes of people waiting on the platform, Sadie Green. He calls her name. For a moment, she pretends she hasn't heard him, 
+                but then, she turns, and a game begins: a legendary collaboration that will launch them to stardom. These friends, intimates since childhood, 
+                borrow money, beg favors, and, before even graduating college, they have created their first blockbuster, Ichigo. Overnight, the world is theirs. 
+                Not even twenty-five years old, Sam and Sadie are brilliant, successful, and rich, but these qualities won't protect them from their own 
+                creative ambitions or the betrayals of their hearts.\n\n
+
+                Spanning thirty years, from Cambridge, Massachusetts, to Venice Beach, California, and lands in between and far beyond, Gabrielle Zevin's 
+                Tomorrow, and Tomorrow, and Tomorrow is a dazzling and intricately imagined novel that examines the multifarious nature of identity, disability, 
+                failure, the redemptive possibilities in play, and above all, our need to connect: to be loved and to love. Yes, it is a love story, 
+                but it is not one you have read before.`, 
+            bookPages: 185, bookEdition: "Hardcover", bookDatePublished: "October 13, 2020", 
+            bookTags: ["bookclub", "fantasy", "romance", "science fiction", "nonfiction", "classics", "gothic", "history"]
+        }
+    }
+
+    // const bookDates = get local storage dict;
+    // bookDates = {bookKey: {dateAdded: dateAdded, dateStarted: dateStarted, dateFinished: dateFinished}}
+
+    var bookDates = JSON.parse(localStorage.getItem('bookDates')) || {};
+
+    const bookElement = body.querySelector('.book-element');
+    if (!bookElement) return;
+
+    const bookCoverIMG = bookElement.querySelector('.book-cover-img');
+    bookCoverIMG.src = bookProfile[bookKey].bookCover;
+
+    const title = bookElement.querySelector('.title-main');
+    title.textContent = bookProfile[bookKey].bookTitle;
+
+    const author = bookElement.querySelector('.author-main');
+    author.href = `./${bookAuthor.replace(/ /g,"_")}.html`;
+    author.textContent = `by ${bookProfile[bookKey].bookAuthor}`;
+
+    const avgRating = bookElement.querySelector('book-avg-rating');
+    avgRating.textContent = bookProfile[bookKey].bookAvgRating;
+
+    // populate dropdown
+    // populate my book rating
+
+    // populate genres
+    if (Object.values(bookProfile[bookKey].bookGenres).length <= 1) {
+        // hide read more toggle button
+    }
+    const genres = bookElement.querySelectorAll('.genres');
+    for (let i = 0; i < Object.values(bookProfile[bookKey].bookGenres).length; i++) {
+        console.log("# of genres: ", Object.values(bookProfile[bookKey].bookGenres).length);
+
+        const genre = genres.createElement('a');
+        genre.classList.add('genre');
+        // '../' is for 'book' folder
+        genre.href = `../genres/${Object.values(bookProfile[bookKey].bookGenres)[i].toLowerCase().replace(/ /g,"_")}.html`;
+        genre.textContent = Object.values(bookProfile[bookKey].bookGenres)[i];
+        console.log("genre href: ", genre.href);
+        console.log("genre text content: ", genre.textContent);
+
+        genres.appendChild(genre);
+    }
+
+    const description = bookElement.querySelector('.book-description');
+    // if (bookDescription <= 4 lines) {
+    //     hide read more toggle button
+    // }
+    description.textContent = bookProfile[bookKey].bookDescription;
+
+    // populate date added, started, and finished gotten from local storage
+    const datePickers = bookElement.querySelectorAll('.date-picker');
+    datePickers.forEach(datePicker => {
+        const dateType = datePicker.name  // name="added"
+        console.log(dateType);
+        console.log(`Displaying date of book: ${bookKey}, dateType: ${dateType}`);
+
+        if (bookDates[bookKey][dateType]) {
+            datePicker.value = bookDates[bookKey][dateType]
+        }
+    });
+
+    const numPages = bookElement.querySelector('.num-pages');
+    numPages.textContent = `${bookProfile[bookKey].bookPages} pages, ${bookProfile[bookKey].bookEdition}`;
+
+    const datePublished = bookElement.querySelector('.date-published');
+    datePublished.textContent = `First published ${bookProfile[bookKey].bookDatePublished}`;
+
+    // populate tags
+    if (Object.values(bookProfile[bookKey].bookTags).length <= 1) {
+        // hide read more toggle button
+    }
+    const tags = bookElement.querySelectorAll('.tags');
+    for (let i = 0; i < Object.values(bookProfile[bookKey].bookTags).length; i++) {
+        console.log("# of tabs: ", Object.values(bookProfile[bookKey].bookTags).length);
+
+        const tag = tags.createElement('a');
+        tag.classList.add('tag');
+        // '../' is for 'book' folder
+        tag.href = `../tags/${Object.values(bookProfile[bookKey].bookTags)[i]}.html`;
+        tag.textContent = Object.values(bookProfile[bookKey].bookTags)[i];
+
+        tags.appendChild(tag);
+    }
+
+
+// Edit date
+    var bookDates = JSON.parse(localStorage.getItem('bookDates')) || {};
+
+    datePickers.forEach(datePicker => {
+        datePicker.addEventListener("change", function editDate() {
+            const dateType = datePicker.name  // name="added"
+            console.log(dateType);
+            console.log(`Adding date to book: ${bookKey}, dateType: ${dateType}`);
+
+            var input = this.value;
+            console.log(input); // e.g. 2015-11-13
+
+            // var dateEntered = new Date(input).toISOString();
+            // console.log(dateEntered); // e.g. Fri Nov 13 2015 00:00:00 GMT+0000 (GMT Standard Time)
+            // bookDates[bookKey][dateType] = dateEntered;
+
+            bookDates[bookKey][dateType] = input;
+            console.log("dict date entered: ", bookDates[bookKey][dateType]);
+            localStorage.setItem('bookDates', JSON.stringify(bookDates));
+        });
+    });
+});
+
 // Populate my book rating
 document.addEventListener("DOMContentLoaded", function() {
     const myBookRating = document.querySelector('.my-book-rating');
@@ -2405,6 +2551,8 @@ function fillWholeStar(e, rightHalf) {
             //         }
             //     }
             // });
+
+
 
 
 function clearStorage() {

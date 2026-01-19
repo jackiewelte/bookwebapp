@@ -2891,7 +2891,7 @@ a, p, input[type=text], label, button {
         padding: 0;
     }
 
-    .tag-row {
+    .tags {
         margin-left: 30px;
         display: flex;
         flex-wrap: wrap;
@@ -3990,16 +3990,6 @@ a, p, input[type=text], label, button {
         margin: 0;
     }
 
-    .date-added {
-
-    }
-    .date-started {
-
-    }
-    .date-finished {
-
-    }
-
     .edit-dates-pickers {
         display: flex;
         flex-direction: column;
@@ -4007,18 +3997,7 @@ a, p, input[type=text], label, button {
         row-gap: 10px;
     }
 
-    .date-added-picker {
-
-    }
-
-    .date-started-picker {
-
-    }
-    .date-finished-picker {
-
-    }
-
-    #date-added-picker, #date-started-picker, #date-finished-picker {
+    .date-picker {
         width: 200px;
         height: 30px;
         font-family: 'Sophiecomic Regular', 'PT Serif';
@@ -4030,28 +4009,16 @@ a, p, input[type=text], label, button {
         background-color: #355e45;
         border: 2px solid #244230;
         border-radius: 20px;
-    }
 
-    .date-added-picker, .date-started-picker, .date-finished-picker {
-        display: flex;
+        /* display: flex; */
         flex-direction: row;
         flex-wrap: nowrap;
-        column-gap: 20px;
+        justify-content: center;
     }
 
-    .date-added-picker p, .date-started-picker p, .date-finished-picker p {
+    .date-picker p {
         color: #c7c7c7;
         margin: 0;
-    }
-
-    .month {
-
-    }
-    .day {
-
-    }
-    .year {
-
     }
 
     .dotted-timeline {
