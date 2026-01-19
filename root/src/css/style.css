@@ -3911,7 +3911,8 @@ a, p, input[type=text], label, button {
         width: 100%;
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+        column-gap: 20px;
         justify-content: space-evenly;
         overflow: hidden;
 
