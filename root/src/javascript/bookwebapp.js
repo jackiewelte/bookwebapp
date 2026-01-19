@@ -2217,7 +2217,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var bookDates = JSON.parse(localStorage.getItem('bookDates')) || {};
 
-    const bookElement = body.querySelector('.book-element');
+    const bookElement = document.body.querySelector('.book-element');
     if (!bookElement) return;
 
     const bookCoverIMG = bookElement.querySelector('.book-cover-img');
