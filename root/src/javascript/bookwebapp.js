@@ -1,3 +1,5 @@
+import { makePage } from './makePage.js'
+
 // Remember scroll and page positions before navigating away from the page
 window.addEventListener('beforeunload', function() {
     var loc = window.location.pathname;

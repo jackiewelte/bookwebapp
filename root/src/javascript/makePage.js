@@ -1,4 +1,4 @@
-function makePage() {
+export function makePage() {
     // var comment = document.getElementById('textareaCode').value; 
     // alert (comment);
     var xmlhttp = new XMLHttpRequest();
