@@ -2212,7 +2212,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     console.log(bookProfile);
-    console.log(bookProfile[bookKey][bookCover]);
+    console.log(bookProfile[bookKey]);
+    console.log(bookProfile[bookKey].bookCover);
 
     // const bookDates = get local storage dict;
     // bookDates = {bookKey: {dateAdded: dateAdded, dateStarted: dateStarted, dateFinished: dateFinished}}
@@ -2223,34 +2224,34 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!bookElement) return;
 
     const bookCoverIMG = bookElement.querySelector('.book-cover-img');
-    bookCoverIMG.src = bookProfile[bookKey][bookCover];
+    bookCoverIMG.src = bookProfile[bookKey].bookCover;
 
     const title = bookElement.querySelector('.title-main');
-    title.textContent = bookProfile[bookKey][bookTitle];
+    title.textContent = bookProfile[bookKey].bookTitle;
 
     const author = bookElement.querySelector('.author-main');
     author.href = `./${bookAuthor.replace(/ /g,"_")}.html`;
-    author.textContent = `by ${bookProfile[bookKey][bookAuthor]}`;
+    author.textContent = `by ${bookProfile[bookKey].bookAuthor}`;
 
     const avgRating = bookElement.querySelector('book-avg-rating');
-    avgRating.textContent = bookProfile[bookKey][bookAvgRating];
+    avgRating.textContent = bookProfile[bookKey].bookAvgRating;
 
     // populate dropdown
     // populate my book rating
 
     // populate genres
-    if (Object.values(bookProfile[bookKey][bookGenres]).length <= 1) {
+    if (Object.values(bookProfile[bookKey].bookGenres).length <= 1) {
         // hide read more toggle button
     }
     const genres = bookElement.querySelectorAll('.genres');
-    for (let i = 0; i < Object.values(bookProfile[bookKey][bookGenres]).length; i++) {
-        console.log("# of genres: ", Object.values(bookProfile[bookKey][bookGenres]).length);
+    for (let i = 0; i < Object.values(bookProfile[bookKey].bookGenres).length; i++) {
+        console.log("# of genres: ", Object.values(bookProfile[bookKey].bookGenres).length);
 
         const genre = genres.createElement('a');
         genre.classList.add('genre');
         // '../' is for 'book' folder
-        genre.href = `../genres/${Object.values(bookProfile[bookKey][bookGenres])[i].toLowerCase().replace(/ /g,"_")}.html`;
-        genre.textContent = Object.values(bookProfile[bookKey][bookGenres])[i];
+        genre.href = `../genres/${Object.values(bookProfile[bookKey].bookGenres)[i].toLowerCase().replace(/ /g,"_")}.html`;
+        genre.textContent = Object.values(bookProfile[bookKey].bookGenres)[i];
         console.log("genre href: ", genre.href);
         console.log("genre text content: ", genre.textContent);
 
@@ -2261,7 +2262,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // if (bookDescription <= 4 lines) {
     //     hide read more toggle button
     // }
-    description.textContent = bookProfile[bookKey][bookDescription];
+    description.textContent = bookProfile[bookKey].bookDescription;
 
     // populate date added, started, and finished gotten from local storage
     const datePickers = bookElement.querySelectorAll('.date-picker');
@@ -2276,24 +2277,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const numPages = bookElement.querySelector('.num-pages');
-    numPages.textContent = `${bookProfile[bookKey][bookPages]} pages, ${bookProfile[bookKey][bookEdition]}`;
+    numPages.textContent = `${bookProfile[bookKey].bookPages} pages, ${bookProfile[bookKey].bookEdition}`;
 
     const datePublished = bookElement.querySelector('.date-published');
-    datePublished.textContent = `First published ${bookProfile[bookKey][bookDatePublished]}`;
+    datePublished.textContent = `First published ${bookProfile[bookKey].bookDatePublished}`;
 
     // populate tags
-    if (Object.values(bookProfile[bookKey][bookTags]).length <= 1) {
+    if (Object.values(bookProfile[bookKey].bookTags).length <= 1) {
         // hide read more toggle button
     }
     const tags = bookElement.querySelectorAll('.tags');
-    for (let i = 0; i < Object.values(bookProfile[bookKey][bookTags]).length; i++) {
-        console.log("# of tabs: ", Object.values(bookProfile[bookKey][bookTags]).length);
+    for (let i = 0; i < Object.values(bookProfile[bookKey].bookTags).length; i++) {
+        console.log("# of tabs: ", Object.values(bookProfile[bookKey].bookTags).length);
 
         const tag = tags.createElement('a');
         tag.classList.add('tag');
         // '../' is for 'book' folder
-        tag.href = `../tags/${Object.values(bookProfile[bookKey][bookTags])[i]}.html`;
-        tag.textContent = Object.values(bookProfile[bookKey][bookTags])[i];
+        tag.href = `../tags/${Object.values(bookProfile[bookKey].bookTags)[i]}.html`;
+        tag.textContent = Object.values(bookProfile[bookKey].bookTags)[i];
 
         tags.appendChild(tag);
     }
