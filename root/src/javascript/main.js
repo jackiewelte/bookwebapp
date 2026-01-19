@@ -387,7 +387,6 @@ async function addCustomShelf(shelfName, customShelves) {
         localStorage.setItem('customShelves', JSON.stringify(customShelves));
         console.log(`New shelf created: ${shelfName}`);
 
-        // import("./makePage.js");
         let {makePage} = await import("./makePage.js");
         makePage();
 
