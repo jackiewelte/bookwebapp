@@ -2271,6 +2271,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`Displaying date of book: ${bookKey}, dateType: ${dateType}`);
 
         if (bookDates[bookKey][dateType]) {
+            console.log(bookDates[bookKey][dateType]);
             datePicker.value = bookDates[bookKey][dateType]
         }
     });
