@@ -2188,7 +2188,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const bookKey = "Tomorrow, and Tommorrow, and Tomorrow by Gabrielle Zevin";
     const bookProfile = {
-        bookKey: {
+        "Tomorrow, and Tommorrow, and Tomorrow by Gabrielle Zevin": {
             bookTitle: "Tomorrow, and Tomorrow, and Tomorrow", bookAuthor: "Gabrielle Zevin", 
             bookCover: "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg", 
             bookAvgRating: 4.16, bookGenres: ["Literary Fiction", "Romance", "Humor"], 
