@@ -3884,7 +3884,7 @@ a, p, input[type=text], label, button {
         width: 100%;
         margin: 0;
         padding: 0;
-        font-size: 20px;
+        font-size: 28px;
         font-weight: 550;
         text-align: center;
         white-space: nowrap;
@@ -3895,6 +3895,7 @@ a, p, input[type=text], label, button {
     }
     .author-main {
         color: #c7c7c7;
+        font-size: 22px;
     }
     .rate-this-book {
         width: 100%;
@@ -3913,6 +3914,11 @@ a, p, input[type=text], label, button {
         flex-wrap: nowrap;
         justify-content: space-evenly;
     }
+
+    .genre, .book-description, .book-details p, .tag, .read-more-btn {
+        font-size: 22px;
+    }
+
     .more-genres-btn {
         background: transparent;
         border: none;
@@ -3932,7 +3938,7 @@ a, p, input[type=text], label, button {
     } */
 
     .book-description {
-        font-size: 14px;
+        font-size: 22px;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -3984,7 +3990,7 @@ a, p, input[type=text], label, button {
     }
 
     .edit-dates-text p {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
         color: #244230;
         margin: 0;
