@@ -1726,7 +1726,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
     var path = loc.substring(0, loc.lastIndexOf('/'));
-    directoryName = path.substring(path.lastIndexOf('/') + 1);
+    var directoryName = path.substring(path.lastIndexOf('/') + 1);
     console.log("loc: ", loc);
     console.log("path: ", path);
     console.log("directory: ", directoryName);
