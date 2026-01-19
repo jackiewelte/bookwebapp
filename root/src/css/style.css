@@ -3913,11 +3913,11 @@ a, p, input[type=text], label, button {
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-evenly;
-
-        /* display: -webkit-box; */
         overflow: hidden;
+
+        /* display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 1; */
         line-height: 22px;
         transition: display 0.4s;
     }
