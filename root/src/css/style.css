@@ -3914,7 +3914,7 @@ a, p, input[type=text], label, button {
         flex-direction: row;
         flex-wrap: wrap;
         column-gap: 20px;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         overflow: hidden;
 
         /* display: -webkit-box;

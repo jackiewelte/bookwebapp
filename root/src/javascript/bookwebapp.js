@@ -1138,7 +1138,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     const bookThumbnail = document.createElement('a');
                     bookThumbnail.className = 'book-thumbnail';
-                    bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+                    // add relative path!!!!
+                    bookThumbnail.href = `books/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
                     thumbnail.classList.add('book-thumbnail-img');
@@ -1252,7 +1253,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     const miniBookThumbnail = document.createElement('a');
                     miniBookThumbnail.className = 'mini-book-thumbnail';
-                    miniBookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+                    // add relative path!!!!
+                    miniBookThumbnail.href = `books/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
                     thumbnail.classList.add('book-thumbnail-img');
@@ -1266,12 +1268,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     const bookTitleContainer = document.createElement('a');
                     bookTitleContainer.className = 'book-title';
-                    bookTitleContainer.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+                    // add relative path!!!!
+                    bookTitleContainer.href = `books/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
                     bookTitleContainer.textContent = bookTitle;
 
                     const bookAuthorContainer = document.createElement('a');
                     bookAuthorContainer.className = 'author';
-                    bookAuthorContainer.href = `author/${underscoreBookAuthor}.html`;
+                    // add relative path!!!!
+                    bookAuthorContainer.href = `authors/${underscoreBookAuthor}.html`;
                     bookAuthorContainer.textContent = `by ${bookAuthor}`;
 
                     bookInfo.appendChild(bookTitleContainer);
@@ -1780,7 +1784,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!bookElement) {
                     const bookThumbnail = document.createElement('a');
                     bookThumbnail.className = 'book-thumbnail';
-                    bookThumbnail.href = `../book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+                    bookThumbnail.href = `../books/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
                     const thumbnail = document.createElement('img');
                     thumbnail.classList.add('book-thumbnail-img');
@@ -2105,7 +2109,8 @@ function addFavorite(addFavoriteButton, slider, wrap) {
 
     const bookThumbnail = document.createElement('a');
     bookThumbnail.className = 'book-thumbnail';
-    bookThumbnail.href = `book/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
+    // add relative path!!!!
+    bookThumbnail.href = `books/${underscoreBookTitle}_${underscoreBookAuthor}.html`;
 
     const thumbnail = document.createElement('img');
     thumbnail.classList.add('book-thumbnail-img');
@@ -2174,7 +2179,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // BOOK PROFILE
-// Populate book profile
+// Populate book profile content
 document.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
     var folder = loc.split('/')[1];
