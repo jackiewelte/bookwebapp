@@ -2186,7 +2186,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var loc = window.location.pathname;
     var folder = loc.split('/')[1];
     console.log("book profile folderrrr: ", folder);
-    if (folder != 'book') return;
+    if (folder != 'books') return;
 
     // const bookProfile = get local? storage dict;
     // bookProfile = {bookKey: {bookTitle: title, bookAuthor: author, bookAvgRating: avgRating,
