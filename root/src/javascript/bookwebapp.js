@@ -2261,7 +2261,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // if (bookDescription <= 4 lines) {
     //     hide read more toggle button
     // }
-    description.textContent = bookProfile[bookKey].bookDescription;
+    description.innerHTML = bookProfile[bookKey].bookDescription;
 
     // populate date added, started, and finished gotten from local storage
     const datePickers = bookElement.querySelectorAll('.date-picker');
