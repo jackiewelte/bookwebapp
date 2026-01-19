@@ -2336,6 +2336,7 @@ a, p, input[type=text], label, button {
 
     .genre {
         font-weight: bold;
+        margin: 10px 0;
         /* color: #0097b2; */
     }
 

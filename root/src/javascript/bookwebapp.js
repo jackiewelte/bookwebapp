@@ -2364,7 +2364,7 @@ function toggleShowMore(clickedButton) {
             genres.style.maxHeight = 'none'
             console.log("genres expanded")
         } else {
-            genres.style.maxHeight = '22px'
+            genres.style.maxHeight = '36px'
             console.log("genres collapsed")
         }
     } else {
