@@ -2241,11 +2241,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (Object.values(bookProfile[bookKey].bookGenres).length <= 1) {
         // hide read more toggle button
     }
-    const genres = bookElement.querySelectorAll('.genres');
+    const genres = bookElement.querySelector('.genres');
     for (let i = 0; i < Object.values(bookProfile[bookKey].bookGenres).length; i++) {
         console.log("# of genres: ", Object.values(bookProfile[bookKey].bookGenres).length);
 
-        const genre = document.createElement('a');
+        const genre = genres.createElement('a');
         genre.classList.add('genre');
         // '../' is for 'book' folder
         genre.href = `../genres/${Object.values(bookProfile[bookKey].bookGenres)[i].toLowerCase().replace(/ /g,"_")}.html`;
@@ -2284,11 +2284,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (Object.values(bookProfile[bookKey].bookTags).length <= 1) {
         // hide read more toggle button
     }
-    const tags = bookElement.querySelectorAll('.tags');
+    const tags = bookElement.querySelector('.tags');
     for (let i = 0; i < Object.values(bookProfile[bookKey].bookTags).length; i++) {
         console.log("# of tabs: ", Object.values(bookProfile[bookKey].bookTags).length);
 
-        const tag = document.createElement('a');
+        const tag = tags.createElement('a');
         tag.classList.add('tag');
         // '../' is for 'book' folder
         tag.href = `../tags/${Object.values(bookProfile[bookKey].bookTags)[i]}.html`;
