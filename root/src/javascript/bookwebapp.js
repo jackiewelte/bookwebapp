@@ -2191,7 +2191,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Tomorrow, and Tommorrow, and Tomorrow by Gabrielle Zevin": {
             bookTitle: "Tomorrow, and Tomorrow, and Tomorrow", bookAuthor: "Gabrielle Zevin", 
             bookCover: "https://m.media-amazon.com/images/I/91KugvH+FwL._AC_UF1000,1000_QL80_.jpg", 
-            bookAvgRating: 4.16, bookGenres: ["Literary Fiction", "Romance", "Humor"], 
+            bookAvgRating: 4.16, bookGenres: ["Literary Fiction", "Romance", "Humor", "Science Fiction", "Young Adult"], 
             bookDescription: 
                 `<b>In this exhilarating novel, two friends—often in love, but never lovers—come together as creative partners in the world of video game design, 
                 where success brings them fame, joy, tragedy, duplicity, and, ultimately, a kind of immortality.</b>
@@ -2347,8 +2347,9 @@ function toggleShowMore(clickedButton) {
     const bookProfileSection = clickedButton.closest('.book-profile-section');
     const readMoreButtons = bookProfileSection.querySelectorAll('.read-more-btn')
     const bookDescription = bookProfileSection.querySelector('.book-description');
-    const tagRow = bookProfileSection.querySelector('.tag-row');
-    if (!bookDescription && !tagRow) {
+    const genres = bookProfileSection.querySelector('.genres');
+    const tags = bookProfileSection.querySelector('.tags');
+    if (!bookDescription && !genres && !tags) {
         return
     } else if (bookDescription) {
         if (!(bookDescription.style.display == 'block')) {
@@ -2358,13 +2359,21 @@ function toggleShowMore(clickedButton) {
             bookDescription.style.display = '-webkit-box'
             console.log("book description collapsed")
         }
-    } else {
-        if (!(tagRow.style.maxHeight == 'none')) {
-            tagRow.style.maxHeight = 'none'
-            console.log("tag row expanded")
+    } else if (genres) {
+        if (!(genres.style.maxHeight == 'none')) {
+            genres.style.maxHeight = 'none'
+            console.log("genres expanded")
         } else {
-            tagRow.style.maxHeight = '50px'
-            console.log("tag row collapsed")
+            genres.style.maxHeight = '50px'
+            console.log("genres collapsed")
+        }
+    } else {
+        if (!(tags.style.maxHeight == 'none')) {
+            tags.style.maxHeight = 'none'
+            console.log("tags expanded")
+        } else {
+            tags.style.maxHeight = '50px'
+            console.log("tags collapsed")
         }
     }
     readMoreButtons.forEach(readMoreButton => {
