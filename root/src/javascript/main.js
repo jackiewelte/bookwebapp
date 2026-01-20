@@ -122,9 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // const bookItem = document.createElement('div');
                 const bookItem = document.createElement('button');
-                bookItem.className = 'book';
-                bookItem.style.backgroundColor = 'transparent';
-                bookItem.style.border = 'none';
+                bookItem.className = 'search-book';
 
                 // bookItem.innerHTML = `
                 //     <a class="mini-book-thumbnail" href="https://openlibrary.org${workKey}" target="_blank">
@@ -140,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="mini-book-thumbnail">
                         <img src="${bookCover}" alt="Cover image of ${title}">
                     </div>
-                    <div class="book-info">
-                        <div class="book-title">${title}</div>
-                        <div class="author">by ${author}</div>
+                    <div class="search-book-info">
+                        <div class="search-book-title">${title}</div>
+                        <div class="search-author">by ${author}</div>
                     </div>
                 `;
 
