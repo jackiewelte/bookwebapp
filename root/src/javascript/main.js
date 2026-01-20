@@ -63,6 +63,8 @@ window.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById('search-input');
     const results = document.getElementById('results');
+    const pageMenu = document.querySelector('.page-menu');
+    if (!pageMenu) return;
 
     if (searchInput && results) {
         let debounceTimeout;
@@ -74,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("searched: ", searchTerm);
 
             if (searchTerm) {
+                pageMenu.classList.add('hide');
                 results.classList.remove('hide');
                 debounceTimeout = setTimeout(() => {
                     const apiUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchTerm)}`;
@@ -87,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         .catch(error => console.error('Error fetching data:', error));
                 }, 300);
             } else {
+                pageMenu.classList.remove('hide');
                 results.classList.add('hide');
                 results.innerHTML = '';
             }
