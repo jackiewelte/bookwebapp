@@ -62,7 +62,7 @@ export function makePage() {
                         "</div>" +
                     "</body></html>";
     // var content = JSON.stringify({comment: comment});
-    xmlhttp.open("POST", "makePage.php", true);
+    xmlhttp.open("POST", "../../makePage.php", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send(content);
     console.log("made new page!");
