@@ -1863,7 +1863,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     // borderColor: [
                     //     '#70896b'
                     // ],
-                    borderWidth: 4
+                    // borderWidth: 4
+                    borderWidth: 0
                 }],
                 labels: ['<300', '300-499', '500+']
             },
