@@ -4043,6 +4043,10 @@ a, p, input[type=text], label, button {
         justify-content: center;
     }
 
+    .date-picker:hover {
+        cursor: pointer;
+    }
+
     .date-picker p {
         /* color: #c7c7c7; */
         margin: 0;

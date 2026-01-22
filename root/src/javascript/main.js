@@ -2367,7 +2367,7 @@ function toggleShowMore(clickedButton) {
             console.log("book description collapsed")
         }
     } else if (genres) {
-        if (!(genres.style.maxHeight == 'none')) {
+        if (genres.style.maxHeight != 'none') {
             genres.style.maxHeight = 'none'
             console.log("genres expanded")
         } else {
@@ -2375,7 +2375,7 @@ function toggleShowMore(clickedButton) {
             console.log("genres collapsed")
         }
     } else {
-        if (!(tags.style.maxHeight == 'none')) {
+        if (tags.style.maxHeight != 'none') {
             tags.style.maxHeight = 'none'
             console.log("tags expanded")
         } else {
