@@ -1843,7 +1843,9 @@ const yearDict = {
 document.addEventListener("DOMContentLoaded", function() {
     function populateChart() {
         const rd = JSON.parse(localStorage.getItem('rd')) || {};
-        const ctx = document.getElementById('doughnut').getContext('2d');
+        const donut = document.getElementById('donut');
+        if (!donut) return;
+        const ctx = donut.getContext('2d');
         if (!ctx) return;
 
         const myChart = new Chart(ctx, {
@@ -1865,7 +1867,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // borderColor: [
                     //     '#70896b'
                     // ],
-                    // borderWidth: 4
+                    // borderWidth: 4,
                     borderWidth: 0
                 }],
                 labels: ['<300', '300-499', '500+']
@@ -1878,7 +1880,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Page Number'
+                        text: 'Page Number',
+                        font: {
+                            family: 'Sophiecomic Regular',
+                            size: 28,
+                            weight: 'bold'
+                        },
+                        color: '#244230'
                     },
                     legend: {
                         display: false
@@ -1978,6 +1986,7 @@ function toggleExpandText(text) {
 
 function populateGenrePreferences() {
     const genres = document.querySelector('.genre-preferences');
+    if (!genres) return;
     genres.textContent = `${genrePreferences[0]}, ${genrePreferences[1]}, ${genrePreferences[2]}, ${numGenres - 1}+ more`;
 }
 
@@ -1985,6 +1994,7 @@ function populateGenrePreferences() {
 function populateReadingChallengeProgressHeader(readingGoal) {
     const readingChallengeHeader = document.querySelector('.reading-challenge-header');
     const currentYear = new Date().getFullYear();
+    if (!readingChallengeHeader) return;
     readingChallengeHeader.textContent = `${currentYear} Reading Challenge`;
 
     // let readingGoal = 20;
@@ -2017,6 +2027,7 @@ function populateReadingChallengeProgressHeader(readingGoal) {
 function populateYearRecapHeader() {
     const yearRecapHeader = document.querySelector('.year-recap-header');
     const lastYear = new Date().getFullYear() - 1;
+    if (!yearRecapHeader) return;
     yearRecapHeader.textContent = `${lastYear} Recap`;
 
     const rd = JSON.parse(localStorage.getItem('rd')) || {};
@@ -2141,6 +2152,7 @@ function populateAllBooksHeader() {
             numReadThisYear++;
         }
     }
+    if (!numRead) return;
     numRead.textContent = `${Object.keys(rd).length} / ${numReadThisYear} this year`;
 }
 
@@ -2155,12 +2167,14 @@ function populateDiaryHeader() {
             numLoggedThisYear++;
         }
     }
+    if (!numLogged) return;
     numLogged.textContent = `${Object.keys(rd).length} / ${numLoggedThisYear} this year`;
 }
 
 function populateGroupsHeader() {
     const groups = JSON.parse(localStorage.getItem('groups')) || {};
     const numGroups = document.querySelector('.num-groups');
+    if (!numGroups) return;
     numGroups.textContent = Object.keys(groups).length;
     console.log("Populated group header ", Object.keys(groups).length);
 }

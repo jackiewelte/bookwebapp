@@ -2842,16 +2842,18 @@ a, p, input[type=text], label, button {
     }
 
     .group-name {
-        font-size: 15px;
-        font-weight: 550;
+        font-size: 20px;
+        /* font-weight: 550; */
+        font-weight: bold;
         margin: 5px 0;
         color: white;
     }
 
     .group-stats {
-        font-size: 13px;
+        font-size: 17px;
         color: #c7c7c7;
         display: flex;
+        align-items: baseline;
     }
 
     .group-stats p {
@@ -2869,7 +2871,7 @@ a, p, input[type=text], label, button {
         margin: 31.5px;
         text-decoration: none;
         text-align: center;
-        line-height: 18px;
+        line-height: 22px;
         color: #2fcc25;
         background-color: transparent;
         cursor: pointer;
@@ -4175,7 +4177,9 @@ a, p, input[type=text], label, button {
         /* width: fit-content;
         margin: auto;
         padding: 0 5px 30px 0; */
-        background-color: #1c1c1e;
+        /* background-color: #1c1c1e; */
+        background-color: #70896b;
+        background-image: url('../../assets/images/grain.png');
         width: 100vw;
         padding: 30px 0;
     }
@@ -4203,7 +4207,8 @@ a, p, input[type=text], label, button {
     .pixels p {
         margin: 0;
         /* color: white; */
-        color: #6e6e70;
+        /* color: #6e6e70; */
+        color: #244230;
     }
 
     .pixel-col {
