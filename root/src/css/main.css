@@ -3791,11 +3791,13 @@ a, p, input[type=text], label, button {
     .rating-bar {
         width: 10%;
         height: 50px;
-        background-color: #737373;
+        /* background-color: #737373; */
+        background-color: #355e45;
     }
 
     .rating-bar:hover {
-        background-color: #c7c7c7;
+        /* background-color: #c7c7c7; */
+        background-color: #244230;
         -webkit-transition: background-color 0.2s linear;
         -ms-transition: background-color 0.2s linear;
         transition: background-color 0.2s linear;
